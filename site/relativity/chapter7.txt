@@ -1,0 +1,15 @@
+\field{相対性理論}
+\title{第 7 章　自由研究}
+\comment{　}
+\prev{uni_accel}
+\next{meaning}
+\create{2009/10/20}
+\modify{}
+
+
+\section{}
+<center>
+　ここまでは相対論そのものの解説だったが、ここからは応用に入る。<br>
+　興味の向くままにあれこれ調べて行く。
+</center>
+

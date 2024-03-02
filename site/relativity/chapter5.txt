@@ -1,0 +1,16 @@
+\field{相対性理論}
+\title{第 5 部　リーマン幾何学}
+\comment{　}
+\prev{einsolution}
+\next{co_dif}
+\create{2009/10/20}
+\modify{}
+
+
+\section{}
+<center>
+　一般相対論で使う数学の解説。<br>
+　数学の解説だけでなく、同時に相対論の話も進めてしまう。<br>
+　重力場の方程式の導出まで。
+</center>
+

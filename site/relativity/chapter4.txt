@@ -1,0 +1,15 @@
+\field{相対性理論}
+\title{第 4 部 <br>一般相対論の入り口}
+\comment{　}
+\prev{em_tensor}
+\next{from_conc}
+\create{2009/11/7}
+\modify{}
+
+
+\section{}
+<center>
+　一般相対論に入る前の準備的解説。<br>
+　ひとまずこれからやることをざっと眺めてもらいたい。
+</center>
+

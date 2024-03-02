@@ -1,0 +1,15 @@
+\field{相対性理論}
+\title{第 1 部　特殊相対性理論}
+\comment{　}
+\prev{after20yrs}
+\next{birth}
+\create{2009/10/20}
+\modify{}
+
+
+\section{}
+<center>
+　相対論の基礎部分の解説。<br>
+　有名な$ E = mc^2 $の公式がどうやって求められるのか、といった部分まで。
+</center>
+

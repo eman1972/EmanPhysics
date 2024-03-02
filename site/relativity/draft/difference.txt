@@ -1,0 +1,138 @@
+\field{相対性理論}
+\title{微小距離のローレンツ変換}
+\comment{}
+\prev{invariable}
+\next{4velocity}
+\create{2001/12/3}
+\modify{2021/4/28 9:00}
+
+
+
+\section{僕はここにいる！}
+
+
+　ローレンツ変換は次のような式で表されるのだった。
+
+<tex>
+\begin{alignedat}{6}
+&w' \ &&=\ \gamma \, &&(- \beta &&x \ +&&         &&w ) \\
+&x' \ &&=\ \gamma \, &&(        &&x \ -&& \ \beta &&w ) \\ 
+&y' \ &&=\ y \\
+&z' \ &&=\ z
+\end{alignedat}
+</tex>
+
+　これが 1 次式であることから、各座標値$ (w,x,y,z) $のところを
+無限小変化量$ (\diff w, \diff x, \diff y, \diff z ) $に置き換えただけの次のような式も成り立っている。
+
+<tex>
+\begin{alignedat}{6}
+&\diff w' \ &&=\ \gamma \, &&(- \beta &&\diff x \ +&&         &&\diff w ) \\
+&\diff x' \ &&=\ \gamma \, &&(        &&\diff x \ -&& \ \beta &&\diff w ) \\ 
+&\diff y' \ &&=\ \diff y \\
+&\diff z' \ &&=\ \diff z
+\end{alignedat}
+</tex>
+
+　このことは数学や物理の議論に慣れた人にとってはごく当たり前のことなのだが、
+学び始めた頃の自分はそういうものなのかと受け入れるしかなかった覚えがあるので、
+なぜこれが言えるのかをちゃんと説明しておいた方がいいだろう。
+
+\note{　初学者にはそもそも 1 次式という言葉の意味がうまく伝わっていないかもしれない。
+これはローレンツ変換の中に座標の 2 乗や座標どうしの積がどこにも含まれていないことを意味している。
+$ \gamma $の定義の中には速度の 2 乗が使われているけれども、
+そこは相対速度$ v $が決まってしまえば固定されてしまう定数のようなものだし、座標ではないので関係ない。}
+
+% ==============================================================
+
+\section{因果律}
+
+　時間と空間の 4 次元空間の中に 2 つの点を考えて、それぞれ$ A $、$ B $と名付けよう。
+それらの座標は次のように表すことにする。
+
+<tex>
+A(\, w\sub{A},\ x\sub{A},\ y\sub{A},\ z\sub{A} \,) \\
+B(\, w\sub{B},\ x\sub{B},\ y\sub{B},\ z\sub{B} \,)
+</tex>
+
+　点 A を表す座標はローレンツ変換によって次のように変わるだろう。
+
+<tex>
+\begin{alignedat}{6}
+&w'\sub{A} \ &&=\ \gamma \, &&(- \beta &&x\sub{A} \ +&&         &&w\sub{A} ) \\
+&x'\sub{A} \ &&=\ \gamma \, &&(        &&x\sub{A} \ -&& \ \beta &&w\sub{A} ) \\ 
+&y'\sub{A} \ &&=\ y\sub{A} \\
+&z'\sub{A} \ &&=\ z\sub{A}
+\end{alignedat}
+</tex>
+
+　点 B を表す座標はローレンツ変換によって次のように変わるだろう。
+
+<tex>
+\begin{alignedat}{6}
+&w'\sub{B} \ &&=\ \gamma \, &&(- \beta &&x\sub{B} \ +&&         &&w\sub{B} ) \\
+&x'\sub{B} \ &&=\ \gamma \, &&(        &&x\sub{B} \ -&& \ \beta &&w\sub{B} ) \\ 
+&y'\sub{B} \ &&=\ y\sub{B} \\
+&z'\sub{B} \ &&=\ z\sub{B}
+\end{alignedat}
+</tex>
+
+　もちろんどちらも同じ形である。
+ここで、変換後の$ A $、$ B $の座標の差を計算してみる。
+例えば$ w $成分については次のようになる。
+
+<tex>
+\Delta w' \ &=\ w'\sub{A} \ -\ w'\sub{B} \\[3pt]
+&=\ \gamma \, (- \beta x\sub{A} \ +\ w\sub{A} ) \\
+& \ \ \  -\ \gamma \, (- \beta x\sub{B} \ +\ w\sub{B} ) \\[3pt]
+&=\ \gamma \, \Big(- \beta (x\sub{A}-x\sub{B}) \ +\ (w\sub{A}-w\sub{B}) \Big) \\[3pt]
+&=\ \gamma \, \Big(- \beta \, \Delta x \ +\ \Delta w \Big) 
+</tex>
+
+　他の成分についても同様である。
+結果を並べて書けば次のようになるだろう。
+
+<tex>
+\begin{alignedat}{6}
+&\Delta w' \ &&=\ \gamma \, &&(- \beta &&\Delta x \ +&&         &&\Delta w ) \\
+&\Delta x' \ &&=\ \gamma \, &&(        &&\Delta x \ -&& \ \beta &&\Delta w ) \\ 
+&\Delta y' \ &&=\ \Delta y \\
+&\Delta z' \ &&=\ \Delta z
+\end{alignedat}
+</tex>
+
+　かなり当たり前の結果だが、元々のローレンツ変換と全く同じ形になるわけである。
+もしローレンツ変換が座標の 2 乗などを含んでいたらこうは行かなかっただろう。
+
+<P>
+
+　さて、ローレンツ変換の前後では次のような関係が成り立っているのだった。
+
+<tex>
+x^2 + y^2 + z^2 - w^2 \ =\ (x')^2 + (y')^2 + (z')^2 - (w')^2
+</tex>
+
+　だとしたら記号を置き換えただけの次のような関係もそのまま成り立っていると言えるだろう。
+
+<tex>
+(\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2 - (\Delta w)^2 \ =\ (\Delta x')^2 + (\Delta y')^2 + (\Delta z')^2 - (\Delta w')^2
+</tex>
+
+　つまり、4 次元時空中の任意の 2 点間の距離（の 2 乗）を次のように定義してやれば、
+それはローレンツ変換の前後で変わらない値になると言えるのである。
+
+<tex>
+s^2 \ =\ (\Delta x)^2 + (\Delta y)^2 + (\Delta z)^2 - (\Delta w)^2
+</tex>
+
+　このように定義した任意の 2 点の「4 次元的距離」がローレンツ変換で変わらないというのだから、
+無限小だけ離れた 2 点についても同様なことが言えて、それを次のように表すのである。
+
+<tex>
+(\diff s)^2 \ =\ (\diff x)^2 + (\diff y)^2 + (\diff z)^2 - (\diff w)^2
+</tex>
+
+
+
+
+

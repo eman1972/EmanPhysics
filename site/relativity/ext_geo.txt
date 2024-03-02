@@ -1,0 +1,98 @@
+\field{相対性理論}
+\title{測地線の方程式の展開}
+\comment{機械いじりのように分解を楽しんでみよう。}
+\prev{formula}
+\next{ext_g}
+\create{2005/5/6}
+\modify{}
+
+
+\section{}
+
+
+　測地線の方程式というのは、ほとんどリーマン幾何学の結論をそのまま
+持ってきたものであって、一般相対論に特有な思想というのはあまり入っていない。
+　詳しい意味の説明は第 5 部のリーマン幾何学の説明の中で行うことにする。
+
+<P>
+
+　簡単そうに見えるこの方程式がどれくらい複雑なものかというのを
+実感してもらうことだけがここでの目的である。
+　意味はあまり考えない。
+
+
+% =======================================================================
+
+\section{}
+
+　今から分解するのは次の式である。
+
+<tex>
+\ddif{x^{\lambda}}{\tau} + \cris{\lambda}{\mu \nu} \dif{x^{\mu}}{\tau} \dif{x^{\nu}}{\tau} = 0
+</tex>
+
+　添え字には 0 ～ 3 までの 4 つの数字が入る。
+　0 が時間軸を表しており、1 ～ 3 が空間の 3 つの座標を表している。
+　一つの項の中に同じ添え字が二つ以上あるときには和を取るというアインシュタインの規則が
+あるから、この式の左辺は実は次のような式だということだ。
+
+<tex>
+\ddif{x^{\lambda}}{\tau} + \sum_{\mu} &\sum_{\nu} \cris{\lambda}{\mu \nu} \dif{x^{\mu}}{\tau} \dif{x^{\nu}}{\tau} \\
+ = \ddif{x^{\lambda}}{\tau}&+ \cris{\lambda}{00} \dif{x^{0}}{\tau} \dif{x^{0}}{\tau}
+                            + \cris{\lambda}{01}  \dif{x^{0}}{\tau} \dif{x^{1}}{\tau} 
+                            + \cris{\lambda}{02}  \dif{x^{0}}{\tau} \dif{x^{2}}{\tau}
+                            + \cris{\lambda}{03}  \dif{x^{0}}{\tau} \dif{x^{3}}{\tau} \\
+                           &+ \cris{\lambda}{10}  \dif{x^{1}}{\tau} \dif{x^{0}}{\tau}
+                            + \cris{\lambda}{11}   \dif{x^{1}}{\tau} \dif{x^{1}}{\tau}
+                            + \cris{\lambda}{12}   \dif{x^{1}}{\tau} \dif{x^{2}}{\tau}
+                            + \cris{\lambda}{13}   \dif{x^{1}}{\tau} \dif{x^{3}}{\tau} \\
+                           &+ \cris{\lambda}{20}  \dif{x^{2}}{\tau} \dif{x^{0}}{\tau}
+                            + \cris{\lambda}{21}   \dif{x^{2}}{\tau} \dif{x^{1}}{\tau}
+                            + \cris{\lambda}{22}   \dif{x^{2}}{\tau} \dif{x^{2}}{\tau}
+                            + \cris{\lambda}{23}   \dif{x^{2}}{\tau} \dif{x^{3}}{\tau}\\
+                           &+ \cris{\lambda}{30}  \dif{x^{3}}{\tau} \dif{x^{0}}{\tau}
+                            + \cris{\lambda}{31}   \dif{x^{3}}{\tau} \dif{x^{1}}{\tau}
+                            + \cris{\lambda}{32}   \dif{x^{3}}{\tau} \dif{x^{2}}{\tau}
+                            + \cris{\lambda}{33}   \dif{x^{3}}{\tau} \dif{x^{3}}{\tau}
+</tex>
+
+　添え字$ \lambda $については和を取らなかったが、ここにも 4 通りの数字が入る。
+　つまりこの式は上のような式が 4 つ並んだものを一つにまとめて表したものだということになる。
+　展開したものを 4 つ並べると大変なので、元に戻して書き並べてみよう。
+
+<tex>
+\ddif{x^{0}}{\tau} + \cris{0}{\mu \nu} \dif{x^{\mu}}{\tau} \dif{x^{\nu}}{\tau} = 0 \\
+\ddif{x^{1}}{\tau} + \cris{1}{\mu \nu} \dif{x^{\mu}}{\tau} \dif{x^{\nu}}{\tau} = 0 \\
+\ddif{x^{2}}{\tau} + \cris{2}{\mu \nu} \dif{x^{\mu}}{\tau} \dif{x^{\nu}}{\tau} = 0 \\ 
+   \ddif{x^{3}}{\tau} + \cris{3}{\mu \nu} \dif{x^{\mu}}{\tau} \dif{x^{\nu}}{\tau} = 0 
+</tex>
+
+　ここまででも十分に面倒な印象があるが、
+クリストッフェル記号$ \cris{}{} $の中身を真面目に書いていないから
+これだけで済んでいるのである。
+　この記号の定義は次のようになっている。
+
+<tex>
+\cris{\lambda}{\mu \nu} 
+= \frac{1}{2}g^{\lambda \rho} \left( \pdif{g_{\rho \nu}}{x^{\mu}} + \pdif{g_{\rho \mu}}{x^{\nu}} - \pdif{g_{\mu \nu}}{x^{\rho}} \right)
+</tex>
+
+　ここで使われている$ g_{ij} $や$ g^{ij} $は
+計量と呼ばれる空間の歪み具合を表す 4 行 4 列の対称行列である。
+　説明は特殊相対論のところですでにした。
+　特殊相対論ではミンコフスキー計量と呼ばれる簡単な対角行列しか使わなかったが、
+一般相対論では全ての要素が埋まることになる。
+　とは言っても対称行列であるので独立な成分は 4 × 4 = 16 個ではなく 10 個だけである。
+
+<P>
+
+　この中で同じ項の中で二度以上使われている添え字は$ \rho $だけだから、
+展開してもそれほど大したことはない。
+　想像が付く範囲だろうから展開したものを示すのはやめておこう。
+
+<P>
+
+　とにかくここでは、
+方程式が計量を基本にして作られていることさえ分かってもらえればいいと思う。
+
+

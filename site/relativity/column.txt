@@ -1,0 +1,15 @@
+\field{相対性理論}
+\title{コラム的な記事集}
+\comment{　}
+\prev{galilei}
+\next{whyein}
+\create{2009/10/20}
+\modify{}
+
+
+\section{}
+<center>
+　確立した学問としての相対論からはちょっと外れる小ネタなど。<br>
+　主流でない議論や、ふと思いついたようなアイデアなど、怪しい話も混じってるので要注意。
+</center>
+

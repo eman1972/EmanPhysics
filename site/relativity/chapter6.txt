@@ -1,0 +1,15 @@
+\field{相対性理論}
+\title{第 6 部 <br>一般相対論の検証}
+\comment{　}
+\prev{ein_eq}
+\next{schwarzschild}
+\create{2009/10/20}
+\modify{}
+
+
+\section{}
+<center>
+　一般相対論の公式をどう使ったらいいのかの具体例。<br>
+　有名な「相対論の 3 大テスト」と呼ばれる実験との比較を説明する。
+</center>
+

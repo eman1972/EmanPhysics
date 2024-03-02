@@ -1,0 +1,15 @@
+\field{相対性理論}
+\title{第 3 部　相対性原理の実践}
+\comment{　}
+\prev{operator}
+\next{4force}
+\create{2009/10/20}
+\modify{}
+
+
+\section{}
+<center>
+　「特殊」相対論の学問的応用。<br>
+　啓蒙書レベルではあまり載ってないような話ではある。
+</center>
+

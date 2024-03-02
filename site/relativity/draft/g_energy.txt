@@ -1,0 +1,139 @@
+\field{相対性理論}
+\title{重力場のエネルギー}
+\comment{・・・。}
+\prev{nordstrom}
+\next{column}
+
+
+\section{概要}
+
+　電荷を持つブラックホールのことを考えていて、電磁気学に出てくる電荷のエネルギーについて思い出した。
+　静電荷のエネルギーは、静電荷を一点に集めてくるのに必要なエネルギーだと考えても計算できるし、
+ファラデーのイメージのように、全空間にわたる電場の歪みが持つエネルギーだと考えても同じ値になるのだった。
+
+<P>
+
+　すると重力場についてはどうなのだろう。
+　時空の歪みが持つエネルギーというやつはあるのだろうか。
+　その全体は、やはり歪みの原因である質量が持つエネルギーと等しかったりするのだろうか。
+
+<P>
+
+　その辺りが気になって教科書を調べ始めたのだが、読んでみても数式ばかりで何をやっているのかさっぱり分からない。
+
+% =======================================================================
+
+\section{天下り式}
+
+　今回の話で新しく出てくる量について、初めにまとめて紹介しておこう。
+　天下り式の説明になることを申し訳ないとは思っている。
+
+<P>
+
+　もし今回の記事の前に「変分原理を使って相対論をまとめ直す」というテーマの連続記事を差し挟んだならば
+その中でもう少しましな導入ができそうなのだが、
+今回の目的のためだけにそれらを用意するのは非常な遠回りというか、無駄に思えたのである。
+　それはそれで興味があることなので、何かのためというのではなしに、いつか落ち着いてやりたいと考えている。
+
+<P>
+
+　では進もう。
+　アインシュタインテンソル$ G^{\mu \nu} $に$ \sqrt{-g} $を掛けて作った
+
+<tex>
+{\bold G}^{\mu \nu} \ \equiv \ \sqrt{-g} G^{\mu \nu}
+</tex>
+
+という量を使う。
+　そして教科書に名前が出てこないので何と呼んだらいいか分からない量
+
+<tex>
+{\bold G} \ \equiv \ \sqrt{-g}\, g^{\mu \nu} \left( \cris{\alpha}{\mu \beta} \cris{\beta}{\nu \alpha} - \cris{\alpha}{\mu \nu} \cris{\beta}{\beta \alpha} \right) \tag{1}
+</tex>
+
+も使う。
+　どうやら$ {\bold G} $は$ {\bold G}^{\mu \nu} $を縮約したものではないようだ。
+　そうではなく、変分を使った次のような関係が成り立っている。
+
+<tex>
+\vardif{{\bold G}}{g_{\mu \nu}} \ =\ {\bold G}^{\mu \nu}
+</tex>
+
+　この意味をもう少し具体的に書き直せば、
+
+<tex>
+\pdif{{\bold G}}{g_{\mu \nu}} \ +\ \partial_{\lambda} \left( \pdif{{\bold G}}{\left( \partial_{\lambda} g_{\mu \nu} \right)} \right) \ =\ {\bold G}^{\mu \nu} \tag{2}
+</tex>
+
+ということである。
+　(1) 式の定義を見ての通り、$ {\bold G} $というのは$ g_{\mu \nu} $とその 1 階微分の関数なので
+
+<tex>
+\pdif{\bold G}{x^\nu} \ &=\ \pdif{\bold G}{g_{\alpha \beta}} \pdif{g_{\alpha \beta}}{x^\nu} + \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \pdif{(\partial_{\mu} g_{\alpha \beta})}{x^\nu} \\
+&=\ \pdif{\bold G}{g_{\alpha \beta}} \partial_\nu g_{\alpha \beta} + \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \partial_{\nu} \partial_{\mu} g_{\alpha \beta} \\
+&=\ \pdif{\bold G}{g_{\alpha \beta}} \partial_\nu g_{\alpha \beta} + \left[ \partial_\mu \left( \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \partial_{\nu} g_{\alpha \beta} \right) - \partial_\mu \left( \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \right) \partial_{\nu} g_{\alpha \beta} \right] \\
+&=\ \left\{ \pdif{\bold G}{g_{\alpha \beta}} - \partial_\mu \left( \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \right) \right\} \partial_\nu g_{\alpha \beta} + \partial_\mu \left( \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \partial_{\nu} g_{\alpha \beta} \right) 
+</tex>
+
+となっており、この最後の第 1 項のカッコの中と (2) 式の左辺とは同じ形になっているので、
+
+<tex>
+& \pdif{\bold G}{x^\nu} \ =\ {\bold G}^{\alpha \beta} \, \partial_\nu g_{\alpha \beta} + \partial_\mu \left( \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \partial_{\nu} g_{\alpha \beta} \right) \\
+\therefore\ &{\bold G}^{\alpha \beta} \, \partial_\nu g_{\alpha \beta} \ =\ \pdif{\bold G}{x^\nu} \ -\ \partial_\mu \left( \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \partial_{\nu} g_{\alpha \beta} \right) \\
+\therefore\ &{\bold G}^{\alpha \beta} \, \partial_\nu g_{\alpha \beta} \ =\ \partial_\mu \left( \delta^\mu_\nu \, {\bold G} \ -\ \pdif{\bold G}{( \partial_{\mu} g_{\alpha \beta} )} \partial_{\nu} g_{\alpha \beta} \right) \tag{3}
+</tex>
+
+のようにまとめることが出来る。
+　こうして右辺の全体を偏微分でくくる形に表せているという点が後で役に立つのだが、
+今のところ全く意味が分からなくても当然だと思う。
+
+<P>
+
+　とりあえず以上の話はここに置いて、次の話に移ろう。
+
+% =======================================================================
+
+\section{復習}
+
+　前にエネルギー運動量テンソル$ T^{\mu \nu} $というやつを定義して、
+エネルギー保存則と運動量保存則を$ \partial_\nu T^{\mu\nu} = 0 $という一つの式で表した。
+　それを一般の座標でも使えるようにと
+
+<tex>
+\nabla_\nu T^{\mu\nu} = 0
+</tex>
+
+という式に書き換えたのであった。
+　ところがこの式は物理的な意味としては保存則をちゃんと表していて正しいのだが、
+数値の上では保存しておらず、それを保存則と呼ぶにはちょっと抵抗がある状態なのである。
+
+<P>
+
+　次のようになってくれているとありがたい。
+
+<tex>
+\partial_\mu ( {\bold T}^\mu_{\ \nu} + {\bold t}^\mu_{\ \nu} ) \ =\ 0
+</tex>
+
+　重力場の方程式は$ {\bold G}^\mu_{\ \nu} = k {\bold T}^\mu_{\ \nu} $だったのでこれを上の式に代入すると
+
+<tex>
+\partial_\mu \left( \frac{1}{k}{\bold G}^\mu_{\ \nu} + {\bold t}^\mu_{\ \nu} \right) \ =\ 0
+</tex>
+
+となる。
+
+<tex>
+- \frac{1}{2k}{\bold G}^{\alpha \beta} \, \partial_\nu g_{\alpha \beta} \ +\ \partial_\mu {\bold t}^\mu_{\ \nu} \ =\ 0
+</tex>
+
+　ここで (3) 式が登場する。
+
+
+% =======================================================================
+
+\section{密度量の定義}
+
+
+
+

@@ -1,0 +1,411 @@
+\field{相対性理論}
+\title{リッチテンソルの展開}
+\comment{さあ、見よ！　これが R<sub>00</sub> の展開だ。}
+\prev{ext_g}
+\next{}
+\create{2005/6/27}
+\modify{}
+
+\section{}
+
+<tex>
+R_{00}\ =\ - \frac{1}{2} g^{11} \frac{\partial^2 g_{00}}{\partial x^{1} \partial x^{1}} + g^{11} \frac{\partial^2 g_{01}}{\partial x^{0} \partial x^{1}} - \frac{1}{2} g^{11} \frac{\partial^2 g_{11}}{\partial x^{0} \partial x^{0}} - g^{12} \frac{\partial^2 g_{00}}{\partial x^{1} \partial x^{2}}
+</tex>
+
+<tex>
++ g^{12} \frac{\partial^2 g_{01}}{\partial x^{0} \partial x^{2}} + g^{12} \frac{\partial^2 g_{02}}{\partial x^{0} \partial x^{1}} - g^{12} \frac{\partial^2 g_{12}}{\partial x^{0} \partial x^{0}} - g^{13} \frac{\partial^2 g_{00}}{\partial x^{1} \partial x^{3}}
+</tex>
+
+<tex>
++ g^{13} \frac{\partial^2 g_{01}}{\partial x^{0} \partial x^{3}} + g^{13} \frac{\partial^2 g_{03}}{\partial x^{0} \partial x^{1}} - g^{13} \frac{\partial^2 g_{13}}{\partial x^{0} \partial x^{0}} - \frac{1}{2} g^{22} \frac{\partial^2 g_{00}}{\partial x^{2} \partial x^{2}}
+</tex>
+
+<tex>
++ g^{22} \frac{\partial^2 g_{02}}{\partial x^{0} \partial x^{2}} - \frac{1}{2} g^{22} \frac{\partial^2 g_{22}}{\partial x^{0} \partial x^{0}} - g^{23} \frac{\partial^2 g_{00}}{\partial x^{2} \partial x^{3}} + g^{23} \frac{\partial^2 g_{02}}{\partial x^{0} \partial x^{3}}
+</tex>
+
+<tex>
++ g^{23} \frac{\partial^2 g_{03}}{\partial x^{0} \partial x^{2}} - g^{23} \frac{\partial^2 g_{23}}{\partial x^{0} \partial x^{0}} - \frac{1}{2} g^{33} \frac{\partial^2 g_{00}}{\partial x^{3} \partial x^{3}} + g^{33} \frac{\partial^2 g_{03}}{\partial x^{0} \partial x^{3}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{33} \frac{\partial^2 g_{33}}{\partial x^{0} \partial x^{0}} - \frac{1}{2} g^{00} g^{11}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{01}}{\partial x^{1}} + \frac{1}{4} g^{00} g^{11}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{0}} + \frac{1}{4} g^{00} g^{11}\left( \frac{\partial g_{00}}{\partial x^{1}} \right)^2
+</tex>
+
+<tex>
+- \frac{1}{2} g^{00} g^{12}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{01}}{\partial x^{2}} - \frac{1}{2} g^{00} g^{12}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{1}} + \frac{1}{2} g^{00} g^{12}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{0}} + \frac{1}{2} g^{00} g^{12}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{00}}{\partial x^{2}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{00} g^{13}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{01}}{\partial x^{3}} - \frac{1}{2} g^{00} g^{13}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{1}} + \frac{1}{2} g^{00} g^{13}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{0}} + \frac{1}{2} g^{00} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{00}}{\partial x^{3}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{00} g^{22}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{2}} + \frac{1}{4} g^{00} g^{22}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{0}} + \frac{1}{4} g^{00} g^{22}\left( \frac{\partial g_{00}}{\partial x^{2}} \right)^2 - \frac{1}{2} g^{00} g^{23}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{3}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{00} g^{23}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{2}} + \frac{1}{2} g^{00} g^{23}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}} + \frac{1}{2} g^{00} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{00}}{\partial x^{3}} - \frac{1}{2} g^{00} g^{33}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{3}}
+</tex>
+
+<tex>
++ \frac{1}{4} g^{00} g^{33}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}} + \frac{1}{4} g^{00} g^{33}\left( \frac{\partial g_{00}}{\partial x^{3}} \right)^2 - \frac{1}{4} g^{01} g^{11}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{1}} + \frac{1}{2} g^{01} g^{11}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{01}}{\partial x^{1}}
+</tex>
+
+<tex>
++ \frac{1}{4} g^{01} g^{11}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{11}}{\partial x^{0}} - g^{01} g^{11}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{01}}{\partial x^{1}} + \frac{1}{2} g^{01} g^{11}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{0}} - \frac{1}{2} g^{01} g^{12}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{2}}
+</tex>
+
+<tex>
++ g^{01} g^{12}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{01}}{\partial x^{2}} + \frac{1}{2} g^{01} g^{12}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{11}}{\partial x^{0}} - g^{01} g^{12}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{01}}{\partial x^{2}} - g^{01} g^{12}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{1}}
+</tex>
+
+<tex>
++ g^{01} g^{12}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{0}} - \frac{1}{2} g^{01} g^{13}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{3}} + g^{01} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{01}}{\partial x^{3}} + \frac{1}{2} g^{01} g^{13}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{11}}{\partial x^{0}}
+</tex>
+
+<tex>
+- g^{01} g^{13}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{01}}{\partial x^{3}} - g^{01} g^{13}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{1}} + g^{01} g^{13}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{0}} - \frac{1}{2} g^{01} g^{22}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{4} g^{01} g^{22}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{1}} + \frac{1}{2} g^{01} g^{22}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{02}}{\partial x^{2}} - \frac{1}{4} g^{01} g^{22}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{22}}{\partial x^{0}} + \frac{1}{2} g^{01} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{01}}{\partial x^{2}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{01} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{1}} + \frac{1}{2} g^{01} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{12}}{\partial x^{0}} - g^{01} g^{22}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{2}} + \frac{1}{2} g^{01} g^{22}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{0}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{3}} - \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{2}} + \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{1}} + \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{02}}{\partial x^{3}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{2}} - \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{23}}{\partial x^{0}} + \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{01}}{\partial x^{3}} - \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{1}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{13}}{\partial x^{0}} + \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{01}}{\partial x^{2}} - \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{1}} + \frac{1}{2} g^{01} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{12}}{\partial x^{0}}
+</tex>
+
+<tex>
+- g^{01} g^{23}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{3}} - g^{01} g^{23}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{2}} + g^{01} g^{23}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}} - \frac{1}{2} g^{01} g^{33}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{3}}
+</tex>
+
+<tex>
++ \frac{1}{4} g^{01} g^{33}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{1}} + \frac{1}{2} g^{01} g^{33}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{3}} - \frac{1}{4} g^{01} g^{33}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{33}}{\partial x^{0}} + \frac{1}{2} g^{01} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{01}}{\partial x^{3}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{01} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{1}} + \frac{1}{2} g^{01} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{13}}{\partial x^{0}} - g^{01} g^{33}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{3}} + \frac{1}{2} g^{01} g^{33}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{4} g^{02} g^{11}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{2}} - \frac{1}{2} g^{02} g^{11}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{1}} - \frac{1}{2} g^{02} g^{11}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{01}}{\partial x^{2}} + \frac{1}{2} g^{02} g^{11}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{02}}{\partial x^{1}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{02} g^{11}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{12}}{\partial x^{0}} + \frac{1}{2} g^{02} g^{11}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{01}}{\partial x^{1}} - \frac{1}{4} g^{02} g^{11}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{11}}{\partial x^{0}} - g^{02} g^{11}\frac{\partial g_{01}}{\partial x^{1}} \frac{\partial g_{02}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{02} g^{11}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{0}} - \frac{1}{2} g^{02} g^{12}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{1}} + \frac{1}{2} g^{02} g^{12}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{22}}{\partial x^{0}} + g^{02} g^{12}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{1}}
+</tex>
+
+<tex>
+- g^{02} g^{12}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{0}} - g^{02} g^{12}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{1}} + g^{02} g^{12}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{0}} - \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{3}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{2}} - \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{1}} + \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{02}}{\partial x^{3}} - \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{23}}{\partial x^{0}} + \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{01}}{\partial x^{3}} + \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{1}} - \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{13}}{\partial x^{0}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{01}}{\partial x^{2}} + \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{1}} + \frac{1}{2} g^{02} g^{13}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{12}}{\partial x^{0}} - g^{02} g^{13}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{0}}
+</tex>
+
+<tex>
+- g^{02} g^{13}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{1}} + g^{02} g^{13}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{0}} - \frac{1}{4} g^{02} g^{22}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{2}} + \frac{1}{2} g^{02} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{4} g^{02} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{22}}{\partial x^{0}} - g^{02} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{2}} + \frac{1}{2} g^{02} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{0}} - \frac{1}{2} g^{02} g^{23}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{3}}
+</tex>
+
+<tex>
++ g^{02} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{3}} + \frac{1}{2} g^{02} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{22}}{\partial x^{0}} - g^{02} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{02}}{\partial x^{3}} - g^{02} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{2}}
+</tex>
+
+<tex>
++ g^{02} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}} - \frac{1}{2} g^{02} g^{33}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{3}} + \frac{1}{4} g^{02} g^{33}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{2}} + \frac{1}{2} g^{02} g^{33}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{3}}
+</tex>
+
+<tex>
+- \frac{1}{4} g^{02} g^{33}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{33}}{\partial x^{0}} + \frac{1}{2} g^{02} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{3}} - \frac{1}{2} g^{02} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{2}} + \frac{1}{2} g^{02} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{23}}{\partial x^{0}}
+</tex>
+
+<tex>
+- g^{02} g^{33}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{3}} + \frac{1}{2} g^{02} g^{33}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}} + \frac{1}{4} g^{03} g^{11}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{3}} - \frac{1}{2} g^{03} g^{11}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{1}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{03} g^{11}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{01}}{\partial x^{3}} + \frac{1}{2} g^{03} g^{11}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{1}} + \frac{1}{2} g^{03} g^{11}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{13}}{\partial x^{0}} + \frac{1}{2} g^{03} g^{11}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{01}}{\partial x^{1}}
+</tex>
+
+<tex>
+- \frac{1}{4} g^{03} g^{11}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{11}}{\partial x^{0}} - g^{03} g^{11}\frac{\partial g_{01}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{0}} + \frac{1}{2} g^{03} g^{11}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{0}} + \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{3}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{2}} - \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{1}} - \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{02}}{\partial x^{3}} + \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{23}}{\partial x^{0}} - \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{01}}{\partial x^{3}} + \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{1}} + \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{13}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{01}}{\partial x^{2}} + \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{1}} - \frac{1}{2} g^{03} g^{12}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{12}}{\partial x^{0}} - g^{03} g^{12}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{0}}
+</tex>
+
+<tex>
+- g^{03} g^{12}\frac{\partial g_{02}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{0}} + g^{03} g^{12}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{0}} - \frac{1}{2} g^{03} g^{13}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{1}} + \frac{1}{2} g^{03} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{33}}{\partial x^{0}}
+</tex>
+
+<tex>
++ g^{03} g^{13}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{1}} - g^{03} g^{13}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{0}} - g^{03} g^{13}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{1}} + g^{03} g^{13}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{4} g^{03} g^{22}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{3}} - \frac{1}{2} g^{03} g^{22}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{2}} - \frac{1}{2} g^{03} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{3}} + \frac{1}{2} g^{03} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{03} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{23}}{\partial x^{0}} + \frac{1}{2} g^{03} g^{22}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{2}} - \frac{1}{4} g^{03} g^{22}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{22}}{\partial x^{0}} - g^{03} g^{22}\frac{\partial g_{02}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{03} g^{22}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{0}} - \frac{1}{2} g^{03} g^{23}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{2}} + \frac{1}{2} g^{03} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{33}}{\partial x^{0}} + g^{03} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{2}}
+</tex>
+
+<tex>
+- g^{03} g^{23}\frac{\partial g_{02}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{0}} - g^{03} g^{23}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{2}} + g^{03} g^{23}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}} - \frac{1}{4} g^{03} g^{33}\frac{\partial g_{00}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{3}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{03} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{3}} + \frac{1}{4} g^{03} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{33}}{\partial x^{0}} - g^{03} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{03}}{\partial x^{3}} + \frac{1}{2} g^{03} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{4} (g^{11})^2\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{11}}{\partial x^{1}} - \frac{1}{2} (g^{11})^2\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{1}} + \frac{1}{4} (g^{11})^2\left( \frac{\partial g_{11}}{\partial x^{0}} \right)^2 + \frac{1}{4} g^{11} g^{12}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{11}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{11} g^{12}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{12}}{\partial x^{1}} + \frac{1}{4} g^{11} g^{12}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{11}}{\partial x^{1}} - \frac{1}{2} g^{11} g^{12}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{2}} - g^{11} g^{12}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{1}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{11} g^{12}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{1}} + g^{11} g^{12}\frac{\partial g_{11}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{0}} + \frac{1}{4} g^{11} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{11}}{\partial x^{3}} + \frac{1}{2} g^{11} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{13}}{\partial x^{1}}
+</tex>
+
+<tex>
++ \frac{1}{4} g^{11} g^{13}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{11}}{\partial x^{1}} - \frac{1}{2} g^{11} g^{13}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{3}} - g^{11} g^{13}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{1}} - \frac{1}{2} g^{11} g^{13}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{1}}
+</tex>
+
+<tex>
++ g^{11} g^{13}\frac{\partial g_{11}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{0}} + \frac{1}{2} g^{11} g^{22}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{12}}{\partial x^{2}} - \frac{1}{4} g^{11} g^{22}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{22}}{\partial x^{1}} - \frac{1}{4} g^{11} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{11}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{11} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{12}}{\partial x^{1}} - g^{11} g^{22}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{2}} + \frac{1}{2} g^{11} g^{22}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{1}} + \frac{1}{2} g^{11} g^{22}\left( \frac{\partial g_{01}}{\partial x^{2}} \right)^2
+</tex>
+
+<tex>
+- g^{11} g^{22}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{1}} + \frac{1}{2} g^{11} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{2}} - g^{11} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{1}} + \frac{1}{2} g^{11} g^{22}\left( \frac{\partial g_{02}}{\partial x^{1}} \right)^2
+</tex>
+
+<tex>
++ \frac{1}{2} g^{11} g^{22}\left( \frac{\partial g_{12}}{\partial x^{0}} \right)^2 + \frac{1}{2} g^{11} g^{23}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{12}}{\partial x^{3}} + \frac{1}{2} g^{11} g^{23}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{13}}{\partial x^{2}} - \frac{1}{2} g^{11} g^{23}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{23}}{\partial x^{1}}
+</tex>
+
+<tex>
+- \frac{1}{4} g^{11} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{11}}{\partial x^{3}} + \frac{1}{2} g^{11} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{13}}{\partial x^{1}} - \frac{1}{4} g^{11} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{11}}{\partial x^{2}} + \frac{1}{2} g^{11} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{12}}{\partial x^{1}}
+</tex>
+
+<tex>
+- g^{11} g^{23}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{3}} - g^{11} g^{23}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{2}} + g^{11} g^{23}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{1}} + g^{11} g^{23}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{01}}{\partial x^{3}}
+</tex>
+
+<tex>
+- g^{11} g^{23}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{1}} - g^{11} g^{23}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{1}} + \frac{1}{2} g^{11} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{3}} - g^{11} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{1}}
+</tex>
+
+<tex>
++ g^{11} g^{23}\frac{\partial g_{02}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{1}} + \frac{1}{2} g^{11} g^{23}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{2}} - g^{11} g^{23}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{1}} + g^{11} g^{23}\frac{\partial g_{12}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{11} g^{33}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{13}}{\partial x^{3}} - \frac{1}{4} g^{11} g^{33}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{33}}{\partial x^{1}} - \frac{1}{4} g^{11} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{11}}{\partial x^{3}} + \frac{1}{2} g^{11} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{13}}{\partial x^{1}}
+</tex>
+
+<tex>
+- g^{11} g^{33}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{3}} + \frac{1}{2} g^{11} g^{33}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{1}} + \frac{1}{2} g^{11} g^{33}\left( \frac{\partial g_{01}}{\partial x^{3}} \right)^2 - g^{11} g^{33}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{1}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{11} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{3}} - g^{11} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{1}} + \frac{1}{2} g^{11} g^{33}\left( \frac{\partial g_{03}}{\partial x^{1}} \right)^2 + \frac{1}{2} g^{11} g^{33}\left( \frac{\partial g_{13}}{\partial x^{0}} \right)^2
+</tex>
+
+<tex>
++ \frac{1}{2} (g^{12})^2\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{22}}{\partial x^{1}} + \frac{1}{2} (g^{12})^2\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{11}}{\partial x^{2}} - (g^{12})^2\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{1}} - \frac{1}{2} (g^{12})^2\left( \frac{\partial g_{01}}{\partial x^{2}} \right)^2
+</tex>
+
+<tex>
++ (g^{12})^2\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{1}} - (g^{12})^2\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{2}} - \frac{1}{2} (g^{12})^2\left( \frac{\partial g_{02}}{\partial x^{1}} \right)^2 + \frac{1}{2} (g^{12})^2\frac{\partial g_{11}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} (g^{12})^2\left( \frac{\partial g_{12}}{\partial x^{0}} \right)^2 + g^{12} g^{13}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{23}}{\partial x^{1}} + \frac{1}{2} g^{12} g^{13}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{11}}{\partial x^{3}} + \frac{1}{2} g^{12} g^{13}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{11}}{\partial x^{2}}
+</tex>
+
+<tex>
+- 2g^{12} g^{13}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{1}} - g^{12} g^{13}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{01}}{\partial x^{3}} + g^{12} g^{13}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{1}} + g^{12} g^{13}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{1}}
+</tex>
+
+<tex>
+- g^{12} g^{13}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{3}} - g^{12} g^{13}\frac{\partial g_{02}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{1}} - g^{12} g^{13}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{2}} + g^{12} g^{13}\frac{\partial g_{11}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}}
+</tex>
+
+<tex>
++ g^{12} g^{13}\frac{\partial g_{12}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{0}} + \frac{1}{4} g^{12} g^{22}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{22}}{\partial x^{2}} + \frac{1}{2} g^{12} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{12}}{\partial x^{2}} + \frac{1}{4} g^{12} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{22}}{\partial x^{1}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{12} g^{22}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{2}} - g^{12} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{2}} - \frac{1}{2} g^{12} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{1}} + g^{12} g^{22}\frac{\partial g_{12}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{12} g^{23}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{22}}{\partial x^{3}} + g^{12} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{13}}{\partial x^{2}} + \frac{1}{2} g^{12} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{22}}{\partial x^{1}} - g^{12} g^{23}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{3}}
+</tex>
+
+<tex>
++ g^{12} g^{23}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{3}} - g^{12} g^{23}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{2}} - 2g^{12} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{2}} - g^{12} g^{23}\frac{\partial g_{02}}{\partial x^{1}} \frac{\partial g_{02}}{\partial x^{3}}
+</tex>
+
+<tex>
++ g^{12} g^{23}\frac{\partial g_{02}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{2}} - g^{12} g^{23}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{1}} + g^{12} g^{23}\frac{\partial g_{12}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}} + g^{12} g^{23}\frac{\partial g_{13}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{12} g^{33}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{23}}{\partial x^{3}} - \frac{1}{4} g^{12} g^{33}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{33}}{\partial x^{2}} + \frac{1}{2} g^{12} g^{33}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{13}}{\partial x^{3}} - \frac{1}{4} g^{12} g^{33}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{33}}{\partial x^{1}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{12} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{12}}{\partial x^{3}} + \frac{1}{2} g^{12} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{13}}{\partial x^{2}} + \frac{1}{2} g^{12} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{23}}{\partial x^{1}} - g^{12} g^{33}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{3}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{12} g^{33}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{2}} + g^{12} g^{33}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{3}} - g^{12} g^{33}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{2}} - g^{12} g^{33}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{3}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{12} g^{33}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{1}} - g^{12} g^{33}\frac{\partial g_{02}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{1}} + g^{12} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{3}} - g^{12} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{2}}
+</tex>
+
+<tex>
+- g^{12} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{1}} + g^{12} g^{33}\frac{\partial g_{03}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{2}} + g^{12} g^{33}\frac{\partial g_{13}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}} + \frac{1}{2} (g^{13})^2\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{33}}{\partial x^{1}}
+</tex>
+
+<tex>
++ \frac{1}{2} (g^{13})^2\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{11}}{\partial x^{3}} - (g^{13})^2\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{1}} - \frac{1}{2} (g^{13})^2\left( \frac{\partial g_{01}}{\partial x^{3}} \right)^2 + (g^{13})^2\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{1}}
+</tex>
+
+<tex>
+- (g^{13})^2\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{11}}{\partial x^{3}} - \frac{1}{2} (g^{13})^2\left( \frac{\partial g_{03}}{\partial x^{1}} \right)^2 + \frac{1}{2} (g^{13})^2\frac{\partial g_{11}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}} + \frac{1}{2} (g^{13})^2\left( \frac{\partial g_{13}}{\partial x^{0}} \right)^2
+</tex>
+
+<tex>
+- \frac{1}{4} g^{13} g^{22}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{22}}{\partial x^{3}} + \frac{1}{2} g^{13} g^{22}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{23}}{\partial x^{2}} + \frac{1}{2} g^{13} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{12}}{\partial x^{3}} - \frac{1}{2} g^{13} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{13}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{13} g^{22}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{23}}{\partial x^{1}} + \frac{1}{2} g^{13} g^{22}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{12}}{\partial x^{2}} - \frac{1}{4} g^{13} g^{22}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{22}}{\partial x^{1}} + \frac{1}{2} g^{13} g^{22}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{3}}
+</tex>
+
+<tex>
+- g^{13} g^{22}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{2}} - g^{13} g^{22}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{02}}{\partial x^{3}} + g^{13} g^{22}\frac{\partial g_{01}}{\partial x^{2}} \frac{\partial g_{03}}{\partial x^{2}} - g^{13} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{3}}
+</tex>
+
+<tex>
++ g^{13} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{2}} - g^{13} g^{22}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{1}} + g^{13} g^{22}\frac{\partial g_{02}}{\partial x^{1}} \frac{\partial g_{02}}{\partial x^{3}} - g^{13} g^{22}\frac{\partial g_{02}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{2}}
+</tex>
+
+<tex>
+- g^{13} g^{22}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{2}} + \frac{1}{2} g^{13} g^{22}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{1}} + g^{13} g^{22}\frac{\partial g_{12}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}} + \frac{1}{2} g^{13} g^{23}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{33}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{13} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{33}}{\partial x^{1}} + g^{13} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{12}}{\partial x^{3}} - g^{13} g^{23}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{2}} - g^{13} g^{23}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{02}}{\partial x^{3}}
+</tex>
+
+<tex>
++ g^{13} g^{23}\frac{\partial g_{01}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{2}} - g^{13} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{1}} + g^{13} g^{23}\frac{\partial g_{02}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{1}} - 2g^{13} g^{23}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{12}}{\partial x^{3}}
+</tex>
+
+<tex>
+- g^{13} g^{23}\frac{\partial g_{03}}{\partial x^{1}} \frac{\partial g_{03}}{\partial x^{2}} + g^{13} g^{23}\frac{\partial g_{12}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}} + g^{13} g^{23}\frac{\partial g_{13}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}} + \frac{1}{4} g^{13} g^{33}\frac{\partial g_{00}}{\partial x^{1}} \frac{\partial g_{33}}{\partial x^{3}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{13} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{13}}{\partial x^{3}} + \frac{1}{4} g^{13} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{33}}{\partial x^{1}} - \frac{1}{2} g^{13} g^{33}\frac{\partial g_{01}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{3}} - g^{13} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{13}}{\partial x^{3}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{13} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{1}} + g^{13} g^{33}\frac{\partial g_{13}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}} + \frac{1}{4} (g^{22})^2\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{22}}{\partial x^{2}} - \frac{1}{2} (g^{22})^2\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{4} (g^{22})^2\left( \frac{\partial g_{22}}{\partial x^{0}} \right)^2 + \frac{1}{4} g^{22} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{22}}{\partial x^{3}} + \frac{1}{2} g^{22} g^{23}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{23}}{\partial x^{2}} + \frac{1}{4} g^{22} g^{23}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{22}}{\partial x^{2}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{22} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{3}} - g^{22} g^{23}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{2}} - \frac{1}{2} g^{22} g^{23}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{2}} + g^{22} g^{23}\frac{\partial g_{22}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{22} g^{33}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{23}}{\partial x^{3}} - \frac{1}{4} g^{22} g^{33}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{33}}{\partial x^{2}} - \frac{1}{4} g^{22} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{22}}{\partial x^{3}} + \frac{1}{2} g^{22} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{23}}{\partial x^{2}}
+</tex>
+
+<tex>
+- g^{22} g^{33}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{3}} + \frac{1}{2} g^{22} g^{33}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{2}} + \frac{1}{2} g^{22} g^{33}\left( \frac{\partial g_{02}}{\partial x^{3}} \right)^2 - g^{22} g^{33}\frac{\partial g_{02}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{2}}
+</tex>
+
+<tex>
++ \frac{1}{2} g^{22} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{3}} - g^{22} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{2}} + \frac{1}{2} g^{22} g^{33}\left( \frac{\partial g_{03}}{\partial x^{2}} \right)^2 + \frac{1}{2} g^{22} g^{33}\left( \frac{\partial g_{23}}{\partial x^{0}} \right)^2
+</tex>
+
+<tex>
++ \frac{1}{2} (g^{23})^2\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{33}}{\partial x^{2}} + \frac{1}{2} (g^{23})^2\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{22}}{\partial x^{3}} - (g^{23})^2\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{2}} - \frac{1}{2} (g^{23})^2\left( \frac{\partial g_{02}}{\partial x^{3}} \right)^2
+</tex>
+
+<tex>
++ (g^{23})^2\frac{\partial g_{02}}{\partial x^{3}} \frac{\partial g_{03}}{\partial x^{2}} - (g^{23})^2\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{22}}{\partial x^{3}} - \frac{1}{2} (g^{23})^2\left( \frac{\partial g_{03}}{\partial x^{2}} \right)^2 + \frac{1}{2} (g^{23})^2\frac{\partial g_{22}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{2} (g^{23})^2\left( \frac{\partial g_{23}}{\partial x^{0}} \right)^2 + \frac{1}{4} g^{23} g^{33}\frac{\partial g_{00}}{\partial x^{2}} \frac{\partial g_{33}}{\partial x^{3}} + \frac{1}{2} g^{23} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{23}}{\partial x^{3}} + \frac{1}{4} g^{23} g^{33}\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{33}}{\partial x^{2}}
+</tex>
+
+<tex>
+- \frac{1}{2} g^{23} g^{33}\frac{\partial g_{02}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{3}} - g^{23} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{23}}{\partial x^{3}} - \frac{1}{2} g^{23} g^{33}\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{2}} + g^{23} g^{33}\frac{\partial g_{23}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{0}}
+</tex>
+
+<tex>
++ \frac{1}{4} (g^{33})^2\frac{\partial g_{00}}{\partial x^{3}} \frac{\partial g_{33}}{\partial x^{3}} - \frac{1}{2} (g^{33})^2\frac{\partial g_{03}}{\partial x^{0}} \frac{\partial g_{33}}{\partial x^{3}} + \frac{1}{4} (g^{33})^2\left( \frac{\partial g_{33}}{\partial x^{0}} \right)^2
+</tex>
+
+

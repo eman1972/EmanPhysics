@@ -1,0 +1,16 @@
+\field{相対性理論}
+\title{読者からの質問<br>（特殊相対論）}
+\comment{　}
+\prev{bh_projection}
+\next{minkowski}
+\create{2021/5/6 11:20}
+\modify{}
+
+
+\section{}
+<center>
+読者から受けたことのある質問を問答形式でまとめています。<br>
+読者には著者自身も含まれます。<br>
+ネットで見かけた記事への文句（エアリプ）も含まれます。
+</center>
+

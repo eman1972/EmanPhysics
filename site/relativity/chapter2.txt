@@ -1,0 +1,15 @@
+\field{相対性理論}
+\title{第 2 部　座標変換の理論}
+\comment{　}
+\prev{tachyon_com}
+\next{variant}
+\create{2011/9/26}
+\modify{}
+
+
+\section{}
+<center>
+　まだ特殊相対論の範囲だが、ちょっと数学のレベルが上がる。<br>
+　これから使う数学の基礎的な解説。
+</center>
+
