@@ -1,0 +1,15 @@
+\field{解析力学}
+\title{第 3 部　変分原理}
+\comment{　}
+\prev{poisson_ex}
+\next{types}
+\create{2010/4/23}
+\modify{}
+
+
+\section{}
+<center>
+　第 2 部で避けてきた、ちょっと深いところを語り始める。<br>
+　本当はここに出てくる正準変換こそが解析力学の奥義みたいなものだ。
+</center>
+

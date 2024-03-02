@@ -1,0 +1,15 @@
+\field{解析力学}
+\title{第 2 部　解析力学の基礎}
+\comment{　}
+\prev{bibun}
+\next{what_ana}
+\create{2010/4/23}
+\modify{}
+
+
+\section{}
+<center>
+　解析力学がどんなものかを駆け足で説明し切っちゃおう、という趣旨。<br>
+　あまり深いところへは踏み込んでいない。
+</center>
+

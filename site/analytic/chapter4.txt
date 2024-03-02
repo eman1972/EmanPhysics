@@ -1,0 +1,14 @@
+\field{解析力学}
+\title{第 4 部　量子力学への入り口}
+\comment{　}
+\prev{noether}
+\next{jacobi}
+\create{2010/4/23}
+\modify{}
+
+
+\section{}
+<center>
+　量子力学と解析力学の関係をざっと説明してしまおうという趣旨。<br>
+</center>
+

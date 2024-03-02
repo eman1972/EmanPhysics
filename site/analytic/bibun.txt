@@ -1,0 +1,422 @@
+\field{解析力学}
+\title{偏微分の座標変換}
+\comment{計算は面倒だが理屈は簡単。}
+\prev{total_dif}
+\next{chapter2}
+\create{2002/7/21}
+\modify{2008/6/30}
+
+
+\section{偏微分の変換}
+
+　偏微分を含んだ式の座標変換というのは物理でよく使う。
+　この計算は微分演算子の変換の方法さえ分かっていればまるで問題ない。
+
+<P>
+
+　例えばデカルト座標から極座標へ変換するときの偏微分の変換式は、
+
+<tex>
+\pdif{}{x} \ &=\ \sin \theta \cos \phi \pdif{}{r} + \frac{\cos\theta \cos \phi}{r} \pdif{}{\theta}
+- \frac{\sin \phi}{r \sin \theta} \pdif{}{\phi} \\
+\pdif{}{y} \ &=\ \sin \theta \sin \phi \pdif{}{r} + \frac{\cos\theta \sin \phi}{r} \pdif{}{\theta}
++ \frac{\cos \phi}{r \sin \theta} \pdif{}{\phi} \tag{1} \\
+\pdif{}{z} \ &=\ \cos \theta \pdif{}{r} - \frac{\sin \theta}{r} \pdif{}{\theta}
+</tex>
+
+となるのであるが、なぜそうなるのかというところまで理解できぬまま、
+そういうものなのだとごまかしながら公式集を頼りにしている人が結構いたりする。
+　学生時分の私がそうであったし、最近、読者の方からもこれについての
+質問を受けたので今回の説明には需要があるに違いないと判断する。
+
+<P>
+
+　以下ではこのような変換の導き方と、
+なぜそのように書けるのかという考え方を説明する。
+　式だけ示されても困る人もいるだろうから、ついでに使い方も説明しておこう。
+
+
+% ============================================================
+
+\section{考え方}
+
+　関数$ f(x,y,z) $を$ x $で偏微分した量$ \pdif{f}{x} $があるとする。
+　これと全く同じ量を極座標だけを使って表したい。
+
+<P>
+
+　そのためにまずは、
+関数$ f(x,y,z) $に含まれる変数$ x $、$ y $、$ z $のそれぞれに
+次の変換式を代入してやろう。
+
+<tex>
+x &= r \sin \theta \cos \phi \\
+y &= r \sin \theta \sin \phi \tag{2} \\
+z &= r \cos \theta
+</tex>
+
+　そうすることで、$ f $の変数は$ (r, \theta, \phi ) $へと変わる。
+　これによって関数の形は変わってしまうので、
+別の記号を使ったり、$ f' $などと表した方がいいのかも知れないが、
+ここでは引き続き、変換後の関数をも$ f $で表すことにしよう。
+
+<P>
+
+　こういうことは特に物理では良くある。
+　関数の記号はその形を区別するためではなく、
+その関数が表す物理的な意味を表すために付けられていたりすることが多いからだ。
+　「力$ F $」とか「ポテンシャル$ U $」だとか「電場$ E $」だとか、
+たとえ座標変換によってその関数の形が変わっても、
+それが表すものの内容は変わらないから、
+記号を変えないで使うことが多いのである。
+
+<P>
+
+　話を進めよう。
+　今や$ f( r,\theta,\phi ) $となったこの関数は、
+もはや$ x $で偏微分することは出来ない。
+　ではどうしたらいいだろう。
+
+<P>
+
+　$ \pdif{f}{x} $というのは、変数のうちの$ x $だけが変化したときの
+$ f $の変化率を表していたのだった。
+　今は、$ x $が微小変化したら$ r $、$ \theta $、$ \phi $の
+いずれもが変化する可能性がある。
+　そのことによる$ f(r,\theta,\phi) $の微小変化は次のように表されるだろう。
+　分からなければ前回の「<a href="./total_dif.html">全微分</a>」の記事を参照してほしい。
+
+<tex>
+\diff f\ =\ \pdif{f}{r} \diff r + \pdif{f}{\theta} \diff \theta + \pdif{f}{\phi} \diff \phi
+</tex>
+
+　$ x $が微小変化したことによる$ f $の変化率を求めたいのだから、
+この両辺を$ \diff x $で割ってやればいい。
+
+<tex>
+\dif{f}{x}\ =\ \pdif{f}{r} \dif{r}{x} + \pdif{f}{\theta} \dif{\theta}{x} + \pdif{f}{\phi} \dif{\phi}{x}
+</tex>
+
+　しかしこの式の表記はあまり正しくない。
+　今は変数$ x $、$ y $、$ z $のうちの$ x $だけを変化させたという想定なので、
+両辺にある常微分は、この場合、すべて偏微分で書き表されるべき量なのだ。
+
+<tex>
+\pdif{f}{x}\ =\ \pdif{f}{r} \pdif{r}{x} + \pdif{f}{\theta} \pdif{\theta}{x} + \pdif{f}{\phi} \pdif{\phi}{x}
+</tex>
+
+　これで、$ x $による偏微分を$ r $、$ \theta $、$ \phi $による偏微分の
+組み合わせによって表す関係が導かれたことになる。
+　ちょっと分かりにくいだろうか。
+　すっきりさせてみよう。
+　ここまで関数$ f $を使って説明してきたが、
+この話は別に$ f $でなくともどんな関数でもいいわけで、
+この際、書くのを省いてしまうことにしよう。
+
+<tex>
+\pdif{}{x}\ =\ \pdif{r}{x} \pdif{}{r} + \pdif{\theta}{x} \pdif{}{\theta} + \pdif{\phi}{x} \pdif{}{\phi}
+</tex>
+
+　ただ$ f $を省いただけではないことに気が付かれただろうか。
+　各項内で順序を入れ替えてある。
+　$ f $を省いただけだと$ \pdif{}{r} $などは
+「\red{微分演算子}」になり、
+そのすぐ後に来るものを微分しなさいという意味になってしまうので都合が悪いからである。
+　例えば第 1 項の$ f $を省いてそのままの順序にしておくと、
+この後に来る関数に$ \pdif{r}{x} $を掛けてからその全体を$ r $で微分しなさいという、
+意図しない意味にとられてしまう。
+　それで式の意味を誤解されないように各項内での順序を変えておいたわけだ。
+
+<P>
+
+　ここまでは$ x $による偏微分を考えてきたが、
+他の変数についても全く同じことである。
+
+<tex>
+\pdif{}{y}\ &=\ \pdif{r}{y} \pdif{}{r} + \pdif{\theta}{y} \pdif{}{\theta} + \pdif{\phi}{y} \pdif{}{\phi} \\
+\pdif{}{z}\ &=\ \pdif{r}{z} \pdif{}{r} + \pdif{\theta}{z} \pdif{}{\theta} + \pdif{\phi}{z} \pdif{}{\phi}
+</tex>
+
+% ===============================================================
+
+\section{使い方}
+
+　単なる繰り返しになるかも知れないが、
+念のためにまとめとして書いておこう。
+
+<P>
+
+　例えば、デカルト座標で表された関数$ f ( x, y, z ) $を$ x $で偏微分したものがあり、
+これを極座標で表された形に変換したいとする。
+
+<P>
+
+　$ \pdif{f}{x} $というのは、$ \pdif{}{x} f $という具合に分けて書ける。
+　この$ \pdif{}{x} $の部分に先ほど求めた式を代わりに入れてやればいいのだ。
+　つまり、
+
+<tex>
+\pdif{f}{x}\ &=\ \pdif{}{x} f \\
+&=\ \left( \pdif{r}{x} \pdif{}{r} + \pdif{\theta}{x} \pdif{}{\theta} +\pdif{\phi}{x} \pdif{}{\phi} \right) f \\
+&=\ \pdif{r}{x} \pdif{f}{r} + \pdif{\theta}{x} \pdif{f}{\theta} +\pdif{\phi}{x} \pdif{f}{\phi}
+</tex>
+
+という具合に計算できるということである。
+　関数$ f $が各項に入って 3 つに増えてしまう事については全く気にしなくていい。
+　この計算で正しいのだから。
+
+<P>
+
+　あとは計算しやすいように、関数$ f $を極座標を使って表してやればいい。
+　これは簡単であろう。
+　関数の中に含まれている$ x $、$ y $、$ z $に、
+(2) 式を代入してやれば、この関数は極座標$ r $、$ \theta $、$ \phi $だけで
+表された関数になる。
+
+
+% ===============================================================
+
+\section{具体的な式を求める方法}
+
+　ここまでは理論だ。
+　あとは、$ \pdif{r}{x} $などの部分を具体的に計算して求めてやれば、
+(1) 式のようなものが得られるはずである。
+　そのためには、$ ( x , y , z ) $と$ ( r , \theta , \phi ) $の間の関係式を
+使ってやればいいだろう。
+　しかし次の関係を使って微分を計算するのは少々面倒なのだ。
+
+<tex>
+r &= \sqrt{x^2 + y^2 + z^2} \\
+\theta &= \arctan \frac{\sqrt{x^2+y^2}}{z} \\
+\phi &= \arctan \frac{y}{x}
+</tex>
+
+　これで計算できないこともない。
+　面倒だが逆関数の微分を使ってやればいいだけの話だ。
+　しかし別の方法もある。
+　(2) 式のようなすっきりした関係式を使う方法だ。
+　それをこれから説明しよう。
+　どちらの方法が簡単かは場合によって異なる。
+
+<P>
+
+　ここで注意しなければならないことだが、
+　例えば$ \pdif{r}{x} $を計算したいというので、
+$ x $を$ r $で偏微分して・・・つまり$ \pdif{x}{r} $を計算してから
+その逆数を取ってやるなどという方法は使えない。
+　微分というのは微小量どうしの割り算に過ぎないとは言ってきたが、
+偏微分の場合には多少意味合いが異なる。
+　$ \pdif{r}{x} $は$ y $や$ z $を固定したときの$ r $の微小変化であるが、
+$ \pdif{x}{r} $を計算する場合に$ r $を微小変化させると
+$ y $や$ z $も変化してしまっているからである。
+　私は以前、恥ずかしながらこのやり方で間違った結果を導いて悩み込んでしまった。
+
+<P>
+
+　ではどうすればよいか。
+　立場を逆転させて考えてやればいい。
+　ここまでデカルト座標から極座標への変換を考えてきたが、
+極座標からデカルト座標への変換を考えれば次のようになるはずである。
+
+<tex>
+\pdif{}{r} &= \pdif{x}{r} \pdif{}{x} + \pdif{y}{r} \pdif{}{y} + \pdif{z}{r} \pdif{}{z} \\
+\pdif{}{\theta} &= \pdif{x}{\theta} \pdif{}{x} + \pdif{y}{\theta} \pdif{}{y} + \pdif{z}{\theta} \pdif{}{z} \\
+\pdif{}{\phi} &= \pdif{x}{\phi} \pdif{}{x} + \pdif{y}{\phi} \pdif{}{y} + \pdif{z}{\phi} \pdif{}{z}
+</tex>
+
+　この計算は非常に楽であって結果はこうなる。
+
+<tex>
+\pdif{}{r} &= \sin\theta \cos\phi \pdif{}{x} + \sin\theta \sin\phi \pdif{}{y} + \cos\theta \pdif{}{z} \\
+\pdif{}{\theta} &= r \cos\theta \cos\phi \pdif{}{x} + r \cos\theta \sin\phi \pdif{}{y} - r \sin\theta \pdif{}{z} \\
+\pdif{}{\phi} &= - r \sin\theta \sin\phi \pdif{}{x} + r \sin\theta \cos\phi \pdif{}{y} 
+</tex>
+
+　これを連立方程式と見て逆に解いてやれば求めるものが得られる。
+　・・・と簡単には言うものの、これは大変な作業になりそうである。
+　それで線形代数の知識を使うのである。
+　もともと線形代数というのは連立 1 次方程式を楽に解くために発展した学問なのだ。
+　この式を行列形式で書いてやれば、
+
+<tex>
+\left(
+\begin{array}{c}
+\pdif{}{r} \\
+ \\
+\pdif{}{\theta} \\
+ \\
+\pdif{}{\phi}
+\end{array}
+\right) \ =\ 
+\left(
+\begin{array}{ccc}
+\sin\theta \cos\phi & \sin\theta \sin\phi & \cos\theta \\
+\ & \  & \  \\
+r \cos\theta \cos\phi & r \cos\theta \sin\phi & - r \sin\theta \\
+\ & \  & \  \\
+- r \sin\theta \sin\phi & r \sin\theta \cos\phi & 0 
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+\pdif{}{x} \\
+ \\
+\pdif{}{y} \\
+ \\
+\pdif{}{z}
+\end{array}
+\right)
+</tex>
+
+であり、ここで出てくる 3 × 3 行列の逆行列さえ求めてやれば、それを両辺にかけることで望む形式に持っていける。
+　では 3 × 3 行列の逆行列はどうやって求めたらいいのか？
+　それはここでは説明しないが「クラメルの公式」「余因子行列」などという言葉を
+頼りにして教科書を調べてやればすぐに見つかるだろう。
+　簡単に書いておけば、余因子行列を転置したものを元の行列の行列式で割ってやればいいだけの話だ。
+　計算の結果は
+
+<tex>
+\left(
+\begin{array}{ccc}
+\sin\theta \cos\phi & \frac{\cos\theta \cos\phi}{r} & - \frac{\sin\phi}{r \sin\theta} \\
+\ & \  & \  \\
+\sin\theta \sin\phi & \frac{\cos\theta \sin\phi}{r} & \frac{\cos\phi}{r \sin\theta} \\
+\ & \  & \  \\
+\cos\theta & - \frac{\sin\theta}{r} & 0 
+\end{array}
+\right)
+\left(
+\begin{array}{c}
+\pdif{}{r} \\
+ \\
+\pdif{}{\theta} \\
+ \\
+\pdif{}{\phi}
+\end{array}
+\right) \ =\ 
+\left(
+\begin{array}{c}
+\pdif{}{x} \\
+ \\
+\pdif{}{y} \\
+ \\
+\pdif{}{z}
+\end{array}
+\right)
+</tex>
+
+のようになり、これは初めに掲げた (1) の変換式と同じものになっている。
+　この考えで極座標や円筒座標に限らず、どんな座標系についても計算できる。
+　がんばれ。
+
+
+
+% ==============================================================
+
+\section{2 階微分はちょっと厄介だ}
+
+　もう少し説明しておかないと私は安心して眠れない。
+　2 階微分を計算するときに間違う人がいるのではないかと心配だからだ。
+　関数$ f $を$ x $で 2 階微分したもの$ \pddif{f}{x} $は、
+次のように分けて書くことが出来る。
+
+<tex>
+\pddif{f}{x}\ =\ \pddif{}{x} f\ =\ \left( \pdif{}{x} \right)^2 f\ =\ \left( \pdif{}{x} \right) \left( \pdif{}{x} \right) f 
+</tex>
+
+　微分演算子が 2 つ重なるということは、$ f $を$ x $で微分したもの全体を
+さらに$ x $で微分しなさいということであり、ちゃんと意味が通っている。
+
+　そう言えば高校生のときに数学の先生が、
+「微分の記号って言うのは実にうまく定義されているなぁ」と一人で
+感動していたのは、多分これのことだったのだろう。
+
+<P>
+
+　2 階微分の座標変換を計算するときにはこの意味を崩さないように
+気を付けなくてはならない。
+　どういう事かと言えば・・・そうだなぁ。
+　(1) 式の中で$ \pdif{}{z} $の変換式
+
+<tex>
+\pdif{}{z} = \cos\theta \pdif{}{r} - \frac{\sin\theta}{r} \pdif{}{\theta}
+</tex>
+
+が一番簡単そうなので例としてこれを使うことにしよう。
+　つまり、$ \pddif{}{z} $というのが$ \pdif{}{z} $を
+二つ重ねたものだからといって、
+次のように普通に掛け算をしたのでは間違いだということである。
+
+<tex>
+\pddif{}{z} \ &=\ \left( \pdif{}{z} \right) \left( \pdif{}{z} \right) \\
+&=\ \left( \cos\theta \pdif{}{r} - \frac{\sin\theta}{r} \pdif{}{\theta} \right
+) \left( \cos\theta \pdif{}{r} - \frac{\sin\theta}{r} \pdif{}{\theta} \right) \\
+&=\ \cos^2\theta \left(\pdif{}{r}\right)^2 - 2 \frac{\sin\theta \cos\theta}{r} \pdif{}{r} \pdif{}{\theta} + \frac{\sin^2 \theta}{r^2} \left(\pdif{}{\theta}\right)^2
+</tex>
+
+　2 行目までは問題ない。
+　<font color="red">3 行目で間違いを犯している</font>。
+　演算子の変形は、後に必ず何かの関数が入ることを意識して
+行わなくてはならないのである。
+
+<P>
+
+　例えば、$ \pdif{}{x} g $という形の演算子があったとする。
+　この関数$ g $も演算子の一部であって、
+これはこの後に来る関数にまず$ g $を掛けてから
+その全体を$ x $で偏微分するという意味である。
+　分かり易いように関数$ f $を入れて試してみよう。
+　これは、
+
+<tex>
+\pdif{}{x}(gf) \ =\ \pdif{g}{x} f\ +\ g \pdif{f}{x}
+</tex>
+
+のように計算することであろう。
+　だからここから関数$ f $を省いて演算子のみで表したものは
+
+<tex>
+\pdif{}{x} g \ =\ \pdif{g}{x}\ +\ g \pdif{}{x}
+</tex>
+
+という具合に変形しなければならないことが分かる。
+
+<P>
+
+　このことを頭において先ほどの式を正しく計算してみよう。
+　演算子の後に積の形がある時には積の微分公式を使って変形する。
+　掛ける順番によって結果が変わることにも気を付けなくてはならない。
+
+<tex>
+\pddif{}{z} &= \left( \pdif{}{z} \right) \left( \pdif{}{z} \right) \\
+&= \left( \mathrm{cos}\theta \pdif{}{r} - \frac{\mathrm{sin}\theta}{r} \pdif{}{\theta} \right)
+   \left( \mathrm{cos}\theta \pdif{}{r} - \frac{\mathrm{sin}\theta}{r} \pdif{}{\theta} \right) \\
+&= \left( \mathrm{cos}\theta \pdif{}{r} \right) \left( \mathrm{cos}\theta \pdif{}{r} \right)
+  - \left( \mathrm{cos}\theta \pdif{}{r} \right) \left( \frac{\mathrm{sin}\theta}{r} \pdif{}{\theta} \right) \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ - \left( \frac{\mathrm{sin}\theta}{r} \pdif{}{\theta} \right) \left( \mathrm{cos}\theta \pdif{}{r} \right)
+  + \left( \frac{\mathrm{sin}\theta}{r} \pdif{}{\theta} \right) \left( \frac{\mathrm{sin}\theta}{r} \pdif{}{\theta} \right) \\
+&= \mathrm{cos}^2 \theta \pddif{}{r}
+  - \mathrm{cos}\theta \mathrm{sin}\theta \pdif{}{r} \left( \frac{1}{r} \pdif{}{\theta} \right)
+  - \frac{\mathrm{sin}\theta}{r} \pdif{}{\theta} \left( \mathrm{cos}\theta \pdif{}{r} \right) 
+  + \frac{\mathrm{sin}\theta}{r^2} \pdif{}{\theta} \left( \mathrm{sin}\theta \pdif{}{\theta} \right) \\
+&= \mathrm{cos}^2 \theta \pddif{}{r}
+  - \mathrm{cos}\theta \mathrm{sin}\theta \left\{ \pdif{}{r} \left( \frac{1}{r} \right) \pdif{}{\theta} + \frac{1}{r} \pdif{}{r} \pdif{}{\theta} \right\} \\
+& \ \ \ \ \ \ \  - \frac{\mathrm{sin}\theta}{r} \left\{ \pdif{}{\theta} ( \mathrm{cos}\theta ) \pdif{}{r} + \mathrm{cos}\theta \pdif{}{\theta} \pdif{}{r} \right\} 
+  + \frac{\mathrm{sin}\theta}{r^2} \left\{ \pdif{}{\theta} (\mathrm{sin} \theta ) \pdif{}{\theta} + \mathrm{sin}\theta \pdif{}{\theta} \pdif{}{\theta} \right\} \\
+&= \mathrm{cos}^2 \theta \pddif{}{r}
+  - \mathrm{cos}\theta \mathrm{sin}\theta \left\{ - \frac{1}{r^2} \pdif{}{\theta} + \frac{1}{r} \henbibun{}{r}{\theta} \right\} \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \ \  - \frac{\mathrm{sin}\theta}{r} \left\{ - \mathrm{sin}\theta \pdif{}{r} + \mathrm{cos}\theta \henbibun{}{r}{\theta} \right\} 
+  + \frac{\mathrm{sin}\theta}{r^2} \left\{ \mathrm{cos} \theta \pdif{}{\theta} + \mathrm{sin}\theta \pddif{}{\theta} \right\} \\
+&= \mathrm{cos}^2 \theta \pddif{}{r}
+  + \frac{\mathrm{cos}\theta \mathrm{sin}\theta}{r^2} \pdif{}{\theta} - \frac{\mathrm{cos}\theta \mathrm{sin}\theta}{r} \henbibun{}{r}{\theta} \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \ \  + \frac{\mathrm{sin}^2\theta}{r} \pdif{}{r} - \frac{\mathrm{sin}\theta \mathrm{cos}\theta}{r} \henbibun{}{r}{\theta} 
+  + \frac{\mathrm{sin}\theta \mathrm{cos}\theta}{r^2} \pdif{}{\theta} + \frac{\mathrm{sin}^2\theta}{r^2} \pddif{}{\theta} \\
+&= \mathrm{cos}^2 \theta \pddif{}{r}
+  + \frac{2 \mathrm{cos}\theta \mathrm{sin}\theta}{r^2} \pdif{}{\theta} - \frac{2 \mathrm{cos}\theta \mathrm{sin}\theta}{r} \henbibun{}{r}{\theta} 
+  + \frac{\mathrm{sin}^2\theta}{r} \pdif{}{r} + \frac{\mathrm{sin}^2\theta}{r^2} \pddif{}{\theta}
+</tex> 
+
+　これだけ分かっていれば、もう大抵の座標変換は問題ないだろう。
+　しかし・・・面倒くさいな。
+　やっぱり公式集に頼るか。（笑
+

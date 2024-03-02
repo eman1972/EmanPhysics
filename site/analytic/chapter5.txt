@@ -1,0 +1,15 @@
+\field{解析力学}
+\title{第 5 部　無限自由度の系}
+\comment{　}
+\prev{jacobi3}
+\next{whats_wave}
+\create{2010/8/22}
+\modify{}
+
+
+\section{}
+<center>
+　解析力学で「ひも」や「膜」や「固体」などの振動などを扱う方法について。<br>
+　実は全て、素粒子論にて電磁場を解析力学の手法で扱うための準備である。
+</center>
+

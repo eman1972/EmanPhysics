@@ -1,0 +1,15 @@
+\field{解析力学}
+\title{第 7 章 <br>非保存力、拘束条件のある場合}
+\comment{　}
+\prev{electro2}
+\next{lag_method}
+\create{2019/7/13}
+\modify{}
+
+
+\section{}
+<center>
+　本当はこういう現実的な応用をするための解析力学なのである。<br>
+　しかしその為の工夫の数々は初心者には難しかったりする。
+</center>
+

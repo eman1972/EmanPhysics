@@ -1,0 +1,268 @@
+\field{解析力学}
+\title{ハミルトニアン密度}
+\comment{ちゃんとハミルトン形式でも扱えるところが面白いね。}
+\prev{l_density}
+\next{poisson2}
+\create{2010/3/21}
+\modify{}
+
+
+
+\section{ルジャンドル変換}
+
+　ラグランジュ形式を使って連続体の力学を扱うことができるのを見てきた。
+　ではハミルトン形式に移行して議論することはできるだろうか。
+　理屈としてはルジャンドル変換をしてやればいいはずだ。
+
+<P>
+
+　ちょっと思い出してみよう。
+　$ N $個の質点を扱ったときのルジャンドル変換は次のようにすれば良かった。
+
+<tex>
+H \ =\ \sum_{i=1}^{N} p_{i}\dot{q}_i - L 
+</tex>
+
+　ただし、この数学的な前提として次のような関係が言えている必要がある。
+
+<tex>
+p_i = \pdif{L}{\dot{q}_i} 
+</tex>
+
+　とは言っても、この理論体系においてはこの関係は自然に成り立っているので問題はない。
+　以上で復習は終わり。
+
+<P>
+
+　今は$ N $個の質点ではなくて、代わりに連続的な無限の質点を考えているので、
+和の記号ではなくて積分を使ってやれば同じことになるだろう。
+　ただし積分するからには一般化運動量$ p_{i} $の代わりになる密度量を使う必要がある。
+　前回定義した運動量密度$ \pi(x,t) $を使ってやればいいだろう。
+　もうひとつ、各質点の座標の時間微分$ \dot{q}_i $の代わりになるものも要る。
+　ひもの各点の振幅を$ y(x,t) $で表してきたのだったから、$ \pdifline{y}{t} $を使えば同じ意味になるだろう。
+　まとめれば、次のようになる。
+
+<tex>
+H \ =\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \pi \, \pdif{y}{t} \diff x \ -\ L \tag{1}
+</tex>
+
+　なんだ、別に大した変更も工夫もなしに素直に移行できそうではないか。
+　ちなみに運動量密度の定義は次のようだった。
+
+<tex>
+\pi( x, t ) \ =\ \vardif{L}{(\pdif{y}{t})} \tag{2}
+</tex>
+
+　前回も書いた式だが、見比べるためにもう一度書いておいた。
+　形式的にはまったく同じだ。
+
+
+% ===================================================================
+
+\section{ハミルトニアン密度}
+
+　問題はこれからだ。
+　このハミルトニアンはちゃんと使えるものになっているだろうか。
+　(1) 式に具体的なラグランジアンを入れて確かめてみよう。
+　ひもの運動を表すためにはラグランジアン密度$ \mathcal{L} $を使う必要があったから (1) 式を次のように変形しておくといい。
+
+<tex>
+H \ &=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \pi \, \pdif{y}{t} \diff x \ -\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \mathcal{L} \diff x \\
+&=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left[ \pi \, \pdif{y}{t} \ -\ \mathcal{L} \right] \diff x 
+</tex>
+
+　思いがけず、一つの積分にまとまってしまった。
+　この積分の中身を「\red{ハミルトニアン密度}」と呼んで、$ \mathcal{H} $という記号で表すことにしよう。
+
+<tex>
+\mathcal{H} \ \equiv\ \pi \, \pdif{y}{t} \ -\ \mathcal{L} 
+</tex>
+
+　へー、面白いな。
+　ラグランジアン密度だけじゃなくて、ハミルトニアン密度なんてものも作れるんだ。
+　しかも二つの量はシンプルな関係で結ばれているときている。
+
+<P>
+
+　えーと、本題を忘れるところだった。
+　ここに次のような、ひもの運動のラグランジアン密度を代入するのだった。
+
+<tex>
+\mathcal{L} = \frac{\sigma}{2} \left( \pdif{y}{t} \right)^2 - \frac{T}{2} \left( \pdif{y}{x} \right)^2 
+</tex>
+
+　単純に代入しただけでは何も面白いことになりそうにないなぁ。
+　どうすりゃいいんだろう？
+　$ \pi $の定義の (2) 式にも$ \mathcal{L} $を入れてちゃんと計算してやらないといけないということか。
+　実はそれはすでに前回やっていて、$ \pi = \sigma (\pdifline{y}{t}) $という答えが出ているはずだ。
+　それらを合わせて代入すると結局、
+
+<tex>
+\mathcal{H} \ =\ \frac{\sigma}{2} \left( \pdif{y}{t} \right)^2 + \frac{T}{2} \left( \pdif{y}{x} \right)^2 
+</tex>
+
+ということになる。
+　第 1 項が運動エネルギーの密度、第 2 項が位置エネルギーの密度になっていて、
+$ \mathcal{H} $というのは、ひもの上にできる波の単位長さあたりの全エネルギーという意味を持っていることが分かる。
+
+<P>
+
+　\red{いやいや、大事なことを忘れてた。　これじゃいけないんだ！}
+　ハミルトニアンというのは、位置と運動量を変数として選ぶことに意味があるのだったから、
+先ほど$ \pi = \sigma (\pdifline{y}{t}) $の関係を得たときに、
+これを$ (\pdifline{y}{t}) = \pi/\sigma $と見て、逆に$ (\pdifline{y}{t}) $の方を排除してやらないといけなかったのだ。
+
+<tex>
+\mathcal{H} \ =\ \frac{1}{2\sigma} \pi^2 + \frac{T}{2} \left( \pdif{y}{x} \right)^2 \tag{3}
+</tex>
+
+　こう表しておくのがハミルトニアン密度の本来の在り方だな。
+
+% ===================================================================
+
+\section{正準方程式}
+
+　まだ満足するわけには行かない。
+　ルジャンドル変換の利点は正準方程式が得られることだった。
+　今回のような形式的な置換えをしただけで、その恩恵に与ることはできるだろうか。
+
+<P>
+
+　ここまでの流れからして
+
+<tex>
+\dot{y}(x,t) &= \vardif{H}{\pi} \tag{4}\\
+\dot{\pi}(x,t) &= -\vardif{H}{y} \tag{5}
+</tex>
+
+という形式になっていると予想はできるのだが、
+こうでなくてはならないという理屈が思い付かない。
+　まぁ、無理にルジャンドル変換のイメージと重ねる必要もないか。
+　ルジャンドル変換だって数学的な理屈で導いたのだから、
+面倒がらずに似たような作業を一からやってやればいいわけだ。
+　意外と難しくない。
+
+<P>
+
+　まず、ハミルトニアンの変数が$ y $と$ \pi $だけであることから、
+
+<tex>
+\delta H \ =\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left( \vardif{H}{y} \delta y \ +\ \vardif{H}{\pi} \delta \pi \right) \diff x 
+</tex>
+
+と書ける。
+　これは汎関数微分の定義の式を使ったに過ぎない。
+　一方で、(1) 式の変分を考えると、
+
+<tex>
+\delta H \ &=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left[ \delta \pi \, \pdif{y}{t} \ +\ \pi \, \delta\left(\pdif{y}{t}\right) \right] \diff x \ -\ \delta L \\
+&=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left[ \delta \pi \, \pdif{y}{t} \ +\ \pi \, \delta\left(\pdif{y}{t}\right) \right] \diff x 
+\ -\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left[ \vardif{L}{y} \delta y + \vardif{L}{\left(\pdif{y}{t}\right)} \delta \left(\pdif{y}{t}\right) \right] \diff x \\
+&=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left[ \delta \pi \, \pdif{y}{t} \ +\ \cancel{ \pi \, \delta\left(\pdif{y}{t}\right)} \right] \diff x 
+\ -\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left[ \eta \, \delta y + \cancel{ \pi \, \delta \left(\pdif{y}{t}\right) } \right] \diff x \\
+&=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left( \pdif{y}{t} \, \delta \pi \ -\ \eta \, \delta y \right) \diff x \\
+&=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \left( \dot{y} \, \delta \pi \ -\ \dot{\pi} \, \delta y \right) \diff x \\
+</tex>
+
+となる。
+　これを前の式と比較すれば、先ほど予想した通りの関係式 (4) と (5) が成り立っていることがちゃんと言えるわけだ。
+
+
+% ===================================================================
+
+\section{確認}
+
+　連続体の正準方程式を具体的にどう使ったら良いかを (3) 式を例にして確認しておくことにしよう。
+　どんな方程式が出てくる事になるのかも気になることであるし。
+
+<P>
+
+　まず (4) 式の右辺を計算したい。
+　関数$ \pi $に少し変化があった場合に$ H $にどんな変化があるか、ということを考えろという意味だ。
+　その為には$ \mathcal{H} $の変化を考える必要がある。
+　(3) 式を見ると$ \mathcal{H} $は$ \pi $と$ (\pdifline{y}{x}) $の関数となっているが、
+ハミルトニアンというのは、$ \pi $と$ y $が独立変数だと考えるのだから、
+ここでは$ \pi $の変化だけに注目すればいい。
+
+<tex>
+\delta \mathcal{H} \ =\ \pdif{\mathcal{H}}{\pi} \, \delta \pi
+</tex>
+
+　だから、
+
+<tex>
+\delta H \ =\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \delta \mathcal{H} \diff x 
+\ =\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \pdif{\mathcal{H}}{\pi} \, \delta \pi \diff x
+</tex>
+
+であるが、汎関数微分の定義を思い出せば、これは、
+
+<tex>
+\vardif{H}{\pi} \ =\ \pdif{\mathcal{H}}{\pi}
+</tex>
+
+という意味だ。
+　この右辺に (3) 式を代入すれば$ \pi/\sigma $となる。
+　結局 (4) 式は、
+
+<tex>
+\dot{y}(x,t) \ =\ \pi/\sigma \tag{6}
+</tex>
+
+だということになる。
+
+<P>
+
+　次は (5) 式だ。
+　今度は$ y $の変化を考えるのだが、そうなると$ (\pdifline{y}{x}) $も変化する。
+　それで、$ \mathcal{H} $の変化は
+
+<tex>
+\delta \mathcal{H} \ =\ \pdif{\mathcal{H}}{y} \delta{y} \ +\ \pdif{\mathcal{H}}{\left(\pdif{y}{x}\right)} \delta \left(\pdif{y}{x}\right)
+</tex>
+
+となるわけだが、今回の場合は第 1 項は消滅する。
+　それで、
+
+<tex>
+\delta H \ &=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \delta \mathcal{H} \diff x \\
+&=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \pdif{\mathcal{H}}{\left(\pdif{y}{x}\right)} \delta \left(\pdif{y}{x}\right) \diff x \\
+&=\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \pdif{\mathcal{H}}{\left(\pdif{y}{x}\right)} \pdif{(\delta y)}{x} \diff x \\
+&=\ \left[ \pdif{\mathcal{H}}{\left(\pdif{y}{x}\right)} \delta y \right]_{\scriptscriptstyle A}^{\scriptscriptstyle B} \ -\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \pdif{}{x} \pdif{\mathcal{H}}{\left(\pdif{y}{x}\right)} \delta y \diff x \\
+&=\ -\ \int_{\scriptscriptstyle A}^{\scriptscriptstyle B} \pdif{}{x} \pdif{\mathcal{H}}{\left(\pdif{y}{x}\right)} \delta y \diff x 
+</tex>
+
+のように部分積分で$ \delta y $を引っ張り出してやって、汎関数微分の定義と見比べてやれば、
+
+<tex>
+\vardif{H}{y} \ =\ - \pdif{}{x} \pdif{\mathcal{H}}{\left(\pdif{y}{x}\right)}
+</tex>
+
+だということになる。
+　この右辺に (3) 式を代入すれば$ - T \pddif{y}{x} $となる。
+　結局 (5) 式は、
+
+<tex>
+\dot{\pi}(x,t) \ =\ T \pddif{y}{x} \tag{7}
+</tex>
+
+だということだ。
+
+<P>
+
+　こうして具体的計算の結果として (6) 式と (7) 式を得ることになった。
+　別々に見ていると良く分からないかも知れないが、(6) 式から、
+
+<tex>
+\dot{\pi} \ =\ \sigma \ddot{y}
+</tex>
+
+が言えて、これを (7) 式に代入してやると、
+
+<tex>
+\sigma \pddif{y}{t} - T \pddif{y}{x} = 0
+</tex>
+
+という、前にも出てきた波動方程式と同じものが再現されるのである。
+
+

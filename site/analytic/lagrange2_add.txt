@@ -1,0 +1,108 @@
+\field{解析力学}
+\title{ラグランジュ方程式の記事の補足}
+\comment{実は読者からの質問に即答できなかったので考えてみたのである。}
+\prev{lagrange2}
+\next{}
+\create{2018/10/26}
+\modify{}
+
+
+
+\section{}
+
+　この記事は「<a href="./lagrange2.html">ラグランジュ方程式の利点</a>」という記事の中で詳しく解説するのを避けた部分についての説明である。
+　次のような
+
+<tex>
+\sum_j \pdif{Q_j}{q_i} \left( \dif{}{t} \pdif{L}{\dot{Q}_j} - \pdif{L}{Q_j} \right) = 0 \tag{1}
+</tex>
+
+という式から
+
+<tex>
+\dif{}{t} \pdif{L}{\dot{Q}_j} - \pdif{L}{Q_j} \ =\ 0 \tag{2}
+</tex>
+
+という式が導けるのはなぜかという話である。
+
+<P>
+
+　$ Q_1, Q_2, \cdots Q_n $も$ q_1, q_2, \cdots q_n $も$ n $次元空間内の点の位置を表す変数である。
+　同じ空間内の点を指定するための座標系の選び方が違うだけであり、お互いに一方から他方へと座標変換ができる。
+
+<P>
+
+　ここから先は 3 次元空間をイメージして説明することにしよう。
+　その場合、(1) 式の和の記号は次のように展開できる。
+
+<tex>
+&\pdif{Q_1}{q_i} \left( \dif{}{t} \pdif{L}{\dot{Q}_1} - \pdif{L}{Q_1} \right) \\
+&\ \ +\ \pdif{Q_2}{q_i} \left( \dif{}{t} \pdif{L}{\dot{Q}_2} - \pdif{L}{Q_2} \right) \\
+&\ \ \ \ \ \ +\ \pdif{Q_3}{q_i} \left( \dif{}{t} \pdif{L}{\dot{Q}_3} - \pdif{L}{Q_3} \right) \ =\ 0
+</tex>
+
+　この 3 つのカッコ内はそれぞれ違っている。
+　このどれもが 0 であるなどという欲張りな結論を導きたいのだが、ちょっと無理そうに見える。
+　たとえ$ \pdifline{Q_j}{q_i} $の部分がどれも 0 以外の値だと仮定してもそんなことは言えそうにない。
+
+<P>
+
+　ところが使える式は一つではない。
+　この式は 1 つに見えるが、添字$ i $が$ 1 \sim 3 $の 3 通りあるので、次のような連立方程式なのである。
+
+<tex>
+&\pdif{Q_1}{q_1} \left( \dif{}{t} \pdif{L}{\dot{Q}_1} - \pdif{L}{Q_1} \right) \ +\ \pdif{Q_2}{q_1} \left( \dif{}{t} \pdif{L}{\dot{Q}_2} - \pdif{L}{Q_2} \right) \ +\ \pdif{Q_3}{q_1} \left( \dif{}{t} \pdif{L}{\dot{Q}_3} - \pdif{L}{Q_3} \right) \ =\ 0 \\[3pt]
+&\pdif{Q_1}{q_2} \left( \dif{}{t} \pdif{L}{\dot{Q}_1} - \pdif{L}{Q_1} \right) \ +\ \pdif{Q_2}{q_2} \left( \dif{}{t} \pdif{L}{\dot{Q}_2} - \pdif{L}{Q_2} \right) \ +\ \pdif{Q_3}{q_2} \left( \dif{}{t} \pdif{L}{\dot{Q}_3} - \pdif{L}{Q_3} \right) \ =\ 0 \\[3pt]
+&\pdif{Q_1}{q_3} \left( \dif{}{t} \pdif{L}{\dot{Q}_1} - \pdif{L}{Q_1} \right) \ +\ \pdif{Q_2}{q_3} \left( \dif{}{t} \pdif{L}{\dot{Q}_2} - \pdif{L}{Q_2} \right) \ +\ \pdif{Q_3}{q_3} \left( \dif{}{t} \pdif{L}{\dot{Q}_3} - \pdif{L}{Q_3} \right) \ =\ 0
+</tex>
+
+　記号を変えて状況を分かりやすく書き直せば、こういうことである。
+
+<tex>
+A \, X \ +\ B \, Y \ +\ C \, Z \ &=\ 0 \\
+D \, X \ +\ E \, Y \ +\ F \, Z \ &=\ 0 \\
+G \, X \ +\ H \, Y \ +\ I \, Z \ &=\ 0
+</tex>
+
+　我々はこれから$ X = Y = Z = 0 $であることを示したいのである。
+　これを行列で書き直すとさらに分かりやすい。
+
+<tex>
+\left(
+\begin{array}{ccc}
+A & B & C \\
+D & E & F \\
+G & H & I 
+\end{array}
+\right)
+\left(
+\begin{array}{ccc}
+X \\
+Y \\
+Z 
+\end{array}
+\right) \ =\ 0
+</tex>
+
+　もしこの左辺の行列に逆行列が存在していればそれを左側から両辺に掛けることで$ X = Y = Z = 0 $だと言えるであろう。
+　では調べてみよう。
+　この行列の正体は次のようなものである。
+
+<tex>
+\left(
+\begin{array}{ccc}
+\pdif{Q_1}{q_1} & \pdif{Q_2}{q_1} & \pdif{Q_3}{q_1} \\
+\pdif{Q_1}{q_2} & \pdif{Q_2}{q_2} & \pdif{Q_3}{q_2} \\
+\pdif{Q_1}{q_3} & \pdif{Q_2}{q_3} & \pdif{Q_3}{q_3} 
+\end{array}
+\right)
+</tex>
+
+　これはよく見れば、座標変換の理論によく出てくる「<a href="../math/calculus04.html">ヤコビ行列（ヤコビアン）</a>」そのものではないか！
+　それなら話は早い！
+　ヤコビアンの行列式は二つの座標系の微小体積の比率を表しているものであり、
+空間が面に潰れてしまうようなおかしな変換でない限りは 0 にはならないのだった。
+　つまり行列式が 0 ではないということで逆行列が存在することになり、先ほどの話が成立するのである。
+
+
+

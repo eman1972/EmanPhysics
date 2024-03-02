@@ -1,0 +1,15 @@
+\field{解析力学}
+\title{第 6 部　電磁場の正準形式}
+\comment{　}
+\prev{current}
+\next{electro}
+\create{2012/4/12}
+\modify{}
+
+
+\section{}
+<center>
+　何と電磁場さえも、解析力学のやり方で扱うことができる！<br>
+　これは素粒子論のための準備でもある。
+</center>
+

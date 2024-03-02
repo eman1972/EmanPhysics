@@ -1,0 +1,96 @@
+\field{解析力学}
+\title{ラグランジアンに<br>任意関数の時間微分を加えても良い理由}
+\comment{別記事の補足。}
+\prev{indeterminancy}
+\next{}
+\create{2010/8/7}
+\modify{}
+
+
+
+\section{目的}
+
+　この記事は、「<a href="./indeterminancy.html">ラグランジアンの不定性</a>」という記事中の
+一部分を補足するために用意されたものである。
+
+<P>
+
+　通常のラグランジアン$ L $の代わりに次のような$ L' $を使っても、
+ラグランジュ方程式に影響がないことを示したい。
+
+<tex>
+L' \ =\ L + \dif{W}{t} \tag{1}
+</tex>
+
+　ここで$ W $というのは、任意の位置座標と時間の関数$ W( x, t ) $である。
+
+<P>
+
+　これを書く気になったのは、幾つかの教科書では、この計算の途中が省略されていて不親切だったのを思い出したからである。
+
+
+
+
+
+
+% ===================================================================
+
+\section{式変形と解説}
+
+　これを示すためには、ラグランジュ方程式の$ L $の代わりに (1) 式を代入してみて、
+その影響が全く出ないことが確認できればいい。
+　つまり、次の式が成り立っていればいいわけだ。
+
+<tex>
+\pdif{L'}{x} \ -\ \dif{}{t}\left( \pdif{L'}{\dot{x}} \right) \ =\ 0 \tag{2}
+</tex>
+
+　では始めよう。
+　式の読みやすさのために、所々で$ \dif{W}{t} $の代わりに$ \dot{W} $を使わせてもらうことにする。
+
+<tex>
+(左辺) \ &=\ \pdif{(L+\dot{W})}{x} \ -\ \dif{}{t}\left( \pdif{(L+\dot{W})}{\dot{x}} \right) \\
+&=\ \cancel{ \pdif{L}{x} \ -\ \dif{}{t}\left( \pdif{L}{\dot{x}} \right) } \ \ +\ \ \pdif{\dot{W}}{x} \ -\ \dif{}{t}\left( \pdif{\dot{W}}{\dot{x}} \right) 
+</tex>
+
+　前の二つの項は、$ L $を置き換える前のラグランジュ方程式そのものなので、0 である。
+　$ \dot{W} $を含んでいる残りの項の影響が最終的に消えてくれれば良い。
+
+<tex>
+(続き) \ &=\ \pdif{}{x} \dif{W}{t} \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\ \dif{}{t} \pdif{}{\dot{x}} \dif{W}{t} \\[4pt]
+&=\ \pdif{}{x} \left( \pdif{W}{x} \dif{x}{t} + \pdif{W}{t} \right) \ -\ \dif{}{t} \pdif{}{\dot{x}} \left( \pdif{W}{x} \dif{x}{t} + \pdif{W}{t} \right) \\
+&=\ \pdif{}{x} \left( \pdif{W}{x} \dot{x} \right) \ +\ \frac{\partial^2 W}{\partial x \partial t} \ -\ \dif{}{t} \pdif{}{\dot{x}} \left( \pdif{W}{x} \dot{x} \right) \ +\ \dif{}{t} \pdif{}{\dot{x}} \pdif{W}{t} \\
+</tex>
+
+　丁寧な式変形のついでに、細かな説明も入れておこう。
+　第 1 項のカッコの中を$ x $で偏微分する必要があるが、これは偏微分なのだから$ \dot{x} $の部分は定数と見て構わない。
+　だから簡単だ。
+　第 2 項は見たまま。　説明は要らない。
+　第 3 項はカッコの中を$ \dot{x} $で偏微分するわけだが、$ W $が$ x $と$ t $の関数なのだから、
+$ \pdifline{W}{x} $は$ \dot{x} $の関数ではないだろう。
+　だからそちらは放っておいて構わない。
+　第 4 項の$ \pdifline{W}{t} $は$ \dot{x} $の関数にはなってないので、$ \dot{x} $で偏微分したら 0 になる。
+　というわけで、次のような式になる。
+
+<tex>
+(続き) \ &=\ \pddif{W}{x} \dot{x} \ +\ \frac{\partial^2 W}{\partial x \, \partial t} \ -\ \dif{}{t} \pdif{W}{x} \\
+</tex>
+
+　第 3 項が面倒だ。
+　$ \pdifline{W}{x} $は$ x $と$ t $の関数だから、$ t $で微分したときに、$ x $を介した時間変化分と、
+直接的な変化分とがある。
+　まぁ、それは$ \pdifline{W}{x} $を関数$ A(x,t) $とでも置いてやれば、
+$ \dif{A}{t} = \pdif{A}{x} \dif{x}{t} + \pdif{A}{t} $だから、この$ A $を元に戻してやって、
+次のように計算してやればいいのだ。
+
+<tex>
+(続き) \ &=\ \pddif{W}{x} \dot{x} \ +\ \frac{\partial^2 W}{\partial x \, \partial t} \ -\ \left( \pddif{W}{x} \dif{x}{t} + \frac{\partial^2 W}{\partial x \, \partial t} \right) \\
+</tex>
+
+　こうして、全てが打ち消し合って、めでたく 0 になる。
+
+<P>
+
+　以上でこの記事の目的は果たせた。
+
+
