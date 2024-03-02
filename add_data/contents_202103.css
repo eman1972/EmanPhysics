@@ -1,0 +1,263 @@
+body{
+  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  font-size: 17px;
+  line-height: 1.6;
+  color: #111111;
+  background: #fcffff;
+  margin: 0;
+  width: 100%;
+  border-left-style: solid;
+  border-left-color: #d0ffff;
+  border-left-width: 40px;
+  box-sizing: border-box;
+}
+
+hr{
+  width: 95%;
+  margin: 10px auto;
+  height: 5px;
+  border-width: 4px 0 0 0; /* 太さ */
+  border-style: solid; /* 種類 */
+  border-color: silver; /* 色 */
+}
+
+.top_ad {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.header {
+  position: relative;
+  height: 270px;
+  width: 100%;
+}
+
+.descript {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.main_contents {
+  position: relative;
+  width: 100%;
+  padding: 30px 0 30px 60px;
+  line-height: 27px;
+  box-sizing: border-box;
+}
+
+.foot_ad {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.footer {
+  position: relative;
+  height: 60px;
+}
+
+.share_buttons {
+  position: absolute;
+  right: 60px;
+  top: 45px;
+  text-align: right;
+}
+
+.share_buttons img:hover {
+  opacity: 80%;
+}
+
+.share_buttons_mobile {
+  display: none;
+}
+
+.breadcrumb {
+  position: absolute;
+  top: 15px;
+  left: 30px;
+}
+
+.top_logo {
+  position: absolute;
+  top: 95px;
+  left: 60px;
+  width: 80px;
+  z-index: 99;
+}
+
+.top_logo:hover {
+  opacity: 80%;
+}
+
+.catch_copy {
+  position: absolute;
+  top: 185px;
+  left: 55px;
+  font-size: 15px;
+}
+
+.title_container {
+  position: absolute;
+  width: 100%;
+  top: 95px;
+  padding-left: 200px;
+  padding-right: 5%;
+  box-sizing: border-box;
+}
+
+.titleimg {
+  width: 100%;
+  max-width: 450px;
+}
+
+.short_comment {
+  position: absolute;
+  top: 220px;
+  width: 100%;
+  font-size: 15px;
+  text-align: center;
+}
+
+.lists {
+  margin-top: 0px;
+  margin-left: 80px;
+  margin-bottom: 20px;
+}
+
+.copyright {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 650px) { /* 遷移領域 */
+
+  .share_buttons {
+    display: none;
+  }
+
+  .share_buttons_mobile img:hover {
+    opacity: 80%;
+  }
+
+  .share_buttons_mobile {
+    display: inherit;
+    position: absolute;
+    right: 60px;
+    top: 45px;
+  }
+
+  .share_buttons_mobile img {
+    width: 35px;
+    margin: 0 0 0 15px;
+  }
+
+  .top_logo {
+    top: 105px;
+    left: 30px;
+    width: 60px;
+  }
+
+  .catch_copy {
+    top: 165px;
+    left: 25px;
+    font-size: 13px;
+  }
+
+  .title_container {
+    top: 108px;
+    padding-left: 130px;
+    padding-right: 5%;
+  }
+
+}
+
+@media screen and (max-width: 480px) { /* スマホ画面 */
+
+  body {
+    font-size: 15px;
+    border-left-width: 10px;
+  }
+
+  .header {
+    height: 280px;
+  }
+
+  .breadcrumb {
+    top: 10px;
+  }
+
+  .share_buttons_mobile {
+    right: 20px;
+    top: 50px;
+  }
+
+  .share_buttons_mobile img {
+    width: 25px;
+    margin: 0 0 0 15px;
+  }
+
+  .top_logo {
+    top: 45px;
+    left: 15px;
+    width: 40px;
+  }
+
+  .catch_copy {
+    top: 87px;
+    left: 10px;
+    font-size: 9px;
+  }
+
+  .title_container {
+    top: 120px;
+    padding-left: 30px;
+    padding-right: 20px;
+  }
+
+  .short_comment {
+    top: 220px;
+    font-size: 13px;
+  }
+
+  .main_contents {
+    line-height: 27px;
+    padding-left: 30px;
+  }
+
+  .lists {
+    font-size: 18px;
+    line-height: 3;
+    margin-left: 30px;
+  }
+
+  .copyright {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 350px) { /* 小さいスマホ画面 */
+
+  .short_comment {
+    top: 190px;
+    font-size: 11px;
+  }
+
+  .header {
+    height: 230px;
+  }
+
+}
+
+@media screen and (min-width: 900px) { /* どでか画面 */
+
+  .title_container {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+    text-align: center;
+  }
+}
+
