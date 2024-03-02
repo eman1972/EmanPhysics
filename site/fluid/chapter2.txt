@@ -1,0 +1,18 @@
+\field{流体力学}
+\title{第 2 部 <br>完全流体（非圧縮性）}
+\comment{　}
+\prev{equations}
+\next{perfect_fluid}
+\create{2020/9/30}
+\modify{}
+
+
+\section{}
+<center>
+第 1 部で基礎方程式を揃えることができましたので<br>
+ここからはその応用、具体例の話になります。<br><br>
+まずは一番簡単そうな、<br>
+粘性のない場合、かつ、密度が一定の場合を<br>
+考えていきます。
+</center>
+

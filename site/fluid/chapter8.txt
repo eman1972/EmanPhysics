@@ -1,0 +1,18 @@
+\field{流体力学}
+\title{第 8 部　雑談など}
+\comment{　}
+\prev{bernoulli_principle}
+\next{submarine_dome}
+\create{2020/9/30}
+\modify{}
+
+
+\section{}
+
+<center>
+読者（著者自身を含む）からの質問をきっかけに考えた話などを記事にします。<br><br>
+わざわざ読まなくても<br>
+本編を理解するのに差し支えないだろう、というのが、<br>
+こちらに分類される基準です。
+</center>
+

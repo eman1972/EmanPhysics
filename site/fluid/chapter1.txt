@@ -1,0 +1,16 @@
+\field{流体力学}
+\title{第 1 部　基礎的な話}
+\comment{　}
+\prev{plane_can_fly}
+\next{classify}
+\create{2020/4/30}
+\modify{}
+
+
+\section{}
+<center>
+流体力学全体に関わる基礎的な説明や<br>
+分類に困るような話、<br>
+比較的単純に理解できそうな話をここで説明します。
+</center>
+

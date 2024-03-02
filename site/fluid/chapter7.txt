@@ -1,0 +1,18 @@
+\field{流体力学}
+\title{第 7 部　気象}
+\comment{　}
+\prev{chapter2}
+\next{chapter8}
+\create{2020/6/19}
+\modify{2020/10/6}
+
+
+\section{}
+
+<center>
+気象の研究は地球人にとって重要な意味を持つ分野です。<br><br>
+流体力学の応用ですが<br>
+比べ物にならないくらい複雑さが増えて<br>
+全く別の学問という雰囲気になっています。
+</center>
+
