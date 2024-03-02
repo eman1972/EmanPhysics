@@ -1,0 +1,965 @@
+\field{素粒子論}
+\title{ディラック場の量子化}
+\comment{スピノルをどう扱うかが問題。}
+\prev{em_expand}
+\next{dirac_expand2}
+\create{2012/5/7}
+\modify{}
+
+\section{波数ごとに分解する}
+
+
+　いよいよディラック場を量子化する。
+　クライン・ゴルドン場や電磁場についてやったのと同じことをやればいいだけだ。
+　しかしディラック場はスピノル場だから、これまでと違った要素が出てくる。
+　そこは慎重に行こう。
+
+<P>
+
+　ディラック方程式は次のようなものだった。
+
+<tex>
+\left[ i\hbar c \left( \pdif{}{w} + \alpha_x \pdif{}{x} + \alpha_y \pdif{}{y} + \alpha_z \pdif{}{z} \right) - \beta mc^2 \right] \psi \ =\ 0 
+</tex>
+
+　ここで、$ \alpha_i $や$ \beta $は 4 行 4 列の行列であり、$ \psi $でさえ 4 成分を持つスピノル量である。
+　スピノルは通常の座標の回転に対しても複素数の範囲で変化するのであり、
+本質的に複素数であることが避けられないのだった。
+　（今回はそういうことにしておこう。　後の別の記事でそれをひっくり返す予定だ。）
+
+<P>
+
+　この 4 成分は粒子の 4 つの状態を表すものだとして解釈できる。
+　エネルギーが正の粒子のスピン上下の 2 状態と、エネルギーが負の粒子のスピン上下の 2 状態の、計 4 つである。
+　しかし 4 つの成分のうちのどの成分がこの状態のうちのどれを表しているとは言えなくて、成分の組み合わせによって意味が決まるのだった。
+　しかも粒子の運動量によってその組み合わせ方が変わるのであった。
+
+<P>
+
+　運動量の違いによって組み合わせ方が変わるのは面倒だけれど、それが運動量だけによって決まってくれるのは有難い。
+　我々はこれからディラック方程式の解である波動関数を運動量ごとに分解しようとしているのであるからそれほど複雑にならずに済みそうだ。
+　4 成分の中身が具体的にどうなっているかは後で復習するとして、
+とりあえずは次のような簡単な表し方を採用しよう。
+
+<blockquote>
+正エネルギー粒子のスピン上向き　　　　　$ u\sub{1}(\Vec{k}) $<br>
+正エネルギー粒子のスピン下向き　　　　　$ u\sub{2}(\Vec{k}) $<br>
+負エネルギー粒子のスピン上向き　　　　　$ v\sub{1}(\Vec{k}) $<br>
+負エネルギー粒子のスピン下向き　　　　　$ v\sub{2}(\Vec{k}) $<br>
+</blockquote>
+
+　これらはどれも、4 成分の縦行列だと考えて欲しい。
+　これらを使って$ \psi $を運動量ごとに分解して次のように表そう。
+
+<tex>
+\hat{\psi} \ &=\ \int \sum_{\alpha=1,2} \left( \hat{c}_{\Vec{\scriptstyle k} \alpha}\, u_{\alpha}(\Vec{k}) \, e^{-ikx} \ +\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha}\, v_{\alpha}(\Vec{k}) \, e^{ikx} \right) \diff \Vec{k} \tag{1}
+</tex>
+
+　もう慣れただろうからというので、これまでは丁寧にやっていたことを色々と端折ってしまっているが、大丈夫だろう。
+　$ \hat{c}_{\Vec{\scriptstyle k} \alpha} $、$ \hat{c}^\dagger_{\Vec{\scriptstyle k} \alpha} $は「運動量$ \Vec{k} $、スピン状態$ \alpha $の粒子」の消滅、生成を表しており、
+$ \hat{d}_\alpha(\Vec{k}) $、$ \hat{d}^\dagger_\alpha(\Vec{k}) $は「運動量$ \Vec{k} $、スピン状態$ \alpha $の\red{反粒子}」の消滅、生成を表している。
+　これまでと違うアルファベットを使っているのには理由がある。
+　早々とタネを明かしてしまえば、これらはこれまでの生成・消滅演算子とは少し性質が異なるのである。
+　フェルミオン用の生成・消滅演算子の規則が適用されることになる。
+　その話は後からしよう。
+
+<P>
+
+　そういえば！
+　うっかりしていた。
+　最初の頃は運動量が離散的な場合と連続的な場合とで$ \hat{a}_{\Vec{\scriptstyle k}} $という表記と
+$ \hat{a}(\Vec{k}) $という表記を使い分けていたが、いつの間にか曖昧になってしまっている。
+　今回も本来は$ \hat{c}_\alpha(\Vec{k}) $と書くべきところだが、
+そうすると場所を食って見辛くなってしまうのでやはり$ \hat{c}_{\Vec{\scriptstyle k} \alpha} $と表しておこう。
+　細かいことはあまり気にしないで柔軟な対応をお願いしたい。
+
+
+% =======================================================================
+
+\section{ヘリシティ}
+
+　先ほどからスピン上向きとか下向きとかいう表現を使っているが、今回の話の中での表現としてはあまり良くない。
+　どちらが上でどちらが下であるかは見方によってどうとでも決められてしまうものだからだ。
+　そこで「粒子の進行方向で測ったスピン成分」という考え方を採用しよう。
+　これを「\red{ヘリシティ}」と呼ぶ。
+　このように方向を決めて測ってみても、やはりスピンの成分は +1/2 か -1/2 かのどちらかでしかない。
+　スピン 1/2 の粒子の場合、ヘリシティは +1/2 か -1/2 かのどちらかだということだ。
+
+<P>
+
+　例えば、ヘリシティが + 1/2 だということは、
+進行方向について測ったスピンが + 1/2 だということだから、回転軸が進行方向を向いている。
+　つまり右回りしながら進んでいるというイメージだ。
+　逆に - 1/2 ならばスピン角運動量のベクトルが進行方向とは逆を向いているわけだから、
+左回りしながら進んでいるというイメージになる。
+　単なるイメージに過ぎないが、螺旋を描いて進んでいるわけである。
+　ヘリシティという用語は、ギリシャ語で「螺旋形」を意味する「helix」から来ている。
+
+\note{　和英辞書で「螺旋」を調べると spiral というのが普通だが、科学用語としては helical という形容詞もよく使われているようだ。
+ヘリコプターの語源も helico-（螺旋）+ pteron（翼）であり、同じところから来てるのだなぁ。}
+
+　ヘリシティという考え方を採用するのには理論的な理由がちゃんとある。
+　ある方向を勝手に定めてスピンを測ったもの、たとえば$ z $方向のスピンというようなものは、
+ハミルトニアンと交換しないので確定値を持たないのである。
+　しかしスピンをいつも粒子の進行方向に対して測ることにすると、これはハミルトニアンと交換するようになる。
+　それで粒子を分類するのに都合が良いのである。
+　これは今回の話を理解する上ではあまり関係ないことなので、機会があればちゃんと数式で説明することにしよう。
+
+<P>
+
+　ヘリシティは残念ながらローレンツ変換に対しては不変な量ではない。
+　例えば、ある人からは「遠ざかる右巻きの粒子」に見えていたとしても、
+同じ粒子を追い越しながら観測する人にとってはその粒子はこちらに向かってくるのであり、「左巻きの粒子」に見える。
+　そういうこともあるからだ。
+
+<P>
+
+　ヘリシティに似た概念として「\red{カイラリティ}」というものがある。
+　カイラル (chiral) というのはギリシャ語で「手」を意味する言葉 cheir が起源である。
+　波動関数を右手系と左手系に分解して、そのどちらであるかを分類するための概念である。
+　こちらはローレンツ変換に対して不変な量になっているが、
+ここで軽く説明できるものでもないので、必要になった時に詳しく説明しよう。
+
+
+
+% =======================================================================
+
+\section{スピノルの中身}
+
+　さて、これからいつものようにハミルトニアンの形を求める作業に移りたいのだが、
+$ u\sub{\alpha}(\Vec{k}) $や$ v\sub{\alpha}(\Vec{k}) $どうしの積を計算する必要が出てくるのがすでに目に見えている。
+　そのために 4 成分のスピノルについて復習しておこう。
+
+<P>
+
+　量子力学のページの中にある「<a href="../quantum/4-spinor.html">4 成分の意味</a>」という記事から要点を抜き出して書くので、
+引っかかることがあったらそちらを参考にしてみてほしい。
+
+<P>
+
+　ディラック方程式の解というのは 4 成分であり、運動量ごとに分解すると
+
+<tex>
+\psi\ &=\ \sum_{\Vec{\scriptstyle k}} w(\Vec{k}) \ \exp ( i \Vec{k} \cdot \Vec{x} - i\omega t) \tag{2}
+</tex>
+
+のようにして表せるのだが、このときの$ w(\Vec{k}) $は 4 成分の縦ベクトルである。
+　これを 2 成分ずつに分解して
+
+<tex>
+w \ =\ \left( \begin{array}{c} \kappa \\[4pt] \chi \end{array} \right)
+</tex>
+
+と表すことにすれば、
+
+<tex>
+\kappa \ &=\ \frac{ c\ \Vec{\sigma} \cdot \Vec{p} }{ E - mc^2}\, \chi \\[4pt]
+\chi   \ &=\ \frac{ c\ \Vec{\sigma} \cdot \Vec{p} }{ E + mc^2}\, \kappa 
+</tex>
+
+という関係が成り立っているので、
+
+<tex>
+w \ =\ \left(\begin{array}{c} \kappa \\[4pt] \frac{ c\ \Vec{\sigma} \cdot \Vec{p} }{ E + mc^2}  \kappa \end{array} \right) \tag{3}
+</tex>
+
+または、
+
+<tex>
+w \ =\ \left(\begin{array}{c} \frac{ c\ \Vec{\sigma} \cdot \Vec{p} }{ E - mc^2} \chi \\[4pt] \chi \end{array} \right) \tag{4}
+</tex>
+
+という形に表せることになる。
+　形の似ている記号を使っているので分かりにくいかもしれないが、
+ギリシャ文字の$ \kappa $と波数$ \Vec{k} $は全く別の記号だと区別してほしいし、
+$ w(\Vec{k}) $というのは粒子の振動数$ \omega(\Vec{k}) $とは別のものである。
+　$ w $（ダブリュー）と$ \omega $（オメガ）の文字フォントの違いが微妙すぎて分かりにくいかもしれない。
+
+<P>
+
+　また、ここで使っている$ E $や$ \Vec{p} $は個々の粒子のエネルギーや運動量を表しているので
+
+<tex>
+\Vec{p} = \hbar \Vec{k} \ \ ,\ \ \ E(\Vec{p}) = \hbar \omega(\Vec{k})
+</tex>
+
+という関係が成り立っている。
+　素粒子論の教科書では$ \hbar = 1 $とするような単位系を使っているので
+$ E $と$ \omega $、$ \Vec{p} $と$ \Vec{k} $を区別することはないが、
+ここではまだしばらくの間は別々の記号を使うことにしよう。
+
+<P>
+
+　正エネルギーの粒子を表す時には (3) 式を、負エネルギーの粒子を表すときには (4) 式を使うと分かりやすいのだった。
+　$ \kappa $や$ \chi $は 2 成分のスピノルを表していることになる。
+　そのあたりは「<a href="../quantum/4-spinor2.html">4 成分の意味（続き）</a>」という記事でもう少し詳しく説明しておいた。
+
+<P>
+
+　計算を簡単にするために、今しばらくの間、粒子は$ z $方向に進んでいることにしておこう。
+　そうすれば具体的な表示がグンと楽になる。
+　例えば$ \sigma \cdot \Vec{p} $というのは
+
+<tex>
+\sigma \cdot \Vec{p} \ =\ \sigma_z p_z 
+\ =\ \left( \begin{array}{cc}
+  1 & 0  \\[4pt]
+  0 & -1 
+\end{array}
+\right) p_z
+\ =\ \left( \begin{array}{cc}
+  p_z & 0  \\[4pt]
+  0 & -p_z 
+\end{array}
+\right)
+</tex>
+
+というのを考えればいいだけだ。
+　さらに、ヘリシティが正というのは$ z $方向のスピンを考えればいいので$ \kappa $や$ \chi $が
+
+<tex>
+\left( \begin{array}{c}
+  1 \\[4pt]
+  0 
+\end{array} \right)
+</tex>
+
+の状態だということにしておけるし、ヘリシティが負の状態というのは$ \kappa $や$ \chi $が
+
+<tex>
+\left( \begin{array}{c}
+  0 \\[4pt]
+  1 
+\end{array} \right)
+</tex>
+
+だとすることで表せる。
+
+<P>
+
+　この状況では例えば「正エネルギー粒子のヘリシティ正」$ u\sub{1}(\Vec{k}) $は次のように書ける。
+
+<tex>
+u\sub{1}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  1 \\[4pt]
+  0 \\[4pt]
+\frac{c}{ E + mc^2}
+\left( \begin{array}{cc}
+  p_z & 0  \\[4pt]
+  0 & -p_z 
+\end{array}
+\right)
+\left( \begin{array}{c}
+  1 \\[4pt]
+  0 
+\end{array} \right)
+\end{array} \right)
+\ =\ 
+\left( \begin{array}{c}
+  1 \\[4pt]
+  0 \\[4pt]
+\frac{c}{ E + mc^2}\ p_z \\[4pt]
+0
+\end{array} \right)
+</tex>
+
+　他もこれと同様にして作れるだろう。
+
+<tex>
+u\sub{2}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+-\frac{c}{ E + mc^2}\ p_z 
+\end{array} \right)
+\ \ \ \ \ \ 
+v\sub{1}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+\frac{c}{ E - mc^2}\ p_z \\[4pt]
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+\end{array} \right)
+\ \ \ \ \ \ 
+v\sub{2}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  0 \\[4pt]
+-\frac{c}{ E - mc^2}\ p_z \\[4pt]
+  0 \\[4pt]
+  1 
+\end{array} \right)
+</tex>
+
+　さて、これらを使って色んな組み合わせの積を作ってみようと思うのだが、\red{このままでは問題がある}。
+　エネルギーの値に正負の違いがあるにもかかわらず、どちらも$ E $という記号で表してしまっているからだ。
+　それぞれで値が異なるものを同じ記号を使って表しておきながら、それらの積を作ったのではおかしな結果になってしまう。
+　そこで、今後は負エネルギーの方を$ -E<0 $として表し、記号$ E $自体は必ず正の値だと考えることにしよう。
+　なぜ$ E $と$ E' $のように区別しないかというと、
+今は運動量ごとに分解することを考えていて、同じ運動量の状態どうしで積を作ることしか考えてないからだ。
+　同じ運動量ではエネルギーの絶対値は同じなので、余計な記号を増やさない方がいい。
+
+<P>
+
+　というわけで、$ v\sub{1}(\Vec{k}) $と$ v\sub{2}(\Vec{k}) $については$ E $となっているところを$ -E $に置き換えよう。
+　分かりにくいかも知れないので、もういちど全部書き並べよう。
+
+<tex>
+&u\sub{1}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  1 \\[4pt]
+  0 \\[4pt]
+\ \ \frac{c}{ E + mc^2}\ p_z \\[4pt]
+0
+\end{array} \right)
+\ \ ,\ \ 
+u\sub{2}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+-\frac{c}{ E + mc^2}\ p_z 
+\end{array} \right)
+\ \ ,\\[4pt]
+&v\sub{1}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+-\frac{c}{ E + mc^2}\ p_z \\[4pt]
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+\end{array} \right)
+\ \ ,\ \ 
+v\sub{2}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  0 \\[4pt]
+\ \ \frac{c}{ E + mc^2}\ p_z \\[4pt]
+  0 \\[4pt]
+  1 
+\end{array} \right)
+</tex>
+
+　分数で表されていたところの分母の形が統一されて、非常に見通しが良くなった！
+
+<P>
+
+　\red{ところがここまでの話にはまだ問題がある！}
+
+<P>
+
+　量子力学のところで説明したときには (2) 式を使って考えていたのだが、
+今は (1) 式に表されているように「正エネルギー解」と「負エネルギー解」を別々の項に分けている。
+　負エネルギー解の係数$ v_\alpha(\Vec{k}) $というのは (2) 式を使うのではなく、
+(1) 式の第 2 項にある形と同じ次のような式に当てはめてディラック方程式を満たすように考え直さないといけなかったのだ。
+
+<tex>
+\psi\ &=\ v_\alpha(\Vec{k}) \ \exp ( -i \Vec{k} \cdot \Vec{x} + i\omega t) \\[4pt]
+&=\ v_\alpha(\Vec{p}) \ \exp ( -\frac{i}{\hbar} \Vec{p} \cdot \Vec{x} + \frac{i}{\hbar}Et) \tag{5}
+</tex>
+
+　面倒な計算をやり直す必要はない。
+　(2) 式との違いは$ E $と$ \Vec{p} $の符号がどちらも反転していることだけである。
+　それは結果にまでそのまま引き継がれるので、(4) 式の$ E $と$ \Vec{p} $の符号をひっくり返すだけでいい。
+　この (5) 式では$ E>0 $を前提としているので、さっきのようにもう一度$ E $の符号を変える必要はない。
+　最初から (5) 式を使っていればさっきのエネルギーの符号の話は不要だったのだ。
+
+\note{なぜそうしないかと言えば、量子力学のところでやった説明との整合性を確認しておきたかったからだ。}
+
+　$ E $の符号の反転はさっきやってあるから、
+結局、さっきまとめたものの内、$ v\sub{1}(\Vec{k}) $と$ v\sub{2}(\Vec{k}) $の中の
+$ \Vec{p} $の符号だけを反転させてやればいいことになる。
+　もう一度まとめて書いておこう。
+
+<tex>
+&u\sub{1}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  1 \\[4pt]
+  0 \\[4pt]
+\frac{c}{ E + mc^2}\ p_z \\[4pt]
+0
+\end{array} \right)
+\ \ ,\ \ 
+u\sub{2}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+-\frac{c}{ E + mc^2}\ p_z 
+\end{array} \right)
+\ \ ,\\[4pt]
+&v\sub{1}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+\frac{c}{ E + mc^2}\ p_z \\[4pt]
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+\end{array} \right)
+\ \ ,\ \ 
+v\sub{2}(\Vec{k}) \ =\ 
+\left( \begin{array}{c}
+  0 \\[4pt]
+-\frac{c}{ E + mc^2}\ p_z \\[4pt]
+  0 \\[4pt]
+  1 
+\end{array} \right)
+</tex>
+
+　これでいい。
+　\red{今度こそ間違いない。}
+　先へ進もう。
+
+<P>
+
+　一方のエルミート共役を作ってやれば 4 成分の横ベクトルとして扱えるので、行列の積として計算できる。
+　例えばこうだ。
+
+<tex>
+u\sub{1}^{\dagger}(\Vec{k}) \, u\sub{1}(\Vec{k}) \ &=\ 
+1^2 + 0^2 + \frac{c^2 {p_z}^2}{(E + mc^2)^2} + 0^2 \\
+&=\ 1 + \frac{E^2 - m^2c^4}{ (E + mc^2)^2} \\
+&=\ 1 + \frac{E - mc^2}{E + mc^2} \\
+&=\ \frac{E + mc^2 + E - mc^2}{E + mc^2} \\
+&=\ \frac{2E}{E + mc^2}
+</tex>
+
+
+　$ u\sub{2}^{\dagger}(\Vec{k}) \, u\sub{2}(\Vec{k}) $なども同じ内容の計算であり、結果は同じである。
+　これらは同じ状態どうし、つまり自分自身との積を試してみたのだった。
+　他にも色々な組み合わせが考えられるが、
+わざわざやってみせるほどのものでもない。
+　ヘリシティが異なるものどうしで積を作った結果がどれも 0 になるのは暗算で確かめられるほどだ。
+　まとめると、こんな感じになる。
+
+<tex>
+u_i^{\dagger}(\Vec{k}) \, u_j(\Vec{k}) \ =\ v_i^{\dagger}(\Vec{k}) \, v_j(\Vec{k}) \ =\  \frac{2E}{E+mc^2} \, \delta_{ij} \\
+</tex>
+
+　その他には、ヘリシティが同じであるような、正エネルギーと負エネルギーの状態を組み合わせることが考えられる。
+　これは 0 にはならないが、運動量の符号が正反対の場合に限っては 0 になる。
+
+<tex>
+u_i^{\dagger}(\Vec{k}) \, v_j(-\Vec{k}) \ =\ 0 \\
+v_i^{\dagger}(\Vec{k}) \, u_j(-\Vec{k}) \ =\ 0
+</tex>
+
+　これだけ求めておけば、今回の計算では問題ない。
+
+
+% =======================================================================
+
+\section{少しの疑念}
+
+　ここでは$ z $方向に進む粒子のヘリシティが正の場合と負の場合のスピンをそれぞれ
+$ \left( \begin{array}{c} 1 \\[4pt] 0 \end{array} \right) $と
+$ \left( \begin{array}{c} 0 \\[4pt] 1 \end{array} \right) $であるとした。
+　ある教科書ではそのようになっているものもあるのだが、別の教科書では少しだけ違っている。
+
+<P>
+
+　正エネルギーの粒子の場合にはこれと同じなのだが、
+負エネルギーの粒子の場合にはそれぞれ
+$ \left( \begin{array}{c} 0 \\[4pt] 1 \end{array} \right) $と
+$ \left( \!\! \begin{array}{r} -1 \\[4pt] 0 \end{array} \!\! \right) $を使っているのである。
+
+<P>
+
+　このようにしなければならない理由が今のところ見出せないのだが、
+おそらくは荷電共役という話と関係してくるのではないかと思われる。
+　前者の二つのスピンベクトルにそれぞれ$ -i\,\sigma_y $を作用させると
+後者の二つのスピンベクトルが導かれるという関係になっているようだ。
+　その話は後からするつもりなので、そこで真偽を確かめることにしよう。
+
+<P>
+
+　どちらを使ったとしても今のところ結果に違いはないが、
+今回の話は少しだけ間違っているかも知れないと覚えておいて欲しい。
+
+% =======================================================================
+
+\section{他の方向でも問題ないのか}
+
+　上では簡単に計算することを優先して、運動量$ \Vec{p} $が$ z $方向を向いていると仮定したのだった。
+　しかし他の方向を向いて進む粒子であっても同様の関係がちゃんと成り立っていると言えるのだろうか。
+　気になるのでそれも試しておこう。
+
+<P>
+
+　正エネルギー解は次のように表されるのであった。
+
+<tex>
+u \ =\ \left(
+\begin{array}{c}
+\kappa \\[4pt]
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} \kappa
+\end{array}
+\right)
+</tex>
+
+　これは (3) 式をそのまま持ってきたものである。
+　$ \kappa $は 2 成分のスピンであるから、これは全体としては 4 成分のスピノルなのである。
+
+<P>
+
+　そして負エネルギー解は次のように表されるのであった。
+
+<tex>
+v \ =\ \left(
+\begin{array}{c}
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} \chi \\[4pt]
+\chi 
+\end{array}
+\right)
+</tex>
+
+　これは (4) 式の$ E $を$ -E $に、$ \Vec{p} $を$ -\Vec{p} $に置き換えたものである。
+　そのようにする理由はすでに説明した。
+
+<P>
+
+　さて、ここで$ \kappa $や$ \chi $というのはスピンを表しているわけだが、
+スピン上向きを$ \left( \begin{array}{c} 1 \\ 0 \end{array} \right) $などと表してしまったら元も子もない。
+　今は特定の方向にとらわれない形での関係を求めようとしているのだから、
+スピンの成分も具体的な形を使うわけには行かない。
+
+<P>
+
+　そこでヘリシティが正の場合の 2 成分スピノルを$ s\sub{1} $で表し、
+負の場合を$ s\sub{2} $で表すことにしよう。
+　これらには次のような関係が成り立っている。
+
+<tex>
+s\sub{i}^{\dagger} \, s\sub{j} \ =\  \delta_{ij} 
+</tex>
+
+　難しい話ではない。
+　これら正と負の状態は互いに直交していて、それぞれの大きさを 1 に規格化してあるというだけのことだ。
+
+<P>
+
+　これらを使って 4 つのスピノルを次のように表すことにしよう。
+
+<tex>
+u\sub{1} \ =\ \left(
+\begin{array}{c}
+s\sub{1} \\[4pt]
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{1}
+\end{array}
+\right)
+</tex>
+
+<tex>
+u\sub{2} \ =\ \left(
+\begin{array}{c}
+s\sub{2} \\[4pt]
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{2}
+\end{array}
+\right)
+</tex>
+
+<tex>
+v\sub{1} \ =\ \left(
+\begin{array}{c}
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{1} \\[4pt]
+s\sub{1} 
+\end{array}
+\right)
+</tex>
+
+<tex>
+v\sub{2} \ =\ \left(
+\begin{array}{c}
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{2} \\[4pt]
+s\sub{2} 
+\end{array}
+\right)
+</tex>
+
+　これでどう計算するかというと、例えばこんな感じだ。
+
+<tex>
+u\sub{1}^{\dagger} u\sub{1} 
+\ &=\ s\sub{1}^{\dagger}s\sub{1} \ +\ \left( {\textstyle \frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{1} } \right)^{\dagger} \, \left( {\textstyle \frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{1} } \right) \\
+\ &=\ 1 \ +\ {\textstyle \frac{c^2}{(E+mc^2)^2} \ s\sub{1}^{\dagger}\, (\Vec{\sigma} \cdot \Vec{p})^{\dagger} (\Vec{\sigma} \cdot \Vec{p}) s\sub{1} } \\
+\ &=\ 1 \ +\ {\textstyle \frac{c^2}{(E+mc^2)^2} \ s\sub{1}^{\dagger}\, (\Vec{\sigma} \cdot \Vec{p})^2 s\sub{1} } \\
+\ &=\ 1 \ +\ {\textstyle \frac{c^2}{(E+mc^2)^2} \ s\sub{1}^{\dagger}\, \Vec{p}^2 s\sub{1} } \\
+\ &=\ 1 \ +\ {\textstyle \frac{\Vec{p}^2 c^2}{(E+mc^2)^2} \ s\sub{1}^{\dagger} s\sub{1} } \\
+\ &=\ 1 \ +\ {\textstyle \frac{\Vec{p}^2 c^2}{(E+mc^2)^2} }\\
+\ &=\ 1 \ +\ {\textstyle \frac{E^2 - (mc^2)^2}{(E+mc^2)^2} } \\
+\ &=\ 1 \ +\ {\textstyle \frac{E - mc^2}{E+mc^2} } \\
+\ &=\ {\textstyle \frac{2E}{E+mc^2} } \\
+</tex>
+
+　先ほどと同じ結果が出た。
+
+<P>
+
+　今の計算で幾つか分かりにくいかも知れない部分を説明しておこう。
+　$ \Vec{\sigma} \cdot \Vec{p} $というのは、内積のような記号で書かれているが、その定義は、
+
+<tex>
+\Vec{\sigma} \cdot \Vec{p} \ \equiv \ \sigma_x \, p_x \ +\ \sigma_y \, p_y \ +\ \sigma_z \, p_z
+</tex>
+
+であって、相変わらず 2 行 2 列の行列である。
+　スピン行列はどれもエルミート行列であるから$ \sigma = \sigma^{\dagger} $であって、
+$ (\Vec{\sigma} \cdot \Vec{p})^{\dagger} $も$ (\Vec{\sigma} \cdot \Vec{p}) $として良いのである。
+　また、
+
+<tex>
+( \Vec{\sigma} \cdot \Vec{p} )^2 \ &=\ \Vec{p}^2\, \Vec{1}
+</tex>
+
+となることは「<a href="../quantum/4-spinor.html">4 成分の意味</a>」という記事の中で計算している。
+　この右辺は 2 行 2 列の単位行列に$ \Vec{p}^2 $を掛けたものだという意味である。
+
+<P>
+
+　こんな調子でやれば、他の組み合わせについても先ほどと同じように導かれるのである。
+　これで今回の計算についての心配は何一つなくなったはずだ。
+
+% =======================================================================
+
+\section{ハミルトニアン}
+
+　ではこれまでもやってきたように、ハミルトニアンを計算してみよう。
+　ラグランジアン密度は次のようだった。
+
+<tex>
+\mathcal{L} \ =\ i \hbar\, c\, \bar{\psi}\, \gamma^\mu \, \partial_\mu \psi \ -\ m c^2 \bar{\psi} \psi 
+</tex>
+
+　ここから運動量密度を計算してやる。
+
+<tex>
+\pi \ &=\ \vardif{\mathcal{L}}{\pdif{\psi}{t}} \ =\ \pdif{\mathcal{L}}{\pdif{\psi}{t}} \\
+&=\ i \hbar \, c \, \bar{\psi} \, \gamma\sup{0} \frac{1}{c} \ =\ i \hbar \, \bar{\psi} \, \gamma\sup{0} \\
+&=\ i \hbar \, \psi^{\dagger} \, \gamma\sup{0} \, \gamma\sup{0} \\[5pt]
+&=\ i \hbar \, \psi^{\dagger}
+</tex>
+
+　これを使ってハミルトニアン密度を計算する。
+
+<tex>
+\mathcal{H} \ &=\ \pi \pdif{\psi}{t} \ -\ \mathcal{L} \\
+&=\ i \hbar \, \psi^{\dagger} \pdif{\psi}{t} \ -\ \left(\ i \hbar\, c\, \bar{\psi}\, \gamma^\mu \, \partial_\mu \psi \ -\ m c^2 \bar{\psi} \psi \right) \\
+&=\ i \hbar \, \psi^{\dagger} \pdif{\psi}{t} \ -\ \bar{\psi}\, \left(\ i \hbar\, c\, \gamma^\mu \, \partial_\mu \psi \ -\ m c^2 \psi \right) \\
+&=\ i \hbar \, \psi^{\dagger} \pdif{\psi}{t} 
+</tex>
+
+　いきなり計算が済んでしまったのは、
+ディラック方程式がガンマ行列を使って次のように表せることを使ったからである。
+
+<tex>
+i \hbar\, c\, \gamma^\mu \, \partial_{\mu} \psi \ -\ m c^2 \psi \ =\ 0 
+</tex>
+
+　さて、ハミルトニアン密度を積分することでハミルトニアンとなるのだった。
+　$ \psi $のところに (1) 式の$ \hat{\psi} $を代入することで、ハミルトニアンも演算子となる。
+　あらかじめ言っておくが、スピノルどうしは行列のようなものなので積の順序を替えてはいけないし、
+生成消滅演算子どうしも演算子なので積の順序を替えてはいけない。
+　しかしスピノルと演算子の順序を替えることは問題ない。
+
+<tex>
+\hat{H} \ &=\ \int \hat{\mathcal{H}} \diff \Vec{x} \\[4pt]
+&=\ i \hbar \int \hat{\psi}^{\dagger} \pdif{\hat{\psi}}{t} \diff \Vec{x} \\[4pt]
+&=\ i \hbar \int \left( \int \sum_{\alpha=1,2} \left( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, u^{\dagger}_{\alpha}(\Vec{k}) \, e^{ikx} \ +\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, v^{\dagger}_{\alpha}(\Vec{k}) \, e^{-ikx} \right) \diff \Vec{k} \right) \\
+&\ \ \ \ \ \ \ \ \pdif{}{t} \left( \int \sum_{\alpha=1,2} \left( \hat{c}_{\Vec{\scriptstyle k}' \alpha} \, u_{\alpha}(\Vec{k}') \, e^{-ik'x} \ +\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha} \, v_{\alpha}(\Vec{k}') \, e^{ik'x} \right) \diff \Vec{k}' \right) \diff \Vec{x} \\[4pt]
+&=\ i \hbar \int \Bigg( \int \sum_{\alpha=1,2} \left( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, u^{\dagger}_{\alpha}(\Vec{k}) \, e^{ikx} \ +\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, v^{\dagger}_{\alpha}(\Vec{k}) \, e^{-ikx} \right) \diff \Vec{k} \Bigg) \\
+&\ \ \ \ \ \ \ \ \Bigg( \int \sum_{\alpha'=1,2} \left( -i \omega' \hat{c}_{\Vec{\scriptstyle k}' \alpha'} \, u_{\alpha'}(\Vec{k}') \, e^{-ik'x} \ +\ i \omega' \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \, v_{\alpha'}(\Vec{k}') \, e^{ik'x} \right) \diff \Vec{k}' \Bigg) \diff \Vec{x} \\[6pt]
+&=\ \hbar \int \bigg( \dint \sum_{\alpha,\alpha'} \omega' \left( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, u^{\dagger}_{\alpha}(\Vec{k}) \, e^{ikx} \ +\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, v^{\dagger}_{\alpha}(\Vec{k}) \, e^{-ikx} \right) \\[-6pt]
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\left( \hat{c}_{\Vec{\scriptstyle k}' \alpha'} \, u_{\alpha'}(\Vec{k}') \, e^{-ik'x} \ -\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \, v_{\alpha'}(\Vec{k}') \, e^{ik'x} \right) \diff \Vec{k} \diff \Vec{k}' \bigg) \diff \Vec{x} \\[6pt]
+</tex>
+<tex>
+&=\ \hbar \int \bigg( \dint \sum_{\alpha,\alpha'} \omega' 
+\left( 
+\hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k}' \alpha'} \, 
+u^{\dagger}_{\alpha}(\Vec{k}) \, u_{\alpha'}(\Vec{k}') \, e^{i(k-k')x} 
+\ -\ \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \,
+u^{\dagger}_{\alpha}(\Vec{k}) \, v_{\alpha'}(\Vec{k}') \, e^{i(k+k')x} \right. \\[-7pt]
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\left. \ +\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k}' \alpha'} \,
+v^{\dagger}_{\alpha}(\Vec{k}) \, u_{\alpha'}(\Vec{k}') \, e^{-i(k+k')x} 
+\ -\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \,
+v^{\dagger}_{\alpha}(\Vec{k}) \, v_{\alpha'}(\Vec{k}') \, e^{-i(k-k')x}
+\right)
+\diff \Vec{k} \diff \Vec{k}' \bigg) \diff \Vec{x} \\[4pt]
+&=\ (2\pi)^3 \hbar \dint \sum_{\alpha,\alpha'} \omega' 
+\Big( \ \ \ \ 
+\hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k}' \alpha'} \, 
+u^{\dagger}_{\alpha}(\Vec{k}) \, u_{\alpha'}(\Vec{k}') \, e^{i(\omega-\omega')t} \, \delta(\Vec{k}-\Vec{k}') \\[-8pt]
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\ -\ \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \,
+u^{\dagger}_{\alpha}(\Vec{k}) \, v_{\alpha'}(\Vec{k}') \, e^{i(\omega+\omega')t} \, \delta(\Vec{k}+\Vec{k}') \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\ +\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k}' \alpha'} \,
+v^{\dagger}_{\alpha}(\Vec{k}) \, u_{\alpha'}(\Vec{k}') \, e^{-i(\omega+\omega')t} \, \delta(\Vec{k}+\Vec{k}') \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\ -\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \,
+v^{\dagger}_{\alpha}(\Vec{k}) \, v_{\alpha'}(\Vec{k}') \, e^{-i(\omega-\omega')t} \, \delta(\Vec{k}-\Vec{k}') \ \ 
+\Big)
+\diff \Vec{k} \diff \Vec{k}' \\[4pt]
+&=\ (2\pi)^3 \hbar \int \sum_{\alpha,\alpha'} \omega 
+\Big( \ \ \ \ 
+\hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha'} \, 
+u^{\dagger}_{\alpha}(\Vec{k}) \, u_{\alpha'}(\Vec{k}) \\[-8pt]
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\ -\ \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{-\Vec{\scriptstyle k} \alpha'} \,
+u^{\dagger}_{\alpha}(\Vec{k}) \, v_{\alpha'}(-\Vec{k}) \, e^{2i\omega t} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\ +\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{-\Vec{\scriptstyle k} \alpha'} \,
+v^{\dagger}_{\alpha}(\Vec{k}) \, u_{\alpha'}(-\Vec{k}) \, e^{-2i\omega t} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\ -\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha'} \,
+v^{\dagger}_{\alpha}(\Vec{k}) \, v_{\alpha'}(\Vec{k}) \ \ 
+\Big)
+\diff \Vec{k} \\[4pt]
+&=\ (2\pi)^3 \hbar \int \sum_{\alpha,\alpha'} \omega 
+\Big( \ \ \ \ 
+\hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha'} \, 
+u^{\dagger}_{\alpha}(\Vec{k}) \, u_{\alpha'}(\Vec{k}) 
+\ -\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha'} \,
+v^{\dagger}_{\alpha}(\Vec{k}) \, v_{\alpha'}(\Vec{k}) \ \ 
+\Big)
+\diff \Vec{k} \\[4pt]
+&=\ (2\pi)^3 \hbar \int \frac{2E}{E+mc^2} \sum_{\alpha} \omega 
+\Big( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha} \, 
+\ -\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \Big)
+\diff \Vec{k} 
+</tex>
+
+
+　さあ、この結果をどう判断したらいいものやら。
+　$ \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha} $が粒子の個数密度を表していて、
+$ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}_{\Vec{\scriptstyle k} \alpha} $が反粒子の個数密度を表しているのだから、
+本当は次のようになっていて欲しかった。
+
+<tex>
+\hat{H} \ &=\ \int \sum_{\alpha} \hbar \omega 
+\left( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha} \, 
+\ +\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}_{\Vec{\scriptstyle k} \alpha} \right)
+\diff \Vec{k} \tag{6}
+</tex>
+
+　近い形にはなっているのだが、色々と違っている。
+　係数の違いを解消するだけなら簡単だ。
+　(1) 式にあらかじめ係数を付け足して、次のように定義しておけばいい。
+
+<tex>
+\hat{\psi} \ &=\ \int \sqrt{\frac{E+mc^2}{2E(2\pi)^3}} \sum_{\alpha=1,2} \left( \hat{c}_{\Vec{\scriptstyle k} \alpha}\, u_{\alpha}(\Vec{k}) \, e^{-ikx} \ +\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha}\, v_{\alpha}(\Vec{k}) \, e^{ikx} \right) \diff \Vec{k} \tag{7}
+</tex>
+
+　しかしこの式を使ったとしてもその結果は
+
+<tex>
+\hat{H} \ &=\ \int \sum_{\alpha} \hbar \omega 
+\left( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha} 
+\ -\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \right)
+\diff \Vec{k} \tag{8}
+</tex>
+
+のようになるのであり、(6) 式と比べるとまだ少し違っている。
+　違っているのはカッコ内の第 2 項だ。
+　符号が違っているし、演算子の順序も逆になっている。
+
+<P>
+
+　これまで使っていた生成消滅演算子の交換関係を使った場合、
+順序を変えても符号までは変わらないのでこの違いを解消することはできない。
+　そこで、次のような「<a href="../quantum/anticommute.html">フェルミオンの交換関係</a>」のルールを採用するのである。
+
+<tex>
+\{ \hat{d}_{\Vec{\scriptstyle k} \alpha} \ ,\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ \delta(\Vec{k}-\Vec{k}') \, \delta_{\alpha, \alpha'} \\
+\{ \hat{d}_{\Vec{\scriptstyle k} \alpha} \ ,\ \hat{d}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ 0 \\
+\{ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \ ,\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ 0
+</tex>
+
+　ここで使っている$ \{ A, B \} $というのは「\red{反交換関係}」と呼ばれており、
+次のような計算をするという意味である。
+
+<tex>
+\{ A, B \} \ \equiv\ AB + BA
+</tex>
+
+　これを使えば (8) 式は次のように変形できる。
+
+<tex>
+\hat{H} \ &=\ \int \sum_{\alpha} \hbar \omega 
+\left( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha} 
+\ -\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \right)
+\diff \Vec{k} \\
+&=\ \int \sum_{\alpha} \hbar \omega 
+\left( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha} 
+\ +\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}_{\Vec{\scriptstyle k} \alpha} \ -\ \delta(0) \right)
+\diff \Vec{k}
+</tex>
+
+　$ -\delta(0) $がついて積分が負の無限大になってしまうが、毎度のごとく、
+これを省いたものをハミルトニアンとして再定義してやればいいのである。
+
+<P>
+
+　こうしてディラック場が表す粒子はフェルミオンであると考えると都合がいいことが分かった。
+　いや、そう考えないことにはうまく行かないのである。
+
+% =======================================================================
+
+\section{ディラック共役の都合に合わせて係数を変更}
+
+　これで終わることができれば話は楽だったのだが、ディラック場にはもう少しややこしい事情が存在している。
+　ディラック場は「ディラック共役」というものを使うことですっきりまとめられるということを
+<a href="./dirac_eq.html">第 2 部で説明した</a>ことがある。
+　それで、先ほどの説明ではスピノルどうしの積の関係をエルミート共役を作って求めたのであるが、
+ディラック共役を使った形でも表現しておきたいのである。
+
+　スピノルのディラック共役はガンマ行列$ \gamma\sup{0} $を使って次のように定義されるのだった。
+
+<tex>
+\bar{u}_{\alpha}(\Vec{k}) \ &\equiv \ u^{\dagger}_{\alpha}(\Vec{k}) \, \gamma\sup{0} \\
+\bar{v}_{\alpha}(\Vec{k}) \ &\equiv \ v^{\dagger}_{\alpha}(\Vec{k}) \, \gamma\sup{0}
+</tex>
+
+　具体的には次のようになる。
+
+<tex>
+\bar{u}\sub{1}(\Vec{k}) \ =\ u^{\dagger}\sub{1}(\Vec{k})\,\gamma\sup{0} \ &=\ 
+\left( 1 \ ,\ 0 \ ,\ \frac{cp_z}{E+mc^2} \ ,\ 0 \right)
+\left( \begin{array}{cccc}
+  1 &  0 &  0 &  0 \\
+  0 &  1 &  0 &  0 \\
+  0 &  0 &  \!\!-1 &  0 \\
+  0 &  0 &  0 &  \!\!-1 \\
+ \end{array} \right) \\
+&=\ \left( 1 \ ,\ 0 \ ,\ -\frac{cp_z}{E+mc^2} \ ,\ 0 \right)
+</tex>
+
+　他も同じようなものである。
+
+<tex>
+\bar{u}\sub{2}(\Vec{k}) \ &=\ u^{\dagger}\sub{2}(\Vec{k})\,\gamma\sup{0} \ =\ \left( 0 \ ,\ 1 \ ,\ 0 \ ,\ \frac{cp_z}{E+mc^2} \right) \\[4pt]
+\bar{v}\sub{1}(\Vec{k}) \ &=\ v^{\dagger}\sub{1}(\Vec{k})\,\gamma\sup{0} \ =\ \left( \frac{cp_z}{E+mc^2} \ ,\ 0 \ ,\ -1 \ ,\ 0 \right) \\
+\bar{v}\sub{2}(\Vec{k}) \ &=\ v^{\dagger}\sub{2}(\Vec{k})\,\gamma\sup{0} \ =\ \left( 0 \ ,\ -\frac{cp_z}{E+mc^2} \ ,\ 0 \ ,\ -1 \right)
+</tex>
+
+　これらを使って組み合わせを計算すると、
+
+<tex>
+\bar{u}\sub{1}(\Vec{k}) \, u\sub{1}(\Vec{k}) \ &=\ 1 - \frac{c^2 {p_z}^2}{(E+mc^2)^2} \\
+&=\ 1 - \frac{E^2-m^2 c^4}{(E+mc^2)^2} \\
+&=\ 1 - \frac{E-m c^2}{E+mc^2} \\
+&=\ \frac{E+mc^2 - (E-m c^2)}{E+mc^2} \\
+&=\ \frac{2mc^2}{E+mc^2} 
+</tex>
+
+などのようになり、先ほど計算した$ u^{\dagger}\sub{1}(\Vec{k}) \, u\sub{1}(\Vec{k}) $とは違った結果が出てくる。
+　全てをまとめて書くと次のような感じだ。
+
+<tex>
+&\bar{u}_i(\Vec{k}) \, u_j(\Vec{k}) \ =\ \ \ \frac{2mc^2}{E+mc^2} \, \delta_{ij} \\
+&\bar{v}_i(\Vec{k}) \, v_j(\Vec{k}) \ =\ -\frac{2mc^2}{E+mc^2} \, \delta_{ij} \\[4pt]
+&\bar{u}_i(\Vec{k}) \, v_j(-\Vec{k}) \ =\ 0 \\
+&\bar{v}_i(\Vec{k}) \, u_j(-\Vec{k}) \ =\ 0
+</tex>
+
+　これはあまり嬉しくない結果なのだ。
+　というのも、ディラック共役を採用する理由は「なるべく式を簡単にする」というものだった。
+　それなのに、このごちゃごちゃした感じと言ったら・・・。
+　本当は次のようになってくれるのが理想である。
+
+<tex>
+&\bar{u}_i(\Vec{k}) \, u_j(\Vec{k}) \ =\ \ \ \delta_{ij} \\
+&\bar{v}_i(\Vec{k}) \, v_j(\Vec{k}) \ =\ -\delta_{ij} \\[4pt]
+&\bar{u}_i(\Vec{k}) \, v_j(-\Vec{k}) \ =\ 0 \\
+&\bar{v}_i(\Vec{k}) \, u_j(-\Vec{k}) \ =\ 0
+</tex>
+
+　よし、こうなったら、そうなるように$ {u}_{\alpha}(\Vec{k}) $や$ {v}_{\alpha}(\Vec{k}) $の定義を変えてしまおう！
+　スピノルにあらかじめ$ \sqrt{\frac{E+mc^2}{2mc^2}} $を掛けておけばいいじゃないか。
+
+<P>
+
+　え、本気かよ！？
+　そんなことしたら、他の部分にも影響出てきちゃうぜ？
+　ここまでに説明した内容が台無しじゃないか！
+
+% =======================================================================
+
+\section{係数の変更}
+
+　どうやら本気でそうするらしい。
+　というわけで、ここまでの説明で使った具体的な計算は忘れて欲しい。
+　変更した結果を以下に全てまとめて書いておくことにしよう。
+
+<P>
+
+　まず、進行方向を$ z $方向に取った場合のスピノルの具体的な形は次のようになる。
+
+<tex>
+&u\sub{1}(\Vec{k}) \ =\ 
+\sqrt{\frac{E+mc^2}{2mc^2}}
+\left( \begin{array}{c}
+  1 \\[4pt]
+  0 \\[4pt]
+\frac{c}{ E + mc^2}\ p_z \\[4pt]
+0
+\end{array} \right)
+\ \ ,\ \ 
+u\sub{2}(\Vec{k}) \ =\ 
+\sqrt{\frac{E+mc^2}{2mc^2}}
+\left( \begin{array}{c}
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+-\frac{c}{ E + mc^2}\ p_z 
+\end{array} \right)
+\ \ ,\\[4pt]
+&v\sub{1}(\Vec{k}) \ =\ 
+\sqrt{\frac{E+mc^2}{2mc^2}}
+\left( \begin{array}{c}
+\frac{c}{ E + mc^2}\ p_z \\[4pt]
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+\end{array} \right)
+\ \ ,\ \ 
+v\sub{2}(\Vec{k}) \ =\ 
+\sqrt{\frac{E+mc^2}{2mc^2}}
+\left( \begin{array}{c}
+  0 \\[4pt]
+-\frac{c}{ E + mc^2}\ p_z \\[4pt]
+  0 \\[4pt]
+  1 
+\end{array} \right)
+</tex>
+
+　これを使った結果は次のようになる。
+
+<tex>
+u_i^{\dagger}(\Vec{k}) \, u_j(\Vec{k}) \ =\ v_i^{\dagger}(\Vec{k}) \, v_j(\Vec{k}) \ =\  \frac{E}{mc^2} \, \delta_{ij} \\
+</tex>
+
+　他は先ほどと変わらないので省略。
+　これらを使って計算するとハミルトニアンは、
+
+<tex>
+\hat{H} \ =\ (2\pi)^3 \hbar \int \frac{E}{mc^2} \sum_{\alpha} \omega 
+\Big( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{c}_{\Vec{\scriptstyle k} \alpha} \, 
+\ -\ \hat{d}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \Big)
+\diff \Vec{k} 
+</tex>
+
+のように導かれてくるから、
+実は (1) 式も (7) 式も正しくなくて、本当は係数を次のように調整しておかないといけないことになる。
+
+<tex>
+\hat{\psi} \ &=\ \int \sqrt{\frac{mc^2}{(2\pi)^3 E}} \sum_{\alpha=1,2} \left( \hat{c}_{\Vec{\scriptstyle k} \alpha}\, u_{\alpha}(\Vec{k}) \, e^{-ikx} \ +\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha}\, v_{\alpha}(\Vec{k}) \, e^{ikx} \right) \diff \Vec{k}
+</tex>
+
+　まぁ、全ての教科書がこのような係数の取り方を採用しているわけではないので色々と細かい違いはあるだろうが、
+だいたいこんな感じの事情になっているのである。
+
+<P>
+
+　スピノルの係数をディラック共役に合わせて規格化することでどんな利点を享受できるのかは、
+しばらく後で分かるだろう。
+

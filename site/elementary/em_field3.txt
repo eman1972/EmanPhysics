@@ -1,0 +1,334 @@
+\field{素粒子論}
+\title{電磁場のハミルトニアン}
+\comment{この辺りはホント抽象的な話だよねぇ。}
+\prev{em_field2}
+\next{kg_eq}
+\create{2010/8/31}
+\modify{}
+
+\section{さらに別の表現もある}
+
+　電磁場を表すラグランジアン密度が次のようにも表せるというところで
+前回の話が終わったのだった。
+
+<tex>
+\mathcal{L} \ =\ a \ f^{\mu\nu} f_{\mu\nu}
+</tex>
+
+　ここで、$ f^{\mu\nu} $というのは「電磁場の強さのテンソル」と呼ばれているもので、
+電磁場の各成分を行列の形に並べたものである。
+　これは相対論のページの「<a href="../relativity/em_tensor.html">電磁場のテンソル表現</a>」にて紹介済みである。
+
+<tex>
+f^{\mu \nu} \ =\ \left(
+\begin{array}{rrrr}
+0 \ \  & E_x/c & E_y/c & E_z/c \\[8pt]
+-E_x/c &   0 \ \    &   B_z  & -B_y   \\[8pt]
+-E_y/c & -B_z   &   0 \ \    &  B_x   \\[8pt]
+-E_z/c &  B_y   &  -B_x  & 0 \ \ 
+\end{array}
+\right) \tag{1}
+</tex>
+
+　せっかくこのような定義があるのだから、
+$ \mathcal{L} $を直接$ \Vec{E} $、$ \Vec{B} $などによって表現したらどんな形になるかも見ておこうではないか。
+　その為には$ f^{\mu\nu} $だけじゃなくて$ f_{\mu\nu} $の方も各成分がどんな行列として表されるのかを計算してみる必要がある。
+　それについても同じ記事中で説明したのだった。
+
+<tex>
+f_{\mu \nu} \ =\ \left(
+\begin{array}{rrrr}
+0 \ \  & -E_x/c & -E_y/c & -E_z/c \\[8pt]
+E_x/c &   0 \ \    &   B_z  & -B_y   \\[8pt]
+E_y/c & -B_z   &   0 \ \    &  B_x   \\[8pt]
+E_z/c &  B_y   &  -B_x  & 0 \ \ 
+\end{array}
+\right) \tag{2}
+</tex>
+
+　(1) 式と (2) 式の行列の同じ位置の成分どうしの積を取りながら合計してやればいいだけなので簡単である。
+
+<tex>
+\mathcal{L} \ &=\ a \ f^{\mu \nu} f_{\mu\nu} \\
+&= a \ \left[ -\frac{2}{c^2}({E_x}^2 + {E_y}^2 + {E_z}^2 ) + 2({B_x}^2 + {B_y}^2 + {B_z}^2 ) \right] \\
+&= 2a \ \left[ -\frac{1}{c^2}\Vec{E}^2 + \Vec{B}^2 \right] \\
+&= 2a \ \left[ -\varepsilon\sub{0} \mu\sub{0}\Vec{E}^2 + {\mu\sub{0}}^2 \Vec{H}^2 \right] \\
+&= 4a\, \mu\sub{0} \left[ -\frac{1}{2} \varepsilon\sub{0}\Vec{E}^2 + \frac{1}{2} \mu\sub{0}\Vec{H}^2 \right] \tag{3}
+</tex>
+
+　おお！
+　何という、シンプルで意味ありげな、それでいて良く分からない量だろうか！
+　もしもカッコ内の第 1 項の符号がプラスであったならば電磁場の全エネルギーを表している感じだが、ちょっと違う。
+　そもそもラグランジアン密度というものの物理的意味がはっきりしないのに、
+それが電場や磁場で表せたところで、あまり有り難みがない気もする。
+
+
+% =======================================================================
+
+\section{ハミルトニアン密度}
+
+　ここからハミルトニアン密度を求めることをしてやろう。
+　波動が$ A\sup{0} \sim A\sup{3} $の 4 成分のベクトルである時にはハミルトニアン密度の定義は次のようになる。
+
+<tex>
+\mathcal{H} \ =\ \sum_{i=0}^3 \left( \pi_i \pdif{A^i}{t} \right) \ -\ \mathcal{L} \tag{4}
+</tex>
+
+　ここに出てくる運動量密度$ \pi_i $の定義は
+
+<tex>
+\pi_i \ =\ \vardif{\mathcal{L}}{\left( \pdif{A^i}{t} \right)} \ =\ \pdif{\mathcal{L}}{\left( \pdif{A^i}{t} \right)}
+</tex>
+
+であったから、これに従って計算してみることにしよう。
+
+<P>
+
+　これを簡単に計算する方法はあるだろうか？
+　手持ちの教科書では式変形をしているふりをしているが、
+いきなり結果がイコールで結ばれてしまっている。
+　途中を飛ばしてしまっているのだ。
+　きっと真面目にやると面倒になるに違いない。
+
+<tex>
+\mathcal{L} \ &=\ a \ f^{\mu\nu} f_{\mu\nu} \\
+&=\ a \, \left( \partial^\mu A^\nu - \partial^\nu A^\mu \right) \left( \partial_\mu A_\nu - \partial_\nu A_\mu \right) \\
+&=\ a \, \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu - \partial^\nu A^\mu \partial_\mu A_\nu + \partial^\nu A^\mu \partial_\nu A_\mu \right) \\
+&=\ 2 a \ \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) 
+</tex>
+
+であるが、これを真面目に展開すると少々面倒なことになる。
+　自分だけのノートには書き下せる程度だが、人に分かり易く書き並べようとすると、
+逆にダラダラと見にくくなってしまう。
+　まぁ、仕方ないか。
+　紙の本じゃないのだからスペースを惜しまずやってみよう。
+
+<P>
+
+　まず第 1 項だけの展開だけで、次のようになる。
+
+<tex>
+\partial^\mu A^\nu \partial_\mu A_\nu \ &=\ \partial\sup{0} A^\nu \partial\sub{0} A_\nu \ +\ \partial\sup{1} A^\nu \partial\sub{1} A_\nu \ +\ \partial\sup{2} A^\nu \partial\sub{2} A_\nu \ +\ \partial\sup{3} A^\nu \partial\sub{3} A_\nu \\[4pt]
+&=\ \ \left( \partial\sup{0} A\sup{0} \partial\sub{0} A\sub{0} \ +\ \partial\sup{0} A\sup{1} \partial\sub{0} A\sub{1} \ +\ \partial\sup{0} A\sup{2} \partial\sub{0} A\sub{2} \ +\ \partial\sup{0} A\sup{3} \partial\sub{0} A\sub{3} \right) \\
+&\ +\ \left( \partial\sup{1} A\sup{0} \partial\sub{1} A\sub{0} \ +\ \partial\sup{1} A\sup{1} \partial\sub{1} A\sub{1} \ +\ \partial\sup{1} A\sup{2} \partial\sub{1} A\sub{2} \ +\ \partial\sup{1} A\sup{3} \partial\sub{1} A\sub{3} \right) \\
+&\ +\ \left( \partial\sup{2} A\sup{0} \partial\sub{2} A\sub{0} \ +\ \partial\sup{2} A\sup{1} \partial\sub{2} A\sub{1} \ +\ \partial\sup{2} A\sup{2} \partial\sub{2} A\sub{2} \ +\ \partial\sup{2} A\sup{3} \partial\sub{2} A\sub{3} \right) \\
+&\ +\ \left( \partial\sup{3} A\sup{0} \partial\sub{3} A\sub{0} \ +\ \partial\sup{3} A\sup{1} \partial\sub{3} A\sub{1} \ +\ \partial\sup{3} A\sup{2} \partial\sub{3} A\sub{2} \ +\ \partial\sup{3} A\sup{3} \partial\sub{3} A\sub{3} \right) \\[4pt]
+&=\ \ \frac{1}{c^2} \left( \pdif{(\phi/c)}{t} \right)^2 \ -\ \frac{1}{c^2} \left( \pdif{A_x}{t} \right)^2 \ -\ \frac{1}{c^2} \left( \pdif{A_y}{t} \right)^2 \ -\ \frac{1}{c^2} \left( \pdif{A_z}{t} \right)^2 \\
+&\ -\    \ \ \ \    \left( \pdif{(\phi/c)}{x} \right)^2 \ +\   \ \ \ \     \left( \pdif{A_x}{x} \right)^2 \ +\    \ \ \ \    \left( \pdif{A_y}{x} \right)^2 \ +\    \ \ \ \    \left( \pdif{A_z}{x} \right)^2 \\
+&\ -\    \ \ \ \    \left( \pdif{(\phi/c)}{y} \right)^2 \ +\   \ \ \ \     \left( \pdif{A_x}{y} \right)^2 \ +\    \ \ \ \    \left( \pdif{A_y}{y} \right)^2 \ +\    \ \ \ \    \left( \pdif{A_z}{y} \right)^2 \\
+&\ -\    \ \ \ \    \left( \pdif{(\phi/c)}{z} \right)^2 \ +\   \ \ \ \     \left( \pdif{A_x}{z} \right)^2 \ +\    \ \ \ \    \left( \pdif{A_y}{z} \right)^2 \ +\    \ \ \ \    \left( \pdif{A_z}{z} \right)^2
+</tex>
+
+　ここで、次のような置換えを使ったのである。
+<tex>
+\partial_i \ &=\ \left(\ \ \frac{1}{c}\pdif{}{t} \ ,\ \pdif{}{x} \ ,\ \pdif{}{y} \ ,\ \pdif{}{z} \right) \\
+\partial^i \ &=\ \left(  - \frac{1}{c}\pdif{}{t} \ ,\ \pdif{}{x} \ ,\ \pdif{}{y} \ ,\ \pdif{}{z} \right) \\
+A_i \ &=\ \left(   - \frac{\phi}{c} \ ,\ A_x \ ,\ A_y \ ,\ A_z \right) \\
+A^i \ &=\ \left( \ \ \frac{\phi}{c} \ ,\ A_x \ ,\ A_y \ ,\ A_z \right)
+</tex>
+
+
+　第 2 項の展開は次のようになる。
+
+<tex>
+\partial^\mu A^\nu \partial_\nu A_\mu \ &=\ \partial\sup{0} A^\nu \partial_\nu A\sub{0} \ +\ \partial\sup{1} A^\nu \partial_\nu A\sub{1} \ +\ \partial\sup{2} A^\nu \partial_\nu A\sub{2} \ +\ \partial\sup{3} A^\nu \partial_\nu A\sub{3} \\[4pt]
+&=\   \left( \partial\sup{0} A\sup{0} \partial\sub{0} A\sub{0} \ +\ \partial\sup{0} A\sup{1} \partial\sub{1} A\sub{0} \ +\ \partial\sup{0} A\sup{2} \partial\sub{2} A\sub{0} \ +\ \partial\sup{0} A\sup{3} \partial\sub{3} A\sub{0} \right) \\
+&\ +\ \left( \partial\sup{1} A\sup{0} \partial\sub{0} A\sub{1} \ +\ \partial\sup{1} A\sup{1} \partial\sub{1} A\sub{1} \ +\ \partial\sup{1} A\sup{2} \partial\sub{2} A\sub{1} \ +\ \partial\sup{1} A\sup{3} \partial\sub{3} A\sub{1} \right) \\
+&\ +\ \left( \partial\sup{2} A\sup{0} \partial\sub{0} A\sub{2} \ +\ \partial\sup{2} A\sup{1} \partial\sub{1} A\sub{2} \ +\ \partial\sup{2} A\sup{2} \partial\sub{2} A\sub{2} \ +\ \partial\sup{2} A\sup{3} \partial\sub{3} A\sub{2} \right) \\
+&\ +\ \left( \partial\sup{3} A\sup{0} \partial\sub{0} A\sub{3} \ +\ \partial\sup{3} A\sup{1} \partial\sub{1} A\sub{3} \ +\ \partial\sup{3} A\sup{2} \partial\sub{2} A\sub{3} \ +\ \partial\sup{3} A\sup{3} \partial\sub{3} A\sub{3} \right) \\[4pt]
+&=\ \ \frac{1}{c^2} \left( \pdif{(\phi/c)}{t} \right)^2 \ +\ \frac{1}{c} \left( \pdif{A_x}{t} \right)\left( \pdif{(\phi/c)}{x} \right) \ +\ \frac{1}{c} \left( \pdif{A_y}{t} \right)\left( \pdif{(\phi/c)}{y} \right) \ +\ \frac{1}{c} \left( \pdif{A_z}{t} \right)\left( \pdif{(\phi/c)}{z} \right) \\
+&\ +\ \left( \pdif{(\phi/c)}{x} \right) \frac{1}{c} \left( \pdif{A_x}{t} \right) \ +\ \left( \pdif{A_x}{x} \right)^2  \ \ \ \ \ \ \ \ \ \ \, +\ \left( \pdif{A_y}{x} \right)\left( \pdif{A_x}{y} \right) \ +\ \left( \pdif{A_z}{x} \right) \left( \pdif{A_x}{z} \right) \\
+&\ +\ \left( \pdif{(\phi/c)}{y} \right) \frac{1}{c} \left( \pdif{A_y}{t} \right) \ +\ \left( \pdif{A_x}{y} \right)\left( \pdif{A_y}{x} \right)  \ +\ \left( \pdif{A_y}{y} \right)^2 \ \ \ \ \ \ \ \ \ \ \, +\ \left( \pdif{A_z}{y} \right) \left( \pdif{A_y}{z} \right) \\
+&\ +\ \left( \pdif{(\phi/c)}{z} \right) \frac{1}{c} \left( \pdif{A_z}{t} \right) \ +\ \left( \pdif{A_x}{z} \right) \left( \pdif{A_z}{x} \right) \ +\ \left( \pdif{A_y}{z} \right) \left( \pdif{A_z}{y} \right) \ +\ \left( \pdif{A_z}{z} \right)^2
+</tex>
+
+
+　今の計算で欲しいのは (3) 式を見て分かるように$ \partial t $を含む項だけである。
+　他の項はこの偏微分で消えてしまうだろう。
+　だから関係のある項だけ抜き出して書く事にしよう。
+　第 1 項と第 2 項とで打ち消し合う項もあるな・・・。
+　よく見ると第 2 項の中だけでもまとめられる部分もあったじゃないか。
+
+<tex>
+\mathcal{L} \ &=\ 2a \left[ -\ \frac{1}{c^2} \left( \pdif{A_x}{t} \right)^2 \ -\ \frac{1}{c^2} \left( \pdif{A_y}{t} \right)^2 \ -\ \frac{1}{c^2} \left( \pdif{A_z}{t} \right)^2 \right. \\
+&\ \ \ \ \ \ \ \ \ \ \ \ -\ \left. \frac{2}{c} \left( \pdif{A_x}{t} \right)\left( \pdif{(\phi/c)}{x} \right) \ -\ \frac{2}{c} \left( \pdif{A_y}{t} \right)\left( \pdif{(\phi/c)}{y} \right) \ -\ \frac{2}{c} \left( \pdif{A_z}{t} \right)\left( \pdif{(\phi/c)}{z} \right) \ \ \right] \ +\ \cdots 
+</tex>
+
+　ここまでやってみた後で、<a href="./em_field4.html">もっと簡単に計算する方法</a>があるのに気付いた。
+　まぁ過ぎたことだ。
+　どっちにしても、上でやった計算の理屈が一度頭に入ってないと難しいかも知れないから、
+これはこのまま書き直さないでおこう。
+　とにかくこれを使って計算すると・・・。
+
+<tex>
+\pi\sub{0} \ &=\ \pdif{\mathcal{L}}{\left( \pdif{(\phi/c)}{t} \right)} \ =\ 0 \\
+\pi\sub{1} \ &=\ \pdif{\mathcal{L}}{\left( \pdif{A_x}{t} \right)} \ =\ - \frac{4a}{c^2} \pdif{A_x}{t} \ -\ \frac{4a}{c} \pdif{(\phi/c)}{x} \\
+\pi\sub{2} \ &=\ \pdif{\mathcal{L}}{\left( \pdif{A_y}{t} \right)} \ =\ - \frac{4a}{c^2} \pdif{A_y}{t} \ -\ \frac{4a}{c} \pdif{(\phi/c)}{y} \\
+\pi\sub{3} \ &=\ \pdif{\mathcal{L}}{\left( \pdif{A_z}{t} \right)} \ =\ - \frac{4a}{c^2} \pdif{A_z}{t} \ -\ \frac{4a}{c} \pdif{(\phi/c)}{z} 
+</tex>
+
+　もっと簡単にならないだろうか。
+　例えば$ \pi\sub{1} $について続きを計算してやると、
+
+<tex>
+\pi\sub{1} \ &=\ - \frac{4a}{c^2} \left( \pdif{A_x}{t} \ +\ \pdif{\phi}{x} \right) 
+</tex>
+
+となっているが、これはベクトルポテンシャルを導入した時の関係式に似ているような気がする。
+　こういうやつだ。
+
+<tex>
+\Vec{E} \ =\ - \Grad \phi \ -\ \pdif{\Vec{A}}{t}
+</tex>
+
+　これと比べると確かにそうだ。
+　係数部分は抜きにして、$ \pi\sub{1} $は電場$ \Vec{E} $の$ x $成分を表していることが分かる。
+　$ \pi\sub{2} $と$ \pi\sub{3} $も同様だ。
+
+<tex>
+\pi_i \ =\ \frac{4a}{c^2} E_i \ \ \ \ \ (i=1\sim3)
+</tex>
+
+　これを (4) 式に代入するとどうなるか？
+　(4) 式に出てくる$ \pdif{A^i}{t} $の部分も、電場を使った形に書き換えておく。
+
+<tex>
+\pdif{A^i}{t} \ =\ - E^i \ -\ \pdif{\phi}{x^i}
+</tex>
+
+　さらに(3) 式も当てはめるようにすれば、(4) 式は次のようになる。
+
+<tex>
+\mathcal{H} \ &=\ -\frac{4a}{c^2} \Vec{E}^2 \ -\ \sum_{i=1}^3 E_i \pdif{\phi}{x^i} \ -\ 4a\, \mu\sub{0} \left[ -\frac{1}{2} \varepsilon\sub{0}\Vec{E}^2 + \frac{1}{2} \mu\sub{0}\Vec{H}^2 \right] \\
+&=\ - 4a \mu\sub{0} \varepsilon\sub{0} \Vec{E}^2 \ -\ \Vec{E} \cdot \nabla \phi \ -\ 4a\, \mu\sub{0} \left[ -\frac{1}{2} \varepsilon\sub{0}\Vec{E}^2 + \frac{1}{2} \mu\sub{0}\Vec{H}^2 \right] \\
+&=\ -\ 4a\, \mu\sub{0} \left[ \frac{1}{2} \varepsilon\sub{0}\Vec{E}^2 + \frac{1}{2} \mu\sub{0}\Vec{H}^2 \right] \ -\ \Vec{E} \cdot \nabla \phi 
+</tex>
+
+　おお、心の中で期待した通り・・・。
+　カッコの中が、電磁気学で求めた電磁場のエネルギー密度と同じものになった！
+　それだけで済んでくれれば良かったのだが、余計な項も付いてきている。
+　そこは心配は要らない。
+　実はこの項は消えてくれるのだ。
+　次のような計算をしてやると分かるだろう。
+
+<tex>
+\Div ( \phi \Vec{E} ) \ &=\ \pdif{(\phi E_x)}{x} \ +\ \pdif{(\phi E_y)}{y} \ +\ \pdif{(\phi E_z)}{z} \\
+&=\ \left(\phi \pdif{E_x}{x} \ +\ E_x \pdif{\phi}{x} \right) \ + \left(\phi \pdif{E_y}{y} \ +\ E_y \pdif{\phi}{y} \right) \ +\ \left(\phi \pdif{E_z}{z} \ +\ E_z \pdif{\phi}{z} \right) \\
+&=\ \phi \left( \pdif{E_x}{x} \ +\ \pdif{E_y}{y} \ +\ \pdif{E_z}{z} \right) \ +\ E_x \pdif{\phi}{x} \ +\ E_y \pdif{\phi}{y} \ +\ E_z \pdif{\phi}{z} \\
+&=\ \phi \ \Div \Vec{E} \ +\ \Vec{E} \cdot \nabla \phi
+</tex>
+
+　ここから、余計な項が次のように変型できることがわかる。
+
+<tex>
+\Vec{E} \cdot \nabla \phi \ =\ \Div ( \phi \Vec{E} ) \ -\ \phi \ \Div \Vec{E}
+</tex>
+
+　今は電荷が存在しないと考えているので$ \Div \Vec{E} = 0 $であり、第 2 項は消える。
+　しかし第 1 項はこのままでは消えない。
+　どうしたものか。
+　今はハミルトニアン密度を計算しているのだった。
+　これを空間で積分してやることでようやくハミルトニアンになるのである。
+　その時この$ \Div $の部分はガウスの定理によって表面積分に直せるだろう。
+　積分範囲を無限に広げてやれば、無限遠での電場は 0 だと考えることで、この項の影響は消え失せるのである。
+
+<P>
+
+　ハミルトニアンは確かに、電磁場のエネルギーに比例する形になっている。
+
+% =======================================================================
+
+\section{ラグランジアン密度の係数}
+
+　本当はラグランジアンの係数というのは幾つだっていいのだ。
+　しかしハミルトニアンが系の全エネルギーを表すことになるようにあらかじめ係数を調整しておくと、
+足掛かりが出来たようで安心できる。
+　つまり、$ a = -1/(4\mu\sub{0}) $としておけばいいわけだ。
+　この形が気に入らなければ、次のように書いても同じことだ。
+
+<tex>
+a \ =\ - \frac{1}{4} c^2 \varepsilon\sub{0}
+</tex>
+
+<P>
+
+　これを使って改めて電磁場のラグランジアン密度を書いてみると、次のようになる。
+
+<tex>
+\mathcal{L} \ =\ -\frac{1}{4} c^2 \varepsilon\sub{0} \ f^{\mu\nu} f_{\mu\nu}
+</tex>
+
+　あるいは、次のような表現方法を取っても全く同じ意味である。
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{2} c^2 \varepsilon\sub{0} \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) \\
+\mathcal{L} \ &=\ \frac{1}{2} \varepsilon\sub{0}\Vec{E}^2 - \frac{1}{2} \mu\sub{0}\Vec{H}^2 
+</tex>
+
+　素粒子論の教科書では式が簡略化できるように$ c = 1, \varepsilon\sub{0} = 1 $であるような単位系を使うことが多いので、
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{4} \ f^{\mu\nu} f_{\mu\nu} \\
+\mathcal{L} \ &=\ -\frac{1}{2} \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) \\
+\mathcal{L} \ &=\ \frac{1}{2} (\Vec{E}^2 - \Vec{H}^2 )
+</tex>
+
+のように書かれているものも良く目にする。
+　まぁ、ラグランジアン密度の係数は理論上はそれほど重要ではないので、
+見慣れぬ形で書かれているものに出会ったとしてもそれほど神経質にならなくていいだろう。
+
+<P>
+
+　どれを使っても全く同じことなのだが、やっぱり$ f^{\mu\nu} $を使った形式のものが見た目が一番シンプルなので、
+一番よく使われているようだ。
+　この記事を書く前の私は$ f^{\mu\nu} $を使うことに違和感があって、
+「やっぱり$ A^\mu $を使った方が本式だろう」みたいな妙なこだわりを持っていたのである。
+　今では全く気にならなくなった。
+
+% =======================================================================
+
+\section{復習、まとめ}
+
+　ここまで 3 回にも渡って説明してきたことは、実に簡単にまとめられる。
+　電磁場の基礎方程式である「真空中のマクスウェル方程式」
+
+<tex>
+\square A^{\mu} - \partial^{\mu} ( \partial_{\nu} A^{\nu} ) \ =\ 0 \tag{5}
+</tex>
+
+を実現するようなラグランジアン密度$ \mathcal{L} $を求めるのが目的だった。
+
+<P>
+
+　ラグランジュ方程式というのは
+
+<tex>
+\pdif{}{t} \vardif{L}{ \big( \pdif{\psi}{t} \big) } - \vardif{L}{\psi} = 0
+</tex>
+
+というものだが、ラグランジアン密度を代入して具体的な計算をするためには
+次のような形に直しておいた方が使いやすい。
+
+<tex>
+\pdif{}{t} \pdif{\mathcal{L}}{(\pdif{\psi}{t})} + \pdif{}{x} \pdif{\mathcal{L}}{ \big(\pdif{\psi}{x} \big) } + \pdif{}{y} \pdif{\mathcal{L}}{ \big(\pdif{\psi}{y} \big) } + \pdif{}{z} \pdif{\mathcal{L}}{ \big(\pdif{\psi}{z} \big) } - \pdif{\mathcal{L}}{\psi} \ =\ 0
+</tex>
+
+　今回の場は$ \psi $ではなく$ A^i $であるから、さらにそのように置き換えて表現しておいた方がいいだろう。
+　その式を相対論的に表記すればもっとシンプルになる。
+
+<tex>
+\partial_\mu \pdif{\mathcal{L}}{(\partial_\mu A^i)} - \pdif{\mathcal{L}}{A^i} \ =\ 0 \tag{6}
+</tex>
+
+　考えるべきことは至極単純で、(6) 式にどんな$ \mathcal{L} $を代入すれば (5) 式になるかを考えるだけである。
+　ただし、$ \mathcal{L} $をただ一つに定めるためにはローレンツ変換に対して不変であることと、
+ゲージ変換に対しても不変であるという条件が要るのだった。
+
+<P>
+
+　結局、こうして定まった正しい$ \mathcal{L} $から (5) 式がちゃんと求められる事の確認はしなかったわけだが、
+そこは気になって仕方がないという読者にお任せしよう。
+　私の無駄に思えるほどの根性をお手本にして、計算を楽にするためのちょっとしたテクニックを工夫すれば、
+きっとそんなに難しくなくできるだろう。
+
+

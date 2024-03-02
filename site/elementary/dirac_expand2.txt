@@ -1,0 +1,458 @@
+\field{素粒子論}
+\title{ディラック場を導く原理}
+\comment{こんな節操がなさそうなのが原理でいいのかなぁ。}
+\prev{dirac_expand}
+\next{work_report}
+\create{2018/9/13 13:00}
+\modify{}
+
+\section{正準量子化をどんな形で書くべきか}
+
+
+　前回は、ディラック場を量子化したときに出てくる生成消滅演算子には
+フェルミオン用の「反交換関係」を適用しないとうまく行かないという話をしたのだった。
+
+<P>
+
+　ちょっとさかのぼって、クラインゴルドン場のことを思い出してみてほしい。
+　そこで使っている生成消滅演算子の交換関係というのは場の同時交換関係を原理にすれば自動的に導かれるとのことだった。
+　電磁場の場合にはそれほど綺麗には行かなかったので、ちょっと信頼が失せているかもしれないが、後で何とかすると予告しておいた。
+　さて、ではディラック場の場合にも同じような話が成り立っているのだろうか？
+
+<P>
+
+　とりあえず試してみよう。
+　次の関係を前提にしてみる。
+
+<tex>
+\left[ \hat{\psi}(\Vec{x},t) \ ,\ \hat{\pi}(\Vec{x}',t) \right] \ =\ i \hbar \, \delta(\Vec{x}-\Vec{x}') \tag{1}
+</tex>
+
+　ここで使っている$ \hat{\psi}(\Vec{x},t) $と$ \hat{\pi}(\Vec{x},t) $は次のようである。
+
+<tex>
+\hat{\psi}(\Vec{x},t) \ &=\ \int \sqrt{\frac{mc^2}{(2\pi)^3 \hbar \omega}} \sum_{\alpha=1,2} \left( \hat{c}_{\Vec{\scriptstyle k} \alpha}\, u_{\alpha}(\Vec{k}) \, e^{-ikx} \ +\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha}\, v_{\alpha}(\Vec{k}) \, e^{ikx} \right) \diff \Vec{k} \\
+\hat{\pi}(\Vec{x},t) \ &=\ i \hbar \, \hat{\psi}^{\dagger} \\
+&=\ i \hbar \int \sqrt{\frac{mc^2}{(2\pi)^3 \hbar \omega}} \sum_{\alpha=1,2} \left( \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha}\, u^{\dagger}_{\alpha}(\Vec{k}) \, e^{ikx} \ +\ \hat{d}_{\Vec{\scriptstyle k} \alpha}\, v^{\dagger}_{\alpha}(\Vec{k}) \, e^{-ikx} \right) \diff \Vec{k}
+</tex>
+
+　これらを使って (1) 式の左辺を計算してみよう。
+
+<P>
+
+　しかし実際にやろうとしてみればすぐに気付くことだが、\red{この計算は無理なのである}。
+　なぜなら、$ u_{\alpha}(\Vec{k}) \, u^{\dagger}_{\alpha'}(\Vec{k}') $のような計算が出てくるからだ。
+　これのどこが良くないのか？
+
+<P>
+
+　縦行列と横行列とで積を計算すると正方行列が出来上がってきてしまう。
+　前回はこれとは逆の$ u^{\dagger}_{\alpha}(\Vec{k}) \, u_{\alpha'}(\Vec{k}') $のような順序での計算ばかりだったから、
+結果は行列にはならずに済んでいた。
+　ところが (1) 式を計算しようとするとそのどちらの順序の計算も出てくるのである。
+　結局、(1) 式は、「行列」と「行列でないもの」の引き算をやれと指示していることになるわけで、式自体に不備があるわけだ。
+
+<P>
+
+　この問題を解決するために次のような形にしてみよう。
+
+<tex>
+\left[ \hat{\psi}^{(i)}(\Vec{x},t) \ ,\ \hat{\pi}^{(j)}(\Vec{x}',t) \right] \ =\ i \hbar \, \delta(\Vec{x}-\Vec{x}') \, \delta_{ij} \tag{2}
+</tex>
+
+　これは、スピノルの$ i $番目の成分と$ j $番目の成分だけを使って計算しようという意味である。
+　行列計算を避けたわけだ。
+　そして右辺にはクロネッカーのデルタ$ \delta_{ij} $が付いた形になっている。
+　なぜそのようなものが付くべきだと言えるのか？
+　それはやってみてのお楽しみだ。
+
+<P>
+
+　いやいや・・・。
+　時間と手間が惜しいので計算する前にさっさと結果を明かしてしまうことにしよう。
+　\red{実はこれでもまだうまく行かないのである。}
+　もし (2) 式を使って計算すると、$ \hat{c}_{\Vec{\scriptstyle k} \alpha} $や
+$ \hat{d}_{\Vec{\scriptstyle k} \alpha} $がフェルミオンの交換関係に従うのではなく、
+ボソンの交換関係に従うべきだという結論が導かれてきてしまうことになる。
+　それではダメだというのは前回の話で見た通りだ。
+　ではどうすれば良いかというと、(2) 式を少し変えて、次のような反交換関係を使うのである。
+
+<tex>
+\left\{ \hat{\psi}^{(i)}(\Vec{x},t) \ ,\ \hat{\pi}^{(j)}(\Vec{x}',t) \right\} \ =\ i \hbar \, \delta(\Vec{x}-\Vec{x}') \, \delta_{ij} \tag{3}
+</tex>
+
+　ご都合主義的に調整しているようで、形式に統一感がない。
+　こんなものを原理に据えるのは何だかやはり頼りない気がするな・・・。
+
+<P>
+
+　この (3) 式を確かめる計算を具体的にやってみれば、
+(2) 式を使った場合にはどうしてうまく行かないのかについても一目瞭然で分かるようになる。
+　今回はそこまでやって終わることにしよう。
+
+<P>
+
+　その計算の為に少しばかり準備しておいた方が良いことがある。
+
+% =======================================================================
+
+\section{準備}
+
+　前回は$ u^{\dagger}_{i}(\Vec{k}) \, u_{j}(\Vec{k}) $のような順序での計算結果がどうなるかを導いたが、
+逆の順序ではどうなるかを確かめておこう。
+　上では行列計算をしないと説明したのに、なぜこんなものが必要になるかは後で分かる。
+
+<P>
+
+　さて、前回の話をちゃんと最後まで読んだ人は分かるだろうが、$ u_{\alpha}(\Vec{k}) $や$ v_{\alpha}(\Vec{k}) $の定義は
+ディラック共役に合わせた規格化のために係数を付けることにしたのだった。
+　それで、次のように表される。
+　粒子の進行方向を$ z $方向に限らないようにスピン状態を$ s\sub{\alpha} $として計算しておこう。
+
+<tex>
+u\sub{\alpha}(\Vec{k}) \ =\ 
+\sqrt{\frac{E+mc^2}{2mc^2}}
+\left(
+\begin{array}{c}
+s\sub{\alpha} \\[4pt]
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{\alpha}
+\end{array}
+\right)
+</tex>
+
+<tex>
+v\sub{\alpha}(\Vec{k}) \ =\ 
+\sqrt{\frac{E+mc^2}{2mc^2}}
+\left(
+\begin{array}{c}
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{\alpha} \\[4pt]
+s\sub{\alpha} 
+\end{array}
+\right)
+</tex>
+
+　$ u_{\alpha}(\Vec{k}) $と書いておきながら中身は$ \Vec{k} $ではなくて$ \Vec{p} $の関数になっているのが
+前回から気になってはいるのだけれども、$ \Vec{p} = \hbar \Vec{k} $なので同じことだ。
+　もうしばらくの間、このような気持ち悪さに目をつぶっていて欲しい。
+　一通りの確認をして全体に納得したら、第 4 部くらいから$ c = \hbar = 1 $とする体系に切り替える予定でいる。
+
+<P>
+
+　さて、これらを組み合わせて計算しようとした時に、
+$ s_i \, s_j^{\dagger} $という計算が必要になるのが予想できる。
+　しかしスピンどうしにそんな関係があっただろうか。
+　よーく、思い出す必要がある。
+　実は次のような関係ならば成り立っていることが言えるのだ。
+
+<tex>
+\sum_{\alpha=1,2} s_\alpha s_{\alpha}^{\dagger} \ =\ \Vec{1} \tag{4}
+</tex>
+
+　この右辺は単位行列を意味している。
+　作用する相手を何も変化させない演算子、つまり恒等演算子である。
+　これは以前に<a href="../quantum/unitary.html">射影演算子を説明した時</a>に出てきたのと同じ形だ。
+　射影演算子を全ての状態について足し合わせると恒等演算子になる。
+　このことは、状態が完全系であるときには成り立っているのであった。
+　スピン状態は完全系であるからそれが言える。
+　完全系というのは、例えば$ z $方向のスピン上向きと下向きを組み合わせて線形和を作ることで、
+他のどんな方向のスピン状態でも作ることが出来るとか、そういう意味である。
+
+<P>
+
+　(4) 式の実例として最も単純なのは次のようなものだ
+
+<tex>
+| z\!\uparrow \rangle \langle z\!\uparrow | \ +\ | z\!\downarrow \rangle \langle z\!\downarrow |
+\ &=\ \left(\begin{array}{c}1 \\[4pt] 0 \end{array} \right)(1 \ 0 ) \ +\ \left(\begin{array}{c}0 \\[4pt] 1 \end{array} \right)(0 \ 1 ) \\
+\ &=\ \left(\begin{array}{cc}1 & 0 \\[4pt] 0 & 0 \end{array} \right) \ +\ \left(\begin{array}{cc}0 & 0 \\[4pt] 0 & 1 \end{array} \right) \\
+\ &=\ \left(\begin{array}{cc}1 & 0 \\[4pt] 0 & 1 \end{array} \right) 
+</tex>
+
+　確かに成り立っている！
+　これは別の方向について測ったスピン状態についても同じ事が言える。
+　ユニタリ変換というのは、状態どうしの間の規格直交関係を崩すことなく他の状態に変換する作用を持っていたから、
+別の状態$ |\uparrow\rangle $を$ |\uparrow\rangle = U |z\!\uparrow\rangle $のように変換の結果として表してやれる。
+　それを使えば次のように変形できて、あらゆるスピン状態に対して同じ結果が成り立っていることが納得できるだろう。
+
+<tex>
+|\uparrow \rangle \langle \uparrow | \ \ +\ \ |\downarrow \rangle \langle \downarrow | \ &=\ 
+U\,| z\!\uparrow \rangle \langle z\!\uparrow | \,U^{\dagger} \ +\ U\,| z\!\downarrow \rangle \langle z\!\downarrow |\,U^{\dagger} \\
+&=\ U\,\bigg( | z \uparrow \rangle \langle z \uparrow | \ +\ | z \uparrow \rangle \langle z \uparrow | \bigg) \,U^{\dagger} \\
+&=\ U\, \Vec{1} \,U^{\dagger} \\
+&=\ U\, U^{-1} \\
+&=\ \Vec{1}
+</tex>
+
+　とにかく、利用できる関係が (4) 式のようなものだとしたら、次のような和の記号が付いた形での関係を求めるしかない。
+
+<tex>
+\sum_{\alpha=1,2} u_{\alpha}(\Vec{k}) \, u^{\dagger}_{\alpha}(\Vec{k}) \ &=\ 
+\frac{E+mc^2}{2mc^2} \sum_{\alpha=1,2} 
+\left(
+\begin{array}{cc}
+s_{\alpha} s_{\alpha}^{\dagger} & \frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{\alpha} s_{\alpha}^{\dagger} \\[8pt]
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} s\sub{\alpha} s_{\alpha}^{\dagger} & \frac{c^2 \ ( \Vec{\sigma} \cdot \Vec{p} )^2}{(E+mc^2)^2} s\sub{\alpha} s_{\alpha}^{\dagger}
+\end{array}
+\right) \\[4pt]
+&=\ \frac{E+mc^2}{2mc^2} 
+\left(
+\begin{array}{cc}
+\Vec{1} & \frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} \\[8pt]
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} & \frac{c^2 \, \Vec{p}^2}{(E+mc^2)^2} 
+\end{array}
+\right) \\[4pt]
+&=\ \frac{E+mc^2}{2mc^2} 
+\left(
+\begin{array}{cc}
+\Vec{1} & \frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} \\[8pt]
+\frac{c\ \Vec{\sigma} \cdot \Vec{p}}{E+mc^2} & \frac{E^2 - m^2 c^4}{(E+mc^2)^2} 
+\end{array}
+\right) \\[4pt]
+&=\ \frac{1}{2mc^2} 
+\left(
+\begin{array}{cc}
+E+mc^2 & c\ \Vec{\sigma} \cdot \Vec{p} \\[8pt]
+c\ \Vec{\sigma} \cdot \Vec{p} & E - mc^2 
+\end{array}
+\right) \tag{5}
+</tex>
+
+　この結果は見た目は 2 行 2 列の行列だけれども、実は 4 行 4 列の行列であることを忘れてはいけない。
+　例えば左上の$ E+mc^2 $と書いた部分は 2 行 2 列の単位行列に$ E+mc^2 $を掛けたものだという意味である。
+
+<P>
+
+　これとほとんど同様の手続きで、次の関係も導かれる。
+
+<tex>
+\sum_{\alpha=1,2} v_{\alpha}(\Vec{k}) \, v^{\dagger}_{\alpha}(\Vec{k}) 
+\ =\ \frac{1}{2mc^2} 
+\left(
+\begin{array}{cc}
+E-mc^2 & c\ \Vec{\sigma} \cdot \Vec{p} \\[8pt]
+c\ \Vec{\sigma} \cdot \Vec{p} & E + mc^2 
+\end{array}
+\right) \tag{6}
+</tex>
+
+　この他にも色んな組み合わせが計算できるけれども、今回の計算で欲しいのはこれらだけである。
+　これくらいにしておこう。
+
+% =======================================================================
+
+\section{確認計算}
+
+　では先ほどの (3) 式の右辺を具体的に計算してみよう。
+
+<tex>
+\left\{ \hat{\psi}^{(i)}(\Vec{x},t) \ ,\ \hat{\pi}^{(j)}(\Vec{x}',t) \right\} \ \ \ \ \ \ \ \ \ \ \ \ \ \ & \\
+=\ i \frac{mc^2}{(2\pi)^3} \dint \sqrt{\frac{1}{\omega(\Vec{k}) \, \omega(\Vec{k}')}} \sum_{\alpha,\alpha'} 
+\Bigg( \ \ &\{ \hat{c}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{c}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \} \ u_{\alpha}^{(i)}(\Vec{k}) \, u^{\dagger(j)}_{\alpha'}(\Vec{k}') \ e^{-ikx+ik'x'} \\
+\ +\ &\{ \hat{c}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{d}_{\Vec{\scriptstyle k}' \alpha'} \} \ u_{\alpha}^{(i)}(\Vec{k}) \, v^{\dagger(j)}_{\alpha'}(\Vec{k}') \  e^{-ikx-ik'x'} \\[6pt]
+\ +\ &\{ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{c}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \} \ v_{\alpha}^{(i)}(\Vec{k}) \, u^{\dagger(j)}_{\alpha'}(\Vec{k}') \ e^{ikx+ik'x'} \\
+\ +\ &\{ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{d}_{\Vec{\scriptstyle k}' \alpha'} \} \ v_{\alpha}^{(i)}(\Vec{k}) \, v^{\dagger(j)}_{\alpha'}(\Vec{k}') \ e^{ikx-ik'x'} \ \ \Bigg) \diff \Vec{k} \diff \Vec{k}'
+</tex>
+
+　ここで生成消滅演算子どうしの組み合わせが反交換関係で表されているが、
+(2) 式を計算した場合にはここが反交換関係ではなく通常の交換関係で表されることになる。
+　(2) 式と (3) 式というのはそれだけの違いだ。
+
+<P>
+
+　今はこの反交換関係の部分がどうなるのかを調べようとしているのであるが、
+このまま残しておいても計算がやりにくい。
+　そこで、ずるをして結論を先に代入してしまうことにする。
+　1 行目と 4 行目の反交換関係についてはどちらも$ \delta(\Vec{k}-\Vec{k}') \ \delta_{\alpha \alpha'} $だとして、
+2 行目と 3 行目の反交換関係は 0 になるとする。
+　こうすることで (3) 式の右辺に無事にたどり着けることを確認することにしよう。
+
+<tex>
+=\ i \frac{mc^2}{(2\pi)^3} \dint \sqrt{\frac{1}{\omega(\Vec{k}) \, \omega(\Vec{k}')}} \sum_{\alpha,\alpha'} 
+\Bigg( \ \ & \delta(\Vec{k}-\Vec{k}') \ \delta_{\alpha \alpha'} \ u_{\alpha}^{(i)}(\Vec{k}) \, u^{\dagger(j)}_{\alpha'}(\Vec{k}') \ e^{-ikx+ik'x'} \\
+\ +\ & \delta(\Vec{k}-\Vec{k}') \ \delta_{\alpha \alpha'} \ v_{\alpha}^{(i)}(\Vec{k}) \, v^{\dagger(j)}_{\alpha'}(\Vec{k}') \ e^{ikx-ik'x'} \ \ \Bigg) \diff \Vec{k} \diff \Vec{k}'
+</tex>
+
+　デルタ関数$ \delta(\Vec{k}-\Vec{k}') $のお陰で二重積分の一方を消すことが出来そうだ。
+　$ \Vec{k}' $で積分すると$ \Vec{k} = \Vec{k}' $となるところだけが残るからである。
+　また和の記号も簡単になる。
+　今は$ \alpha $と$ \alpha' $の両方をそれぞれに変化させて和を取っているわけだが、
+$ \delta_{\alpha \alpha'} $のお陰で$ \alpha = \alpha' $となるところだけが残るからだ。
+
+<tex>
+=\ i \frac{mc^2}{(2\pi)^3} \int \frac{1}{\omega} \sum_{\alpha=1}^{2} 
+\left( \ \ u_{\alpha}^{(i)}(\Vec{k}) \, u^{\dagger(j)}_{\alpha}(\Vec{k}) \ e^{-ik(x-x')} 
+\ +\ v_{\alpha}^{(i)}(\Vec{k}) \, v^{\dagger(j)}_{\alpha}(\Vec{k}) \ e^{ik(x-x')} \right) \diff \Vec{k} \\
+</tex>
+
+　かなりすっきりしてきた。
+　ところで、(3) 式の左辺をよく見ると座標については$ \Vec{x} $と$ \Vec{x}' $の区別があるが、時刻$ t $については区別がない。
+　それでこれは「同時交換関係」と呼ばれるのであった。
+　式が簡単になって$ \omega(\Vec{k}) $と$ \omega(\Vec{k}') $の区別がなくなった今こそ、ようやく指数関数の部分が整理できる！
+
+<tex>
+&=\ i \frac{mc^2}{(2\pi)^3} \int \frac{1}{\omega} \sum_{\alpha=1}^{2} 
+\left( \ \ u_{\alpha}^{(i)}(\Vec{k}) \, u^{\dagger(j)}_{\alpha}(\Vec{k}) \ e^{-i\omega(t-t)} \, e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')}
+\ +\ v_{\alpha}^{(i)}(\Vec{k}) \, v^{\dagger(j)}_{\alpha}(\Vec{k}) \ e^{i\omega(t-t)} \, e^{-i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \right) \diff \Vec{k} \\
+&=\ i \frac{mc^2}{(2\pi)^3} \int \frac{1}{\omega} \sum_{\alpha=1}^{2} 
+\left( \ \ u_{\alpha}^{(i)}(\Vec{k}) \, u^{\dagger(j)}_{\alpha}(\Vec{k}) \ e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} 
+\ +\ v_{\alpha}^{(i)}(\Vec{k}) \, v^{\dagger(j)}_{\alpha}(\Vec{k}) \ e^{-i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \right) \diff \Vec{k}
+</tex>
+
+　先ほど準備しておいた (6) 式を利用するのはようやくここからだ。
+　今やっている計算はスピノルの$ i $番目の成分と$ j $番目の成分だけを使う計算なので、
+もはや積の順序も気にしなくていいし、結果も行列にはならない。
+　しかし例えば$ u_{\alpha}(\Vec{k}) $の$ i $番目の成分と$ u^{\dagger}_{\alpha}(\Vec{k}) $の$ j $番目の成分の積というのは、
+行列$ u_{\alpha}(\Vec{k}) \, u^{\dagger}_{\alpha}(\Vec{k}) $の$ ij $成分と同じである。
+　そのような状況を無理やり次のように表すことにしようではないか。
+
+<tex>
+=\ i \frac{mc^2}{(2\pi)^3} \int \frac{1}{\omega} 
+\Bigg[
+&\frac{1}{2mc^2} 
+\left(
+\begin{array}{cc}
+E+mc^2 & c\ \Vec{\sigma} \cdot \Vec{p} \\[8pt]
+c\ \Vec{\sigma} \cdot \Vec{p} & E - mc^2 
+\end{array}
+\right)^{(ij)} \ e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \\
+\ +\ &\frac{1}{2mc^2} 
+\left(
+\begin{array}{cc}
+E-mc^2 & c\ \Vec{\sigma} \cdot \Vec{p} \\[8pt]
+c\ \Vec{\sigma} \cdot \Vec{p} & E + mc^2 
+\end{array}
+\right)^{(ij)}
+\ e^{-i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \Bigg] \diff \Vec{k}
+</tex>
+
+　次は何をしようか。
+　積分を実行してしまいたいが、いつもの公式は使えない。
+　行列の中にある$ \Vec{p} $というのは$ \Vec{k} $の関数（実質同じもの）なので、公式が当てはまらないのである。
+
+<P>
+
+　それでこうしよう。
+　2 行目の$ \Vec{k} $の符号だけを逆転させてやるのである。
+　1 行目と 2 行目は別々に積分しても良いわけだし、この積分範囲は正の無限大から負の無限大までの全領域なのだから、
+こういう小細工をしたところで何も変化がない。
+　$ \Vec{k} $の符号を変えるということは$ \Vec{p} $の符号も変化する。
+
+<tex>
+=\ i \frac{mc^2}{(2\pi)^3} \int \frac{1}{\omega} 
+\Bigg[
+&\frac{1}{2mc^2} 
+\left(
+\begin{array}{cc}
+E+mc^2 & c\ \Vec{\sigma} \cdot \Vec{p} \\[8pt]
+c\ \Vec{\sigma} \cdot \Vec{p} & E - mc^2 
+\end{array}
+\right)^{(ij)} \ e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \\
+\ +\ &\frac{1}{2mc^2} 
+\left(
+\begin{array}{cc}
+E-mc^2 & -c\ \Vec{\sigma} \cdot \Vec{p} \\[8pt]
+-c\ \Vec{\sigma} \cdot \Vec{p} & E + mc^2 
+\end{array}
+\right)^{(ij)}
+\ e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \Bigg] \diff \Vec{k}
+</tex>
+
+　こうすれば、1 行目と 2 行目とをまとめられる。
+
+<tex>
+=\ \frac{i}{(2\pi)^3} \int \frac{1}{2\omega} 
+\left(
+\begin{array}{cc}
+2E & 0 \\[8pt]
+0 & 2E 
+\end{array}
+\right)^{(ij)} \ e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k}
+</tex>
+
+　これでいつもの積分の公式が使えるだろうか？
+　いや、まだだ。
+　よく考えてみたら$ E $や$ \omega $も$ \Vec{k} $の関数だったではないか。
+　危なっかしい。
+　しかし$ E = \hbar \omega $なのだからこれも消える。
+
+<tex>
+&=\ \frac{i\hbar}{(2\pi)^3} \int 
+\left(
+\begin{array}{cc}
+\Vec{1} & 0 \\[8pt]
+0 & \Vec{1} 
+\end{array}
+\right)^{(ij)} \ e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k} \\
+&=\ \frac{i\hbar}{(2\pi)^3} \delta_{ij} \int 
+e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k} \\
+</tex>
+
+　これで文句なく積分の公式が利用可能だ。
+　もうそれしかやることが残ってないのだけれど。
+
+<tex>
+&=\ i \hbar \ \delta_{ij} \ \delta(\Vec{x}-\Vec{x}')
+</tex>
+
+　これでめでたく (3) 式の右辺と同じものが導かれたことになる。
+　途中で天下り的に導入した反交換関係なしでは到底ここまで来れないことが分かってもらえただろう。
+
+% =======================================================================
+
+\section{反交換関係の再確認}
+
+　上の計算の途中で代入した反交換関係はこうだった。
+
+<tex>
+\{ \hat{c}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{c}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ \delta(\Vec{k}-\Vec{k}') \ \delta_{\alpha \alpha'} \\
+\{ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{d}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ \delta(\Vec{k}-\Vec{k}') \ \delta_{\alpha \alpha'} \\
+\{ \hat{c}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{d}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ 0 \\
+\{ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{c}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ 0 
+</tex>
+
+　これを見ていると、幾つか疑問に思うことが出てくるのである。
+
+<P>
+
+　反交換関係というのは
+
+<tex>
+\{ A, B \} \ \equiv\ AB \ +\ BA
+</tex>
+
+というものだから$ A $と$ B $の順番を変えて$ \{ B, A \} $と表示しても同じ内容である。
+　しかし通常の交換関係$ [A,B] = AB-BA $はそうではなくて、$ A $と$ B $の順序を変えると符号が変わってしまう。
+　最初の方で (2) 式を使うと通常の交換関係が導かれてしまうと書いたのだが、この様子だと、
+
+<tex>
+[ \hat{d}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} ] \ &=\ -\delta(\Vec{k}-\Vec{k}') \ \delta_{\alpha \alpha'} \\
+</tex>
+
+となってしまい、以前に使っていた交換関係とは符号が違ったものが導かれてくることになる。
+　そういう点でもディラック場に (2) 式を使うのは調子が悪そうだ。
+　ディラック場には反交換関係を使わないとうまく行かないのは前回のハミルトニアンの話で結論済みだから、
+これはどうでもいいといえばどうでもいい話ではある。
+　ちょっと気になっただけだ。
+
+<P>
+
+　もう一つ気になるのは、先ほど四つ書いた反交換関係のうちの下の二つ、右辺が 0 になる式の意味である。
+　順序を整えてもう一度書こう。
+
+<tex>
+\{ \hat{c}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{d}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ 0 \\
+\{ \hat{c}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \,,\, \hat{d}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \} \ &=\ 0 
+</tex>
+
+　要するにこれは、
+$ \hat{c}_{\Vec{\scriptstyle k} \alpha} \, \hat{d}_{\Vec{\scriptstyle k}' \alpha'}
+\ =\ - \, \hat{d}_{\Vec{\scriptstyle k}' \alpha'} \, \hat{c}_{\Vec{\scriptstyle k} \alpha} $
+ということであり、演算子の順序を入れ替えたならば符号が反転するということである。
+　これはいかにもフェルミオンの性質らしいと言えるのだが、
+粒子の入れ替えに対して位相の符号が反転するのは同種粒子のフェルミオンの交換で起きることだった。
+　$ \hat{c}_{\Vec{\scriptstyle k} \alpha} $と$ \hat{d}_{\Vec{\scriptstyle k} \alpha} $はそれぞれ粒子と反粒子に対応しているのであり、
+別々の種類の粒子のような気もするのだが、それでも同種粒子として扱われるべきだということなのだろう。
+
+
+
+

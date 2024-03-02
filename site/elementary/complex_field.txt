@@ -1,0 +1,523 @@
+\field{素粒子論}
+\title{複素スカラー場}
+\comment{反粒子と電荷の話。}
+\prev{kg_expand2}
+\next{em_expand}
+\create{2012/4/16}
+\modify{}
+
+\section{予定変更のお知らせ}
+
+　突然気が変わった。
+　ここまでやったのだから、忘れないうちに複素場についてもやっておいた方がいいに違いない。
+
+<P>
+
+　初めはなるべく簡単な例を提供しようということで、
+ここまではクライン・ゴルドン場が実数であるかのように工夫して話を進めたのであった。
+
+<P>
+
+　しかし量子力学での波動関数は複素数値を取るのが普通であり、
+実数であるべきだというこだわりの方が不自然なのだった。
+　不自然だとは言っても、ここまでにやってきた実数場をちゃんと当てはめることのできる例が自然の中に存在している。
+　無駄なことをしていたわけではないので、そこは安心して欲しい。
+
+<P>
+
+　さて、場が実数であることにこだわらなければどうなるだろう。
+　ここまで付いて来られたならば後は簡単なことなのでざっと計算してしまおう。
+　次のような式からスタートする。
+
+<tex>
+\hat{\phi}(\Vec{x},t) \ =\ \int_{-\infty}^{\infty} \left[ \sqrt{\frac{c^2\hbar }{(2\pi)^3 2 \omega(\Vec{k})}} \left( \hat{a}_{\Vec{\scriptstyle k}} \, e^{-ikx} \ +\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \right) \right] \diff \Vec{k} \tag{1}
+</tex>
+
+　今まではこの積分内の第 2 項に$ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} $というものを使っていたわけだが、
+代わりに別のタイプの生成演算子$ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} $を導入してやるのである。
+　こうしておけば全体としては実数だという保証がなくなる。
+
+<P>
+
+　こんなことをしなくても、第 2 項を外しておくだけでいいんじゃないかと思うかも知れないが、
+せっかく複素数ということで二つ分の自由度を含んでいるのだからそれを最大限に表現しておきたいのである。
+　こうしておくと色々と好都合だというのが本当の理由なのだが、それはそのうち分かるだろう。
+
+<P>
+
+　以前に「<a href="./kg_eq.html">クライン・ゴルドン場の準備</a>」という記事の最後の方で準備しておいたことを思い出そう。
+　複素場のハミルトニアンを計算するためには次のような式を使うのだった。
+
+<tex>
+\mathcal{H} \ &=\ \partial\sub{0} \phi^{\ast} \partial\sub{0} \phi \ +\ (\nabla \phi^{\ast})(\nabla \phi) \ +\ \frac{m^2 c^2}{\hbar^2} \, \phi^{\ast} \phi \tag{2}
+</tex>
+
+　この後の具体的な計算はここまでにやったのとほとんど変わらないので読み飛ばしても構わないし、
+再確認の為にじっくり読むのもいいだろう。
+
+% =======================================================================
+
+\section{ハミルトニアンを求める計算}
+
+　この計算のためには (1) 式の複素共役を作る必要がある。
+　次のようになる。
+
+<tex>
+\hat{\phi}^{\ast}(\Vec{x},t) \ =\ \int_{-\infty}^{\infty} \left[ \sqrt{\frac{c^2\hbar }{(2\pi)^3 2 \omega(\Vec{k})}} \left( \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \ +\ \hat{b}_{\Vec{\scriptstyle k}} \, e^{-ikx} \right) \right] \diff \Vec{k} 
+</tex>
+
+　そして$ \partial\sub{0} \phi^{\ast} $と$ \partial\sub{0} \phi $も必要だ。
+　これは$ c\,t $で微分すればいいだけである。
+
+<tex>
+\partial\sub{0} \hat{\phi}^{\ast}(\Vec{x},t) \ &=\ \int_{-\infty}^{\infty} \left[ \sqrt{\frac{c^2\hbar }{(2\pi)^3 2 \omega(\Vec{k})}} \left( \frac{i\,\omega(\Vec{k})}{c} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \ +\ \frac{-i\,\omega(\Vec{k})}{c} \hat{b}_{\Vec{\scriptstyle k}} \, e^{-ikx} \right) \right] \diff \Vec{k} \\
+\partial\sub{0} \hat{\phi}\,(\Vec{x},t) \ &=\ \int_{-\infty}^{\infty} \left[ \sqrt{\frac{c^2\hbar }{(2\pi)^3 2 \omega(\Vec{k})}} \left( \frac{-i\,\omega(\Vec{k})}{c}\hat{a}_{\Vec{\scriptstyle k}} \, e^{-ikx} \ +\ \frac{i\,\omega(\Vec{k})}{c} \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \right) \right] \diff \Vec{k} 
+</tex>
+
+　そして (2) 式の第 2 項にある$ (\nabla \phi^{\ast})(\nabla \phi) $というのは
+$ (\partial_x \phi^{\ast}, \, \partial_y \phi^{\ast}, \, \partial_z \phi^{\ast} ) $と
+$ (\partial_x \phi, \, \partial_y \phi, \, \partial_z \phi ) $との内積のことであり、
+
+<tex>
+(\nabla \phi^{\ast})(\nabla \phi) \ =\ \partial_x \phi^{\ast} \partial_x \phi \ +\ \partial_y \phi^{\ast} \partial_y \phi \ +\ \partial_z \phi^{\ast} \partial_z \phi
+</tex>
+
+という意味である。
+　つまり (2) 式のためにはこの 3 つの項と、その前後の項を合わせて全部で 5 つの項について
+ほとんど同じ内容の計算を繰り返してやって、最後に合計することが必要になるわけだ。
+　5 回も同じ計算の説明をするのは嫌なので (2) 式の最初の項だけ丁寧にやってみることにしよう。
+
+<tex>
+\partial\sub{0} \hat{\phi}^{\ast} \partial\sub{0} \hat{\phi} \ =&\ 
+\int \!\! \int \frac{c^2\hbar }{2 (2\pi)^3}
+\sqrt{\frac{1}{\omega(\Vec{k})\omega(\Vec{k}')}}
+\left( \frac{i\,\omega(\Vec{k})}{c} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} 
+\ +\ \frac{-i\,\omega(\Vec{k})}{c} \hat{b}_{\Vec{\scriptstyle k}} \, e^{-ikx} \right) \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left( \frac{-i\,\omega(\Vec{k'})}{c}\hat{a}_{\Vec{\scriptstyle k}'} \, e^{-ik'x} 
+\ +\ \frac{i\,\omega(\Vec{k}')}{c} \hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} \, e^{ik'x} \right) \diff \Vec{k} \diff \Vec{k}' \\[4pt]
+</tex>
+
+　この書き方ではやたらと場所を食うので、今後は$ \omega(\Vec{k}) $や$ \omega(\Vec{k}') $を単純に$ \omega $や$ \omega' $と表そう。
+
+<tex>
+=&\ \int \!\! \int \frac{c^2 \hbar }{2 (2\pi)^3}
+\sqrt{\frac{1}{\omega\,\omega'}}
+\bigg( \frac{\omega\,\omega'}{c^2} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}}\hat{a}_{\Vec{\scriptstyle k}'} \, e^{i(k-k')x}
+\ -\ \frac{\omega\,\omega'}{c^2} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}}\hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} \, e^{i(k+k')x} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\ \frac{\omega\,\omega'}{c^2} \hat{b}_{\Vec{\scriptstyle k}}\hat{a}_{\Vec{\scriptstyle k}'} \, e^{-i(k+k')x} 
+\ +\ \frac{\omega\,\omega'}{c^2} \hat{b}_{\Vec{\scriptstyle k}}\hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} \, e^{-i(k-k')x} \bigg) \diff \Vec{k} \diff \Vec{k}' \\[4pt]
+=&\ \int \!\! \int \frac{c^2 \hbar}{2 (2\pi)^3}
+\sqrt{\frac{1}{\omega\,\omega'}}
+\bigg( \ \ \ \ \ \ \, \frac{\omega\,\omega'}{c^2} \ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}}\hat{a}_{\Vec{\scriptstyle k}'} \, e^{i(\omega-\omega')t} \, e^{-i(\Vec{k}-\Vec{k}')\cdot \Vec{x}} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  -\ \frac{\omega\,\omega'}{c^2} \ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}}\hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} \, e^{i(\omega+\omega')t} \, e^{-i(\Vec{k}+\Vec{k}')\cdot \Vec{x}} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  -\ \frac{\omega\,\omega'}{c^2} \ \hat{b}_{\Vec{\scriptstyle k}}\hat{a}_{\Vec{\scriptstyle k}'} \, e^{-i(\omega+\omega')t} \, e^{i(\Vec{k}+\Vec{k}')\cdot \Vec{x}} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  +\ \frac{\omega\,\omega'}{c^2} \ \hat{b}_{\Vec{\scriptstyle k}}\hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} \, e^{-i(\omega-\omega')t} \, e^{i(\Vec{k}-\Vec{k}')\cdot \Vec{x}} \bigg) \diff \Vec{k} \diff \Vec{k}' 
+</tex>
+
+　(2) 式はハミルトニアン密度なので、これを空間について積分して、後で 5 つの項をまとめた時にハミルトニアンになるようにする。
+
+<tex>
+\Longrightarrow\ \int \!\! \int \frac{c^2 \hbar}{2}
+\sqrt{\frac{1}{\omega\,\omega'}}
+\bigg( \ \ \ \ \, \frac{\omega\,\omega'}{c^2} \ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}}\hat{a}_{\Vec{\scriptstyle k}'} \, e^{i(\omega-\omega')t} \, \delta(\Vec{k}-\Vec{k}')& \\
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  -\ \frac{\omega\,\omega'}{c^2} \ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}}\hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} \, e^{i(\omega+\omega')t} \, \delta(\Vec{k}+\Vec{k}')& \\
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  -\ \frac{\omega\,\omega'}{c^2} \ \hat{b}_{\Vec{\scriptstyle k}}\hat{a}_{\Vec{\scriptstyle k}'} \, e^{-i(\omega+\omega')t} \, \delta(\Vec{k}+\Vec{k}')& \\
+\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \  +\ \frac{\omega\,\omega'}{c^2} \ \hat{b}_{\Vec{\scriptstyle k}}\hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} \, e^{-i(\omega-\omega')t} \, \delta(\Vec{k}-\Vec{k}')& \bigg) \diff \Vec{k} \diff \Vec{k}' 
+</tex>
+
+　このデルタ関数により、項によって$ \Vec{k}' = \Vec{k} $となる場合だけが生き残ったり、
+$ \Vec{k}' = -\Vec{k} $となる場合だけが生き残ったりするわけだ。
+　$ \omega $についても$ \omega(-\Vec{k}) $と表記せねばならないところが出てくるが、
+幸いにして$ \omega(\Vec{k}) = \omega(-\Vec{k}) $なので簡略化した表現のままで続けても良さそうだ。
+
+<tex>
+=&\ \int \frac{c^2 \hbar}{2} \sqrt{\frac{1}{\omega^2}}
+\bigg( \frac{\omega^2}{c^2} \ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{a}_{\Vec{\scriptstyle k}}  
+\ -\ \frac{\omega^2}{c^2} \ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{b}^{\dagger}_{-\Vec{\scriptstyle k}} \, e^{2i\omega t} 
+\ -\ \frac{\omega^2}{c^2} \ \hat{b}_{\Vec{\scriptstyle k}} \, \hat{a}_{-\Vec{\scriptstyle k}} \, e^{-2i\omega t} 
+\ +\ \frac{\omega^2}{c^2} \ \hat{b}_{\Vec{\scriptstyle k}} \, \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \bigg) \diff \Vec{k} \\[4pt]
+=&\ \int \frac{c^2 \hbar}{2\omega} 
+\bigg( \frac{\omega^2}{c^2} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{a}_{\Vec{\scriptstyle k}}  
+\ -\ \frac{\omega^2}{c^2} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{b}^{\dagger}_{-\Vec{\scriptstyle k}} \, e^{2i\omega t} 
+\ -\ \frac{\omega^2}{c^2} \hat{b}_{\Vec{\scriptstyle k}} \, \hat{a}_{-\Vec{\scriptstyle k}} \, e^{-2i\omega t} 
+\ +\ \frac{\omega^2}{c^2} \hat{b}_{\Vec{\scriptstyle k}} \, \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \bigg) \diff \Vec{k} 
+</tex>
+
+　この項についてはこんな感じで終わりだ。
+　幾つかの変数は敢えて整理しないで残してある。
+　この計算では$ \partial\sub{0} $があったために各項から$ \omega^2/c^2 $が出てきているわけだが、
+同じように$ \partial_x $では各項から$ {k_x}^2 $が出てきたりすることになるわけだ。
+　ただし、$ \delta( \Vec{k} + \Vec{k}' ) $が出てくる項では$ k_x $と$ -k_x $とを掛け合わせることになるため、符号が逆になる。
+　それで (2) 式にある全ての項について計算したものを足し合わせた場合に、
+
+<tex>
+\frac{\omega^2}{c^2} + \Vec{k}^2 + \frac{m^2c^2}{\hbar^2} \ &=\ \frac{1}{c^2} \left(\omega^2 + c^2 \Vec{k}^2 + \frac{m^2 c^4}{\hbar^2} \right) \\
+&=\ \frac{1}{c^2} \left(\omega^2 + \omega^2 \right) \\
+&=\ \frac{2 \omega^2}{c^2}
+</tex>
+
+という計算をする場合もあれば、
+
+<tex>
+-\frac{\omega^2}{c^2} + \Vec{k}^2 + \frac{m^2c^2}{\hbar^2} \ &=\ \frac{1}{c^2} \left(-\omega^2 + c^2 \Vec{k}^2 + \frac{m^2 c^4}{\hbar^2} \right) \\
+&=\ \frac{1}{c^2} \left(-\omega^2 + \omega^2 \right) \\[5pt]
+&=\ 0
+</tex>
+
+となる場合もあり、結局次のようなものが生き残ることになる。
+
+<tex>
+\hat{H} \ =\ \int \hbar \omega
+\bigg( \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{a}_{\Vec{\scriptstyle k}}  
+\ +\ \hat{b}_{\Vec{\scriptstyle k}} \, \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \bigg) \diff \Vec{k} \tag{3}
+</tex>
+
+
+% =======================================================================
+
+\section{ハミルトニアンの解釈}
+
+　今求めたこの (3) 式を解釈しなくてはならない。
+　カッコの中の第 2 項がなければ前に導いたのと同じであり、
+$ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{a}_{\Vec{\scriptstyle k}} $が粒子の個数密度を表している。
+　これに$ \diff \Vec{k} $をかけると運動量が$ \Vec{k} $から$\Vec{k} + \diff \Vec{k} $の間にあるような粒子の個数になるのだった。
+　すると$ \hat{b}_{\Vec{\scriptstyle k}} \, \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} $は
+何を表しているのか・・・？
+
+<P>
+
+　先ほどは$ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} $のことを$ \hat{a}_{\Vec{\scriptstyle k}} $とは
+別のタイプの演算子と書いたわけだが、似たような役割を持ってはいるようだ。
+　それで、$ \hat{a}_{\Vec{\scriptstyle k}} $や$ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} $が従うのと全く同じ
+次のような交換関係のルールを適用しよう。
+
+<tex>
+\left[ \hat{b}_{\Vec{\scriptstyle k}} \ ,\ \hat{b}^{\dagger}{\Vec{\scriptstyle k'}} \right] \ &=\ \delta( \Vec{k}-\Vec{k}' ) \\
+\left[ \hat{b}_{\Vec{\scriptstyle k}} \ ,\ \hat{b}{\Vec{\scriptstyle k'}} \right] \ &=\ 0 \\
+\left[ \hat{b}^{\dagger}{\Vec{\scriptstyle k}} \ ,\ \hat{b}^{\dagger}{\Vec{\scriptstyle k'}} \right] \ &=\ 0
+</tex>
+
+　これを当てはめて (3) 式の第 2 項の演算子の順序をひっくり返してやると次のようになる。
+
+<tex>
+\hat{H} \ =\ \int \hbar \omega
+\bigg( \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{a}_{\Vec{\scriptstyle k}}  
+\ +\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{b}_{\Vec{\scriptstyle k}} 
+\ +\ \delta(\Vec{0}) \bigg) \diff \Vec{k} 
+</tex>
+
+　カッコの中に新たに生じた第 3 項のせいでこの積分は無限大になってしまうわけだが、
+前と同じ言い訳でこれを差し引いてやったものを$ \hat{H} $として定義し直すことにしよう。
+
+<tex>
+\hat{H} \ =\ \int \hbar \omega(\Vec{k})
+\bigg( \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{a}_{\Vec{\scriptstyle k}}  
+\ +\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{b}_{\Vec{\scriptstyle k}} \bigg) \diff \Vec{k} 
+</tex>
+
+　$ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{b}_{\Vec{\scriptstyle k}} $は個数演算子である。
+　何らかの粒子の個数密度を表していることになるわけだ。
+
+<P>
+
+　実は$ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} $や$ \hat{b}_{\Vec{\scriptstyle k}} $は、
+それぞれ「反粒子の生成演算子」と「反粒子の消滅演算子」を表していると考えると都合が良いのである。
+　$ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \hat{a}_{\Vec{\scriptstyle k}} $が表している粒子に対する反粒子である。
+
+<P>
+
+　しかしなぜそう考えると都合が良いのかという完全な説明はこの段階ではまだ難しい。
+　反粒子について話す時には電荷の話が付きものなのだが、
+まだ粒子間の相互作用については何も触れていないので、電荷というものが理論に導入されていないからである。
+　正粒子と反粒子とが出会って対消滅するというような単純な話でさえ、
+電荷を介した相互作用によってようやく説明されるような内容らしいのである。
+
+<P>
+
+　それでも全く何の根拠も示さないままに「この部分が反粒子を表すと信じなさい」と言うのも気が引ける。
+　ある程度は納得してもらえるような話は用意できそうだ。
+　実は重要な話だったりする。
+
+
+% =======================================================================
+
+\section{電荷の保存}
+
+　ここで解析力学で説明した<a href="../analytic/current.html">ネーターカレント</a>を思い出そう。
+　ある変換をした時にラグランジアン密度に変化がない場合、それに対応して保存量が存在するというものであった。
+
+<P>
+
+　複素場のラグランジアンというのは<a href="./kg_eq.html">以前の記事</a>によれば
+次のような形をしていた。
+　（リンク先にある (6) 式がそれである。）
+
+<tex>
+\mathcal{L} \ =\ - \partial^\mu \phi^{\ast} \, \partial_\mu \phi \ -\ \frac{m^2 c^2}{\hbar^2} \, \phi^{\ast} \phi \tag{4}
+</tex>
+
+　ここで使われている波動関数$ \phi $に対して、位相を変化させる変換をしてみよう。
+
+<tex>
+\phi' \ =\ e^{i\alpha} \, \phi
+</tex>
+
+　$ \phi^{\ast} $については次のように変換するという意味である。
+
+<tex>
+{\phi^{\ast}}' \ =\ e^{-i\alpha} \, \phi^{\ast}
+</tex>
+
+　(4) 式にある$ \phi $と$ \phi^{\ast} $の代わりに$ \phi' $や$ {\phi^{\ast}}' $を代入してみても、
+$ e^{i\alpha} $と$ e^{-i\alpha} $とが打ち消し合って何も変わらないことがすぐに分かるだろう。
+　このことに対応する保存量が存在しているはずなのだ。
+
+<P>
+
+　解析力学のところで説明したネーターカレントは次のように表されていたのであった。
+
+<tex>
+N_i \ =\ \pdif{\mathcal{L}}{(\partial_i \psi)} \  \delta \psi
+</tex>
+
+　その記事の中ではラグランジアン密度が$ \mathcal{L}(\psi\ ,\ \partial_i\,\psi ) $という形で表されていると仮定していたからである。
+　しかし今回のラグランジアン密度は$ \mathcal{L}(\phi\ ,\ \partial_\mu \phi\ ,\ \phi^{\ast}\ ,\ \partial_\mu \phi^{\ast} ) $という形であるから少し形が変わる。
+　その導出は難しくないので読者にお任せしよう。
+　（複素共役の分だけ、同じ計算をしたものが加わるだけだ。）
+
+<P>
+
+　解析力学のところではまだ相対論は未習だという前提だったので添字の位置にこだわっていなかったが、
+こちらでは添字を相対論的に正しく上側に付けるようにしよう。
+
+<tex>
+N^\mu \ =\ \pdif{\mathcal{L}}{(\partial_\mu \phi)} \  \delta \phi \ +\ \pdif{\mathcal{L}}{(\partial_\mu \phi^{\ast})} \  \delta \phi^{\ast} \tag{5}
+</tex>
+
+　もし$ \phi $と$ \phi^{\ast} $とが独立な関数だと考えて計算するという説明に抵抗があるなら、
+$ \phi = A + Bi $とでも置いて、関数$ A $と関数$ B $が独立だと考えて計算してみてもいい。
+　同じ結論になるはずだ。
+
+<P>
+
+　さて、この式の中に出てくる$ \delta \phi $や$ \delta \phi^{\ast} $は微小な変化であるという想定だった。
+　先ほど書いた位相変化$ e^{i\alpha} $の 1 次の無限小を考えることにしよう。
+　$ \alpha $はとても小さな定数であるとすると次のような近似ができる。
+
+<tex>
+\phi' \ &=\ e^{i\alpha} \\
+&\kinji\ (1 + i\alpha) \phi \\
+&=\ \phi \ +\ i\alpha \phi
+</tex>
+
+　つまり$ \delta \phi = i \alpha \phi $であり、そして$ \delta \phi^{\ast} = -i \alpha \phi^{\ast} $だということだ。
+　これらを代入して使えば良いだろう。
+
+<P>
+
+　それに加えて、(5) 式に (4) 式を代入して計算してやると、結局は次のようになる。
+
+<tex>
+N^\mu \ &=\ ( - \partial^\mu \phi^{\ast} ) i \alpha \phi \ +\ (- \partial^{\mu} \phi)(-i\alpha \phi^{\ast}) \\[3pt]
+&=\ i \alpha ( -\phi\, \partial^\mu \phi^{\ast} \ +\ \phi^{\ast} \, \partial^{\mu} \phi)
+</tex>
+
+　さて、ネーターカレントの第 0 成分を 3 次元空間で積分した量は保存量になるということだった。
+　それを$ Q $という記号で表すことにする。
+
+<tex>
+Q \ &\equiv\ i \alpha \int_V ( -\phi\, \partial\sup{0} \phi^{\ast} \ +\ \phi^{\ast} \, \partial\sup{0} \phi) \diff V \\[4pt]
+&=\ \frac{i\alpha}{c} \int_V \left( \phi\, \pdif{\phi^{\ast}}{t} \ -\ \phi^{\ast} \, \pdif{\phi}{t} \right) \diff V
+</tex>
+
+　実はこの定義のままだと後で面倒な言い訳が必要になる。
+　今のうちに少しだけ変更しておきたい。
+　$ \alpha $は任意の微小定数なのだから外してしまっても全体が保存量であることに変わりない。
+　後で見栄えが良くなるように、ついでに符号もひっくり返しておこう。
+　それでも保存量であることは変わらないはずだ。
+　もともと今の話は$ \alpha $が正でも負でも問題なく成り立つもので、
+私が最初に$ \phi' = e^{i\alpha} \phi $だとしたからこうなっているだけだ。
+　教科書によっては最初に$ \phi' = e^{-i\alpha} \phi $としておいて、
+さりげなく後の見栄えを整えていたりする。
+
+<tex>
+Q \ &\equiv\ \frac{i}{c} \int_V \left( \phi^{\ast} \, \pdif{\phi}{t} \ -\ \phi\, \pdif{\phi^{\ast}}{t} \right) \diff V
+</tex>
+
+　さあ、これからこの式の$ \phi $や$ \phi^{\ast} $のところに (1) 式を代入して、$ Q $を演算子化して$ \hat{Q} $にしてしまおう。
+　どんな形になるだろうか。
+　この計算は難しくはないが面倒くさい。
+　これまでに何度もやってきたのとほぼ同じパターンだ。
+
+<tex>
+\hat{Q} \ &=\ \frac{i}{c} \int_V \Bigg[ \int \sqrt{\frac{c^2 \hbar}{(2\pi)^3 2\omega}} (\hat{a}^{\dagger}_{\Vec{\scriptstyle k}} e^{ikx} + \hat{b}_{\Vec{\scriptstyle k}} e^{-ikx}) \diff \Vec{k}
+\ \int \sqrt{\frac{c^2 \hbar}{(2\pi)^3 2\omega'}} (-i\omega'\hat{a}_{\Vec{\scriptstyle k}'} e^{-ik'x} + i\omega' \hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} e^{ik'x}) \diff \Vec{k}' \\
+&\ \ \ \ \ \ \ \ \ -\ \int \sqrt{\frac{c^2 \hbar}{(2\pi)^3 2\omega}} (\hat{a}_{\Vec{\scriptstyle k}} e^{-ikx} + \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} e^{ikx}) \diff \Vec{k}
+\ \int \sqrt{\frac{c^2 \hbar}{(2\pi)^3 2\omega'}} (i\omega'\hat{a}^{\dagger}_{\Vec{\scriptstyle k}'} e^{ik'x} - i\omega' \hat{b}_{\Vec{\scriptstyle k}'} e^{-ik'x}) \diff \Vec{k}' \Bigg] \diff V \\[4pt]
+&=\ \frac{-1}{c} \int_V \Bigg[ \dint \frac{c^2 \hbar}{2(2\pi)^3} \sqrt{\frac{1}{\omega \omega'}} \ \omega' \ (\hat{a}^{\dagger}_{\Vec{\scriptstyle k}} e^{ikx} + \hat{b}_{\Vec{\scriptstyle k}} e^{-ikx}) 
+\ (-\hat{a}_{\Vec{\scriptstyle k}'} e^{-ik'x} + \hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} e^{ik'x}) \diff \Vec{k} \diff \Vec{k}' \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ -\ \dint \frac{c^2 \hbar}{2(2\pi)^3} \sqrt{\frac{\omega'}{\omega \omega'}} \ \omega' \ (\hat{a}_{\Vec{\scriptstyle k}} e^{-ikx} + \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} e^{ikx}) 
+\ (\hat{a}^{\dagger}_{\Vec{\scriptstyle k}'} e^{ik'x} - \hat{b}_{\Vec{\scriptstyle k}'} e^{-ik'x}) \diff \Vec{k} \diff \Vec{k}' \Bigg] \diff V \\[4pt]
+</tex>
+<tex>
+&=\ \frac{-c \hbar}{2(2\pi)^3} \int_V \Bigg[ \dint \sqrt{\frac{\omega'}{\omega}} 
+\left(
+    -\hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}'} e^{i(k-k')x}
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} e^{i(k+k')x}
+\ -\ \hat{b}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}'} e^{-i(k+k')x}
+\ +\ \hat{b}_{\Vec{\scriptstyle k}} \hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} e^{-i(k-k')x}
+\right)
+\diff \Vec{k} \diff \Vec{k}' \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\ \dint \sqrt{\frac{\omega'}{\omega}}
+\left(
+     \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}'} e^{-i(k-k')x}
+\ -\ \hat{a}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}'} e^{-i(k+k')x}
+\ +\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}'} e^{i(k+k')x}
+\ -\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}'} e^{i(k-k')x}
+\right)
+\diff \Vec{k} \diff \Vec{k}' \Bigg] \diff V \\[4pt]
+&=\ \frac{-c \hbar}{2} \Bigg[ \dint \sqrt{\frac{\omega'}{\omega}} 
+\Big(
+    -\hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}'} e^{i(\omega-\omega')t} \delta( \Vec{k}-\Vec{k}' )
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} e^{i(\omega+\omega')t} \delta( \Vec{k}+\Vec{k}' ) \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\ -\ \hat{b}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}'} e^{-i(\omega+\omega')t} \delta( \Vec{k}+\Vec{k}' )
+\ +\ \hat{b}_{\Vec{\scriptstyle k}} \hat{b}^{\dagger}_{\Vec{\scriptstyle k}'} e^{-i(\omega-\omega')t} \delta( \Vec{k}-\Vec{k}' )
+\Big)
+\diff \Vec{k} \diff \Vec{k}' \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ -\ \dint \sqrt{\frac{\omega'}{\omega}}
+\left(
+     \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}'} e^{-i(\omega-\omega')t} \delta( \Vec{k}-\Vec{k}' )
+\ -\ \hat{a}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}'} e^{-i(\omega+\omega')t} \delta( \Vec{k}+\Vec{k}' ) \right.\\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ 
+\left.\ +\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}'} e^{i(\omega+\omega')t} \delta( \Vec{k}+\Vec{k}' )
+\ -\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}'} e^{i(\omega-\omega')t} \delta( \Vec{k}-\Vec{k}' )
+\right)
+\diff \Vec{k} \diff \Vec{k}' \Bigg] \\[4pt]
+&=\ \frac{-c \hbar}{2} \Bigg[ \int 
+\Big(
+    -\hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}^{\dagger}_{-\Vec{\scriptstyle k}} e^{2i\omega t} 
+\ -\ \hat{b}_{\Vec{\scriptstyle k}} \hat{a}_{-\Vec{\scriptstyle k}} e^{-2i\omega t} 
+\ +\ \hat{b}_{\Vec{\scriptstyle k}} \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} 
+\Big)
+\diff \Vec{k} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ -\ \int 
+\Big(
+     \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} 
+\ -\ \hat{a}_{\Vec{\scriptstyle k}} \hat{b}_{-\Vec{\scriptstyle k}} e^{-2i\omega t} 
+\ +\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{-\Vec{\scriptstyle k}} e^{2i\omega t} 
+\ -\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}} 
+\Big)
+\diff \Vec{k} \Bigg] \\[4pt]
+&=\ \frac{c \hbar}{2} \int \Big(
+     \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} 
+\ +\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} 
+\ -\ \hat{b}_{\Vec{\scriptstyle k}} \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} 
+\ -\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}} 
+\Big) \diff \Vec{k} \\[4pt]
+&=\ \frac{c \hbar}{2} \int \Big(
+     \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} \ +\ \delta(0)
+\ -\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}} \ -\ \delta(0)
+\ -\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}} 
+\Big) \diff \Vec{k} \\[4pt]
+&=\ c \hbar \int \Big(
+     \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} 
+\ -\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}} 
+\Big) \diff \Vec{k} 
+</tex>
+
+　終盤で$ \hat{a}_{\Vec{\scriptstyle k}} $と$ \hat{b}_{\Vec{\scriptstyle k}} $の順序を交換しても良いことを使って、
+二つの項を打ち消させている。
+　詳しく書けばきりがないので簡単に変形したが、そこでの$ \Vec{k} $と$ -\Vec{k} $は
+二つの積分でそれぞれ符号を逆にして考えてもいいので・・・まぁそこまで言わなくても分かるか・・・。
+　また、最後のところで$ \delta(0) $と$ -\delta(0) $とが打ち消し合うような計算をしていて、
+無限どうしの引き算を認めていいのかどうか不安なところだが、そこはあまり本質ではない。
+　これまでもやってきたように、
+このように生じた無限大を差し引いたものを新たな定義として採用してやったと考えておけばいいのだ。
+　もういちどコンパクトにまとめておこう。
+　結論はこうだ。
+
+<tex>
+\hat{Q} \ =\ c \hbar \int \Big(
+     \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} 
+\ -\ \hat{b}^{\dagger}_{\Vec{\scriptstyle k}} \hat{b}_{\Vec{\scriptstyle k}} 
+\Big) \diff \Vec{k} 
+</tex>
+
+　さあ、この意味は何だろう。
+　結局、何が保存していると言えるだろうか。
+　$ \hat{a}^{\dagger} \hat{a} $で表される粒子の数が増えるほど増えて、
+$ \hat{b}^{\dagger} \hat{b} $で表される粒子の数が増えるほど減って行くもの。
+　一個、二個・・・と数えられるもので、互いに打ち消し合うもの。
+
+<P>
+
+　それは電荷だと考えると都合がいい。
+　$ \hat{Q} $は電荷の量を表す演算子として使えるのである。
+　$ c \hbar $という物理的な次元についてはあまり気にしなくてもいい。
+　もし必要になったら電荷の次元に合うように何らかの定数を掛けてやればいいだけだ。
+
+<P>
+
+　これで粒子と反粒子とで電荷が逆であることの説明が付く。
+　どちらの電荷が正でどちらが負であるかはその場の都合で勝手に決めて定数の符号を決定すればいいことだ。
+　先ほど符号にこだわったのはこの式の見た目がこうなるようにしたかっただけである。
+　全体にマイナスがついていると、そこに重要な意味があるかのように考えたくなってしまうので、
+入門用の解説としてはそれを避けたかったというだけだ。
+
+<P>
+
+　実際のところ、$ \hat{a}^{\dagger} \hat{a} $と$ \hat{b}^{\dagger} \hat{b} $のどちらが粒子で
+どちらが反粒子を表すという区別もない。
+　$ \hat{b}^{\dagger} \hat{b} $にとっての反粒子は$ \hat{a}^{\dagger} \hat{a} $なのである。
+
+<P>
+
+　これで、複素場が別名、荷電場とも呼ばれる理由が分かってもらえただろう。
+
+% =======================================================================
+
+\section{負エネルギー問題の解決}
+
+　今回の話がクライン・ゴルドン方程式の負のエネルギーの問題を
+さらりとかわしているのが分かるだろうか。
+　クライン・ゴルドン方程式は相対論のエネルギーの式を基にしていたから
+どうしてもエネルギーの正負の二つの解が現れて来るのだった。
+
+<tex>
+E^2 = (mc^2)^2 + (pc)^2
+</tex>
+
+　しかし今回の枠組みではエネルギーというものが
+$ e^{-ikx} \ =\ e^{-i\omega t} e^{i\Vec{k}\cdot\Vec{x}} $という波の
+振動数$ \omega $という形で導入されている。
+　敢えて表現するならば、
+一粒一粒の粒子のエネルギーは$ E = \hbar \omega $という形で理論に取り入れられていて、
+その負エネルギー解は
+複素共役の$ e^{ikx} \ =\ e^{i\omega t} e^{-i\Vec{k}\cdot\Vec{x}} $という波として実現している。
+
+<P>
+
+　式の表現の上では$ e^{i\omega t} $というのは$ e^{-i(-\omega)t} $ということだから、
+振動数にマイナスがついていてあたかも負の振動数であるかのようだが、
+振動数$ \omega $というのはたとえ負の値を取ったとしても我々には判別は付かず、正の値の物理量である。
+　実際、$ e^{ikx} $と$ e^{-ikx} $とはただの複素共役であり、
+それぞれが表現する波はどちらも全く同じ、
+振動数$ \omega > 0 $、波数$ |\Vec{k}| $で同じ方向に進む波に見えるだろう。
+
+<P>
+
+　敢えて数式をそのまま素直に信じるなら、$ e^{i\omega t} $というのは、
+過去に向かって運動量$ -\hbar \Vec{k} $の方向へ進む粒子を表していると解釈できるかも知れない。
+　このようなイメージが後にファインマンによる経路積分という計算手法を生み出すヒントになったのである。
+
+<P>
+
+　ハミルトニアンは系の全エネルギーを表しているが、
+今回のハミルトニアンの形を見ても分かるように、
+反粒子であってもエネルギーは正であると考えることが出来るようになっている。
+　式の辻褄は合っていながら、負エネルギーという、解釈に困るものを出さずに済んでいるのである。
+
+

@@ -1,0 +1,29 @@
+\field{素粒子論}
+\title{第 3 部　自由粒子の場}
+\comment{　}
+\prev{to_do_next}
+\next{kg_expand}
+\create{2018/9/9}
+\modify{}
+
+
+\section{}
+
+<center>
+　波動方程式の解である波を波長ごとに分解して、<br>
+演算子に変えたものを「量子場」という。
+</center>
+
+<P>
+
+<center>
+　この演算子によって粒子が生まれたり消滅したりするのを表すのである。<br>
+</center>
+
+<P>
+
+<center>
+　まずは粒子がお互いに相互作用しないで<br>
+ただ自由に進むだけの単純な話を考えよう。
+</center>
+

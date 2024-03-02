@@ -1,0 +1,95 @@
+\field{素粒子論}
+\title{微分計算の工夫}
+\comment{別記事の補足。}
+\prev{em_field3}
+\next{}
+\create{2010/8/31}
+\modify{}
+
+\section{}
+
+　この記事は「<a href="./em_field3.html">電磁場のハミルトニアン</a>」という記事中の一部分を補足するために用意されたものである。 
+
+　その記事の中では
+
+<tex>
+\pi_i \ =\ \pdif{\mathcal{L}}{\left( \pdif{A^i}{t} \right)} \tag{1}
+</tex>
+
+を計算しようとして、結局$ \mathcal{L} $の中身を一度全て展開するという、
+かなり無駄に思えるような方法を取ったのだった。
+　他に思い付かなかったのだから仕方がない。
+
+<P>
+
+　しかしそういう地道な作業を一度やってしまった後では全体が見えてきて、
+何が無駄なのかを見通せるようになったりする。
+　\red{もう少し楽な方法を考えるのがこの補足記事の目的だ。}
+
+
+　これからやる方法は多分、いきなり思いつくのは難しいだろう。
+　先を見通す力が要るからだ。
+　それにまだ先を見てない人にいきなり分かり易く説明するのだって難しい。
+
+<P>
+
+　(1) 式に出てくる$ \pdif{A^i}{t} $というのは書き方を変えれば
+
+<tex>
+\pdif{A^i}{t} \ =\ c \, \pdif{A^i}{(ct)} \ =\ c \, \partial\sub{0} A^i
+</tex>
+
+である。
+　つまり、$ \pdif{A^i}{t} $で偏微分するということは、
+$ \partial\sub{0} $か$ \partial\sup{0} $を含む項だけを相手にするということだ。
+
+<P>
+
+　さて、今考えているラグランジアン密度は次のように表されている。
+
+<tex>
+\mathcal{L} \ &=\ a \ f^{\mu\nu} f_{\mu\nu} \\
+&=\ 2 a \ \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right)  \tag{2}
+</tex>
+
+　ここでは$ \mu $や$ \nu $について 0 ～ 3 までの和を取っているわけだが、
+その時に、0 とそれ以外に分けてしまえば余計な物を省けそうだ。
+
+<tex>
+f^{\mu\nu} f_{\mu\nu} \ &=\ f^{0\nu} f_{0\nu} \ +\ f^{j\nu} f_{j\nu}  \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (まずは \,\mu\, について分けた) \\
+&=\ (f^{00} f_{00} \ +\ f^{0k} f_{0k}) \ +\ (f^{j0} f_{j0} \ +\  f^{jk} f_{jk}) \ \ \ \ \ \ (次は各項を\,\nu\, について分けた) \\[4pt]
+& \!\!\!\!\!\!\!\!\!\! ただし j, k = 1 \sim 3 
+</tex>
+
+　ここで、一番最初の$ f^{00} f_{00} $というのは (2) 式に当てはめてみれば 0 であることが分かる。
+　さらに、最後の$ f^{jk} f_{jk} $という項も$ \partial\sub{0} $などを含んでいないので今の計算では無視できる。
+　これだけでもかなり楽になった。
+
+<P>
+
+　$ j $や$ k $が 1 ～ 3 の範囲なので、$ A^j $と$ A_j $などの差は気にしなくていい。
+　これらはまったく同一だと考えていい。
+　しかし$ A\sub{0} $と$ A\sup{0} $については$ A\sub{0} = -A\sup{0} $であるし、
+$ \partial\sub{0} $と$ \partial\sup{0} $については、$ \partial\sub{0} = - \partial\sup{0} $である。
+　この辺りを意識しつつ、都合のいい形になるように変形をしてみよう。
+
+<tex>
+\pdif{\mathcal{L}}{\left( \pdif{A^i}{t} \right)} \ &=\ \pdif{\mathcal{L}}{(c\,\partial\sub{0} A^i)} \\
+&=\ \frac{1}{c} \pdif{}{(\partial\sub{0} A^i)} \left( f^{0k} f_{0k} \ +\ f^{j0} f_{j0} \right) \\
+&=\ \frac{2a}{c} \pdif{}{(\partial\sub{0} A^i)} \bigg[ \left( \partial^0 A^k \partial_0 A_k - \partial^0 A^k \partial_k A_0 \right) \ +\ \left( \partial^j A^0 \partial_j A_0 - \partial^j A^0 \partial_0 A_j \right) \bigg] \\
+&=\ \frac{2a}{c} \pdif{}{(\partial\sub{0} A^i)} \bigg[ -\left( \partial_0 A^k \right)^2 \ \ - \partial_0 A^k \partial_k A^0 \ -\ \cancel{\partial_j A^0 \partial_j A^0} \ -\ \partial_j A^0 \partial_0 A^j \bigg] \\
+&=\ \frac{2a}{c} \pdif{}{(\partial\sub{0} A^i)} \bigg[ -\left( \partial_0 A^k \right)^2 \ \ - 2 \ \partial_0 A^k \partial_k A^0 \bigg] \\
+&=\ \frac{2a}{c} \bigg[ -2\ \left( \partial_0 A^i \right) \ \ - 2 \ \partial_i A^0 \bigg] \\
+&=\ -\frac{4a}{c} \bigg[ \pdif{}{(ct)} A^i \ +\ \partial_i (\phi/c) \bigg] \\
+&=\ -\frac{4a}{c^2} \left( \pdif{A^i}{t} \ +\ \pdif{\phi}{x^i} \right)
+</tex>
+
+　めでたく、元の記事での計算と同じ結果にたどり着いた。
+
+<P>
+
+　以上、ごちゃごちゃと書いてはみたが、解説文なしで書けば、
+まったく中断なしの式変形でかなりすっきり表現できるはずだ。
+　まぁ、手間をちょっと節約できただけであって、内容は元の記事でやったのとあんまり変わらないか。
+
+

@@ -1,0 +1,324 @@
+\field{素粒子論}
+\title{プロカ場の改良}
+\comment{途中まではいい感じだったのだが……}
+\prev{mass_em}
+\next{work_report2}
+\create{2018/11/29 8:00}
+\modify{}
+
+\section{ラグランジアン密度の簡略化}
+
+　前回の記事できれいな結論が出せなかったので、もっといい方法がないかどうかを考えてみよう。
+　質量項を追加したせいで場に最初からローレンツ条件が課されることになったのだった。
+　では最初からローレンツ条件が成り立つことを前提としてラグランジアン密度を作ったら良かったのではないだろうか？
+　ローレンツ条件を利用していればもっと違った形からスタートできたのではなかろうか？
+
+<P>
+
+　前回使ったラグランジアン密度は次のようだった。
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{2} c^2 \varepsilon\sub{0} \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) \ -\ \frac{1}{2} c^2 \varepsilon\sub{0} \frac{m^2 c^2}{\hbar^2} A^\mu A_\mu 
+</tex>
+
+　そしてローレンツ条件は次のようである。
+
+<tex>
+\partial_\mu A^\mu \ =\ 0 
+</tex>
+
+　見たところ、どうも簡単になりそうにはない。
+　展開してから当てはまる部分を探す必要があるだろうか？
+
+<P>
+
+　前回$ \partial^\mu A^\nu \partial_\nu A_\mu $の部分を展開したものを眺めてみると、
+これは$ (\partial_\mu A^\mu)^2 $とまるで同じになるのではないだろうか？
+
+<tex>
+\partial^\mu A^\nu \partial_\nu A_\mu \ &=\ 
+(\partial\sub{0} A\sup{0})^2 + (\partial\sub{1} A\sup{1})^2 + (\partial\sub{2} A\sup{2})^2 + (\partial\sub{3} A\sup{3})^2 \\
+&\ + 2\,\partial\sub{0} A\sup{1} \, \partial\sub{1} A\sup{0} + 2\,\partial\sub{0} A\sup{2} \, \partial\sub{2} A\sup{0} + 2\,\partial\sub{0} A\sup{3} \, \partial\sub{3} A\sup{0} \\
+&\ + 2\,\partial\sub{1} A\sup{2} \, \partial\sub{2} A\sup{1} + 2\,\partial\sub{1} A\sup{3} \, \partial\sub{3} A\sup{1} + 2\,\partial\sub{2} A\sup{3} \, \partial\sub{3} A\sup{2} \\[3pt]
+&=\ \big( \partial\sub{0} A\sup{0} + \partial\sub{1} A\sup{1} + \partial\sub{2} A\sup{2} + \partial\sub{3} A\sup{3} \big)^2 \\
+&=\ (\partial_\mu A^\mu)^2 \\
+&=\ 0
+</tex>
+
+　つまり、前回、膨大な項の計算に悩まされたが、最初から次のように簡略したものを使っても良かったということではないか！
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{2} c^2 \varepsilon\sub{0} \ \partial^\mu A^\nu \partial_\mu A_\nu \ -\ \frac{1}{2} c^2 \varepsilon\sub{0} \frac{m^2 c^2}{\hbar^2} A^\mu A_\mu \tag{1}
+</tex>
+
+　参考までに、$ \varepsilon\sub{0} = \hbar = c = 1 $であるような単位系を使えばもっと単純だ。
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{2} \partial^\mu A^\nu \partial_\mu A_\nu \ -\ \frac{1}{2} m^2 A^\mu A_\mu
+</tex>
+
+　ここからプロカ方程式も導くこともできるし、前回の話がほとんどそのまま再現される。
+
+
+% =======================================================================
+
+\section{ハミルトニアンを計算してみる}
+
+　違いが出てきそうなのはハミルトニアンの計算あたりからだろう。
+　そのためにまずは運動量密度$ \pi_i $を計算してやる必要がある。
+
+<tex>
+\pi_i \ =\ \pdif{\mathcal{L}}{\left(\pdif{A^i}{t}\right)} \ =\ \frac{1}{c} \, \pdif{\mathcal{L}}{\left(\partial\sub{0} A^i \right)}
+</tex>
+
+　この計算に質量項が関係しないのは前回と同じ。
+　計算すべき部分については前回展開したものがあるから楽である。
+　次のように展開できるのだった。
+
+<tex>
+-\frac{1}{2} \varepsilon\sub{0} \, c^2 \, \partial^\mu A^\nu \partial_\mu A_\nu \ 
+=\ -\frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+  &(\partial\sub{0} A\sup{0})^2 - (\partial\sub{1} A\sup{0})^2 - (\partial\sub{2} A\sup{0})^2 - (\partial\sub{3} A\sup{0})^2 \\
+- &(\partial\sub{0} A\sup{1})^2 + (\partial\sub{1} A\sup{1})^2 + (\partial\sub{2} A\sup{1})^2 + (\partial\sub{3} A\sup{1})^2 \\
+- &(\partial\sub{0} A\sup{2})^2 + (\partial\sub{1} A\sup{2})^2 + (\partial\sub{2} A\sup{2})^2 + (\partial\sub{3} A\sup{2})^2 \\
+- &(\partial\sub{0} A\sup{3})^2 + (\partial\sub{1} A\sup{3})^2 + (\partial\sub{2} A\sup{3})^2 + (\partial\sub{3} A\sup{3})^2 \ \Big] 
+</tex>
+
+　なるほど、これを使えば$ \pi\sub{0} $は 0 にならないし、他の成分も項が一つのみで済んで、どれも同じ形式だ。
+
+<tex>
+\pi\sub{0} \ &=\ - \varepsilon\sub{0} \,c \, \partial\sub{0} A\sup{0} \\
+\pi_i \ &=\phantom{--}\varepsilon\sub{0} \,c \, \partial\sub{0} A^i \tag{2}
+</tex>
+
+　ハミルトニアン密度というのは次のように表される。
+　(2) 式を当てはめてみよう。
+
+<tex>
+\mathcal{H} \ &=\ \sum_{i=0}^{3} \left( \pi_i \pdif{A^i}{t} \right) \ -\ \mathcal{L} \\
+&= -\varepsilon\sub{0} \,c^2 \, \partial\sub{0} A\sup{0} \, \partial\sub{0} A\sup{0}
++\varepsilon\sub{0} \,c^2 \, \sum_{i=1}^3 \partial\sub{0} A^i \, \partial\sub{0} A^i \ -\ \mathcal{L} \\
+&= -\varepsilon\sub{0} \,c^2 \, (\partial\sub{0} A\sup{0})^2
++\varepsilon\sub{0} \,c^2 \, \sum_{i=1}^3 (\partial\sub{0} A^i)^2 \ -\ \mathcal{L}
+</tex>
+
+　これは$ \mathcal{L} $の中の項に同じ形のものがあるし、係数が 1/2 だけ違うので完全に打ち消し合わずに符号だけを変えて、
+次のようにきれいにまとまる。
+
+<tex>
+\mathcal{H} \ =\ \frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+- &(\partial\sub{0} A\sup{0})^2 - (\partial\sub{1} A\sup{0})^2 - (\partial\sub{2} A\sup{0})^2 - (\partial\sub{3} A\sup{0})^2 \\
++ &(\partial\sub{0} A\sup{1})^2 + (\partial\sub{1} A\sup{1})^2 + (\partial\sub{2} A\sup{1})^2 + (\partial\sub{3} A\sup{1})^2 \\
++ &(\partial\sub{0} A\sup{2})^2 + (\partial\sub{1} A\sup{2})^2 + (\partial\sub{2} A\sup{2})^2 + (\partial\sub{3} A\sup{2})^2 \\
++ &(\partial\sub{0} A\sup{3})^2 + (\partial\sub{1} A\sup{3})^2 + (\partial\sub{2} A\sup{3})^2 + (\partial\sub{3} A\sup{3})^2 \ \Big] \\
+& +\ \frac{1}{2} c^2 \varepsilon\sub{0} \frac{m^2 c^2}{\hbar^2} A^\mu A_\mu 
+</tex>
+
+　これは前回、小細工をしてやっとのことで得たものと同じである。
+　勝手に都合のいい形にまとまってくれた。
+　前回、なぜ早くこれに気付いて試さなかったのかと悔やまれる。
+
+<P>
+
+　ここからは全く同じ議論で進められるし、しかも残りの項とやらを計算する必要もない。
+　あれが 0 になるのを確かめるのはかなり骨を折ったのだった。
+
+<P>
+
+　復習のために、この後の流れをもう一度まとめておこう。
+　上のハミルトニアン密度$ \mathcal{H} $に場の演算子
+
+<tex>
+\hat{A}^\mu \ =\ \int \sum_{\alpha=1,2,3} \varepsilon^\mu_{k\alpha} \, \left( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \tag{3}
+</tex>
+
+を代入して全空間で積分してやるとハミルトニアンが次の形で得られる。
+
+<tex>
+\hat{H} \ &=\ \varepsilon\sub{0} (2\pi)^3 \int \omega^2(\Vec{k}) \, \sum_{\alpha} \Big( \hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha} + \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha} \Big) \diff \Vec{k} 
+</tex>
+
+　ここまでの計算に特に生成演算子$ \hat{a}_{k\alpha} $などの性質は使う必要はなくて、ただ順序を変えないように気を使っただけである。
+　このハミルトニアンの物理的解釈をはっきりさせるために
+
+<tex>
+\hat{H} \ =\ \int \sum_{\alpha} \hbar \, \omega(\Vec{k}) \, \hat{a}^{\dagger}_{k\alpha} \hat{a}_{k\alpha} \diff \Vec{k} 
+</tex>
+
+という形が得られるようにしたいのなら、あらかじめ (3) 式ではなく係数に小細工を加えた次のようなものを使えば良かった。
+
+<tex>
+\hat{A}^\mu \ =\ \int \sqrt{\frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3 \, \omega(\Vec{k})}} \, \sum_{\alpha=1,2,3} \varepsilon^\mu_{k\alpha} \, \left( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \tag{4}
+</tex>
+
+　以上である。
+
+
+% =======================================================================
+
+\section{正準交換関係の確認}
+
+　次は正準交換関係の確認である。
+　前回はこれでひどい目に遭わされたのだった。
+　期待は大きい。
+
+<P>
+
+　(4) 式を (2) 式に代入することで運動量密度の演算子が次のように作れる。
+
+<tex>
+\hat{\pi}\sub{0} \ &=\ -\varepsilon\sub{0} \int \sqrt{\frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3 \, \omega(\Vec{k})}} \, \sum_{\alpha=1,2,3} \varepsilon\sup{0}_{k\alpha} \, \left( -i \, \omega \, \hat{a}_{k\alpha} \, e^{-ikx} \ +\ i\,\omega\,\hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \\
+\hat{\pi}_\nu \ &=\ \phantom{-}\,\varepsilon\sub{0} \int \sqrt{\frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3 \, \omega(\Vec{k})}} \, \sum_{\alpha=1,2,3} \varepsilon^\mu_{k\alpha} \, \left( -i \, \omega \, \hat{a}_{k\alpha} \, e^{-ikx} \ +\ i\,\omega\,\hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} 
+</tex>
+
+　なんと、最初から$ k^\nu $などは出てこないというのか！
+　もう悩みのタネが消えてしまっている。
+
+<P>
+
+　さて、$ \nu = 0 $の場合と$ \nu = 1 \sim 3 $の場合とで符号が違うだけであるから、
+あまり気にせずとりあえずは$ \nu = 1 \sim 3 $の場合だけを考えて計算を進めてやるとしようか。
+　いや、場合分けの必要はない。
+　これらの$ \pi_\nu $は今は共変成分での表示になっている。
+　反変成分に変えてやれば第 0 成分の符号だけが変わって、次のように 4 つの成分を全く同じ形で表せるようになるのである。
+
+<tex>
+\hat{\pi}^\nu \ =\ \phantom{-}\,\varepsilon\sub{0} \int \sqrt{\frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3 \, \omega(\Vec{k})}} \, \sum_{\alpha=1,2,3} \varepsilon^\mu_{k\alpha} \, \left( -i \, \omega \, \hat{a}_{k\alpha} \, e^{-ikx} \ +\ i\,\omega\,\hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} 
+</tex>
+
+　何もかも都合よく進み過ぎで怖いくらいである。
+　ではこれを使って計算に取り掛かろう。
+
+<tex>
+[\hat{A}^\mu, \hat{\pi}^\nu] \ =\ i\, \varepsilon\sub{0} &\dint \frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3} \sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \, \sum_{\alpha} \sum_{\alpha'} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k'\alpha'} \\
+\bigg[ &\Big( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \Big)
+\Big( - \hat{a}_{k'\alpha'} \, e^{-ik'x'} \ +\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \Big) \\
+-&\Big( - \hat{a}_{k'\alpha'} \, e^{-ik'x'} \ +\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \Big)
+\Big( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \Big) \bigg]  \diff \Vec{k} \diff \Vec{k}' \\[5pt]
+=\ \cdots
+</tex>
+
+と思ったが、よく見れば、これは前回$ [\hat{A}^\mu, \hat{\rho}^\nu] $というのを長々と計算したのと全く同じ形であるから、
+途中をかなり省略することができて、次のようになる。
+
+<tex>
+[\hat{A}^\mu, \hat{\pi}^\nu] \ =\ i\, \int \frac{\hbar}{2 (2\pi)^3} \sum_{\alpha} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k\alpha} 
+\big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \tag{5}
+</tex>
+
+　しかし、やはりここで一旦行き詰まる。
+　$ \varepsilon^\mu_{k\alpha} $が$ \Vec{k} $の関数になっているので積分が簡単に実行できないのだった。
+　どう進めばいいだろうか？
+　次のような関係が成り立っていることは前回導いたのだった。
+
+<tex>
+\sum_{\alpha=1}^3 \varepsilon^{\mu}_{k\alpha}\,\varepsilon^{\nu}_{k\alpha} \ =\ \eta^{\mu\nu} \ +\ \frac{\hbar^2}{m^2c^2} \, k^\mu k^\nu 
+</tex>
+
+　ただし$ k\sup{0} = \omega/c $である。
+　しかしこれを (5) 式に代入してみたところできれいにまとまる気がしない。
+　前回は$ k^\mu k^\nu $を含む項を打ち消してくれる項が存在していたが、今回はこれが全てなのだ。
+　腹を括ってこのまま頑張って変形を続けてみよう。
+
+<tex>
+[\hat{A}^\mu, \hat{\pi}^\nu] \ &=\ i\, \int \frac{\hbar}{2 (2\pi)^3} \eta^{\mu\nu} \big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \\
+& \ \ \ \ +\ i\, \int \frac{\hbar}{2 (2\pi)^3} \frac{\hbar^2}{m^2c^2} \, k^\mu k^\nu \big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \\[5pt]
+&=\ i\, \frac{\hbar}{2 (2\pi)^3} \eta^{\mu\nu} \big[ (2\pi)^3 \delta(\Vec{x}-\Vec{x}') \ +\ (2\pi)^3 \delta(\Vec{x}-\Vec{x}') \big] \\
+& \ \ \ \ +\ \frac{i \hbar}{2 (2\pi)^3} \frac{\hbar^2}{m^2c^2} \, \int k^\mu k^\nu \big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \\[5pt]
+&=\ i\, \hbar \, \eta^{\mu\nu} \, \delta(\Vec{x}-\Vec{x}') \\
+& \ \ \ \ +\ \frac{i \hbar}{2 (2\pi)^3} \frac{\hbar^2}{m^2c^2} \, \int k^\mu k^\nu \big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \\[5pt]
+</tex>
+
+　余計な項を消す方法が見当たらない。
+　色々と試してみたがやっぱり無理だった。
+　うまくいかない原因がはっきりすれば諦めも付くのだが、それもよく分からない。
+　自分の能力不足のせいで処理できないだけだという可能性も残ったままだ。
+
+% =======================================================================
+
+\section{教科書ではどうなっているか？}
+
+　他の教科書ではどうしていただろうかと調べてみると、こんな風には計算していないようである。
+　ここまでの計算では、$ \hat{A}^\mu $の 4 つの成分には実は自由度が 3 つしかないというので$ \varepsilon^\mu_{k\alpha} $という 3 つの単位ベクトルを導入してみたわけだが、
+なんと、それら全てに直交するもう一つのベクトルも使っているのである。
+　それは前回仕方なく探してみることになった$ \varepsilon^\mu_{k0} $のことである。
+
+<P>
+
+　つまり、場の演算子を次のように定義して計算を進めているのである。
+
+<tex>
+\hat{A}^\mu \ =\ \int \sqrt{\frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3 \, \omega(\Vec{k})}} \, \sum_{\alpha=0}^3 \varepsilon^\mu_{k\alpha} \, \left( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} 
+</tex>
+
+　(4) 式との違いは、和の記号のところが$ \alpha = 0 \sim 3 $の範囲になっていることである。
+
+<P>
+
+　果たしてこれだけでうまく行くだろうか？
+　4 つの単位ベクトルの成分についてはミンコフスキー内積を考える必要があったので、次のような関係が成り立っているのだった。
+
+<tex>
+-\varepsilon^{\mu}_{k0}\,\varepsilon^{\nu}_{k0} \ +\ \sum_{\alpha=1}^3 \varepsilon^{\mu}_{k\alpha}\,\varepsilon^{\nu}_{k\alpha} \ =\ \eta^{\mu\nu} 
+</tex>
+
+　今まで通りの考え方で計算すると、この最初のマイナス符号が出てこないのである。
+　ではそこをどのように解決しているかと言うと、生成消滅演算子の交換関係を少し変更して、次のような関係を使っているのである。
+
+<tex>
+[\hat{a}_{k\alpha} , \hat{a}^{\dagger}_{k'\alpha'}] \ =\ \delta(\Vec{k}-\Vec{k}')\,\eta_{\alpha,\alpha'}
+</tex>
+
+　右辺の$ \delta_{\alpha,\alpha'} $だったところをミンコフスキー計量$ \eta_{\alpha,\alpha'} $に変えている。
+　なるほど、こうしておけば$ \alpha = \alpha' = 0 $となる時だけはマイナス符号を出てこさせることができるわけだ！
+　その結果として場の交換関係を次のように気持ち良くまとめることができるのである。
+
+<tex>
+[\hat{A}^\mu, \hat{\pi}^\nu] \ =\ i\, \hbar \, \eta^{\mu\nu} \, \delta(\Vec{x}-\Vec{x}') 
+</tex>
+
+　確かに気持ちはいいのだが、少し疑問も残る。
+　生成消滅演算子の交換関係の右辺がマイナスになるというのは果たしてどういう意味があるのだろうか？
+　また、4 つ目のベクトル成分があるとローレンツ条件に反することになるので、
+それに相当する粒子は存在して欲しくないはずだが、
+それをわざわざ式に入れておくというのはどういうつもりだろうか？
+
+<P>
+
+　宇宙がそういう理論構造の方を推奨していて、該当する粒子を存在させない何らかの機構を別に有しているのか、
+あるいは表現力に制限のある人間側の都合によってこのように表さざるを得ないだけなのか、
+このまま話を進めていけば解決できるだろうか？
+
+
+% =======================================================================
+
+\section{ゲージ固定項}
+
+　今回の記事のタイトルが「プロカ場の改良」になっているが、もっと手放しでうまくいくことを期待していたのである。
+　結局は、「最初からゲージを固定したラグランジアン密度を使って計算をやり直してみました」というだけの話になってしまった。
+　もしうまく行ったなら、電磁場の方も同じようなやり方を取り入れて整理し直してやろうと思っていたが、
+ちょっと疑問が増えてしまってそれどころではない感じになってしまった。
+
+<P>
+
+　今回やったことは、ゲージを固定するためにラグランジアン密度から
+$ \frac{1}{2} c^2 \varepsilon\sub{0} (\partial_\mu A^\mu)^2 $のような項を引いたのだとも言える。
+
+　それで$ \varepsilon\sub{0} = c = \hbar = 1 $とする流儀を使って書いてみるが、次のような表記が行われたりする。
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{4} \ f^{\mu\nu} f_{\mu\nu} \ -\ \frac{1}{2}(\partial_\mu A^\mu)^2 \ -\ \frac{1}{2} m^2 A^\mu A_\mu
+</tex>
+
+　この第 2 項のことを「\red{ゲージ固定項}」と呼ぶのである。
+
+<P>
+
+　これについてはもう少しだけ広い見方も出来る。
+　今回付け加えたゲージ固定項はローレンツ条件が成り立っている限りは 0 であるので、
+特にこの形に限らなくても、例えばこれを定数倍したようなものを足したり引いたりしても良かったのである。
+　そのような自由度を利用して計算が楽になるようなラグランジアン密度の形を探し当てたのだ、とも言えるかも知れない。
+
+
+
+

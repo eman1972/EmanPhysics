@@ -1,0 +1,726 @@
+\field{素粒子論}
+\title{場を量子化する}
+\comment{クライン・ゴルドン場を例にして。}
+\prev{chapter3}
+\next{kg_expand2}
+\create{2010/10/20}
+\modify{}
+
+\section{波についての基礎講座}
+
+　クライン・ゴルドン方程式の解を波長ごとに分解してみよう。
+　とても簡単なことなのだが、少しも飛ばさないで説明することにする。
+　まわりくどさには耐えてもらいたい。
+
+<P>
+
+　まず、クラインゴルドン方程式はバラして書くとこんな形だった。
+
+<tex>
+\left( -\frac{1}{c^2} \pddif{}{t} + \pddif{}{x} + \pddif{}{y} + \pddif{}{z} - \frac{m^2c^2}{\hbar^2}\right) \phi \ =\ 0 \tag{1}
+</tex>
+
+　波動方程式ということもあって、次のような形の解が当てはまるだろう。
+
+<tex>
+\phi(x,y,z,t) \ =\ A \ \cos( k_x\,x + k_y\, y + k_z\, z - \omega t + \theta) \tag{2}
+</tex>
+
+　任意の位相$ \theta $が入っているのでコサインでもサインでも調整可能なのだが、
+後の方の説明とうまく繋がるようにとりあえずコサインにしてみた。
+　この (2) 式が表すのは 3 次元の空間を$ \Vec{k} = (k_x, k_y, k_z ) $という方向を目指して進む平面波である。
+　この$ \Vec{k} $を「\red{波数ベクトル}」と呼ぶ。
+　前回話した波数の考えを 3 次元化したものだ。
+　$ k_x = 2\pi/\lambda_x $などと書き直せば、高校物理にも出てくる波の式とほとんど変わらないことが分かるだろう。
+　これが本当に解になっているかどうか、試しにこの式を (1) 式に代入してみよう。
+
+<tex>
+&A \left( -\frac{1}{c^2} (-\omega^2) + (-k_x^2) + (-k_y^2)+ (-k_z^2) - \frac{m^2c^2}{\hbar^2} \right) \cos( \Vec{k}\cdot\Vec{x} - \omega t + \theta) \ =\ 0 \\
+\therefore\ &\frac{1}{c^2} \omega^2 - k_x^2 - k_y^2 - k_z^2 - \frac{m^2c^2}{\hbar^2} \ =\ 0 \\
+\therefore\ &\omega^2 \ =\ c^2 \Vec{k}^2 + \frac{m^2c^4}{\hbar^2} \tag{3}
+</tex>
+
+　確かに解になっていることが分かったが、
+そのために$ \omega $と$ \Vec{k} $とが満たしてないといけない関係も導かれてきた。
+　これを「\red{分散関係}」と呼ぶ。
+　なぜそう呼ぶか？
+　(3) 式の関係では$ \omega/k $が一定ではないだろう。
+　$ \omega/k $は波の進行速度を表わしており、
+$ \omega = c|\Vec{k}| $でない場合には波の周波数成分ごとに速度が異なるのである。
+　重なっていた各成分が徐々に分散していって波の形が崩れてゆくことを表しているから「分散関係」というわけだ。
+
+<P>
+
+　この (3) 式は複雑に見えるけれども、
+$ E = \hbar \omega $や$ \Vec{p} = \hbar \Vec{k} $という関係を導入して書き直せば、
+
+<tex>
+E^2 = c^2 \Vec{p}^2 + (mc^2)^2
+</tex>
+
+となって、相対論に出てくる有名な関係を反映しているに過ぎないのだと分かる。
+
+<P>
+
+　ちなみに電磁場の場合には$ \omega = c|\Vec{k}| $となることを前回書いた。
+　このように、真空を伝わる電磁波はいつまでも波形が崩れない。
+　だから (2) 式のような基本波だけでなく、
+それらを重ね合わせて作られる任意の形の進行波が、形の崩れない解として許されているわけだ。
+　しかし電磁波といえども物質中を伝わる場合にはそうではない。
+　周波数成分によって速度に差が出るためにプリズムのような現象が起こるのである。
+
+<P>
+
+　電磁波の話は置いておこう。
+　クラインゴルドン場の場合には、それぞれ異なった速度で伝わる (2) 式のような基本波を様々に重ね合わせたものが解となる。
+
+<tex>
+\phi(x,y,z,t) \ =\ \sum_k A_k \ \cos( \Vec{k} \cdot \Vec{x} - \omega t + \theta_k) \tag{4}
+</tex>
+
+　任意の位相$ \theta $も波数によってそれぞれ異なった値を使えばいいのでここでは$ \theta_k $としてある。
+　さて、ここまではコサイン関数を使って表してきたが、
+代わりに指数関数を使って表した方が、微分したときに形が変わらないという計算の利点があり、扱いやすいのである。
+　三角関数と指数関数の間には
+
+<tex>
+e^{ix} \ =\ \cos x \ +\ i \ \sin x 
+</tex>
+
+という関係があるので、(4) 式の$ \cos(\cdots) $を$ \exp\, i(\cdots) $に書き換えて、
+
+<tex>
+\phi(x,y,z,t) \ =\ \sum_k A_k \ \exp(i \Vec{k} \cdot \Vec{x} - i\omega t + i\theta_k)
+</tex>
+
+のようにし、全体の実数部分だけを見るという手もある。
+　しかし複素数の波も受け入れ、さらに思い切って振幅を表す$ A_k $の部分も複素数だとしてしまえば、
+任意の位相を表している$ e^{i\theta_k} $も$ A_k $の中に含ませることができて、
+一層きれいな形に表現できるようになるだろう。
+
+<tex>
+\phi(\Vec{x},t) \ =\ \sum_k A\sub{k} \, \exp( i\,\Vec{k} \cdot \Vec{x} - i\,\omega t ) \tag{5}
+</tex>
+
+　\red{これでもちゃんと (1) 式の解であるから、(2) 式を出す代わりに最初からこう書いておけば、
+ここまでの議論は大幅に削ることができたわけだ。}
+　でも初学者にはこういう流れの方が受け入れ易かろう。
+
+<P>
+
+　しかしこれでは全体が実数にならないと心配する人には次のような表現をお勧めしよう。
+
+<tex>
+\phi(\Vec{x},t) \ =\ \sum_k \big[ A\sub{k} \, \exp( i\,\Vec{k} \cdot \Vec{x} - i\,\omega t )\ +\ A\sub{k}^{\ast} \, \exp( -(i\,\Vec{k} \cdot \Vec{x} - i\,\omega t) ) \big] \tag{6}
+</tex>
+
+　複素共役を取って足し合わせてある。
+　これで全体が実数であることが保証される。
+　この形は後で実数場を扱うときに使わせてもらうことになるだろう。
+
+<P>
+
+　さて、これらの式では様々な方向や大きさを持った$ \Vec{k} $についての足し合わせになっているが、
+具体的にどんな組み合わせが許されるかは条件によって変わってくる。
+　例えば周期的境界条件というものを課してやろう。
+　一辺の長さが$ L $の立方体の箱を考えて、その中で起きていることがその隣の箱の中でも同じように起きていると考えるのである。
+　空間の全域がこのような箱で埋め尽くされているようなイメージだ。
+
+<tex>
+\phi(0,y,z,t) \ &=\ \phi(L,y,z,t ) \\
+\phi(x,0,z,t) \ &=\ \phi(x,L,z,t ) \\
+\phi(x,y,0,t) \ &=\ \phi(x,y,L,t )
+</tex>
+
+　この場合、次のような条件を満たす必要が出てくるだろう。
+
+<tex>
+k_x \ =\ \frac{2\pi}{L} n_x \ \ \ ,\ \ \ k_y \ =\ \frac{2\pi}{L} n_y \ \ \ ,\ \ \ k_z \ =\ \frac{2\pi}{L} n_z \ \ \ \ \ ( n_x, n_y, n_z は整数 )
+</tex>
+
+　許される$ \Vec{k} $は、無限に広がるベクトル$ \Vec{k} $の空間中に
+$ 2\pi/L $間隔で規則正しく並ぶ点として表されるわけだ。
+
+<P>
+
+　無限の宇宙空間を舞台にする場合には、このような一辺$ L $の立方体に制限された波を考えることは理屈に合わない。
+　そこで$ L $を大きくしてやることを考えると、$ \Vec{k} $どうしの間隔は次第に狭まってゆき、
+$ L $が無限大の極限では$ \Vec{k} $はべったりと連続になっているとイメージできる。
+　$ \Vec{k} $についての連続的な和。
+　それを式で表すと次のような積分で表される。
+
+<tex>
+\phi(\Vec{x},t) \ =\ \int_{k} A(\Vec{k}) \, \exp( i\,\Vec{k} \cdot \Vec{x} - i\,\omega t ) \diff \Vec{k} \tag{7}
+</tex>
+
+　「量子的」というと飛び飛びの波長だけが許されるイメージがあるかも知れないが、
+このように条件次第であらゆる連続的な波長の波の重ね合わせとしても表せるというわけだ。
+
+<P>
+
+　和の形を取ろうと積分の形を取ろうとも場の理論にとっての本質的な違いはない。
+　どちらを使おうとも場の理論である。
+　固体内のような限られた空間での議論の時には周期的境界条件の下で (5) 式を使うこともあるし、
+無限の空間を舞台にする場合には (7) 式を使うこともある。
+
+<P>
+
+　これで波長ごとの分解という目的は達した。
+
+
+% =======================================================================
+
+\section{演算子の導入}
+
+　前回の予告通りに波を分解するところまでやったはいいが、これをどう使うかまで説明しておかないと気持ち悪い。
+　ついでだから続けてやってしまおう。
+　少々長くなることを覚悟して欲しい。
+
+<P>
+
+　ここでちょっと思考のジャンプを経験することになる。
+　(5) 式と (7) 式のどちらでもいいが、$ A_k $、もしくは$ A(k) $という波の振幅を表す部分がある。
+　これを<a href="../quantum/creat_op.html">量子力学で出てきた</a>消滅演算子$ \hat{a} $で置き換えてやるのだ。
+
+<tex>
+A_k \ &\longrightarrow \ \hat{a}_{\Vec{\scriptstyle k}} \\
+A(\Vec{k}) \ &\longrightarrow \ \hat{a}(\Vec{k})
+</tex>
+
+　また、(6) 式にあるような振幅$ A_k $の複素共役$ A_k^{\ast} $については、
+生成演算子$ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} $で置き換えさせてもらうことにしよう。
+　なぜこんなことをするのかと聞かれても、今回の記事の中では筋の通った返事は用意できそうにない。
+　いかにもちゃんとした根拠がありそうな説明を工夫している教科書もあるが、
+良く読めばここまでの流れと大きな差がなくて、どうしても思考のジャンプが必要になるだろう。
+
+<P>
+
+　波の一点のみを見ていると、それはバネの運動のように振動しており、
+量子力学によれば、このような単振動は、エネルギーの値が一定間隔の飛び飛びの状態を取るのだった。
+　そこからの類推だと言えなくもない。
+　生成演算子や消滅演算子はそのようなエネルギー状態を一つずつ上げ下げする機能を持つ演算子なのだった。
+
+<P>
+
+　空間の各点各点に無数の調和振動子があるようなイメージだ。
+　とは言っても数学的、抽象的なものであり、現実にバネのような実体があることは考えにくい。
+　空間のあらゆる点にびっしりと、しかもあらゆる波長の振動子が重なって存在しているなんて、
+思考の中でしかありえないことだろう。
+　まぁ、こういうことの解釈は読者にお任せするしかない。
+
+<P>
+
+　生成消滅演算子の導入の正当化については、次回あたりの記事でもう少しマシな説明を用意する予定である。
+　それで納得出来るかどうかは保証できないが。
+
+<P>
+
+　こうして$ \phi(\Vec{x},t) $の内部に演算子を導入したので、
+もはや$ \phi(\Vec{x},t) $は単なる波動ではなく、演算子$ \hat{\phi}(\Vec{x},t) $として機能することになった。
+　例として (6) 式を使うと次のような感じだ。
+
+<tex>
+\hat{\phi}(\Vec{x},t) \ =\ \sum_k \big[ \hat{a}_{\Vec{\scriptstyle k}} \, \exp( i\,\Vec{k} \cdot \Vec{x} - i\,\omega t ) \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, \exp( -(i\,\Vec{k} \cdot \Vec{x} - i\,\omega t) ) \big] \tag{8}
+</tex>
+
+　教科書によってはこうではなく、
+
+<tex>
+\hat{\phi}(\Vec{x},t) \ =\ \sum_k \big[ \hat{a}_{\Vec{\scriptstyle k}} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \big] 
+</tex>
+
+のようにかなりシンプルになっていて、
+指数関数の肩の符号も違ってれば、時間依存部分の$ e^{i\omega t} $の要素もなくなっているという場合があるが、その違いについて心配は要らない。
+　これは次のような「\red{4 次元的な内積の記法}」の定義を使っているためにこうなるのである。
+
+<tex>
+kx \ \equiv\ \omega t - \Vec{k}\cdot\Vec{x}
+</tex>
+
+
+　便利なので私も同じものを使わせてもらうことにしよう。
+　空間成分の方にマイナスを付けて定義しているあたりが、私がこれまで守ってきた流儀とは少し異なっているが、
+単に表記の簡単化を狙ったものなので敢えて逆らう必要もないだろう。
+
+<P>
+
+　教科書によっては「4 次元的な内積の記法」を使っている様子もないのに$ e^{i\omega t} $の要素が抜けているぞ、という場合もある。
+　それは生成演算子$ \hat{a}_k $の中に$ e^{i\omega t} $の要素を含ませるという流儀であり、
+
+<tex>
+\hat{a}_k(t) \ \ =\ \hat{a}_k \, e^{-i\omega t} \ \ \ \ \ \ \ \ , \ \ \ \ \ \hat{a}^{\dagger}_k(t) \ \ =\ \hat{a}^{\dagger}_k \, e^{i\omega t}
+</tex>
+
+のようなことになっている。
+　だから結局はどれもちゃんと同じことを言っているのだ。
+　私はこのような差にかなり惑わされた。
+
+<P>
+
+　このように振幅を生成、消滅演算子で置き換えることで、場を演算子に変えてしまうことを、
+「\red{場の量子化}」と呼ぶ。
+　古い教科書では「\red{第二量子化}」と表現されていることもあるが、
+この表現はちょっと誤解を招く可能性がある。
+　この言葉の由来は、おそらくは、量子力学に従って波動方程式を解いて、
+飛び飛びの状態が解として現れることが第一の量子化で、
+さらにそれを応用して粒子性を表現していることを二番目の量子化と呼ぶようなニュアンスだろう。
+　しかし今となっては単に歴史的な順序に由来する呼び名でしかない。
+　1 番目とか 2 番目とかの数字には、理論的には何の意味もない。
+　場が量子化されたのは今回限りなのだ。
+
+<P>
+
+　さあ、ようやくここからが「量子場の理論」の始まりだ。
+
+
+
+
+% =======================================================================
+
+\section{なぜ量子化か}
+
+　なぜ振幅を生成、消滅演算子に置き換えることを量子化と呼ぶのかを説明しよう。
+　場が演算子になったからには、演算する対象が要る。
+　量子力学の範囲では波動関数が演算の対象になっていた。
+　しかし今は、ややこしいことに、その波動関数だったようなものが演算子となって、別の何物かに作用するのである。
+
+<P>
+
+　その何物かとは、状態そのもの・・・宇宙そのものかも知れない。
+　それを「場」と呼ぶこともたまにあるのだが、
+何もかもを同じ名前で呼ぶのは紛らわしいのでやめてほしいものだ。
+
+<P>
+
+　とにかく宇宙に粒子が何も無い状態を考えて、それを$ |0\rangle $と書こう。
+　この『状態』のことを真空と呼ぶ。
+　この真空に対して
+$ \hat{\phi} = \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} e^{ikx} $を作用させるということは、
+何もなかったところに波数$ \Vec{k} $、角振動数$ \omega $であるような波を一つ発生させたことになる。
+　さらに同じものをもう一度作用させれば、同じ波がもう一つ増える・・・というか
+振幅が一段階増加するイメージである。
+　このように波の振幅が、一つ二つと数えられる存在になっている。
+　すなわち、この数えられる波の一つ一つこそが運動量$ \hbar \Vec{k} $とエネルギー$ \hbar \omega $を持つ粒子そのものなのである。
+
+<P>
+
+　え？
+　粒子というものは砂粒か何かのような、もっと小さい「点」みたいな存在が
+空間を一直線に駆け抜けてゆくイメージだって？
+　いやいや、もうそのイメージは捨てよう。
+　それは幻想だったのだ。
+　なぜそんな風に見えていたのかをずっと後の方の記事で説明することにしよう。
+　（できればいいけど・・・という私の希望。　今は多分できるんじゃないカナ、という程度。）
+
+<P>
+
+　この演算子の実際の運用の方法に関してはこれから見ていくことにする。
+　とにかくこのようにして、光や物質の波動性と粒子性を同時に表すことのできる基本ができたのである。
+　波に、一定量のエネルギーや運動量を持つ「粒」すなわち「量子」の概念を付加した。
+　これこそ「量子化」と呼ばれる所以だ。
+
+% =======================================================================
+
+\section{ハミルトニアンを計算する}
+
+　今後の計算のためにはとにかくハミルトニアンを作ることが大事だ。
+　少し前の「クライン・ゴルドン場の準備」という記事の中で、
+実クライン・ゴルドン場のハミルトニアン密度は次のような形になるということを説明した。
+
+<tex>
+\mathcal{H} \ =\ \frac{1}{2} \left( \partial\sub{0} \phi \right)^2 \ +\ \frac{1}{2} (\nabla \phi)^2 \ +\ \frac{m^2 c^2}{2 \hbar^2} \, \phi^2 \\
+</tex>
+
+　ここに (8) 式を代入して求めてやればいい。
+　演算子を代入することで今や$ \mathcal{H} $も演算子に化けるので$ \hat{\mathcal{H}} $と書いておこう。
+
+<tex>
+\hat{\mathcal{H}} \ &=\ \frac{1}{2} \left( \sum_k  \big[ -\frac{i\omega(\Vec{k})}{c} \, \hat{a}_{\Vec{\scriptstyle k}} \, e^{-ikx} \ +\ \frac{i\omega(\Vec{k})}{c} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \big] \right)^2 \\
+&\ \ \ \ \ \ \ \ \ \ +\ \frac{1}{2} \left( \sum_k  \big[ i k_x \, \hat{a}_{\Vec{\scriptstyle k}} \, e^{-ikx} \ -\ i k_x \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \big] \right)^2 \ +\ \frac{1}{2} \bigg( 略 \bigg)^2 \ +\ \frac{1}{2} \bigg( 略 \bigg)^2 \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \frac{m^2 c^2}{2 \hbar^2}\left( \sum_k  \big[ \hat{a}_{\Vec{\scriptstyle k}} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \big] \right)^2
+</tex>
+
+　さあ、困った。
+　何だか、かなりややこしいことになった。
+　気をつけないといけないのは、$ \hat{a}_k $や$ \hat{a}^{\dagger}_k $は演算子なので、勝手に順序を変えてはいけないという点だ。
+　しかし$ \Vec{k} $の異なる演算子どうしは互いに全く別のものだとして順序を交換しても良いと考えてみよう。
+　それ以外は、普通の生成消滅演算子の交換関係が成り立っているとする。
+　数式で表すと次のようになる。
+
+<tex>
+\big[ \hat{a}_{\Vec{\scriptstyle k}}\ ,\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \big] \ &=\ \delta_{\Vec{\scriptstyle k\,k'}} \\
+\big[ \hat{a}_{\Vec{\scriptstyle k}} \ ,\ \hat{a}_{\Vec{\scriptstyle k'}} \big] \ &=\ 0 \tag{9} \\
+\big[ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \ ,\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \big] \ &=\ 0
+</tex>
+
+　展開の結果を落ち着いて考えてみればかなりの項が打ち消し合って消えそうな気もするが、実際のところどうだろうか。
+　例えば、第 1 項は次のようになる。
+
+<tex>
+(第1項) \ =\ \frac{1}{2} \sum_k \sum_{k'} \bigg[ \frac{i^2\,\omega(\Vec{k}) \omega(\Vec{k}')}{c^2} &\Big(\hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \,e^{-i(k+k')x} 
+\ -\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{-i(k-k')x} \\
+& \ \ \ \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \, e^{i(k-k')x}
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{i(k+k')x} \Big) \bigg]
+</tex>
+
+　うーん、ダメだ。
+　交換関係を駆使したとしても消えてくれそうにない。
+　というか、使いどころが少しも見当たらない。
+　しかしこれで終わりではないのだ。
+　ここまで計算してみたのは「ハミルトニアン密度」であった。
+　これを 3 次元空間で積分してやることでようやくハミルトニアンになる。
+　今は$ \Vec{k} $が離散的である場合を選んで計算しているのであり、一辺の長さが$ L $の箱の中の波動を考えているのだった。
+　だから積分範囲もそのようになる。
+
+<tex>
+\hat{H} \ =\ \int_0^L \!\!\! \int_0^L \!\!\! \int_0^L \hat{\mathcal{H}} \diff \Vec{x}
+</tex>
+
+　この$ \hat{\mathcal{H}} $に上の計算結果を入れて積分を実行する時に、次のような公式（？）が役に立つだろう。
+
+<tex>
+\int_0^L e^{ikx} \diff x \ =\ 
+\begin{cases}
+L & (k=0) \\ 
+0 & (k\neq 0)
+\end{cases} \tag{10}
+</tex>
+
+　$ k = 0 $の場合は被積分関数が 1 になるから、この結果は当然だ。
+　$ k \neq 0 $の場合には、定積分の結果が$ (e^{ikL} - 1 )/ik $となるが、
+今考えている波動は$ kL = 2\pi n $という条件を満たしているから 0 となるのである。
+　というわけでこの公式は今回の物理的な条件でだけ使えるものである。
+
+<P>
+
+　では計算を続けよう。
+　一部だけ取り出して説明してもややこしくなるだけなので、一度全体を書いてしまおう。
+　見た目は長ったらしいが、やってることはどの項も同じようなものである。
+
+<tex>
+\hat{H} \ &=\ \ \ \frac{1}{2} \int_0^L \!\!\! \int_0^L \!\!\! \int_0^L
+\sum_k \sum_{k'} \bigg[ \frac{\omega(\Vec{k}) \omega(\Vec{k}')}{c^2} \Big(- \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \,e^{-i(k+k')x} 
+\ +\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{-i(k-k')x} \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \, e^{i(k-k')x}
+\ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{i(k+k')x} \Big) \bigg] \diff \Vec{x} \\
+&\ \ +\ \frac{1}{2} \int_0^L \!\!\! \int_0^L \!\!\! \int_0^L
+\sum_k \sum_{k'} \bigg[ k_x \, k'_x \Big(- \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \,e^{-i(k+k')x} 
+\ +\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{-i(k-k')x} \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \, e^{i(k-k')x}
+\ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{i(k+k')x} \Big) \bigg] \diff \Vec{x} \\
+&\ \ +\ \left( 上の行の k_x が全て k_y になるだけで同じなので略 \right) \\
+&\ \ +\ \left( 同じく k_z で略 \right) \\
+&\ \ +\ \frac{m^2 c^2}{2 \hbar^2} \int_0^L \!\!\! \int_0^L \!\!\! \int_0^L
+\sum_k \sum_{k'} \Big( \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \,e^{-i(k+k')x} 
+\ +\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{-i(k-k')x} \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \, e^{i(k-k')x}
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{i(k+k')x} \Big) \diff \Vec{x} \\[8pt]
+</tex>
+
+　計算のコツを詳しく説明したいので一時的に注目部分以外を略してみる。
+　どこを略したのか、念入りに見て欲しい。
+　これからやる計算は、略された部分にも同じように適用されるのである。
+
+<tex>
+\hat{H} \ &=\ \ \ \frac{1}{2} 
+\sum_k \sum_{k'} \bigg[ \frac{\omega(\Vec{k}) \omega(\Vec{k}')}{c^2} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \int_0^L \!\!\! \int_0^L \!\!\! \int_0^L \Big(- \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \,e^{-i(k+k')x} 
+\ +\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \, e^{-i(k-k')x} \ +\ \cdots \Big) \diff \Vec{x} \bigg]  \\
+&\ \ +\ \cdots \\[16pt]
+&=\ - \frac{1}{2} \sum_k \sum_{k'} \frac{\omega(\Vec{k}) \omega(\Vec{k}')}{c^2} \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \int_0^L \!\!\! \int_0^L \!\!\! \int_0^L e^{i(k_x+k'_x)x} \ e^{i(k_y+k'_y)y} \ e^{i(k_z+k'_z)z} \ e^{-i(\omega(k)+\omega(k'))t} \diff x \diff y \diff z \\
+&\ \ \ \ + \frac{1}{2} \sum_k \sum_{k'} \frac{\omega(\Vec{k}) \omega(\Vec{k}')}{c^2} \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \int_0^L \!\!\! \int_0^L \!\!\! \int_0^L e^{i(k_x-k'_x)x} \ e^{i(k_y-k'_y)y} \ e^{i(k_z-k'_z)z} \ e^{-i(\omega(k)-\omega(k'))t} \diff x \diff y \diff z \\
+&\ \ \ + \cdots \\[16pt]
+&=\ - \frac{1}{2} \sum_k \sum_{k'} \frac{\omega(\Vec{k}) \omega(\Vec{k}')}{c^2} \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \ 
+L^3 \, \delta_{\Vec{\scriptstyle k},-\Vec{\scriptstyle k'}} \ e^{-i(\omega(k)+\omega(k'))t} \\
+&\ \ \ \ + \frac{1}{2} \sum_k \sum_{k'} \frac{\omega(\Vec{k}) \omega(\Vec{k}')}{c^2} \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k'}} \ 
+L^3 \, \delta_{\Vec{\scriptstyle k},\Vec{\scriptstyle k'}} \ e^{-i(\omega(k)-\omega(k'))t} \ +\ \cdots \\[16pt]
+&=\ - \frac{1}{2} L^3 \sum_k \frac{\omega(\Vec{k}) \omega(-\Vec{k})}{c^2} \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{-\Vec{\scriptstyle k}} \ 
+\ e^{-i(\omega(k)+\omega(-k))t} \\
+&\ \ \ \ + \frac{1}{2} L^3 \sum_k \frac{\omega(\Vec{k}) \omega(\Vec{k})}{c^2} \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} \ 
+\ e^{-i(\omega(k)-\omega(k))t} \ +\ \cdots \\[16pt]
+&=\ - \frac{1}{2} L^3 \sum_k \frac{\omega(\Vec{k})^2}{c^2} \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{-\Vec{\scriptstyle k}} \ e^{-2i\omega(k)t} 
+\ +\ \frac{1}{2} L^3 \sum_k \frac{\omega(\Vec{k})^2}{c^2} \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} \ +\ \cdots 
+</tex>
+
+　上で略した部分についても同じ要領で計算を進めてゆくと、次のような感じになるはずだ。
+
+<tex>
+\hat{H} \ &=\ \ \ \frac{1}{2} L^3 \sum_k \frac{\omega(\Vec{k})^2}{c^2}
+\left( - \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{-\Vec{\scriptstyle k}} \, e^{-2i\omega t} 
+\ +\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} 
+\ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{-\Vec{\scriptstyle k}} \, e^{2i\omega t} \right) \\
+&\ \ +\ \frac{1}{2} L^3 \sum_k 
+\left[ - (-{k_x}^2) \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{-\Vec{\scriptstyle k}} \, e^{-2i\omega t} 
+\ +\ ({k_x}^2) \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} 
+\ +\ ({k_x}^2) \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} 
+\ -\ (-{k_x}^2) \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{-\Vec{\scriptstyle k}} \, e^{2i\omega t} \right] \\
+&\ \ +\ \left( 上のカッコ内の k_x が k_y になるだけなので略 \right) \ +\ \left( 同じく k_z で略 \right) \\
+&\ \ +\ \frac{m^2 c^2}{2 \hbar^2} L^3 \sum_k
+\left( \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{-\Vec{\scriptstyle k}} \, e^{-2i\omega t} 
+\ +\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{-\Vec{\scriptstyle k}} \, e^{2i\omega t} \right) \\
+</tex>
+
+　どの行を見ても似たような形になっており、係数が違っているだけだ。
+　縦の列に注目して係数を集めれば綺麗にまとめられるのではないだろうか。
+
+<tex>
+\hat{H} \ =\ \frac{1}{2} L^3 \sum_k \bigg[ & \ 
+    \hat{a}_{\Vec{\scriptstyle k}} \hat{a}_{-\Vec{\scriptstyle k}} \, e^{-2i\omega t} \left( -\frac{\omega^2}{c^2} + {k_x}^2 + {k_y}^2 + {k_z}^2 + \frac{m^2 c^2}{\hbar^2} \right) \\
+&+\ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \left( \frac{\omega^2}{c^2} + {k_x}^2 + {k_y}^2 + {k_z}^2 + \frac{m^2 c^2}{\hbar^2} \right) \\
+&+\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} \left( \frac{\omega^2}{c^2} + {k_x}^2 + {k_y}^2 + {k_z}^2 + \frac{m^2 c^2}{\hbar^2} \right) \\
+&+\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{-\Vec{\scriptstyle k}} \, e^{2i\omega t} \left( -\frac{\omega^2}{c^2} + {k_x}^2 + {k_y}^2 + {k_z}^2 + \frac{m^2 c^2}{\hbar^2} \right) \bigg]
+</tex>
+
+　(3) 式の分散関係を当てはめれば、1 行目と 4 行目のカッコの中は 0 である。
+　では 2 行目と 3 行目はどうだろう？
+　カッコ内は次のようになるので消えてくれなさそうだ。
+
+<tex>
+\frac{\omega^2}{c^2} + {k_x}^2 + {k_y}^2 + {k_z}^2 + \frac{m^2 c^2}{\hbar^2} \ \Longrightarrow \ \frac{2\omega^2}{c^2}
+</tex>
+
+　まぁ、すべて消えてもらっても困るわけだが。
+　ということは、結局はこういう事になるだろう。
+
+<tex>
+\hat{H} \ =\  \sum_k \left[ \frac{L^3 \omega(\Vec{k})^2}{c^2} \left( \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} \right) \right]
+</tex>
+
+　うーん、ちょっと納得行かないなぁ。
+　ハミルトニアンと言えば、その次元はエネルギーのはずだ。
+　$ \hbar \omega $がちょうどエネルギーの次元だから、そういう形になって欲しかった。
+　そこで人工的な操作を加えよう。
+　ハミルトニアン密度の定義を見直すと、$ \phi $の 2 乗の形になっている。
+　それでこのような結果になっているのだから、あらかじめ、$ \phi $には
+$ \sqrt{c^2\hbar/L^3 \omega} $を掛けておけばいいのだ。
+
+<tex>
+\hat{\phi}(\Vec{x},t) \ =\ \sum_k \left[ \sqrt{\frac{c^2\hbar}{2L^3 \omega(\Vec{k})}} \left( \hat{a}_{\Vec{\scriptstyle k}} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \right) \right] 
+</tex>
+
+　\red{これが本当の実スカラー場の形だ。}
+　こうしておいてもここまでの計算に影響がないことをさかのぼって確かめてみて欲しい。
+　ここでこっそり$ 1/\sqrt{2} $が入り込んでいるが、そのようにした理由はすぐ後に分かるだろう。
+　そしてこれを入れた場合のハミルトニアンは次のようになる。
+
+<tex>
+\hat{H} \ &=\ \sum_k \frac{1}{2} \hbar \omega(\Vec{k}) \left[ \hat{a}_{\Vec{\scriptstyle k}} \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} \right] \\
+&=\ \sum_k \frac{1}{2} \hbar \omega(\Vec{k}) \left[ (\hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} + 1 )
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} \right] \\
+&=\ \sum_k \frac{1}{2} \hbar \omega(\Vec{k}) \left( 2\hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \hat{a}_{\Vec{\scriptstyle k}} + 1 \right) \\
+&=\ \sum_k \hbar \omega(\Vec{k}) \left( \hat{n}_{\Vec{\scriptstyle k}} \ +\ \frac{1}{2} \right) \\
+&=\ \sum_k \hbar \omega(\Vec{k}) \, \hat{n}_{\Vec{\scriptstyle k}} \ +\ \sum_k \frac{1}{2} \hbar \omega(\Vec{k}) 
+</tex>
+
+　ここの変形で初めて生成消滅演算子の交換関係である (9) 式を使った。
+　$ \hat{n}_{\Vec{\scriptstyle k}} $は粒子数演算子であって、運動量$ \Vec{k} $の粒子が幾つあるのかを表している。
+　個々の粒子のエネルギーが$ \hbar \omega(\Vec{k}) $であるので、この式は全粒子のエネルギーを表していると言え・・・。
+　言えないか・・・。
+　残念ながら第 2 項が無限大になってしまうために、そう言い切れないのである。
+　この無限大は「零点エネルギー」に起因するものだ。
+　無限に存在する調和振動子を仮定したために、粒子が一つもない状態であってもエネルギーが無限大になってしまっているのである。
+
+<P>
+
+　そこで、大変気持ち悪いかも知れないが、第 2 項を削ったものをハミルトニアンとして再定義してやることにしよう。
+　どうせエネルギーというのはどこかに基準を決めてやって、いつもそれとの差で論じられるものだから、
+こうしたところで問題ないだろうというわけである。
+　残しておいても今後の計算に影響してこないし、余計な項として残り続けて邪魔になるだけなのでその方がいい。
+
+<tex>
+\hat{H} \ \equiv\ \sum_k \hbar \omega(\Vec{k}) \, \hat{n}_{\Vec{\scriptstyle k}} 
+</tex>
+
+　もう分かってると思うけれど、先ほどこっそり入れた$ 1/\sqrt{2} $はこの形になるように仕組んだのである。
+　とにかく、こうして場に粒子性を持ち込むことに成功したわけだ。
+　何かすごいことを成し遂げたような気がするかも知れないが、
+はっきり言って、交換関係は最後の最後にちょろっと使っただけであり、計算の途中では$ e^{ikx} $が大活躍。
+　生成消滅演算子を導入しないままで振幅$ A_k $と$ A_k^{\ast} $を使ったとしてもこれに近い結果を得られるのである。
+　ここまでの計算の本質は、波を波数ごとに分解したことにこそあるだろう。
+
+<P>
+
+　計算の複雑さにびびって、生成消滅演算子を導入したことを手放しで褒め讃えてはいけない。
+　これらが活躍するのはもっと後のことだ。
+
+% =======================================================================
+
+\section{連続波数の場合のハミルトニアン}
+
+　上で求めたハミルトニアンは、波の形が一辺$ L $の箱によって制限されていて、
+それ故に波数$ \Vec{k} $が離散的になっている場合のものだった。
+　この箱の大きさを無限大にした場合、すなわち連続的な波数が許される場合の計算が上とどう異なるかを見ていこう。
+
+<P>
+
+　$ \sum_k $と書いていた部分を単純に$ \int \diff \Vec{k} $で置き換えればいいだけだと思うかも知れないが、そうも行かない。
+　$ \sum_k $は異なる$ \Vec{k} $についての単純な足し合わせになっているが、
+$ \int \diff \Vec{k} $と書いた場合には、$ \diff \Vec{k} $という微小量を掛けた上での足し合わせになっている。
+　$ \diff \Vec{k} $の分だけ次元が異なってしまっているのだ。
+　その辻褄を合わせないといけない。
+
+<P>
+
+　$ \sum_k $というのは、表記上は$ \Vec{k} $についての足し合わせに見えるが、
+よく考えてみれば、$ \Vec{k} = (2\pi/L) (n_x, n_y, n_z ) $を満たす整数$ (n_x, n_y, n_z ) $の全ての組の足し合わせだ。
+　だから意味的には$ \sum \diff \Vec{n} $のような計算をしていたようなものである。
+　$ \diff \Vec{n} $と$ \diff \Vec{k} $の関係は、
+
+<tex>
+\diff \Vec{k} \ &=\ \diff k_x \diff k_y \diff k_z \\
+&=\ \left( \frac{2\pi}{L} \diff n_x \right)\left( \frac{2\pi}{L} \diff n_y \right)\left( \frac{2\pi}{L} \diff n_z \right) \\
+&=\ \frac{(2\pi)^3}{L^3} \diff \Vec{n}
+</tex>
+
+となっている。
+　つまり、$ \diff \Vec{n} = (L/2\pi)^3 \diff \Vec{k} $という関係になっている。
+　よって次元を合わせるためにも、次のような置換えをするべきだ。
+
+<tex>
+\sum_k \ \longrightarrow \ \frac{L^3}{(2\pi)^3} \int_{-\infty}^{\infty} \diff \Vec{k} \tag{11}
+</tex>
+
+　しかし今は$ L \rightarrow \infty $を考えているのだからこれでは無限大になってしまいそうだ。
+　確かにこれだけじゃうまく行きそうにない。
+　他にもいじらないといけない場所があるのだ。
+　生成消滅演算子の扱い方である。
+
+<P>
+
+　生成消滅演算子のパラメータ$ \Vec{k} $も連続的になるので、
+交換関係としては (9) 式の代わりに右辺を次のようにデルタ関数で置き換えたものを使うのが自然な拡張になりそうだ。
+
+<tex>
+\left[ \hat{a}(\Vec{k}) \ ,\ \hat{a}^{\dagger}(\Vec{k}') \right] \ &=\ \delta( \Vec{k}-\Vec{k}' ) \\
+\left[ \hat{a}(\Vec{k}) \ ,\ \hat{a}(\Vec{k}') \right] \ &=\ 0 \tag{12} \\
+\left[ \hat{a}^{\dagger}(\Vec{k}) \ ,\ \hat{a}^{\dagger}(\Vec{k}') \right] \ &=\ 0
+</tex>
+
+　ここで使った$ \delta( \Vec{k}-\Vec{k}' ) $というのは見ただけでイメージはつかめると思うが、
+今後の計算で使うのであえて意味をはっきりさせておくと、次のようなものである。
+
+<tex>
+\delta( \Vec{k}-\Vec{k}' ) \ \equiv\ \delta(k_x -k'_x)\,\delta(k_y -k'_y)\,\delta(k_z -k'_z)
+</tex>
+
+　ところで、単純に$ \hat{a}_{\Vec{\scriptstyle k}} \rightarrow \hat{a}(\Vec{k}) $のような置き換えが許されるだろうか。
+　例えば以前の交換関係 (9) 式を利用すれば次のような式は成り立っていると言える。
+
+<tex>
+\sum_k \left[ \hat{a}_{\Vec{\scriptstyle k}}\ ,\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k'}} \right] \ =\ 1
+</tex>
+
+　今書いたような (12) 式の交換関係が成り立つとすれば、同様な次のような式も成り立っているだろう。
+
+<tex>
+\int_{-\infty}^{\infty} \left[ \hat{a}(\Vec{k}) \ ,\ \hat{a}^{\dagger}(\Vec{k}') \right] \diff \Vec{k} \ =\ 1 \tag{13}
+</tex>
+
+　しかし (11) 式の「和の記号から積分への移行」のルールを当てはめるなら、
+本来、次のような式になるべきではないだろうか。
+
+<tex>
+\frac{L^3}{(2\pi)^3} \int_{-\infty}^{\infty} \left[ \hat{a}(\Vec{k}) \ ,\ \hat{a}^{\dagger}(\Vec{k}') \right] \diff \Vec{k} \ =\ 1 \tag{14}
+</tex>
+
+　確かにその通りだ。
+　そもそもデルタ関数$ \delta(x) $というのは物理的な意味を考えると$ 1/x $の次元を持つものなのである。
+　これを解決するための方策は大きく分けて二つある。
+
+<P>
+
+　一つは、この (14) 式の形を重視して$ \hat{a}(\Vec{k}) $と$ \hat{a}^\dagger(\Vec{k}) $の交換関係を次のように定義する方法。
+
+<tex>
+\left[ \hat{a}(\Vec{k}) \ ,\ \hat{a}^{\dagger}(\Vec{k}') \right] \ =\ \frac{(2\pi)^3}{L^3} \delta( \Vec{k}-\Vec{k}' ) \tag{15}
+</tex>
+
+　これは生成消滅演算子が無次元量だと考えて、右辺も無次元量になるように調整しているわけだ。
+　確かに「生成消滅演算子は無次元だ」と考えるようにした方が気持ちが良い気もする。
+
+<P>
+
+　もう一つは、生成消滅演算子があたかも物理的な次元を持っているかのように解釈してしまう解決法だ。
+　$ \Vec{k} $が離散的な場合の$ \hat{a}_{\Vec{\scriptstyle k}} $などは明らかに無次元だったから、
+$ L \rightarrow \infty $の移行時には次元の差を解決するために次のような置き換えをすべきだと考えるのである。
+
+<tex>
+\hat{a}_{\Vec{\scriptstyle k}} \ \longrightarrow \ \sqrt{\frac{(2\pi)^3}{L^3}} \hat{a}(\Vec{k}) \tag{16}
+</tex>
+
+　こうすれば、(11) 式の移行のルールを採用した上で、(13) 式のような計算も成り立っていて、
+つまり (12) 式のようなさっぱりした交換関係が使える。
+　これもまた気持ち良い。
+
+<P>
+
+　教科書によって流儀は様々で、私もどちらを取るかさんざん迷ったのだが、後者を選ぶことにしよう。
+　つまり、(11) (12) (13) (16) 式を採用することになる。
+　(14) (15) 式は採用しない。
+　これらの処方を適用すると、実スカラー場は次のようになる。
+
+<tex>
+\hat{\phi}(\Vec{x},t) \ =\ \int_{-\infty}^{\infty} \left[ \sqrt{\frac{c^2\hbar }{(2\pi)^3 2 \omega(\Vec{k})}} \left( \hat{a}_{\Vec{\scriptstyle k}} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k}} \, e^{ikx} \right) \right] \diff \Vec{k}
+</tex>
+
+　うまい具合に、無限大になってしまうような要素は綺麗に消えてくれた！
+　もし生成消滅演算子が無次元だとする解釈を選んだ場合には無限大になる運命の$ L $がこの式に残ってしまうのだが、
+$ c/\omega $が長さの次元を持つことを利用して、ここに$ L $が残らぬように調整することになる。
+　そういう人為的な操作をなるべく入れたくないこともあって、この解釈を選んだのである。
+
+<P>
+
+　次に、これを使ってハミルトニアンを求めたらどうなるかを確かめておきたい。
+　まぁ、ほとんど同じなのだが少し違う部分もある。
+　それは (10) 式の代わりに次の関係を使うということである。
+
+<tex>
+\int_{-\infty}^{\infty} e^{ikx} \diff x \ =\ 2\pi \, \delta(k)
+</tex>
+
+　この式はデルタ関数の定義の一種を変形したものである。
+　「デルタ関数の積分表現」として良く知られているものであるから疑問に思った人は他で調べてもらいたい。
+　離散的な場合にやったのとほとんど変わらないような式変形をもう一度書くのは無駄に思えるので、結果だけ示しておこう。
+
+<tex>
+\hat{H} \ &=\ \int_{-\infty}^{\infty} \frac{1}{2} \hbar \omega(\Vec{k}) \Big[ \hat{a}(\Vec{k}) \hat{a}^{\dagger}(\Vec{k}) 
+\ +\ \hat{a}^{\dagger}(\Vec{k}) \hat{a}(\Vec{k}) \Big] \diff \Vec{k} \\
+&=\ \int_{-\infty}^{\infty} \frac{1}{2} \hbar \omega(\Vec{k}) \Big[ 2 \hat{a}^{\dagger}(\Vec{k}) \hat{a}(\Vec{k}) \ +\ \delta(\Vec{0}) \Big] \diff \Vec{k} \\
+&=\ \int_{-\infty}^{\infty} \hbar \omega(\Vec{k}) \, \hat{n}(\Vec{k}) \diff \Vec{k} \ +\ \int_{-\infty}^{\infty} \frac{1}{2} \hbar \omega(\Vec{k}) \, \delta(\Vec{0}) \diff \Vec{k}
+</tex>
+
+　やはり第 2 項は発散する。
+　参考までに、$ \delta(\Vec{0}) $というのは、
+
+<tex>
+\delta( \Vec{0} ) \ &=\ \delta(k_x=0) \, \delta(k_y=0) \, \delta(k_z=0) \\
+&=\ \left( \lim_{k \to 0} \frac{1}{(2\pi)} \int e^{ikx} \diff x \right)^3 \\
+&=\ \frac{V}{(2\pi)^3}
+</tex>
+
+であり、体積に比例する形で発散していると言える。
+　それでやはり、第 2 項を削って次のように再定義してやるのである。
+
+<tex>
+\hat{H} \ \equiv\ \int_{-\infty}^{\infty} \hbar \omega(\Vec{k}) \, \hat{n}(\Vec{k}) \diff \Vec{k} 
+</tex>
+
+　$ \hbar \omega $は粒子一個あたりのエネルギーを表しているのだから、
+それに$ \diff \Vec{k} $を掛けて積分したこの式はもはやエネルギーの次元を持たなくなってしまっているかのように見える。
+　しかし我々は生成消滅演算子に物理的な次元があるという解釈を取ったのであり、$ \hat{n} $は無次元ではない。
+　$ \hat{n}(\Vec{k}) \diff \Vec{k} $というひとかたまりで
+「$ \Vec{k} \sim \Vec{k} + \diff \Vec{k} $の範囲内に含まれる粒子数」を表すことになっているのである。
+　それで、この式の全体がエネルギーの次元を持つという解釈に問題はない。
+
+<P>
+
+　もう少しあれこれ話したいことがあるのだが、今回はこれくらいにしておこう。
+　一回きりで終わると思っていたのだが、あまり進まなかった。
+

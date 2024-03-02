@@ -1,0 +1,358 @@
+\field{素粒子論}
+\title{ベクトル場の伝播関数}
+\comment{。}
+\prev{wick}
+\next{}
+
+
+\section{伝播関数の定義}
+
+　前回出てきた伝播関数の定義は次のようなものだった。
+
+<tex>
+\Delta_F(x\sub{1}-x\sub{2}) \ &\equiv\ i\,\bra{0} \, T[\phi(x\sub{1}) \, \phi(x\sub{2})] \, \ket{0} \tag{1} \\
+G^{\mu\nu}(x\sub{1}-x\sub{2}) \ &\equiv\ i\,\bra{0} \, T[A^\mu(x\sub{1}) \, A^\nu(x\sub{2})] \, \ket{0} \tag{2} \\
+S_F(x\sub{1}-x\sub{2}) \ &\equiv\ i\,\bra{0} \, T[\psi(x\sub{1})\bar{\psi}(x\sub{2})] \, \ket{0} \tag{3}
+</tex>
+
+　このような形で定義されているのは、ウィックの定理から出てくる形式に合わせてあるからである。
+これらが$ \bra{0} $と$ \ket{0} $で挟まれていることの物理的な意味などは考えないほうがいいだろうと思う。
+2 つの場を組み合わせたときに生じる生成・消滅演算子の並びの中から欲しい組み合わせだけを恣意的に取り出すために使っているだけである。
+虚数単位$ i $をわざわざ付けて定義しているのは今のところ、まだ謎である。
+なんだか邪魔で仕方がない。
+
+<P>
+
+　これらの伝搬関数のことをわざわざ「\red{ファインマンの伝搬関数}」という呼び方をすることがあるのは、それ以外の伝搬関数もあるからである。
+今は関係ないので気にしなくてもいい。
+教科書によってはその辺りを混ぜこぜにして説明してきたりするが、あまり余計な話で初学者を混乱させないようにしてほしいものだ。
+
+\note{　まぁ、これは教科書が悪いというわけでもないのである。
+今は「相対論的な場の理論」の基本を説明しているので伝搬関数と言えばこの形なわけだが、
+物性理論などでは「非相対論的な場の理論」が使われており、
+理論上の制約が緩いために他の形の伝搬関数も使われるし、
+あちこちの分野でバリエーションが幾つも存在しているのである。
+著者の専門によってどの形が基本であるかという考え方が違っているというわけだ。}
+
+
+% =======================================================================
+
+\section{スカラー場の伝播関数}
+
+　では、これらを具体的に計算してみよう。
+まず (1) 式のスカラー場の伝播関数からである。
+
+<P>
+
+　場の演算子$ \phi $の具体的な式はこの解説の流儀では次のようであった。
+
+<tex>
+\phi(x) \ =\ \int_{-\infty}^{\infty} \left[ \sqrt{\frac{1}{(2\pi)^3 2 \omega}} \left( \hat{a}(\Vec{k}) \, e^{-ikx} \ +\ \hat{a}^{\dagger}(\Vec{k}) \, e^{ikx} \right) \right] \diff \Vec{k} \tag{4}
+</tex>
+
+　これを (1) 式に代入してやると次のようになる。
+
+<tex>
+\Delta_F(x\sub{1}-x\sub{2}) \ &=\ i\, \frac{1}{\sqrt{(2\pi)^6}}\dint \diff \Vec{k}\sub{1}\diff \Vec{k}\sub{2} 
+\frac{1}{\sqrt{2\omega(\Vec{k}\sub{1})}\sqrt{2\omega(\Vec{k}\sub{2})}} \\
+&\ \ \ \bra{0} \, T \bigg[ \Big( \hat{a}(\Vec{k}\sub{1}) \, e^{-ik\sub{1}x\sub{1}} + \hat{a}^\dagger(\Vec{k}\sub{1}) \, e^{ik\sub{1}x\sub{1}} \Big) \Big(\hat{a}(\Vec{k}\sub{2}) \, e^{-ik\sub{2}x\sub{2}} + \hat{a}^\dagger(\Vec{k}\sub{2}) \, e^{ik\sub{2}x\sub{2}} \Big) \bigg] \, \ket{0} \tag{5}
+</tex>
+
+　まずは時間順序積を外すことを考えよう。
+これは時間の値が大きいものを前に持ってくるというルールであった。
+時間は$ e^{ik\sub{1}x\sub{1}} $などのように書かれている中に隠されている。
+この$ k\sub{1}x\sub{1} $は 4 次元的内積というルールで略した書き方であり、
+実際は$ k\sub{1}x\sub{1} = \omega(\Vec{k}\sub{1}) t\sub{1} - \Vec{k}\sub{1} \cdot \Vec{x}\sub{1} $であることを思い出そう。
+(5) 式の 2 つのカッコのうち、最初のカッコ内の演算子の時刻が$ t\sub{1} $であり、次のカッコ内の演算子の時刻が$ t\sub{2} $である。
+
+<P>
+
+　$ t\sub{1} $と$ t\sub{2} $のどちらが大きいかによってカッコの順序を変えなくてはならないが、
+階段関数$ \theta(t) $というものを利用する。
+
+<tex>
+\theta(t) \ =\ 
+\begin{cases}
+0 & (t<0) \\
+1 & (t \geqq 0)
+\end{cases}
+</tex>
+
+　$ \theta(t\sub{1}-t\sub{2}) $としておけば$ t\sub{1}>t\sub{2} $の時だけ有効になる項を表すことが出来るし、
+$ \theta(t\sub{2}-t\sub{1}) $としておけばその逆を表せるので、次のように展開できる。
+
+<tex>
+&T \bigg[ \Big( \hat{a}(\Vec{k}\sub{1}) \, e^{-ik\sub{1}x\sub{1}} + \hat{a}^\dagger(\Vec{k}\sub{1}) \, e^{ik\sub{1}x\sub{1}} \Big) \Big(\hat{a}(\Vec{k}\sub{2}) \, e^{-ik\sub{2}x\sub{2}} + \hat{a}^\dagger(\Vec{k}\sub{2}) \, e^{ik\sub{2}x\sub{2}} \Big) \bigg] \\[3pt]
+=\ &\theta(t\sub{1}-t\sub{2})\ \Big( \hat{a}(\Vec{k}\sub{1}) \, e^{-ik\sub{1}x\sub{1}} + \hat{a}^\dagger(\Vec{k}\sub{1}) \, e^{ik\sub{1}x\sub{1}} \Big) \Big(\hat{a}(\Vec{k}\sub{2}) \, e^{-ik\sub{2}x\sub{2}} + \hat{a}^\dagger(\Vec{k}\sub{2}) \, e^{ik\sub{2}x\sub{2}} \Big) \\
+&+\ \theta(t\sub{2}-t\sub{1})\ \Big(\hat{a}(\Vec{k}\sub{2}) \, e^{-ik\sub{2}x\sub{2}} + \hat{a}^\dagger(\Vec{k}\sub{2}) \, e^{ik\sub{2}x\sub{2}} \Big) \Big( \hat{a}(\Vec{k}\sub{1}) \, e^{-ik\sub{1}x\sub{1}} + \hat{a}^\dagger(\Vec{k}\sub{1}) \, e^{ik\sub{1}x\sub{1}} \Big) 
+</tex>
+
+　この技は以前に$ \phi $4乗理論の 2 次の摂動を計算したときにも使ったのだった。
+
+<P>
+
+　次にこのカッコを展開してやることになるのだが、$ \bra{0} $と$ \ket{0} $に挟まれて生き残れるのは$ \hat{a}\hat{a}^\dagger $という並びのものだけである。
+それを考えれば手間を掛けずに (5) 式を次の形にまで一気に変形できる。
+
+<tex>
+\Delta_F(x\sub{1}-x\sub{2}) \ &=\ i\, \frac{1}{\sqrt{(2\pi)^6}}\dint \diff \Vec{k}\sub{1}\diff \Vec{k}\sub{2} 
+\frac{1}{\sqrt{2\omega(\Vec{k}\sub{1})}\sqrt{2\omega(\Vec{k}\sub{2})}} \\
+&\ \ \ \Big( \theta(t\sub{1}-t\sub{2}) \ \bra{0} \, \hat{a}(\Vec{k}\sub{1}) \hat{a}^\dagger(\Vec{k}\sub{2}) \, \ket{0} \ e^{-ik\sub{1}x\sub{1}}\, e^{ik\sub{2}x\sub{2}} \\
+&\ \ \ +\ \theta(t\sub{2}-t\sub{1}) \ \bra{0} \, \hat{a}(\Vec{k}\sub{2}) \hat{a}^\dagger(\Vec{k}\sub{1}) \, \ket{0} \ e^{ik\sub{1}x\sub{1}}\, e^{-ik\sub{2}x\sub{2}} \Big) \tag{6}
+</tex>
+
+　この演算子も順序を変えてやればデルタ関数だけを残して消えるので、
+
+<tex>
+=\ &i\, \frac{1}{\sqrt{(2\pi)^6}}\dint \diff \Vec{k}\sub{1}\diff \Vec{k}\sub{2} 
+\frac{1}{\sqrt{2\omega(\Vec{k}\sub{1})}\sqrt{2\omega(\Vec{k}\sub{2})}} \\
+&\ \ \ \delta(\Vec{k}\sub{1}-\Vec{k}\sub{2}) \, \Big( \theta(t\sub{1}-t\sub{2}) \, e^{-ik\sub{1}x\sub{1}}\, e^{ik\sub{2}x\sub{2}} 
+\ +\ \theta(t\sub{2}-t\sub{1}) \, e^{ik\sub{1}x\sub{1}}\, e^{-ik\sub{2}x\sub{2}} \Big)
+</tex>
+
+のようになり、さらにどちらかの$ \Vec{k} $で積分してやるとデルタ関数の働きによって$ \Vec{k}\sub{1} $と$ \Vec{k}\sub{2} $の区別も必要なくなり、
+
+<tex>
+=\ \frac{i}{(2\pi)^3}\int \diff \Vec{k} \, \frac{1}{2\omega(\Vec{k})} 
+\Big( \theta(t\sub{1}-t\sub{2}) \, e^{-ik(x\sub{1}-x\sub{2})}
+\ +\ \theta(t\sub{2}-t\sub{1}) \, e^{ik(x\sub{1}-x\sub{2})} \Big) \tag{7}
+</tex>
+
+というあっさりした形にまで変形できる。
+
+<P>
+
+　以前に$ \phi $4乗理論の泥臭い計算をしたときに、最後の方で出てきたのがこの形である。
+そのときにはこれを伝搬関数の定義として紹介したのだった。
+この形の方が (1) 式のような形式的な定義よりも伝搬関数の意味を直接的に表せていると言えるかもしれない。
+
+% =======================================================================
+
+\section{階段関数を含む積分}
+
+
+　さて、階段関数を含む積分をどのように実行したら良いだろうか。
+階段関数というのはデルタ関数を積分したものである。
+いや、階段関数を微分したらデルタ関数になると考えた方がイメージしやすいか。
+どちらでもいい。
+デルタ関数というのは積分表示で次のように表せるのだった。
+
+<tex>
+\delta(t) \ =\ \frac{1}{2\pi} \int^\infty_{-\infty} e^{-i\omega t} \diff \omega
+</tex>
+
+　指数関数の肩の部分のマイナスは付けても付けなくても同じになるが、次の式がきれいになるように付けてある。
+$ t $で微分したらこの形になるのが階段関数なのだから、次のような形で表せると考えれば良いのではなかろうか。
+
+<tex>
+\theta(t) \ =\ \frac{i}{2\pi} \int^\infty_{-\infty} \frac{e^{-i\omega t}}{\omega} \diff \omega \tag{8}
+</tex>
+
+　分母に$ \omega $があって、積分の途中で$ \omega = 0 $となるところがあるので破綻するような気がするが、静かに成り行きを見守っていてほしい。
+
+<P>
+
+　この (8) 式を (7) 式に代入してやりたいのだが、(7) 式で使っている$ \omega $と (8) 式で使っている$ \omega $は無関係なので、
+分かりやすい区別をしておいた方が良いだろう。
+どうせ一時的に使うだけの積分変数であることだし、(8) 式の$ \omega $を$ s $で表して代入してやろう。
+
+<tex>
+\Delta_F(x\sub{1}-x\sub{2}) \ =\ &\frac{i}{(2\pi)^3}\int \diff \Vec{k} \, \frac{1}{2\omega(\Vec{k})} \\
+&\ \ \ \frac{i}{2\pi} \Big( \int \frac{e^{-is(t\sub{1}-t\sub{2})}}{s} \diff s  \, e^{-ik(x\sub{1}-x\sub{2})}
+\ +\ \int \frac{e^{-is(t\sub{2}-t\sub{1})}}{s} \diff s \, e^{ik(x\sub{1}-x\sub{2})} \Big) 
+</tex>
+
+　さて、この後の式変形の負担を減らすために、$ x = x\sub{1}-x\sub{2} $、$ t = t\sub{1}-t\sub{2} $と置いて簡略化しよう。
+
+<tex>
+\Delta_F(x) \ =\ &\frac{i}{(2\pi)^3}\int \diff \Vec{k} \, \frac{1}{2\omega(\Vec{k})} \\
+&\ \ \ \frac{i}{2\pi} \Big( \int \frac{e^{-ist} \, e^{-ikx} }{s} \diff s  
+\ +\ \int \frac{e^{ist} \, e^{ikx} }{s} \diff s \Big) \\[3pt]
+=\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, \frac{1}{2\omega(\Vec{k})} \\
+&\ \ \ \Big( \int \frac{e^{-ist} \, e^{-i\omega t} e^{i\Vec{k}\cdot\Vec{x}} }{s} \diff s  
+\ +\ \int \frac{e^{ist} \, e^{i\omega t} e^{-i\Vec{k}\cdot\Vec{x}}}{s} \diff s \Big) \\
+</tex>
+
+
+　ここからかなり技巧的になるのだが、$ \omega^2 = \Vec{k}^2 + m^2 $という関係になっているので
+$ \Vec{k} \rightarrow -\Vec{k} $と変えてしまっても$ \omega $の値には影響がない。
+また、$ s \rightarrow -s $と変えてしまっても積分範囲はどうせ$ (-\infty,\infty) $という全範囲に渡っているので大きな影響はない。
+分母に$ s $があるので全体の符号が変わるくらいである。
+それをカッコ内の第 2 項にだけ適用するのである。
+
+<tex>
+\Delta_F(x) \ =\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, \frac{1}{2\omega(\Vec{k})} \\[3pt]
+&\ \ \ \Big( \int \frac{e^{-ist} \, e^{-i\omega t} e^{i\Vec{k}\cdot\Vec{x}} }{s} \diff s  
+\ -\ \int \frac{e^{-ist} \, e^{i\omega t} e^{i\Vec{k}\cdot\Vec{x}}}{s} \diff s \Big) \\[3pt]
+\ =\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, \frac{e^{i\Vec{k}\cdot\Vec{x}}}{2\omega(\Vec{k})} \\
+&\ \ \ \Big( \int \frac{e^{-i(s+\omega)t} }{s} \diff s  
+\ -\ \int \frac{e^{-i(s-\omega)t} }{s} \diff s \Big) \\
+</tex>
+
+　$ s $の積分範囲は$ (-\infty,\infty) $なので、カッコ内の第 1 項で$ s' = s + \omega $と置いて$ s' $で積分するように変えても大差がないだろう。
+$ s = s'-\omega $と変数変換したと考えてもいい。
+同様な理屈によって第 2 項は$ s' = s - \omega $と置くことにする。
+
+<tex>
+\ =\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, \frac{e^{i\Vec{k}\cdot\Vec{x}}}{2\omega(\Vec{k})} \\
+&\ \ \ \Big( \int \frac{e^{-is't} }{s'-\omega} \diff s'  
+\ -\ \int \frac{e^{-is't} }{s'+\omega} \diff s' \Big) \\[3pt]
+\ =\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, \frac{e^{i\Vec{k}\cdot\Vec{x}}}{2\omega(\Vec{k})} \\
+&\ \ \ \int e^{-is't} \left( \frac{1}{s'-\omega} \ -\ \frac{1}{s'+\omega} \right) \diff s'  \\[3pt]
+\ =\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, \frac{e^{i\Vec{k}\cdot\Vec{x}}}{2\omega(\Vec{k})} \int e^{-is't} \frac{2\omega}{s'^2-\omega^2} \diff s'  \\[3pt]
+\ =\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, e^{i\Vec{k}\cdot\Vec{x}} \int e^{-is't} \frac{1}{s'^2-\omega^2} \diff s'  \\[3pt]
+\ =\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, e^{i\Vec{k}\cdot\Vec{x}} \int e^{-is't} \frac{1}{s'^2-(\Vec{k}^2+m^2)} \diff s' 
+</tex>
+
+　なんと！？ 
+式の中から$ \omega $を消し去ってしまうことに成功した！ 
+そこでだ、$ s' $というのはもともと角振動数$ \omega $と同じ次元を持つ量だったので、これをチャンスとばかりに$ \omega $に成り代わってしまうことにしよう。
+なんて恐ろしい子……。
+
+<tex>
+\ =\ &\frac{-1}{(2\pi)^4}\int \diff \Vec{k} \, e^{i\Vec{k}\cdot\Vec{x}} \int e^{-i\omega t} \frac{1}{\omega^2-(\Vec{k}^2+m^2)} \diff \omega 
+</tex>
+
+　こうして記号の乗っ取りに成功した。
+大抵の教科書は黙々と、しかも途中を飛ばしながら式変形が進むので何をやっているのかが大変に分かりにくいところである。
+今の説明では$ s $という記号を使って分かりやすくしているが、教科書では$ k\sup{0} $と$ \omega $が混在していたりして、
+それは同じものなのではないのか？ 一体何を区別しているのだ？ と悩まされたりする。
+
+<P>
+
+　さて、この積分を見ると、$ \diff \Vec{k} $についての 3 次元の積分と$ \diff \omega $についての積分が使われている。
+これらを一緒にして、4 次元の積分として$ \diff^4 k $と表してしまおう。
+$ e^{i\Vec{k}\cdot\Vec{x}} $と$ e^{-i\omega t} $も一つにまとめて書けそうだ。
+
+<tex>
+\ =\ &\frac{-1}{(2\pi)^4}\int \frac{e^{-ikx} }{\omega^2-(\Vec{k}^2+m^2)} \diff^4 k
+</tex>
+
+　記号を乗っ取っただけでなく、その意味まで乗っ取ろうとしている。
+一体何が起きているのだ？ 
+さらに 4 次元的内積の記法を利用して$ k^2 = \omega^2 - \Vec{k}^2 $という置き換えもしてしまおう。
+
+<tex>
+\ =\ &\frac{-1}{(2\pi)^4}\int \frac{e^{-ikx} }{k^2 - m^2} \diff^4 k \tag{9}
+</tex>
+
+　まるで$ \omega $が粒子のエネルギーを表しているかのように、粒子の運動量$ \Vec{k} $と対等な存在としてまとめられてしまった。
+しかし$ \omega $は実際はそうではないのだ。
+$ \omega $が粒子のエネルギーを表しているのなら
+
+<tex>
+\omega^2 = \Vec{k}^2 + m^2 \tag{10}
+</tex>
+
+という条件を満たしていなければならない。
+この条件式は 4 次元的な球殻のイメージなので「\red{質量殻}」と呼ばれる。
+しかし (9) 式ではそのようなエネルギー保存則を破って$ \omega $は$ \Vec{k} $に無関係に$ (-\infty, \infty) $の範囲で積分されることになる。
+つまり、質量殻の上に乗っていないというので、このような状況のことを「\red{オフ・シェル}」(off shell) と呼ぶ。
+「オフ・シェルでの積分」のような言い方をする。
+
+\note{　「4 次元的な球殻」という説明に違和感を感じる人もいるだろう。
+どちらかといえば、運動量 <B>k</B> の方がエネルギー ω や質量 m によって決まる 3 次元的な球殻上に縛られているイメージだし、
+そこにωも含めたいのなら、<B>k</B> と ω とが質量 m によって決まる 4 次元的な双曲面上に縛られていると表現した方が正しいからだ。}
+
+　(9) 式をよく眺めてみると、何となくフーリエ変換に似ている気がしてくる。
+よく使われているフーリエ変換とは少し係数と指数関数の符号が違っているのだが、
+その辺りはフーリエ変換の流儀の違いであって本質的な違いではない。
+つまり (9) 式は次のような関数をフーリエ変換したものだという見方も成り立つことになる。
+
+<tex>
+\Delta_F(k) \ \equiv\ \frac{1}{m^2-k^2} \tag{11}
+</tex>
+
+　この式の方がすっきりしているというので、(1) 式ではなく、この (11) 式を伝搬関数と呼ぶ場合もある。
+(1) 式と (11) 式が互いにフーリエ変換の関係にあるというのは後で物理的な意味を考えるときに役に立ちそうだ。
+
+<P>
+
+　今回計算していたのは (11) 式ではないし、途中で計算を楽にするために変数の置き換えをしていたので、
+それを元に戻してやると、次のような形が本来の結論である。
+
+<tex>
+\Delta_F(x\sub{1}-x\sub{2}) \ =\ \frac{-1}{(2\pi)^4}\int \frac{e^{-ik(x\sub{1}-x\sub{2})} }{k^2 - m^2} \diff^4 k \tag{12}
+</tex>
+
+
+% =======================================================================
+
+\section{電磁場の伝播関数}
+
+　次は (2) 式の電磁場の伝播関数を計算してみよう。
+代入すべき式は次のようなものである。
+
+<tex>
+\hat{A}^\mu \ =\ \int \sqrt{\frac{1}{(2\pi)^3 2 \omega(\Vec{k})}} \sum_{\alpha=1,2} \varepsilon^{\mu}_{\alpha}(\Vec{k}) \left( \hat{a}_{\alpha}(\Vec{k}) \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\alpha}(\Vec{k}) \, e^{ikx} \right) \diff \Vec{k} 
+</tex>
+
+　スカラー場の場合との違いは偏極ベクトル$ \varepsilon^{\mu}_{\alpha}(\Vec{k}) $だけなので、
+途中の議論をすっ飛ばしても問題ないだろう。
+どこまで飛ばしても大丈夫だろうか？
+あまり無理しないで (6) 式あたりと比べられる段階までにしておこう。
+
+<tex>
+G^{\mu\nu}(x\sub{1}-x\sub{2}) \ &=\ i\, \frac{1}{\sqrt{(2\pi)^6}}\dint \diff \Vec{k}\sub{1}\diff \Vec{k}\sub{2} 
+\frac{1}{\sqrt{2\omega(\Vec{k}\sub{1})}\sqrt{2\omega(\Vec{k}\sub{2})}} \\
+&\ \ \ \sum_{\alpha=1,2} \varepsilon^{\mu}_{\alpha}(\Vec{k}\sub{1}) \sum_{\beta=1,2} \varepsilon^{\nu}_{\beta}(\Vec{k}\sub{2}) \\
+&\ \ \ \Big( \theta(t\sub{1}-t\sub{2}) \bra{0} \, \hat{a}_\alpha(\Vec{k}\sub{1}) \hat{a}_\beta^\dagger(\Vec{k}\sub{2}) \, \ket{0} \, e^{-ik\sub{1}x\sub{1}}\, e^{ik\sub{2}x\sub{2}} \\
+&\ \ \ +\ \theta(t\sub{2}-t\sub{1}) \bra{0} \, \hat{a}_\beta(\Vec{k}\sub{2}) \hat{a}_\alpha^\dagger(\Vec{k}\sub{1}) \, \ket{0} \, e^{ik\sub{1}x\sub{1}}\, e^{-ik\sub{2}x\sub{2}} \Big)
+</tex>
+
+　スカラー場の場合にはカッコ内の演算子からはデルタ関数だけが出てきたのが、
+今回は少しだけ違っていて$ \delta(\Vec{k}\sub{1}-\Vec{k}\sub{2}) \, \delta_{\alpha,\beta} $という形のものが出てくる。
+あまり途中を飛ばさないで正解だったようだ。
+積分の一つを実行して、さらに$ \beta $による総和も実行すると、$ \Vec{k}\sub{1} $と$ \Vec{k}\sub{2} $が一致するものだけが残るし、$ \alpha $と$ \beta $が一致するものだけが残るので、
+次のようになる。
+
+<tex>
+G^{\mu\nu}(x\sub{1}-x\sub{2}) \ &=\ i\, \frac{1}{(2\pi)^3} \int \diff \Vec{k} \frac{1}{2\omega(\Vec{k})} \, 
+\sum_{\alpha=1,2} \varepsilon^{\mu}_{\alpha}(\Vec{k}\sub{1}) \varepsilon^{\nu}_{\alpha}(\Vec{k}) \\
+&\ \ \ \Big( \theta(t\sub{1}-t\sub{2}) \, e^{-ik(x\sub{1}-x\sub{2})} \ +\ \theta(t\sub{2}-t\sub{1}) \, e^{ik(x\sub{1}-x\sub{2})} \Big)
+</tex>
+
+
+
+% =======================================================================
+
+\section{スピノル場の伝播関数}
+
+<tex>
+\psi \ =\ \int \sqrt{\frac{m}{(2\pi)^3 \omega}} \sum_{\alpha=1,2} \left( \hat{c}_{\Vec{\scriptstyle k} \alpha}\, u_{\alpha}(\Vec{k}) \, e^{-ikx} \ +\ \hat{d}^{\dagger}_{\Vec{\scriptstyle k} \alpha}\, v_{\alpha}(\Vec{k}) \, e^{ikx} \right) \diff \Vec{k}
+</tex>
+
+<tex>
+\bar{\psi} \ \equiv\ \psi^{\dagger} \gamma^0
+</tex>
+
+<tex>
+S_F(x\sub{1}-x\sub{2}) \ =\ \frac{m}{(2\pi)^3} \dint \diff \Vec{k}\sub{1}\diff \Vec{k}\sub{2} \frac{1}{\sqrt{\omega(\Vec{k}\sub{1})}\sqrt{\omega(\Vec{k}\sub{2})}} \\
+&\ \ \ \sum_{\alpha=1,2} \, \sum_{\beta=1,2}
+</tex>
+
+
+
+% =======================================================================
+
+\section{階段関数の積分}
+
+　さあ、階段関数をどのように積分したらいいだろうか？
+階段関数というのはデルタ関数を積分したものである。
+いや、階段関数を微分したらデルタ関数になると考えた方がイメージしやすいか。
+
+　デルタ関数というのは積分表示で次のように表せるのだった。
+
+<tex>
+\delta(t) \ =\ \frac{1}{2\pi} \int^\infty_{-\infty} e^{-i\omega t} \diff \omega
+</tex>
+
+　指数関数の肩の部分のマイナスは付けても付けなくても同じになるが、この後の計算のことを考えて付けてある。
+　$ t $で微分したらこの形になるのが階段関数なのだから、次のような形で表せると考えれば良いのではなかろうか。
+
+<tex>
+\theta(t) \ =\ \frac{i}{2\pi} \int^\infty_{-\infty} \frac{e^{-i\omega t}}{\omega} \diff \omega
+</tex>
+
+　分母に$ \omega $があって、積分の途中で$ \omega = 0 $となるところがあるので破綻するような気がするが、静かに成り行きを見守っていてほしい。
+

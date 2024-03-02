@@ -1,0 +1,15 @@
+\field{素粒子論}
+\title{第 1 部　基礎知識}
+\comment{　}
+\prev{policy}
+\next{discovery}
+\create{2018/9/7}
+\modify{}
+
+
+\section{}
+<center>
+　数式をほとんど使わないような読み物。<br>
+　抽象的な理論に入る前の基礎知識の紹介。
+</center>
+

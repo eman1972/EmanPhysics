@@ -1,0 +1,403 @@
+\field{素粒子論}
+\title{実スカラー場の摂動計算}
+\comment{まずは 1 次の摂動だけです。}
+\prev{s_matrix2}
+\next{phi4theory2}
+\create{2019/10/31 13:00}
+\modify{2023/8/3 17:25}
+
+
+\section{今回やること}
+
+　次は「加速器による衝突実験の結果」と「S行列の計算結果」とを比較するための物理的解釈の話をしようと思ったのだが、
+そのためには「S行列の計算結果」が具体的にどんな形で出てくるのかを先に知っておいたほうがいいだろう。
+残念ながら物理的解釈の話はしばらくお預けである。
+
+<P>
+
+　S行列の摂動計算の計算はとてもややこしくなるので、初めは出来るだけシンプルな方が良い。
+それで「$ \phi $4乗理論」を例として計算してみることにしよう。
+これはスカラー場だけを使えばいいのだった。
+スピンを持たない 1 種類のボソンどうしが、自己相互作用を起こすという話である。
+
+<P>
+
+　今回の計算の途中では運動量$ \Vec{k} $がたくさん出てくるので、
+計算途中で使うだけの多数の運動量を$ \Vec{k}\sub{1},\,\Vec{k}\sub{2},\,\Vec{k}\sub{3},\,\Vec{k}\sub{4} $のように書いて区別し、
+計算結果にまで残る運動量を$ \Vec{p}\sub{1},\,\Vec{p}\sub{2},\,\Vec{p}\sub{3},\,\Vec{p}\sub{4} $のように書いて区別しよう。
+$ \Vec{k} $と$ \Vec{p} $は分かりやすさのために記号を変えて表しているだけであって、波数であるか運動量であるかという区別ではない。
+どちらも同じ物理的次元を持った量であると考えてほしい。
+
+<P>
+
+　初期状態は、運動量$ \Vec{p}\sub{1} $と$ \Vec{p}\sub{2} $を持つ 2 つの粒子が存在している状態であるとする。
+
+<tex>
+\ket{\psi_i} \ =\ \hat{a}^\dagger(\Vec{p}\sub{1}) \, \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0}
+</tex>
+
+　終状態は、これらが反応した結果として運動量$ \Vec{p}\sub{3} $と$ \Vec{p}\sub{4} $を持つ 2 つの粒子が存在している状態であるとする。
+
+<tex>
+\ket{\psi_f} \ =\ \hat{a}^\dagger(\Vec{p}\sub{3}) \, \hat{a}^\dagger(\Vec{p}\sub{4}) \, \ket{0}
+</tex>
+
+　今回確かめようとしているのは、
+
+<tex>
+\mathcal{L}_I \ =\ - \frac{1}{4\,!} \lambda \, \phi^4
+</tex>
+
+という相互作用がある場合の 1 次の摂動であるから、次のような計算をしたいのである。
+
+<tex>
+\bra{\psi_f} \, \hat{S}^{(1)} \, \ket{\psi_i} \ &=\ \bra{0} \hat{a}(\Vec{p}\sub{3}) \, \hat{a}(\Vec{p}\sub{4}) \, \left( i \int \mathcal{L}_I \diff^4 x \right) \hat{a}^\dagger(\Vec{p}\sub{1}) \, \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \\
+&=\ -\frac{i\,\lambda}{4\,!} \, \bra{0} \hat{a}(\Vec{p}\sub{3}) \, \hat{a}(\Vec{p}\sub{4}) \, \left(  \int \hat{\phi}^4 \diff^4 x \right) \hat{a}^\dagger(\Vec{p}\sub{1}) \, \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \tag{1}
+</tex>
+
+　ここで使っている$ \hat{\phi} $というのは、この解説で採用している流儀では次のような形である。
+
+<tex>
+\hat{\phi}(\Vec{x},t) \ =\ \int_{-\infty}^{\infty} \left[ \sqrt{\frac{1}{(2\pi)^3 2 \omega}} \left( \hat{a}(\Vec{k}) \, e^{-ikx} \ +\ \hat{a}^{\dagger}(\Vec{k}) \, e^{ikx} \right) \right] \diff \Vec{k} \tag{2}
+</tex>
+
+　このような感じになっているので、これから計算する結果というのはそれぞれの教科書の流儀によって少々形が違ってくるのである。
+その違いは結果を物理的に解釈する段階で解消される。
+あるいは流儀に依らない共通部分だけを取り出して議論されることになる。
+そういうわけだから、お手持ちの教科書と違う結果が出てきても安心して欲しい。
+
+% =======================================================================
+
+\section{先見の明を使いまくる話}
+
+　さて、どうやって話を続けようか。
+(1) 式に (2) 式を代入するとかなり厄介なことになるのだが、やらざるを得ない。
+しかしバカ正直に全部を書き下すと逆に何をやろうとしているのか分かりにくい情況に陥る。
+そこで、しばらくの間は計算に関係してこない$ e^{-ikx} $や$ e^{ikx} $を書くのを省略してしまおう。
+これらは$ \hat{a} $や$ \hat{a}^\dagger $の裏側に隠れていて見えないのだということにしておこう。
+積分範囲をいちいち書くのも省略しよう。
+
+<tex>
+&-\frac{i\,\lambda}{4\,!} \, \bra{0} \hat{a}(\Vec{p}\sub{3}) \, \hat{a}(\Vec{p}\sub{4}) \, \left(  \int \hat{\phi}^4 \diff^4 x \right) \hat{a}^\dagger(\Vec{p}\sub{1}) \, \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \\
+=\ &-\frac{i\,\lambda}{4\,!} \, \frac{1}{\sqrt{(2\pi)^{12}}} \, \int \diff^4 x \, \int\!\!\int\!\!\int\!\!\int \diff \Vec{k}\sub{1} \diff \Vec{k}\sub{2} \diff \Vec{k}\sub{3} \diff \Vec{k}\sub{4} \\
+&\ \ \ \ \ \ \ \frac{1}{\sqrt{2\omega(\Vec{k}\sub{1})} \, \sqrt{2\omega(\Vec{k}\sub{2})} \, \sqrt{2\omega(\Vec{k}\sub{3})} \, \sqrt{2\omega(\Vec{k}\sub{4})} } \\[3pt]
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \bra{0} \hat{a}(\Vec{p}\sub{3}) \, \hat{a}(\Vec{p}\sub{4}) \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left( \hat{a}(\Vec{k}\sub{1}) \ +\ \hat{a}^{\dagger}(\Vec{k}\sub{1}) \right) \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left( \hat{a}(\Vec{k}\sub{2}) \ +\ \hat{a}^{\dagger}(\Vec{k}\sub{2}) \right) \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left( \hat{a}(\Vec{k}\sub{3}) \ +\ \hat{a}^{\dagger}(\Vec{k}\sub{3}) \right) \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left( \hat{a}(\Vec{k}\sub{4}) \ +\ \hat{a}^{\dagger}(\Vec{k}\sub{4}) \right) \, \hat{a}^\dagger(\Vec{p}\sub{1}) \, \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \tag{3}
+</tex>
+
+　さて、この最後の方の 4 つのカッコを展開すると 16 個の項が出来るわけだが、そのようなことをする前に先見の明を働かせよう。
+これを展開した後で何をするかというと、$ \hat{a} $や$ \hat{a}^\dagger $の順序を入れ替えて行って、
+$ \hat{a} $をなるべく右へ、$ \hat{a}^\dagger $をなるべく左へと移動させるのである。
+なぜそんなことをするかと言えば、消滅演算子$ \hat{a} $が右側の$ \ket{0} $に直接演算することができれば、
+真空状態より粒子は減りようがないから、その項は 0 となって消せるのである。
+つまり式が簡単になっていく。
+そうやっていって生き残る項だけを探そうというのである。
+
+<P>
+
+　この解説の流儀では、生成演算子と消滅演算子の交換関係は次のように定めてあったのだった。
+
+<tex>
+\left[ \hat{a}(\Vec{k}) \, , \, \hat{a}^\dagger(\Vec{k}') \right] \ =\ \delta(\Vec{k} - \Vec{k}')
+</tex>
+
+　つまり、次のように書ける。
+
+<tex>
+\hat{a}(\Vec{k}) \, \hat{a}^\dagger(\Vec{k}') \ =\ \hat{a}^\dagger(\Vec{k}') \, \hat{a}(\Vec{k}) \ +\ \delta(\Vec{k} - \Vec{k}')
+</tex>
+
+　このルールに従って左辺を右辺に書き換えながら順序を交換していくわけだが、右辺を見ると分かるように、交換に成功した項とデルタ関数だけの項が生まれる。
+交換するごとに項の数は増えてしまうわけだ。
+しかし交換に成功した項はやがて$ \ket{0} $に出会って丸ごと消える運命なのだから実は用は無い。
+生き残る可能性があるのはデルタ関数だけを残す項なのである。
+この式変形の様子は後でお見せすることにしよう。
+あたかも生成演算子と消滅演算子が一対一で戦って相討ちとなり、デルタ関数だけを残して次々と消えていくようなイメージである。
+
+<P>
+
+　真空状態$ \ket{0} $の手前には 2 つの生成演算子が控えており、
+これらと戦うためには少なくとも 2 つの消滅演算子で立ち向かわなければならない。
+しかし消滅演算子が多すぎるとデルタ関数をも巻き込んで全て消えてしまう。
+また、左側の$ \bra{0} $のすぐ隣には 2 つの消滅演算子が控えており、これらも右側の$ \ket{0} $に触れようと攻めてくる。
+これらも消してしまわないと項は生き残れない。
+
+<P>
+
+　長々と話したが、結論は「4 つのカッコを展開したときに現れる 16 通りの項のうち、
+2 つの生成演算子と 2 つの消滅演算子を含むものだけが要る」ということだ。
+そのような項は全部で 6 つある。
+なぜなら、4 つのカッコからそれぞれ生成演算子か消滅演算子のどちらかを選びながら積を作るわけで、
+4 回の選択の内のどこか 2 回だけで生成演算子を選ぶことを許される情況だからである。
+$ _4C_2 = 6 $だというわけだ。
+
+<P>
+
+　具体的には次のような 6 パターンが考えられる。
+
+<tex>
+&\hat{a}^\dagger(\Vec{k}\sub{1}) \ \hat{a}\ \,    (\Vec{k}\sub{2}) \ \hat{a}\ \,    (\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{k}\sub{4}) \\
+&\hat{a}^\dagger(\Vec{k}\sub{1}) \ \hat{a}\ \,    (\Vec{k}\sub{2}) \ \hat{a}^\dagger(\Vec{k}\sub{3}) \ \hat{a}\ \,    (\Vec{k}\sub{4}) \\
+&\hat{a}^\dagger(\Vec{k}\sub{1}) \ \hat{a}^\dagger(\Vec{k}\sub{2}) \ \hat{a}\ \,    (\Vec{k}\sub{3}) \ \hat{a}\ \,    (\Vec{k}\sub{4}) \\
+&\hat{a}\ \,    (\Vec{k}\sub{1}) \ \hat{a}^\dagger(\Vec{k}\sub{2}) \ \hat{a}\ \,    (\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{k}\sub{4}) \\
+&\hat{a}\ \,    (\Vec{k}\sub{1}) \ \hat{a}^\dagger(\Vec{k}\sub{2}) \ \hat{a}^\dagger(\Vec{k}\sub{3}) \ \hat{a}\ \,    (\Vec{k}\sub{4}) \\
+&\hat{a}\ \,    (\Vec{k}\sub{1}) \ \hat{a}\ \,    (\Vec{k}\sub{2}) \ \hat{a}^\dagger(\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{k}\sub{4}) \\
+</tex>
+
+　これから「$ \Vec{p} $軍」と戦う、頼もしい「$ \Vec{k} $軍」の隊列だ。
+しかし生成演算子をなるべく左に、消滅演算子をなるべく右に寄せておかないとすぐには戦えない。
+ところがだ！
+順番を入れ替える過程で自軍内で戦いが起きてしまい、デルタ関数を残して消えてしまう項が現れるだろう。
+そのような項は兵を失うことになり、このあとの「$ \Vec{p} $軍」との戦いで生き残れない。
+戦力から外しておこう。
+でも大丈夫だ。
+デルタ関数を残さず入れ替えに成功する項も同時に現れるのだった。
+順番を入れ替えたとしても、依然として 6 つの項が残るのである。
+
+<P>
+
+　さて、(3) 式を眺めると、$ \Vec{k}\sub{1},\,\Vec{k}\sub{2},\,\Vec{k}\sub{3},\,\Vec{k}\sub{4} $の積分はどれも対称である。
+これらの積分変数の記号を入れ替えてしまったとしても同じ内容の積分計算が実行される。
+つまり、上の 6 つの項は、順番を入れ替えてしまったあとはどれも次のような項と等価なのである。
+
+<tex>
+\hat{a}^\dagger(\Vec{k}\sub{1}) \ \hat{a}^\dagger(\Vec{k}\sub{2}) \ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}(\Vec{k}\sub{4})
+</tex>
+
+　(3) 式のカッコの部分は、これを 6 倍したものに等しい。
+(3) 式には$ 4\,! $という係数が含まれているが、6 と打ち消し合って、ただの 4 になる。
+(3) 式は次のような形にまで簡略化できる。
+
+<tex>
+&-\frac{i\,\lambda}{4} \, \frac{1}{\sqrt{(2\pi)^{12}}} \, \int \diff^4 x \, \int\!\!\int\!\!\int\!\!\int \diff \Vec{k}\sub{1} \diff \Vec{k}\sub{2} \diff \Vec{k}\sub{3} \diff \Vec{k}\sub{4} \\
+&\ \ \ \ \ \ \ \frac{1}{\sqrt{2\omega(\Vec{k}\sub{1})} \, \sqrt{2\omega(\Vec{k}\sub{2})} \, \sqrt{2\omega(\Vec{k}\sub{3})} \, \sqrt{2\omega(\Vec{k}\sub{4})} } \\[3pt]
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \bra{0} \hat{a}(\Vec{p}\sub{3}) \, \hat{a}(\Vec{p}\sub{4}) 
+\ \ \hat{a}^\dagger(\Vec{k}\sub{1}) \ \hat{a}^\dagger(\Vec{k}\sub{2}) \ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}(\Vec{k}\sub{4}) 
+\ \ \hat{a}^\dagger(\Vec{p}\sub{1}) \, \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} 
+</tex>
+
+　ここまでが「先見の明」の内容である。
+一度理屈が分かってしまえば、次からは一瞬にしてここまでの内容を飛ばしてスタートできる。
+
+<P>
+
+　このように、場の理論の計算では一度理屈が分かってしまえば次からは詳細を検討しなくても一気に式変形を進められることが多い。
+この先もこういう話がよく出てくる。
+ルールさえ分かってしまえばパズル感覚で計算を一足飛びに進めて行けるのである。
+
+<P>
+
+　さて、演算子の後ろに隠しておいた指数関数も元に戻しておこう。
+
+<tex>
+&-\frac{i\,\lambda}{4} \, \frac{1}{\sqrt{(2\pi)^{12}}} \, \int \diff^4 x \, \int\!\!\int\!\!\int\!\!\int \diff \Vec{k}\sub{1} \diff \Vec{k}\sub{2} \diff \Vec{k}\sub{3} \diff \Vec{k}\sub{4} \\
+&\ \ \ \ \ \ \ \frac{1}{\sqrt{2\omega(\Vec{k}\sub{1})} \, \sqrt{2\omega(\Vec{k}\sub{2})} \, \sqrt{2\omega(\Vec{k}\sub{3})} \, \sqrt{2\omega(\Vec{k}\sub{4})} } \ 
+e^{ik\sub{1}x} \, e^{ik\sub{2}x} \, e^{-ik\sub{3}x} \, e^{-ik\sub{4}x} \\[3pt]
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \bra{0} \hat{a}(\Vec{p}\sub{3}) \, \hat{a}(\Vec{p}\sub{4}) 
+\ \ \hat{a}^\dagger(\Vec{k}\sub{1}) \ \hat{a}^\dagger(\Vec{k}\sub{2}) \ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}(\Vec{k}\sub{4}) 
+\ \ \hat{a}^\dagger(\Vec{p}\sub{1}) \, \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \tag{4}
+</tex>
+
+　これで式を簡略化してごまかしているような後ろめたさもなくなった。
+
+% =======================================================================
+
+\section{戦が始まるぞ！}
+
+　いよいよ「$ \Vec{p} $軍」と「$ \Vec{k} $軍」の正面衝突である。
+(4) 式の演算子部分だけを抜き出して話を進めよう。
+その右側半分は次のようになっている。
+
+<tex>
+\hat{a}(\Vec{k}\sub{3}) \ \hat{a}(\Vec{k}\sub{4}) \ \hat{a}^\dagger(\Vec{p}\sub{1}) \, \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \tag{5}
+</tex>
+
+　これを次々と変形していくことにしよう。
+交換関係を利用して順番を変えていくだけである。
+慣れればもっと楽に進められるが、初めての人が混乱しないように丁寧に進めていこう。
+
+<tex>
+&=\ \hat{a}(\Vec{k}\sub{3}) \ \left( \hat{a}^\dagger(\Vec{p}\sub{1}) \ \hat{a}(\Vec{k}\sub{4}) \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \right) \ \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \\
+&=\ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{p}\sub{1}) \ \hat{a}(\Vec{k}\sub{4}) \ \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{p}\sub{2}) \, \ket{0} \\
+&=\ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{p}\sub{1}) \ \left( \hat{a}^\dagger(\Vec{p}\sub{2}) \ \hat{a}(\Vec{k}\sub{4}) \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \right) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \left( \hat{a}^\dagger(\Vec{p}\sub{2}) \ \hat{a}(\Vec{k}\sub{3}) \ +\ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \right) \, \ket{0} \\
+&=\ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{p}\sub{1}) \ \hat{a}^\dagger(\Vec{p}\sub{2}) \ \hat{a}(\Vec{k}\sub{4}) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{p}\sub{1}) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \hat{a}^\dagger(\Vec{p}\sub{2}) \ \hat{a}(\Vec{k}\sub{3}) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \, \ket{0} \\
+</tex>
+
+　ここで消滅演算子が$ \ket{0} $に直接触れる事態が発生したので 2 つの項が消えることになる。
+
+<tex>
+&=\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \hat{a}(\Vec{k}\sub{3}) \ \hat{a}^\dagger(\Vec{p}\sub{1}) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \, \ket{0} \\
+</tex>
+
+　計算はもう少し続く。
+
+<tex>
+&=\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \left( \hat{a}^\dagger(\Vec{p}\sub{1}) \ \hat{a}(\Vec{k}\sub{3}) \ +\ \delta( \Vec{k}\sub{3}-\Vec{p}\sub{1}) \right) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \, \ket{0} \\
+&=\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \hat{a}^\dagger(\Vec{p}\sub{1}) \ \hat{a}(\Vec{k}\sub{3}) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \delta( \Vec{k}\sub{3}-\Vec{p}\sub{1}) \, \ket{0} \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \, \ket{0} \\
+&=\ \bigg( \delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \delta( \Vec{k}\sub{3}-\Vec{p}\sub{1}) 
+\ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \bigg) \, \ket{0} \\
+</tex>
+
+　こうして、演算子が全く無い項だけが残った。
+すると今度は、(4) 式の左半分にあった演算子が右側の$ \ket{0} $に直接掛かる形になる。
+とりあえずデルタ関数を取り除いて書いてみると、次のようになる。
+
+<tex>
+\bra{0} \, \hat{a}(\Vec{p}\sub{3}) \, \hat{a}(\Vec{p}\sub{4}) \ \hat{a}^\dagger(\Vec{k}\sub{1}) \ \hat{a}^\dagger(\Vec{k}\sub{2}) \, \ket{0}
+</tex>
+
+　これは奇しくも (5) 式と同じ並びになっており、$ \Vec{k} $と$ \Vec{p} $の記号が入れ替わっているだけである。
+それで、全く同じことを繰り返さなくても先ほどの結果の$ \Vec{k} $と$ \Vec{p} $を入れ替えてやるだけで話が終わる。
+
+<tex>
+\ =\ \bigg( \delta(\Vec{p}\sub{4}-\Vec{k}\sub{2}) \ \delta( \Vec{p}\sub{3}-\Vec{k}\sub{1}) 
+\ +\ \delta(\Vec{p}\sub{4}-\Vec{k}\sub{1}) \ \delta(\Vec{p}\sub{3}-\Vec{k}\sub{2}) \bigg) \ \langle 0|0 \rangle
+</tex>
+
+　真空状態を表す$ \ket{0} $は個数演算子の固有状態として規格化されているので、$ \langle 0|0 \rangle = 1 $が成り立つ。
+それで、先ほど取り除いておいたデルタ関数と一緒にすると、
+(4) 式の演算子部分の計算結果は次のようになる。
+
+<tex>
+&\bigg( \delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \delta( \Vec{k}\sub{3}-\Vec{p}\sub{1}) 
+\ +\ \delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \bigg)\\
+&\times \bigg( \delta(\Vec{p}\sub{4}-\Vec{k}\sub{2}) \ \delta( \Vec{p}\sub{3}-\Vec{k}\sub{1}) 
+\ +\ \delta(\Vec{p}\sub{4}-\Vec{k}\sub{1}) \ \delta(\Vec{p}\sub{3}-\Vec{k}\sub{2}) \bigg) \tag{6}
+</tex>
+
+　大量のデルタ関数を残して戦いは終わった。
+
+% =======================================================================
+
+\section{戦後処理}
+
+　このデルタ関数の山を解釈するのが面倒くさい。
+(4) 式には$ \Vec{k}\sub{1},\,\Vec{k}\sub{2},\,\Vec{k}\sub{3},\,\Vec{k}\sub{4} $の積分があるので、
+このデルタ関数とともに積分すれば式の中で使われている$ \Vec{k}\sub{1},\,\Vec{k}\sub{2},\,\Vec{k}\sub{3},\,\Vec{k}\sub{4} $は
+$ \Vec{p}\sub{1},\,\Vec{p}\sub{2},\,\Vec{p}\sub{3},\,\Vec{p}\sub{4} $のいずれかへと書き換わるはずである。
+しかしその書き換えの組み合わせは何パターンあるのだろうか？
+
+<P>
+
+　わけが分からないので一度 (6) 式を展開してみよう。
+
+<tex>
+   &\delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{1}) \ \delta(\Vec{p}\sub{4}-\Vec{k}\sub{2}) \ \delta(\Vec{p}\sub{3}-\Vec{k}\sub{1}) \\
++\ &\delta(\Vec{k}\sub{4}-\Vec{p}\sub{2}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{1}) \ \delta(\Vec{p}\sub{4}-\Vec{k}\sub{1}) \ \delta(\Vec{p}\sub{3}-\Vec{k}\sub{2}) \\
++\ &\delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \ \delta(\Vec{p}\sub{4}-\Vec{k}\sub{2}) \ \delta(\Vec{p}\sub{3}-\Vec{k}\sub{1}) \\
++\ &\delta(\Vec{k}\sub{4}-\Vec{p}\sub{1}) \ \delta(\Vec{k}\sub{3}-\Vec{p}\sub{2}) \ \delta(\Vec{p}\sub{4}-\Vec{k}\sub{1}) \ \delta(\Vec{p}\sub{3}-\Vec{k}\sub{2}) \\
+</tex>
+
+　展開してもわけが分からなかったので表を作ってみた。
+
+<P>
+<center>
+<table border="1">
+<tr bgcolor="#cccccc"><th>$\Vec{k}\sub{1}$</th><th>$\Vec{k}\sub{2}$</th><th>$\Vec{k}\sub{3}$</th><th>$\Vec{k}\sub{4}$</th></tr>
+<tr><td>$\Vec{p}\sub{3}$</td><td>$\Vec{p}\sub{4}$</td><td>$\Vec{p}\sub{1}$</td><td>$\Vec{p}\sub{2}$</td></tr>
+<tr><td>$\Vec{p}\sub{4}$</td><td>$\Vec{p}\sub{3}$</td><td>$\Vec{p}\sub{1}$</td><td>$\Vec{p}\sub{2}$</td></tr>
+<tr><td>$\Vec{p}\sub{3}$</td><td>$\Vec{p}\sub{4}$</td><td>$\Vec{p}\sub{2}$</td><td>$\Vec{p}\sub{1}$</td></tr>
+<tr><td>$\Vec{p}\sub{4}$</td><td>$\Vec{p}\sub{3}$</td><td>$\Vec{p}\sub{2}$</td><td>$\Vec{p}\sub{1}$</td></tr>
+</table>
+</center>
+<P>
+
+　この表は、それぞれの項で$ \Vec{k}_i $がどの$ \Vec{p}_j $に書き換わるべきかを表したものである。
+じっくり眺めてみると実は大したことを言っていないことが分かる。
+要するに$ \Vec{k}\sub{1} $と$ \Vec{k}\sub{2} $は$ \Vec{p}\sub{3} $か$ \Vec{p}\sub{4} $に変わるだけ、
+$ \Vec{k}\sub{3} $と$ \Vec{k}\sub{4} $は$ \Vec{p}\sub{1} $か$ \Vec{p}\sub{2} $に変わるだけ、である。
+どの項も同じ結果にしかならない。
+項は 4 つあるから 4 倍することになるが、(4) 式の最初についている係数 4 と打ち消し合って消えてしまう。
+
+<tex>
+-i\,\lambda \, \frac{1}{\sqrt{(2\pi)^{12}}} \, \int \diff^4 x 
+\frac{e^{ip\sub{3}x} \, e^{ip\sub{4}x} \, e^{-ip\sub{1}x} \, e^{-ip\sub{2}x} }{\sqrt{2\omega(\Vec{p}\sub{1})} \, \sqrt{2\omega(\Vec{p}\sub{2})} \, \sqrt{2\omega(\Vec{p}\sub{3})} \, \sqrt{2\omega(\Vec{p}\sub{4})} } \ 
+</tex>
+
+　随分と簡単な形になってきた。
+$ \diff^4 x $というのは時間と空間の全範囲での積分を意味していたのであった。
+時間や空間の変数は指数関数部分にしか含まれていないから、指数関数だけを積分することになる。
+その前に、指数関数部分は次のようにまとめてしまった方が良さそうである。
+
+<tex>
+-i\,\lambda \, \frac{1}{\sqrt{(2\pi)^{12}}} \, \int \diff^4 x 
+\frac{e^{i(p\sub{3} + p\sub{4} - p\sub{1} -p\sub{2})x}}{\sqrt{2\omega(\Vec{p}\sub{1})} \, \sqrt{2\omega(\Vec{p}\sub{2})} \, \sqrt{2\omega(\Vec{p}\sub{3})} \, \sqrt{2\omega(\Vec{p}\sub{4})} } \tag{7}
+</tex>
+
+% =======================================================================
+
+\section{仕上げ}
+
+　あと少しだが、丁寧に説明しておこう。
+この解説では「4次元的内積」として$ kx = \omega t - \Vec{k}\cdot\Vec{x} $という流儀を使っているから、
+
+<tex>
+e^{ikx} \ =\ e^{i\omega t} \ e^{-k_x x} \ e^{-k_y y} \ e^{-k_z z}
+</tex>
+
+という意味である。
+これを時空間$ \diff^4 x $で積分するというのは、
+
+<tex>
+\int e^{ikx} \diff^4 x \ =\ \int e^{i\omega t} \diff t \ \int e^{-k_x x} \diff x \ \int e^{-k_y y} \diff y \ \int e^{-k_z z} \diff z
+</tex>
+
+という計算を実行するという意味である。
+この積分範囲はどれも$ (-\infty, \infty) $であったから、
+次のような「デルタ関数のフーリエ積分表示」の公式を当てはめて書き換えることができるだろう。
+
+<tex>
+\delta(k) \ =\ \frac{1}{2\pi} \int_{-\infty}^{\infty} e^{ikx} \diff x
+</tex>
+
+　結果は次のように表せる。
+
+<tex>
+\int e^{ikx} \diff^4 x \ &=\ (2\pi)^4 \ \delta(\omega) \ \delta(k_x) \ \delta(k_y) \ \delta(k_z) \\
+&=\ (2\pi)^4 \ \delta(\omega) \ \delta(\Vec{k})
+</tex>
+
+　(7) 式にはこれと同じ形式の積分が残されていたから、これを当てはめて次のように変形できる。
+
+<tex>
+-i\,\lambda \, \frac{1}{\sqrt{(2\pi)^{12}}} \, 
+\frac{ (2\pi)^4 \ \delta(\omega_3 + \omega_4 - \omega_1 - \omega_2) \ \delta(\Vec{p}\sub{3} + \Vec{p}\sub{4} - \Vec{p}\sub{1} - \Vec{p}\sub{2}) }{\sqrt{2\omega(\Vec{p}\sub{1})} \, \sqrt{2\omega(\Vec{p}\sub{2})} \, \sqrt{2\omega(\Vec{p}\sub{3})} \, \sqrt{2\omega(\Vec{p}\sub{4})} } 
+</tex>
+
+　ここで使っている$ \omega_i $というのは、略さないでもっと丁寧に書けば、$ \omega(\Vec{p}_i) $の意味である。
+$ \delta(\omega_3 + \omega_4 - \omega_1 - \omega_2) $というのは、
+初期状態の粒子のエネルギーの合計$ \omega_1 + \omega_2 $が、終状態のエネルギーの合計$ \omega_3 + \omega_4 $に等しくなければ
+遷移確率は 0 だということであり、エネルギー保存則を意味している。
+同様に、$ \delta(\Vec{p}\sub{3} + \Vec{p}\sub{4} - \Vec{p}\sub{1} - \Vec{p}\sub{2}) $の部分は運動量保存則を意味している。
+これら二つの部分をまとめて、
+
+<tex>
+\delta^4(p\sub{3} + p\sub{4} - p\sub{1} - p\sub{2})
+</tex>
+
+のように略して書いたりする。
+
+<P>
+
+　今回の計算結果をきれいに整理して書くと、次のようになる。
+
+<tex>
+&\bra{\psi_f} \, \hat{S}^{(1)} \, \ket{\psi_i} \\
+&\ \ \ \ =\ -i\,\lambda \, (2\pi)^4 \ \delta^4(p\sub{3} + p\sub{4} - p\sub{1} - p\sub{2}) \, \prod_{i=1}^4 \frac{1}{\sqrt{(2\pi)^3 \, 2\omega(\Vec{p}_i)}}
+</tex>
+
+　総乗記号$ \Pi $を使ってまとめた部分は流儀によって違ってくる部分であり、
+なぜこのような形にまとめたのかは後で物理的な解釈をするときに明らかになるであろう。
+

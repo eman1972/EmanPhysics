@@ -1,0 +1,1185 @@
+\field{素粒子論}
+\title{質量を持つ電磁場？}
+\comment{一般的なベクトル場の話}
+\prev{dirac_expand2}
+\next{mass_em2}
+\create{2018/11/26 22:30}
+\modify{}
+
+\section{質量項の追加}
+
+　電磁場のラグランジアン密度は次のようであった。
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{4} c^2 \varepsilon\sub{0} \ f^{\mu\nu} f_{\mu\nu} \\
+\mathcal{L} \ &=\ -\frac{1}{2} c^2 \varepsilon\sub{0} \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) \\
+\mathcal{L} \ &=\ \frac{1}{2} \varepsilon\sub{0}\Vec{E}^2 - \frac{1}{2} \mu\sub{0}\Vec{H}^2 
+</tex>
+
+　三つも書いたが、どれでも同じだ。
+　しかし今回の話をするためには 2 番目の式が分かりやすい。
+　直接に場$ A^i $を扱っているからだ。
+
+<P>
+
+　ラグランジアン密度は全体としてスカラーになっていればいいのだった。
+　では次のように新たな項を付け足したものを試してみても問題ないわけだ。
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{2} c^2 \varepsilon\sub{0} \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) \ -\ \frac{1}{2} c^2 \varepsilon\sub{0} \frac{m^2 c^2}{\hbar^2} A^\mu A_\mu \tag{1}
+</tex>
+
+　え？　ちょっと何・・・？
+　電磁場の式に質量を持つ項を付け足しただって！？
+　ちょっと突拍子も無い感じもするが、クライン・ゴルドン場のラグランジアン密度の形式と見比べてみれば、
+このような形で質量が付いていても何らかの波動方程式が導けそうな気がする。
+
+<P>
+
+　クラインゴルドン場のラグランジアン密度は第 2 部の「<a href="./kg_eq.html">クライン・ゴルドン場の準備</a>」という記事の中で導いたが、
+確認しに行くのも面倒だろうからここに書いておこう。
+
+<tex>
+\mathcal{L} \ =\ -\frac{1}{2} \partial^\mu \phi \, \partial_\mu \phi \ -\ \frac{m^2 c^2}{2 \hbar^2} \, \phi^2 
+</tex>
+
+　あるいは、複素クライン・ゴルドン場の場合にはこうだった。
+
+<tex>
+\mathcal{L} \ =\ - \partial^\mu \phi^{\ast} \, \partial_\mu \phi \ -\ \frac{m^2 c^2}{\hbar^2} \, \phi^{\ast} \phi 
+</tex>
+
+　どちらも (1) 式にかなり似ているだろう。
+　似てないと思う人は、似てるところを何とか探してみて欲しい。
+
+<P>
+
+　ところで、(1) 式の質量項の係数は次元が合うように、後でうまく行くようにすでに調整してある。
+　しかしまぁ、なんというか・・・次元の調整などという議論の本質ではないものに時間と労力を割くのは本当に面倒くさくなってきたな。
+　$ \varepsilon\sub{0} = \hbar = c = 1 $であるような単位系を使えば (1) 式は次のように表せて、追加項の本質がよく分かる。
+
+<tex>
+\mathcal{L} \ &=\ -\frac{1}{2} \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) \ -\ \frac{1}{2} m^2 A^\mu A_\mu \tag{1'}
+</tex>
+
+　今やろうとしているのはたったこれだけのことなのだ。
+
+
+% =======================================================================
+
+\section{波動方程式を求めてみる}
+
+　(1) 式からどのような波動方程式が導かれてくるのかを調べてみよう。
+　第 2 部でやったような複雑な計算を繰り返す必要はない。
+　付け加えた項の分だけ、電磁場の方程式に追加されるだけだ。
+　とはいうものの、ちゃんと$ A^\mu A_\mu $を 4 つの項に展開して偏微分を行う必要があるから、
+慣れていないと一目で結果を想像するのは難しい。
+　やり方はもう第 2 部の計算で分かっているだろうから、ここでは計算しない。
+
+<P>
+
+　もともとの電磁場の方程式というのは
+
+<tex>
+\square A^{\mu} - \partial^{\mu} ( \partial_{\nu} A^{\nu} ) \ =\ 0 \tag{2}
+</tex>
+
+であったが、これに少しだけ付け加わって、次のようになる。
+
+<tex>
+\square A^{\mu} - \partial^{\mu} ( \partial_{\nu} A^{\nu} ) - \frac{m^2 c^2}{\hbar^2} A^\mu \ =\ 0 \tag{3}
+</tex>
+
+　クライン・ゴルドンの方程式ほど単純な形にはならなかったようだ。
+　このままではどう扱ったらいいのか困ってしまうが、実はもともとの電磁場より簡単なのである。
+
+<P>
+
+　(3) 式の両辺に対して$ \partial_\mu $をつけたものを計算してみよう。
+
+<tex>
+&\partial_\mu \bigg[ \square A^{\mu} - \partial^{\mu} ( \partial_{\nu} A^{\nu} ) - \frac{m^2 c^2}{\hbar^2} A^\mu \bigg] \ =\ 0 \\[3pt]
+\therefore \ &\partial_\mu \bigg[ \partial^\nu \partial_\nu A^{\mu} - \partial^{\mu} ( \partial_{\nu} A^{\nu} ) - \frac{m^2 c^2}{\hbar^2} A^\mu \bigg] \ =\ 0 \\[3pt]
+\therefore \ &\partial^\nu \partial_\nu \partial_\mu A^{\mu} - \partial^{\mu} \partial_\mu( \partial_{\nu} A^{\nu} ) \ -\ \frac{m^2 c^2}{\hbar^2} \partial_\mu A^\mu \ =\ 0 \\[3pt]
+\therefore \ &\frac{m^2 c^2}{\hbar^2} \partial_\mu A^\mu \ =\ 0 
+</tex>
+
+　どうやらこの$ \partial_\mu A^\mu = 0 $という条件が常に成り立っているらしいのだ。
+
+<P>
+
+　ちなみに同じことを (2) 式に対して行うと両辺とも 0 になるだろう。
+　もし電荷や電流が存在する場合には (2) 式の右辺には$ j^\mu $があるのだから
+$ \partial_\mu j^\mu = 0 $という電荷の保存則が導かれるのだった。
+　このように、普通の電磁場の方程式では$ A^\mu $に対しては条件が付くことはなかったのに、今回は何か制限があるようだ。
+
+<P>
+
+　ん？
+　落ち着いてよく見てみれば、この$ \partial_\mu A^\mu = 0 $というのはローレンツ条件そのものではないか！
+　電磁場の場合には自由度があり過ぎたので、人為的にクーロン・ゲージでゲージを固定していたのだったが、
+今回は最初から自動的に固定されているのである。
+　これを (3) 式にあてはめれば、次のようなクライン・ゴルドン方程式に似たような形が現れる。
+
+<tex>
+\left( \square \ -\ \frac{m^2 c^2}{\hbar} \right) A^\mu \ =\ 0 \tag{4}
+</tex>
+
+　似てるというか、波動関数がベクトルになっただけで全く同じ形だ。
+　これを「\red{プロカ方程式}」と呼ぶ。
+
+% =======================================================================
+
+\section{エネルギーと運動量の関係}
+
+　この新しい波動方程式 (4) の性質を知るために、簡単な例を使って調べてみよう。
+　次のような波動の解を代入してみる。
+
+<tex>
+A^{\mu} \ =\ a^{\mu} \exp( -i\omega t + i\Vec{k}\cdot \Vec{x} ) \tag{5}
+</tex>
+
+　$ \exp $の代わりに$ \cos(-\omega t + \Vec{k} \cdot \Vec{x} ) $を使っても同じことだが、
+もう慣れただろうからこれでもいいだろう。
+　このように書かれていると振幅の各ベクトル成分がどれも同じ位相で伝わっているかのように見えてしまうが、
+位相の違いは振幅を表す$ a^{\mu} $の部分が複素数になっていてそちらで表現されていると考えればいい。
+　そうなると$ A^{\mu} $が複素数の範囲の値を持つことになってしまうので、
+それを実数に保つためにはこの全体の複素共役を取ったものを加えてやればいい。
+　そういう話は<a href="./em_expand.html">前にもやった</a>ので詳しく話さなくてもいいだろう。
+　そういうことは後でやる。
+　今は簡単な確認をしたいだけなのでこのまま (5) 式を (4) 式に代入する。
+　すると次のような関係が導かれるはずだ。
+
+<tex>
+&\frac{\omega^2}{c^2} - \Vec{k}^2 - \frac{m^2 c^2}{\hbar^2} \ =\ 0 \\
+\therefore\ &\omega^2 \ =\  (c \Vec{k})^2 + \frac{(m c^2)^2}{\hbar^2} \tag{6}
+</tex>
+
+　これは両辺に$ \hbar^2 $をかければ分かるが、相対論の$ E^2 = (pc)^2 + (mc^2)^2 $という関係を反映したものになっている。
+　もし (1) 式の追加項の符号が違っていたら$ E^2 = (pc)^2 - (mc^2)^2 $となってしまうわけで、
+エネルギーが虚数になってしまうという訳の分からない状況が生じたことだろう。
+　そういうことも考えて (1) 式の追加項の符号を決めてあるのである。
+
+<P>
+
+　そう、この式で表される質量を持ったベクトル粒子は、ちゃんと相対論に従う形になっている。
+
+% =======================================================================
+
+\section{波の自由度}
+
+　では次に (5) 式を、さっきから出てきているローレンツ条件の式$ \partial_\mu A^\mu = 0 $に入れたらどうなるだろう？
+
+<tex>
+&\frac{1}{c} \pdif{}{t} A\sup{0} + \pdif{}{x} A\sup{1} + \pdif{}{y} A\sup{2} + \pdif{}{z} A\sup{3} = 0 \\
+\therefore &\ -\frac{\omega}{c}a\sup{0} e^{-ikx} \ +\ k_x a\sup{1} e^{-ikx} \ +\ k_y a\sup{2} e^{-ikx} \ +\ k_z a\sup{3} e^{-ikx} = 0 \\
+\therefore &\ -\frac{\omega}{c} a\sup{0} \ +\ k_x a\sup{1} \ +\ k_y a\sup{2} \ +\ k_z a\sup{3} = 0 \tag{7}
+</tex>
+
+　4 成分ある振幅$ a^\mu $はこの条件に縛られており、実質は 3 つ分の自由度しか持っていないということだ。
+　しかしこの条件はどんな意味を持っているだろう？
+
+<P>
+
+　<a href="./em_expand.html">電磁場の量子化</a>を考えた時にはクーロン・ゲージを採用することで
+$ a\sup{0} $は静電ポテンシャルのような意味だと解釈できて、波動成分としては 0 と考えておけば良かったし、
+残りの成分$ \Vec{a} $は$ \Vec{k}\cdot\Vec{a} = 0 $を満たしていた。
+　これはつまり進行方向に対して垂直な成分しか存在してはいけないという意味だった。
+　すなわち、横波しか存在していなかったわけだ。
+
+<P>
+
+　ところが今回は初めからローレンツ・ゲージ（ローレンツ条件）を使うことが定められており、
+それに従う限り、どの成分も常に 0 とはならないようだ。
+　(7) 式の第 1 項がなければ前と同じように「横波に限る」と言えたのだろうが、そういうわけでもないようだ。
+　独立な波動成分は 3 つしかないが、4 つの成分のどれを見ても 0 とは言えないという状況だ。
+　この状況をもっと分かりやすく表せないだろうか。
+
+<P>
+
+　電磁場の量子化の時にやったことに倣って、次のようにしてみよう。
+　まずは粒子の進行方向$ \Vec{k} $に垂直な二つの単位ベクトル$ \Vec{\varepsilon}\sub{1}(\Vec{k}) $、
+$ \Vec{\varepsilon}\sub{2}(\Vec{k}) $というものを用意してやる。
+　するとこれらに加えて、粒子の進行方向を向いた単位ベクトル、
+すなわち縦波的な波動成分を表す単位ベクトルというものも用意してやりたくなるわけだが、それは賢くない。
+　こんなことをすれば (7) 式の条件を満たすために時間方向の成分と言おうか、静電ポテンシャル的な成分である$ a\sup{0} $を表す単位ベクトルも必要になって、
+結局は独立でない 4 つの単位ベクトルが登場することになるからである。
+　これでは何の解決にもなっていない。
+
+<P>
+
+　そこで、第 3 の単位ベクトル$ \Vec{\varepsilon}\sub{3}(\Vec{k}) $としては、
+粒子の進行方向成分（縦波成分）と同時に時間方向成分（静電ポテンシャル成分）を持った 4 次元時空内の単位ベクトルを想定する。
+　実は$ \Vec{\varepsilon}\sub{1}(\Vec{k}) $や$ \Vec{\varepsilon}\sub{2}(\Vec{k}) $も、
+時間方向成分を持っていないだけであって、4 次元時空内の単位ベクトルであると考えることにしよう。
+　$ \Vec{\varepsilon}\sub{3}(\Vec{k}) $は粒子の進行方向と時間方向の中間あたりを指していることになるわけだが、
+その方向というのは$ \Vec{k} $の大きさによって変わることになる。
+
+<P>
+
+　単純な具体例で考えてみようか。
+　粒子が$ z $方向に進んでいるとする。
+　この場合には$ \Vec{\varepsilon}\sub{1}(\Vec{k}) $や$ \Vec{\varepsilon}\sub{2}(\Vec{k}) $は
+それぞれ$ x $方向と$ y $方向を向いた単位ベクトルであり、具体的な成分は次のように表される。
+
+<tex>
+\Vec{\varepsilon}\sub{1}(\Vec{k}) \ &=\ ( 0, 1, 0, 0 ) \\
+\Vec{\varepsilon}\sub{2}(\Vec{k}) \ &=\ ( 0, 0, 1, 0 )
+</tex>
+
+　今は$ \Vec{k} $が$ z $方向を向いているので、$ k_x = k_y = 0 $であり、
+(7) 式は$ -\frac{\omega}{c} a\sup{0} \ +\ k_z a\sup{3} = 0 $である。
+　つまり$ a\sup{1} $や$ a\sup{2} $は幾つであっても構わないが、$ a\sup{0} $と$ a\sup{3} $は互いに縛られることになる。
+　例えば$ a\sup{0} = k_z $、$ a\sup{3} = \omega/c $のようであれば、あるいはこの定数倍であれば条件を満たすであろう。
+　そこで$ \Vec{\varepsilon}\sub{3}(\Vec{k}) $をその方向を向くように選ぼう。
+
+<tex>
+\left(\ k_z,\ 0,\ 0,\ \frac{\omega}{c}\ \right)
+</tex>
+
+　しかしこのままでは単位ベクトルにはなっていない。
+　このベクトルの長さで割ってやればいいわけだが、それはどう表されるだろうか？
+　これは 4 次元時空の中でのベクトルなので、ミンコフスキー的な計算で長さ$ L $を求めてやる必要がある。
+　そうすることで、ローレンツ変換をしても単位ベクトルのままでいられるわけだ。
+
+<tex>
+L^2 \ &=\ -{k_z}^2 + \frac{\omega^2}{c^2} \\
+&=\ \frac{m^2 c^2}{\hbar^2}
+</tex>
+
+　なんと (6) 式にうまく当てはまり、このベクトルの長さは$ L = mc/\hbar $だということになった。
+　つまり$ \Vec{\varepsilon}\sub{3}(\Vec{k}) $を単位ベクトルにするにはこの長さ$ L $で割ってやる必要があり、次のようになる。
+
+<tex>
+\Vec{\varepsilon}\sub{3}(\Vec{k}) \ =\ \left(\ \frac{\hbar k_z}{mc},\ 0,\ 0,\ \frac{\hbar \omega}{mc^2} \ \right)
+</tex>
+
+　粒子がどんな方向に進んでいようともイメージは同じである。
+　このような具合にして、3 つの独立な、そして互いに垂直な単位ベクトルを選ぶことが出来るのである。
+　ただし、今のは粒子の進行方向が$ z $軸方向を向いている場合の具体例であって、進行方向によって成分の配分はどれも変わることに注意しよう。
+
+<P>
+
+　これらのベクトルを使って次のように表してやれば、常に条件を満たす波動が書けることになる。
+
+<tex>
+A^\mu \ =\ \sum_{\alpha=1,2,3} \varepsilon^\mu_{\alpha}(\Vec{k}) \, a_\alpha e^{-ikx}
+</tex>
+
+　$ \varepsilon^\mu_{\alpha}(\Vec{k}) $というのは、ベクトル$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) $の$ \mu $番目の成分という意味である。
+　また、$ a_\alpha $というのはもはや先ほどまで使っていた$ a^{\mu} $とは別の意味を持つ変数になっており、
+3 つの単位ベクトルそれぞれの振幅を表している。
+　こうしておけば$ a_\alpha $が幾つであっても条件を満たしていることになるわけだ。
+
+<P>
+
+　あらゆる運動量$ \Vec{k} $の重ね合わせをしても話は成り立つ。
+　特に、$ A^\mu $が実数であることを保証したければ次のようにすればいい。
+
+<tex>
+A^\mu \ =\ \int \sum_{\alpha=1,2,3} \varepsilon^\mu_{\alpha}(\Vec{k}) \, \left( a_\alpha(\Vec{k}) \, e^{-ikx} \ +\ a^{\ast}_\alpha(\Vec{k}) \, e^{ikx} \right) \diff \Vec{k}
+</tex>
+
+　これを、今までにもやってきた処方で場の演算子に書き換えると次のようになる。
+
+<tex>
+\hat{A}^\mu \ =\ \int \sum_{\alpha=1,2,3} \varepsilon^\mu_{k\alpha} \, \left( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \tag{8}
+</tex>
+
+　$ \Vec{k} $が連続的なので本当は$ \varepsilon^\mu_{k\alpha} $や$ \hat{a}_{k\alpha} $や$ \hat{a}^{\dagger}_{k\alpha} $は
+$ \varepsilon^\mu_{\alpha}(\Vec{k}) $や$ \hat{a}_{\alpha}(\Vec{k}) $や$ \hat{a}^{\dagger}_{\alpha}(\Vec{k}) $と書くべきであろうが、
+この後の計算での見た目を簡潔にするために略させてもらっている。
+
+<P>
+
+　複素ベクトル場を考えたければこの$ \hat{a}^{\dagger}_{k\alpha} $のところを$ \hat{b}^{\dagger}_{k\alpha} $とすればいいのだろうが、
+そのような解の存在が妥当かどうかはラグランジアン密度の方から検討し直さないといけないので今回はやめておこう。
+
+
+% =======================================================================
+
+\section{ハミルトニアンを計算してみる}
+
+　これまでにやってきたパターンと同じことを試してみたい。
+　まずはこの場の演算子を使ってハミルトニアンを作ることである。
+　その後で、正準交換関係が成り立つかどうかを確認しよう。
+
+<P>
+
+　今回の話は第 2 部でも準備していなかった飛び入り的な形なので最初からやり直しである。
+　思い出しながら進めていこう。
+　ハミルトニアン密度というのは次のように表されるのだった。
+
+<tex>
+\mathcal{H} \ =\ \sum_{i=0}^{3} \left( \pi_i \pdif{A^i}{t} \right) \ -\ \mathcal{L} \tag{9}
+</tex>
+
+　ここに出てくる運動量密度$ \pi_i $は次の式を使って求める必要がある。
+
+<tex>
+\pi_i \ =\ \pdif{\mathcal{L}}{\left(\pdif{A^i}{t}\right)}
+</tex>
+
+　この式を良く見てみると、ラグランジアン密度$ \mathcal{L} $の中に$ \pdif{A^i}{t} $が含まれていない項は 0 になるようだ。
+　今回追加した質量項にはそういうものが含まれていないのだから、
+電磁場の場合と変わらない結果が出てくるに違いない。
+　「<a href="./em_field3.html">電磁場のハミルトニアン</a>」という記事で既に計算しているので結果を拾ってこよう。
+　そのページの中では静電ポテンシャル$ \phi $などを使って表しているが、今回の話は電磁場ではないのだから$ A\sup{0} $で表そう。
+
+<tex>
+\pi\sub{0} \ &=\ 0 \\
+\pi_i \ &=\ \varepsilon\sub{0} \, c \left( \frac{1}{c} \pdif{A^i}{t} + \pdif{A\sup{0}}{x^i} \right) \ \ \ \ (i=1 \sim 3) \tag{10}
+</tex>
+
+　相変わらず$ \pi\sub{0} $だけが 0 になっていてローレンツ変換に対する対称性がおかしいのではないか？という感想を持ってしまうが、
+今はこの疑問には踏み込まないで軽く流しておこう。
+
+<P>
+
+　この結果を (9) 式に代入すればハミルトニアン密度が求められるのだが、うまく打ち消し合って簡単になりそうな部分も無さそうだし、考えただけでうんざりである。
+
+<tex>
+\mathcal{H} \ =\ &\sum_{i=1}^{3} \varepsilon\sub{0} \, c \left( \frac{1}{c} \pdif{A^i}{t} + \pdif{A\sup{0}}{x^i} \right) \pdif{A^i}{t} \\
+&+\ \frac{1}{2} c^2 \varepsilon\sub{0} \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) \ +\ \frac{1}{2} c^2 \varepsilon\sub{0} \frac{m^2 c^2}{\hbar^2} A^\mu A_\mu \tag{11}
+</tex>
+
+　このハミルトニアン密度は最後の質量項が新たに加わった以外は、電磁場と全く同じ形をしている。
+　電磁場の場合には電磁ポテンシャル$ A^i $と電場や磁場との関係を良く知っていたので、
+電場や磁場を使って書き換えることで
+「なるほど、確かにこれがエネルギー密度を意味していることがはっきりと分かります！」と納得できる形へと持って行けたのだった。
+　しかし今回の話は電磁場とは違うものだろうから電場や磁場を援用した式変形はしたくない。
+　やったところで、電磁場のエネルギーに質量項が加わったものが得られるだけである。
+
+<P>
+
+　ひょっとすると、全てを展開して地道に計算してやれば意外とあっさりした形に持っていけたりするだろうか？
+　最後の質量項には微分が含まれていないので他の項と打ち消し合うはずもない。
+　他の部分はどれくらい打ち消し合うだろう？
+
+<P>
+
+　2 行目の括弧の中は$ \mu $と$ \nu $をそれぞれ$ 0 \sim 3 $の範囲で代入するので 4 × 4 = 16 項になり、それが二つで計 32 項。
+　1 行目は$ \pi\sub{0} = 0 $となっているお陰で和の記号が$ 1 \sim 3 $の範囲で済んでおり、計 6 項。
+　つまり質量項以外で 38 項にもなるわけだが、実際にやってみると意外にも打ち消し合って消せたり、一つにまとめられる項が多く、
+15項にまで減らせることが分かった。
+
+<P>
+
+　しかしその結果を眺めてみたところで、分かりやすい意味など見いだせないのである。
+　電磁場のときはたまたま電磁気学との関連から電磁場のエネルギーというものを知っていたので余興的にそういうことができたのである。
+　クラインゴルドン場やディラック場のときにもハミルトニアン密度を求めてみたが、
+求めてみただけであり、それをじっくり眺めて意味を見いだすことは特にしなかったことを思い出そう。
+
+<P>
+
+　ではどうするかというと、これはもうこの形でハミルトニアン密度を表しているのだということを受け入れるしかない。
+　この式に場の演算子である (8) 式を代入して、ハミルトニアンを演算子の形に書き換えるとどうなるかというのを見てみよう。
+　今までと同じことをやるというだけである。
+
+<P>
+
+　それをやるなら予め項の数をできるだけ減らしておいた方がいいのではないかと思うかも知れないが、
+この後の式変形に都合のいい項まで消してしまうことになるのであまり良い方法とは思えなかった。
+　大変だがコツコツと進めていこう。
+
+<P>
+
+　いや、すまない。
+　一度はその方針で計算する過程を書き進めてみたのだが、手順の複雑さで泥沼にはまるわ、期待した結果にたどり着けないわで、かなり苦労することになってしまった。
+　その反省点を踏まえて、中間の方法を取ることにしよう。
+　つまり、初めにできるだけ項の数を減らしておくが、敢えて全てをまとめずに一部は残すことにする。
+　理由が分からない変形が混じると思うが試行錯誤の結果による工夫だと思って欲しい。
+
+<P>
+
+　まず、最初の項は他と形式を合わせるために次のように展開しておく。
+
+<tex>
+&\sum_{i=1}^{3} \varepsilon\sub{0} \, c \left( \frac{1}{c} \pdif{A^i}{t} + \pdif{A\sup{0}}{x^i} \right) \pdif{A^i}{t} \\
+\ =\ &\sum_{i=1}^{3} \varepsilon\sub{0} \, c^2 \left( \partial\sub{0} A^i + \partial\sub{i} A\sup{0} \right) \partial\sub{0} A^i \\
+\ =\ & \varepsilon\sub{0} \, c^2 \Big[ (\partial\sub{0} A\sup{1})^2 + (\partial\sub{0} A\sup{2})^2 + (\partial\sub{0} A\sup{3})^2 \\
+&\ \ +\ \partial\sub{1} A\sup{0} \partial\sub{0} A\sup{1} + \partial\sub{2} A\sup{0} \partial\sub{0} A\sup{2} + \partial\sub{3} A\sup{0} \partial\sub{0} A\sup{3} \Big] \tag{12}
+</tex>
+
+　次に展開するのは 2 行目の括弧の中の最初の項である。
+
+<tex>
+\frac{1}{2} \varepsilon\sub{0} \, c^2 \, \partial^\mu A^\nu \partial_\mu A_\nu \ 
+=\ \frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+  &\partial\sup{0} A\sup{0} \, \partial\sub{0} A\sub{0} + \partial\sup{0} A\sup{1} \, \partial\sub{0} A\sub{1} + \partial\sup{0} A\sup{2} \, \partial\sub{0} A\sub{2} + \partial\sup{0} A\sup{3} \, \partial\sub{0} A\sub{3} \\
++ &\partial\sup{1} A\sup{0} \, \partial\sub{1} A\sub{0} + \partial\sup{1} A\sup{1} \, \partial\sub{1} A\sub{1} + \partial\sup{1} A\sup{2} \, \partial\sub{1} A\sub{2} + \partial\sup{1} A\sup{3} \, \partial\sub{1} A\sub{3} \\
++ &\partial\sup{2} A\sup{0} \, \partial\sub{2} A\sub{0} + \partial\sup{2} A\sup{1} \, \partial\sub{2} A\sub{1} + \partial\sup{2} A\sup{2} \, \partial\sub{2} A\sub{2} + \partial\sup{2} A\sup{3} \, \partial\sub{2} A\sub{3} \\
++ &\partial\sup{3} A\sup{0} \, \partial\sub{3} A\sub{0} + \partial\sup{3} A\sup{1} \, \partial\sub{3} A\sub{1} + \partial\sup{3} A\sup{2} \, \partial\sub{3} A\sub{2} + \partial\sup{3} A\sup{3} \, \partial\sub{3} A\sub{3} \ \Big] \\[5pt]
+=\ \frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+  &\partial\sub{0} A\sup{0} \, \partial\sub{0} A\sup{0} - \partial\sub{0} A\sup{1} \, \partial\sub{0} A\sup{1} - \partial\sub{0} A\sup{2} \, \partial\sub{0} A\sup{2} - \partial\sub{0} A\sup{3} \, \partial\sub{0} A\sup{3} \\
+- &\partial\sub{1} A\sup{0} \, \partial\sub{1} A\sup{0} + \partial\sub{1} A\sup{1} \, \partial\sub{1} A\sup{1} + \partial\sub{1} A\sup{2} \, \partial\sub{1} A\sup{2} + \partial\sub{1} A\sup{3} \, \partial\sub{1} A\sup{3} \\
+- &\partial\sub{2} A\sup{0} \, \partial\sub{2} A\sup{0} + \partial\sub{2} A\sup{1} \, \partial\sub{2} A\sup{1} + \partial\sub{2} A\sup{2} \, \partial\sub{2} A\sup{2} + \partial\sub{2} A\sup{3} \, \partial\sub{2} A\sup{3} \\
+- &\partial\sub{3} A\sup{0} \, \partial\sub{3} A\sup{0} + \partial\sub{3} A\sup{1} \, \partial\sub{3} A\sup{1} + \partial\sub{3} A\sup{2} \, \partial\sub{3} A\sup{2} + \partial\sub{3} A\sup{3} \, \partial\sub{3} A\sup{3} \ \Big] \\[5pt]
+=\ \frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+  &(\partial\sub{0} A\sup{0})^2 - (\partial\sub{0} A\sup{1})^2 - (\partial\sub{0} A\sup{2})^2 - (\partial\sub{0} A\sup{3})^2 \\
+- &(\partial\sub{1} A\sup{0})^2 + (\partial\sub{1} A\sup{1})^2 + (\partial\sub{1} A\sup{2})^2 + (\partial\sub{1} A\sup{3})^2 \\
+- &(\partial\sub{2} A\sup{0})^2 + (\partial\sub{2} A\sup{1})^2 + (\partial\sub{2} A\sup{2})^2 + (\partial\sub{2} A\sup{3})^2 \\
+- &(\partial\sub{3} A\sup{0})^2 + (\partial\sub{3} A\sup{1})^2 + (\partial\sub{3} A\sup{2})^2 + (\partial\sub{3} A\sup{3})^2 \ \Big] \\[5pt]
+=\ \frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+  &(\partial\sub{0} A\sup{0})^2 - (\partial\sub{1} A\sup{0})^2 - (\partial\sub{2} A\sup{0})^2 - (\partial\sub{3} A\sup{0})^2 \\
+- &(\partial\sub{0} A\sup{1})^2 + (\partial\sub{1} A\sup{1})^2 + (\partial\sub{2} A\sup{1})^2 + (\partial\sub{3} A\sup{1})^2 \\
+- &(\partial\sub{0} A\sup{2})^2 + (\partial\sub{1} A\sup{2})^2 + (\partial\sub{2} A\sup{2})^2 + (\partial\sub{3} A\sup{2})^2 \\
+- &(\partial\sub{0} A\sup{3})^2 + (\partial\sub{1} A\sup{3})^2 + (\partial\sub{2} A\sup{3})^2 + (\partial\sub{3} A\sup{3})^2 \ \Big] \tag{13}
+</tex>
+
+　この式変形を簡単に説明しておこう。
+　この記事で採用している流儀では$ \partial\sub{0} = -\partial\sup{0} $や$ A\sub{0} = -A\sup{0} $という関係があるので、
+形式を統一するために添え字の上げ下げをさせてもらった。
+　そのせいであちこちの符号が変化している。
+　形式を統一すると、実はどの項も 2 乗の形であることがはっきりする。
+　最後は項の並び順を変更してみた。
+　縦の並びだった項が横に並ぶようにしてみたわけだ。
+　最初からそうなるように展開しておけばこの手間は要らなかったとは思う。
+
+<P>
+
+　こうして見ると、非常に分かりやすい規則性があることが分かる。
+　1 番上の行ではどれも$ A\sup{0} $に対して$ t $で微分したり$ x $で微分したり$ y $で微分したり$ z $で微分したりしている。
+　2 行目では$ A\sup{1} $に対して同じことが行われている。
+　そんな具合である。
+
+<P>
+
+　すでに (12) 式と一緒にしてまとめられそうな項が見えているが、残った項の展開を先に済ませておこう。
+
+<tex>
+-\frac{1}{2} \varepsilon\sub{0} \, c^2 \, \partial^\mu A^\nu \partial_\nu A_\mu \ =\ 
+-\frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+  &\partial\sup{0} A\sup{0} \, \partial\sub{0} A\sub{0} + \partial\sup{0} A\sup{1} \, \partial\sub{1} A\sub{0} + \partial\sup{0} A\sup{2} \, \partial\sub{2} A\sub{0} + \partial\sup{0} A\sup{3} \, \partial\sub{3} A\sub{0} \\
++ &\partial\sup{1} A\sup{0} \, \partial\sub{0} A\sub{1} + \partial\sup{1} A\sup{1} \, \partial\sub{1} A\sub{1} + \partial\sup{1} A\sup{2} \, \partial\sub{2} A\sub{1} + \partial\sup{1} A\sup{3} \, \partial\sub{3} A\sub{1} \\
++ &\partial\sup{2} A\sup{0} \, \partial\sub{0} A\sub{2} + \partial\sup{2} A\sup{1} \, \partial\sub{1} A\sub{2} + \partial\sup{2} A\sup{2} \, \partial\sub{2} A\sub{2} + \partial\sup{2} A\sup{3} \, \partial\sub{3} A\sub{2} \\
++ &\partial\sup{3} A\sup{0} \, \partial\sub{0} A\sub{3} + \partial\sup{3} A\sup{1} \, \partial\sub{1} A\sub{3} + \partial\sup{3} A\sup{2} \, \partial\sub{2} A\sub{3} + \partial\sup{3} A\sup{3} \, \partial\sub{3} A\sub{3} \ \Big] \\[5pt]
+\ =\ -\frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+  &(\partial\sub{0} A\sup{0})^2 + 2\,\partial\sub{0} A\sup{1} \, \partial\sub{1} A\sup{0} + 2\,\partial\sub{0} A\sup{2} \, \partial\sub{2} A\sup{0} + 2\,\partial\sub{0} A\sup{3} \, \partial\sub{3} A\sup{0} \\
++ &\cancel{ \partial\sub{1} A\sup{0} \, \partial\sub{0} A\sup{1} } + (\partial\sub{1} A\sup{1})^2 + 2\,\partial\sub{1} A\sup{2} \, \partial\sub{2} A\sup{1} + 2\,\partial\sub{1} A\sup{3} \, \partial\sub{3} A\sup{1} \\
++ &\cancel{ \partial\sub{2} A\sup{0} \, \partial\sub{0} A\sup{2} } + \cancel{ \partial\sub{2} A\sup{1} \, \partial\sub{1} A\sup{2} } + (\partial\sub{2} A\sup{2})^2 + 2\,\partial\sub{2} A\sup{3} \, \partial\sub{3} A\sup{2} \\
++ &\cancel{ \partial\sub{3} A\sup{0} \, \partial\sub{0} A\sup{3} } + \cancel{ \partial\sub{3} A\sup{1} \, \partial\sub{1} A\sup{3} } + \cancel{ \partial\sub{3} A\sup{2} \, \partial\sub{2} A\sup{3} } + (\partial\sub{3} A\sup{3})^2 \\[5pt]
+\ =\ \varepsilon\sub{0} \, c^2 \Big[\ 
+  &-\frac{1}{2}(\partial\sub{0} A\sup{0})^2 - \frac{1}{2} (\partial\sub{1} A\sup{1})^2 - \frac{1}{2} (\partial\sub{2} A\sup{2})^2 - \frac{1}{2} (\partial\sub{3} A\sup{3})^2 \\
+ - &\partial\sub{0} A\sup{1} \, \partial\sub{1} A\sup{0} - \partial\sub{0} A\sup{2} \, \partial\sub{2} A\sup{0} - \partial\sub{0} A\sup{3} \, \partial\sub{3} A\sup{0} \\
+ - &\partial\sub{1} A\sup{2} \, \partial\sub{2} A\sup{1} - \partial\sub{1} A\sup{3} \, \partial\sub{3} A\sup{1} - \partial\sub{2} A\sup{3} \, \partial\sub{3} A\sup{2} \Big] \tag{14}
+</tex>
+
+　こちらは添え字の上げ下げをしても符号が打ち消し合うため、どれも変わらない。
+　しかもかなりの部分をまとめることができる。
+
+<P>
+
+　残った質量項は打ち消し合ったりしないので後回しだ。
+　ここまでの結果をひとまとめにしてみよう。
+　(13) 式をベースにして考えてみる。
+　(12) 式の最初の行は (13) 式の一部の項の符号を変える働きをした上で消滅するし、
+次の行は (14) 式の一部と打ち消し合って消えるので、次のようになる。
+
+<tex>
+\frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+  &(\partial\sub{0} A\sup{0})^2 - (\partial\sub{1} A\sup{0})^2 - (\partial\sub{2} A\sup{0})^2 - (\partial\sub{3} A\sup{0})^2 \\
++ &(\partial\sub{0} A\sup{1})^2 + (\partial\sub{1} A\sup{1})^2 + (\partial\sub{2} A\sup{1})^2 + (\partial\sub{3} A\sup{1})^2 \\
++ &(\partial\sub{0} A\sup{2})^2 + (\partial\sub{1} A\sup{2})^2 + (\partial\sub{2} A\sup{2})^2 + (\partial\sub{3} A\sup{2})^2 \\
++ &(\partial\sub{0} A\sup{3})^2 + (\partial\sub{1} A\sup{3})^2 + (\partial\sub{2} A\sup{3})^2 + (\partial\sub{3} A\sup{3})^2 \ \Big] \\
++\ \varepsilon\sub{0} \, c^2 \Big[\ 
+  &-\frac{1}{2}(\partial\sub{0} A\sup{0})^2 - \frac{1}{2} (\partial\sub{1} A\sup{1})^2 - \frac{1}{2} (\partial\sub{2} A\sup{2})^2 - \frac{1}{2} (\partial\sub{3} A\sup{3})^2 \\
+ - &\partial\sub{1} A\sup{2} \, \partial\sub{2} A\sup{1} - \partial\sub{1} A\sup{3} \, \partial\sub{3} A\sup{1} - \partial\sub{2} A\sup{3} \, \partial\sub{3} A\sup{2} \Big]
+</tex>
+
+　まだ消せる項が 4 組残っているが、これはそのままにする。
+　完全に打ち消し合うので 8 項も消せるのは魅力的だが、後の計算の都合のために無視しなくてはならない。
+　さて、後々問題になるのは最初の項の符号である。
+　他の行では横の並びが全て同じ符号になっているのに、この部分だけが解消されていない。
+　これを負にしておきたい強烈な理由があるのだ。
+　そのために、$ \varepsilon\sub{0} \, c^2 (\partial\sub{0} A\sup{0})^2 $を引いてやって、代わりに下の項に足してやる。
+
+<tex>
+\frac{1}{2} \varepsilon\sub{0} \, c^2 \Big[\ 
+- &(\partial\sub{0} A\sup{0})^2 - (\partial\sub{1} A\sup{0})^2 - (\partial\sub{2} A\sup{0})^2 - (\partial\sub{3} A\sup{0})^2 \\
++ &(\partial\sub{0} A\sup{1})^2 + (\partial\sub{1} A\sup{1})^2 + (\partial\sub{2} A\sup{1})^2 + (\partial\sub{3} A\sup{1})^2 \\
++ &(\partial\sub{0} A\sup{2})^2 + (\partial\sub{1} A\sup{2})^2 + (\partial\sub{2} A\sup{2})^2 + (\partial\sub{3} A\sup{2})^2 \\
++ &(\partial\sub{0} A\sup{3})^2 + (\partial\sub{1} A\sup{3})^2 + (\partial\sub{2} A\sup{3})^2 + (\partial\sub{3} A\sup{3})^2 \ \Big] \\
++\ \varepsilon\sub{0} \, c^2 \Big[\ 
+  &\frac{1}{2}(\partial\sub{0} A\sup{0})^2 - \frac{1}{2} (\partial\sub{1} A\sup{1})^2 - \frac{1}{2} (\partial\sub{2} A\sup{2})^2 - \frac{1}{2} (\partial\sub{3} A\sup{3})^2 \\
+ - &\partial\sub{1} A\sup{2} \, \partial\sub{2} A\sup{1} - \partial\sub{2} A\sup{3} \, \partial\sub{3} A\sup{2} - \partial\sub{3} A\sup{1} \, \partial\sub{1} A\sup{3} \Big] \tag{15}
+</tex>
+
+　さて、これで項をある程度減らすことには成功した。
+　これに (8) 式を代入して計算していったらどうなるだろうか？
+　ひとまず最初の大きな括弧の中身から考えよう。
+　$ \hat{A}^\mu $を$ t $で微分すれば$ \omega $が飛び出してくるだろうし$ x $で微分すれば$ k_x $が飛び出してくるだろう。
+　試しに一つの項だけ選んでやってみよう。
+　添字が同じものだと混乱しそうになるし、1 行目は他と符号が違うので避けておいて、いかにも普通そうなものとして$ (\partial\sub{1}A\sup{2})^2 $を例にしよう。
+
+<tex>
+(\partial\sub{1}A\sup{2})^2 \ &=\ \left( \pdif{}{x}\int \sum_{\alpha=1,2,3} \varepsilon\sup{2}_{k\alpha} \, \left( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \right)\\
+&\ \ \ \ \ \ \left( \pdif{}{x}\int \sum_{\alpha'=1,2,3} \varepsilon\sup{2}_{k'\alpha'} \, \left( \hat{a}_{k'\alpha'} \, e^{-ik'x} \ +\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x} \right) \diff \Vec{k}' \right)\\[5pt]
+&=\ \left( \int \sum_{\alpha=1,2,3} \varepsilon\sup{2}_{k\alpha} \, \left( i\,k_x\,\hat{a}_{k\alpha} \, e^{-ikx} \ -\ i\,k_x\,\hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \right)\\
+&\ \ \ \ \ \ \left( \int \sum_{\alpha'=1,2,3} \varepsilon\sup{2}_{k'\alpha'} \, \left( i\,{k'}_x\,\hat{a}_{k'\alpha'} \, e^{-ik'x} \ -\ i\,{k'}_x\,\hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x} \right) \diff \Vec{k}' \right)\\[5pt]
+&=\ -\dint \sum_{\alpha,\alpha'} \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k'\alpha'} \, \left( k_x\,\hat{a}_{k\alpha} \, e^{-ikx} \ -\ k_x\,\hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \\
+&\phantom{xxxxxxxxxxxxxxxx} \left( k'_x\,\hat{a}_{k'\alpha'} \, e^{-ik'x} \ -\ k'_x\,\hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x} \right) \diff \Vec{k} \diff \Vec{k}' \\[5pt]
+&=\ -\dint \sum_{\alpha,\alpha'} \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k'\alpha'} \, \left( k_x\,k'_x\,\hat{a}_{k\alpha}\hat{a}_{k'\alpha'} \, e^{-i(k+k')x} \ -\ k_x\,k'_x\,\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k'\alpha'} \, e^{-i(k-k')x} \right. \\
+&\phantom{xxxxxxxxxxxxxxxx} \left. -k_x\,k'_x\,\hat{a}^{\dagger}_{k\alpha}\hat{a}_{k'\alpha'} \, e^{i(k-k')x} \ +\ k_x\,k'_x\,\hat{a}^{\dagger}_{k\alpha}\hat{a}^{\dagger}_{k'\alpha'} \, e^{i(k+k')x} \right) \diff \Vec{k} \diff \Vec{k}' \\[5pt]
+</tex>
+
+　これはハミルトニアン密度の項の一つだったから、ハミルトニアンにするために後で積分される運命にある。
+　それを今やってしまおう。
+
+<tex>
+\int_V (\partial\sub{1}A\sup{2})^2 \diff V
+&=\ - \int_V \dint \sum_{\alpha,\alpha'} \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k'\alpha'} \, \left( k_x\,k'_x\,\hat{a}_{k\alpha}\hat{a}_{k'\alpha'} \, e^{-i(k+k')x} \ -\ k_x\,k'_x\,\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k'\alpha'} \, e^{-i(k-k')x} \right. \\
+&\phantom{xxxxxxxxxxxxxxxx} \left. -k_x\,k'_x\,\hat{a}^{\dagger}_{k\alpha}\hat{a}_{k'\alpha'} \, e^{i(k-k')x} \ +\ k_x\,k'_x\,\hat{a}^{\dagger}_{k\alpha}\hat{a}^{\dagger}_{k'\alpha'} \, e^{i(k+k')x} \right) \diff \Vec{k} \diff \Vec{k}' \diff V \\[5pt]
+&=\ - (2\pi)^3 \dint \sum_{\alpha,\alpha'} \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k'\alpha'} \, \left( k_x\,k'_x\,\hat{a}_{k\alpha}\hat{a}_{k'\alpha'} \, \delta(\Vec{k}+\Vec{k}') \, e^{-i(\omega+\omega')t} \right. \\
+&\phantom{xxxxxxxxxxxxxxxxxxxxxx} -\ k_x\,k'_x\,\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k'\alpha'} \, \delta(\Vec{k}-\Vec{k}') \, e^{-i(\omega-\omega')t} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxxxxxxxx} -k_x\,k'_x\,\hat{a}^{\dagger}_{k\alpha}\hat{a}_{k'\alpha'} \, \delta(\Vec{k}-\Vec{k}') \, e^{i(\omega-\omega')t} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxxxxxxxx} \left. +\ k_x\,k'_x\,\hat{a}^{\dagger}_{k\alpha}\hat{a}^{\dagger}_{k'\alpha'} \, \delta(\Vec{k}+\Vec{k}') \, e^{i(\omega+\omega')t} \right) \diff \Vec{k} \diff \Vec{k}' \\[10pt]
+&=\ - (2\pi)^3 \int \sum_{\alpha,\alpha'} \Big( \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{(-k)\alpha'} \, k_x\,(-k_x)\,\hat{a}_{k\alpha}\hat{a}_{(-k)\alpha'} \, e^{-2i\omega t} \\
+&\phantom{xxxxxxxxxxxxxxxx} -\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} \, k_x^2 \,\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha'} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxx} -\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} \, k_x^2 \,\hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha'} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxx} +\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{(-k)\alpha'} \, k_x(-k_x)\,\hat{a}^{\dagger}_{k\alpha}\hat{a}^{\dagger}_{(-k)\alpha'} \, e^{2i\omega t} \Big) \diff \Vec{k} \\[10pt]
+&=\ (2\pi)^3 \int k_x^2 \, \sum_{\alpha,\alpha'} \Big( \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{(-k)\alpha'} \, \hat{a}_{k\alpha}\hat{a}_{(-k)\alpha'} \, e^{-2i\omega t} \\
+&\phantom{xxxxxxxxxxxxxxxx} +\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} \, \hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha'} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxx} +\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} \, \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha'} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxx} +\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{(-k)\alpha'} \, \hat{a}^{\dagger}_{k\alpha}\hat{a}^{\dagger}_{(-k)\alpha'} \, e^{2i\omega t} \Big) \diff \Vec{k} \\[10pt]
+</tex>
+
+　このような具合に$ (\partial\sub{1}A\sup{2})^2 $からは$ k_x^2 $が出てくるし、
+同様に$ (\partial\sub{2}A\sup{2})^2 $からは$ k_y^2 $が、$ (\partial\sub{3}A\sup{2})^2 $からは$ k_z^2 $が出てくる。
+　これで$ (\partial\sub{0}A\sup{2})^2 $からは$ (\omega/c)^2 $が出てきてくれれば (6) 式の関係を当てはめて、
+質量項の係数を巻き込んで全てすっきり 0 になる！という流れを期待したのだが、$ t $で微分したときにはどうもそうはならないらしい。
+　計算内容はほとんど同じなのだが、(6) 式から分かるように$ \omega(k) = \omega(-k) $であるから、マイナスが出てこない項があるのだ。
+　似たようなものなので途中の計算をかなり省いて途中から書いても大丈夫だろう。
+　$ (\partial\sub{0}A\sup{2})^2 $については次のようなことになる。
+
+<tex>
+\int_V (\partial\sub{0}A\sup{2})^2 \diff V
+&=\ - \frac{(2\pi)^3}{c^2} \dint \sum_{\alpha,\alpha'} \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k'\alpha'} \, \left( \omega\,\omega'\,\hat{a}_{k\alpha}\hat{a}_{k'\alpha'} \, \delta(\Vec{k}+\Vec{k}') \, e^{-i(\omega+\omega')t} \right. \\
+&\phantom{xxxxxxxxxxxxxxxxxxxxxx} -\ \omega\,\omega'\,\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k'\alpha'} \, \delta(\Vec{k}-\Vec{k}') \, e^{-i(\omega-\omega')t} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxxxxxxxx} -\ \omega\,\omega'\,\hat{a}^{\dagger}_{k\alpha}\hat{a}_{k'\alpha'} \, \delta(\Vec{k}-\Vec{k}') \, e^{i(\omega-\omega')t} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxxxxxxxx} \left. +\ \omega\,\omega'\,\hat{a}^{\dagger}_{k\alpha}\hat{a}^{\dagger}_{k'\alpha'} \, \delta(\Vec{k}+\Vec{k}') \, e^{i(\omega+\omega')t} \right) \diff \Vec{k} \diff \Vec{k}' \\[10pt]
+&=\ - \frac{(2\pi)^3}{c^2} \int \sum_{\alpha,\alpha'} \Big( \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{(-k)\alpha'} \, \omega^2\,\hat{a}_{k\alpha}\hat{a}_{(-k)\alpha'} \, e^{-2i\omega t} \\
+&\phantom{xxxxxxxxxxxxxxxx} -\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} \, \omega^2 \,\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha'} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxx} -\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} \, \omega^2 \,\hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha'} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxx} +\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{(-k)\alpha'} \, \omega^2\,\hat{a}^{\dagger}_{k\alpha}\hat{a}^{\dagger}_{(-k)\alpha'} \, e^{2i\omega t} \Big) \diff \Vec{k} \\[10pt]
+&=\ (2\pi)^3 \int \frac{\omega^2}{c^2} \, \sum_{\alpha,\alpha'} \Big( -\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{(-k)\alpha'} \, \hat{a}_{k\alpha}\hat{a}_{(-k)\alpha'} \, e^{-2i\omega t} \\
+&\phantom{xxxxxxxxxxxxxxxx} +\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} \, \hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha'} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxx} +\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} \, \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha'} \\[8pt]
+&\phantom{xxxxxxxxxxxxxxxx} -\ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{(-k)\alpha'} \, \hat{a}^{\dagger}_{k\alpha}\hat{a}^{\dagger}_{(-k)\alpha'} \, e^{2i\omega t} \Big) \diff \Vec{k} \\[10pt]
+</tex>
+
+　つまり、すっきり全て 0 になるということは起こらなくて、
+
+<tex>
+-\frac{\omega^2}{c^2} + k_x^2+ k_y^2+ k_z^2 + \frac{m^2 c^2}{\hbar^2} \ =\ -\frac{\omega^2}{c^2} + \frac{\omega^2}{c^2} = 0
+</tex>
+
+のように打ち消し合って消える項と
+
+<tex>
+\frac{\omega^2}{c^2} + k_x^2+ k_y^2+ k_z^2 + \frac{m^2 c^2}{\hbar^2} \ =\ \frac{\omega^2}{c^2} + \frac{\omega^2}{c^2} = 2 \, \frac{\omega^2}{c^2}
+</tex>
+
+のように残る項が出てくるのである。
+　ここまでの計算での暫定的なハミルトニアンをまとめると、次のようになる。
+
+<tex>
+\hat{H} \ =\ 
+-&\varepsilon\sub{0} (2\pi)^3 \int \omega^2(\Vec{k}) \, \sum_{\alpha,\alpha'} \varepsilon\sup{0}_{k\alpha} \, \varepsilon\sup{0}_{k\alpha'} \Big( 
+\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha'} + \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha'} \Big) \diff \Vec{k} \\
++ \sum_{\mu=1}^3 &\varepsilon\sub{0} (2\pi)^3 \int \omega^2(\Vec{k}) \, \sum_{\alpha,\alpha'} \varepsilon^{\mu}_{k\alpha} \, \varepsilon^{\mu}_{k\alpha'} \Big( 
+\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha'} + \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha'} \Big) \diff \Vec{k}
+</tex>
+
+　これはもう少しまとめられそうだ。
+　というのも、$ \mu $についての和を取っているけれども、
+それは波の偏向を表す$ \varepsilon^{\mu}_{k\alpha} $だけに関係してくるものだから、そこだけをひとまとめにしてやればいい。
+
+<tex>
+\hat{H} \ =\ 
+\varepsilon\sub{0} (2\pi)^3 \int \omega^2(\Vec{k}) \, \sum_{\alpha,\alpha'}
+\big(-\varepsilon\sup{0}_{k\alpha} \, \varepsilon\sup{0}_{k\alpha'} + \varepsilon\sup{1}_{k\alpha} \, \varepsilon\sup{1}_{k\alpha'} &+ \varepsilon\sup{2}_{k\alpha} \, \varepsilon\sup{2}_{k\alpha'} + \varepsilon\sup{3}_{k\alpha} \, \varepsilon\sup{3}_{k\alpha'} \big) \\
+&\Big( \hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha'} + \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha'} \Big) \diff \Vec{k}
+</tex>
+
+　この長ったらしい括弧の中身は$ (\varepsilon\sup{0}_{k\alpha},\varepsilon\sup{1}_{k\alpha},\varepsilon\sup{2}_{k\alpha},\varepsilon\sup{3}_{k\alpha}) $と
+$ (\varepsilon\sup{0}_{k\alpha'},\varepsilon\sup{1}_{k\alpha'},\varepsilon\sup{2}_{k\alpha'},\varepsilon\sup{3}_{k\alpha'}) $との 4 次元的内積を取ったものになっている。
+　$ \alpha = 1,2,3 $のそれぞれのベクトルは 4 次元内で直交する単位ベクトルだったのだから、
+$ \alpha = \alpha' $の時に限って 1 であり、それ以外では 0 になるのだった。
+　よって次のように書き換えられるだろう。
+
+<tex>
+\hat{H} \ &=\ \varepsilon\sub{0} (2\pi)^3 \int \omega^2(\Vec{k}) \, \sum_{\alpha}\sum_{\alpha'} \delta_{\alpha,\alpha'} \Big( \hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha'} + \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha'} \Big) \diff \Vec{k} \\
+&=\ \varepsilon\sub{0} (2\pi)^3 \int \omega^2(\Vec{k}) \, \sum_{\alpha} \Big( \hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha} + \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha} \Big) \diff \Vec{k} \tag{16}
+</tex>
+
+　これはこれまでも求めてきたハミルトニアンと同じ形をしているので、このままであってくれた方がありがたい。
+　しかしまだ計算できていない項が残っており、それらがどう影響してくるのかが心配だ。
+　何とかうまく消えてくれると嬉しい。
+　そう思いながら残りの項を眺めてみる。
+　話が長くなって何の話をしているのか忘れているかもしれないが、(15) 式の下半分のことだ。
+
+<P>
+
+　残った項を計算すると、だいたい似たような計算ばかりなので共通する部分はくくりだしてやって、飛び出してくる係数だけを集めて考えればいいだろう。
+　次のような係数が出てくることになる。
+
+<tex>
+\sum_{\alpha,\alpha'} \Big( \varepsilon\sup{0}_{k\alpha}\varepsilon\sup{0}_{k\alpha'} \frac{\omega^2}{c^2}
+&-\varepsilon\sup{1}_{k\alpha}\varepsilon\sup{1}_{k\alpha'} k_x^2
+-\varepsilon\sup{2}_{k\alpha}\varepsilon\sup{2}_{k\alpha'} k_y^2
+-\varepsilon\sup{3}_{k\alpha}\varepsilon\sup{3}_{k\alpha'} k_z^2 \\
+&\ \ \ \ -2\varepsilon\sup{2}_{k\alpha}\varepsilon\sup{1}_{k\alpha'} k_x k_y
+-2\varepsilon\sup{3}_{k\alpha}\varepsilon\sup{2}_{k\alpha'} k_y k_z
+-2\varepsilon\sup{1}_{k\alpha}\varepsilon\sup{3}_{k\alpha'} k_z k_x \Big) \tag{17}
+</tex>
+
+　ここで少し補足が必要になる。
+　計算では$ \varepsilon^\mu_{(-k)\alpha'} $という形のものも出てくるはずである。
+　ところがこの式ではそのようなものがどこにもない。
+　どうやって処理したのだろうか？
+　前はこれを気にも留めないで話を続けたのだが、今回はこれの影響が重要である。
+　$ \varepsilon^\mu_{k\alpha} $というのは (7) 式を満たすために作られたので次のような関係を保つように設定されている。
+
+<tex>
+-\frac{\omega}{c} \varepsilon\sup{0}_{k\alpha} \ +\ k_x\,\varepsilon\sup{1}_{k\alpha} \ +\ k_y\,\varepsilon\sup{2}_{k\alpha}\ +\ k_z\,\varepsilon\sup{3}_{k\alpha} \ =\ 0 \tag{18}
+</tex>
+
+　別の波数$ k' $のときには次のような関係を満たすことだろう。
+
+<tex>
+-\frac{\omega'}{c} \varepsilon\sup{0}_{k'\alpha} \ +\ k'_x\,\varepsilon\sup{1}_{k'\alpha} \ +\ k'_y\,\varepsilon\sup{2}_{k'\alpha}\ +\ k'_z\,\varepsilon\sup{3}_{k'\alpha} \ =\ 0
+</tex>
+
+　ここで$ k' = -k $だと仮定して代入してやる。
+　このとき、$ \omega' = \omega $になることも使う。
+　その結果を (18) 式と比較してみれば次のような関係になっていることが分かるだろう。
+
+<tex>
+\varepsilon\sup{0}_{(-k)\alpha} \ &=\ \phantom{-}\varepsilon\sup{0}_{k\alpha} \\
+\varepsilon\sup{i}_{(-k)\alpha} \ &=\ -\varepsilon\sup{i}_{k\alpha} \ \ \ \ (i=1\sim3)
+</tex>
+
+　前に計算したときに、$ t $で微分したときにはマイナスにならない項が出てきてしまうとか言っていたが、
+今回は$ t $で微分する項では$ \varepsilon\sup{0}_{(-k)\alpha} $が出てきて符号を変える必要がなく、
+他の項においては符号を変える必要があるところがあるので、結局どれも同じような結果になって、
+共通部分を問題なくまとめられてしまうのである。
+
+<P>
+
+　さて、(18) 式を移項すると次のように書ける。
+
+<tex>
+\frac{\omega}{c} \varepsilon\sup{0}_{k\alpha} \ =\ k_x\,\varepsilon\sup{1}_{k\alpha} \ +\ k_y\,\varepsilon\sup{2}_{k\alpha}\ +\ k_z\,\varepsilon\sup{3}_{k\alpha} \tag{19}
+</tex>
+
+　これは別の$ \alpha $についても成り立っていて、
+
+<tex>
+\frac{\omega}{c} \varepsilon\sup{0}_{k\alpha'} \ =\ k_x\,\varepsilon\sup{1}_{k\alpha'} \ +\ k_y\,\varepsilon\sup{2}_{k\alpha'}\ +\ k_z\,\varepsilon\sup{3}_{k\alpha'} \tag{20}
+</tex>
+
+と書ける。
+　これら (19) 式と (20) 式の両辺をそれぞれに掛け合わせてから左辺にまとめると (17) 式にあるものと同じものが出来て、それが 0 になることが分かる。
+　こうして、ハミルトニアンへの残りの項の寄与はまったくないということが分かる。
+
+<P>
+
+　\red{電磁場のハミルトニアンを計算したときには電場や磁場による表現に頼って簡単に済ませてしまったが、
+今回と同じやり方をしても同じように解ける。}
+　電磁場の場合には$ \hat{A}\sup{0} = 0 $だったので、
+最後の方のややこしい注意書きのようなことを気にせずに少しだけ簡単に進められるだろう。
+
+<P>
+
+　というわけで、最終的にハミルトニアンは (16) 式のようになるのだが、毎度のごとく、交換関係を利用して
+
+<tex>
+\hat{a}_{k\alpha}\hat{a}^{\dagger}_{k\alpha} + \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha}
+\Longrightarrow \ 2 \, \hat{a}^{\dagger}_{k\alpha}\hat{a}_{k\alpha} \ +\ 1
+</tex>
+
+のような変形をして、これでは定数項が積分で無限大になってしまうので、などと言い訳をしながら省いた上で、
+物理的意味をはっきりさせるために係数をいじって次のようにしてやりたい。
+
+<tex>
+\hat{H} \ =\ \int \sum_{\alpha} \hbar \, \omega(\Vec{k}) \, \hat{a}^{\dagger}_{k\alpha} \hat{a}_{k\alpha} \diff \Vec{k} \tag{21}
+</tex>
+
+　そうなるためには場の演算子は (8) 式ではなく
+
+<tex>
+\hat{A}^\mu \ =\ \int \sqrt{\frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3 \, \omega(\Vec{k})}} \, \sum_{\alpha=1,2,3} \varepsilon^\mu_{k\alpha} \, \left( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \tag{22}
+</tex>
+
+のような係数をあらかじめ付けておいたものを使うべきであったということになる。
+
+
+% =======================================================================
+
+\section{ひとやすみ}
+
+　やっと計算が一つ終わったので、ここで節を分けて、思ったことを書いてみよう。
+　このような計算をしている意味が、これを書いている私にさえ、本当に分からなくなる。
+　クラインゴルドン場や、電磁場やディラック場など、
+ただラグランジアン密度をあれこれと変えながら同じことを繰り返しているだけのはずなのに
+計算内容が大きく違ったりしているようにも思える。
+　計算をしながら、確認のためにこれまでにやったことを振り返ったりして、
+相違点や類似点を何度も確かめることになった。
+
+<P>
+
+　最終的にはなぜか毎回ハミルトニアンが個数演算子$ \hat{n} = \hat{a}^{\dagger}_k \hat{a}_k $の和で表される形にまとまってくれるのである。
+　つまり、様々な運動量$ \Vec{k} $を持つ粒子の個数で表されており、一つ一つの粒子のエネルギーは$ \hbar \omega $なのである。
+　少々人為的な調整もしているので$ \hbar \omega $の整数倍であることについてはそれほど不思議ではないかもしれない。
+　ハミルトニアンはエネルギーの次元の量であって$ \hbar \omega $もまたエネルギーの次元の量であるから、そのように合わせてあるだけだ。
+　しかし個数演算子の和としてまとめられることについてはやっぱり不思議だ。
+
+<P>
+
+　毎回同じようなものが導かれてくるだけなら何のためにこんなことを試しているのだろうか、という気にもなってくる。
+　いや、ちょっと待て。
+　同じように見えるが、(21) 式や (22) 式に表されていない要素もあったではないか。
+　運動量$ k $と$ \omega $の間には (6) 式の関係が成り立っている。
+　電磁場の場合にはたまたま特別に$ m = 0 $であった。
+　ああ、そうか。
+　やはりこれも同じではないか。
+
+% =======================================================================
+
+\section{正準交換関係の確認}
+
+　残った課題は正準交換関係の確認である。
+　(22) 式を (10) 式に代入することで運動量密度の演算子が次のように作れる。
+
+<tex>
+\hat{\pi}^\mu \ =\ &\varepsilon\sub{0} \int \sqrt{\frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3 \, \omega(\Vec{k})}} \, \sum_{\alpha=1,2,3} \varepsilon^\mu_{k\alpha} \, \left( -i \, \omega \, \hat{a}_{k\alpha} \, e^{-ikx} \ +\ i\,\omega\,\hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \\
+&+\ \varepsilon\sub{0} c \int \sqrt{\frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3 \, \omega(\Vec{k})}} \, \sum_{\alpha=1,2,3} \varepsilon\sup{0}_{k\alpha} \, \left( i\, k^\mu \, \hat{a}_{k\alpha} \, e^{-ikx} \ -\ i\, k^\mu \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \right) \diff \Vec{k} \\
+</tex>
+
+　相対論を意識して添字を上に書くようにしてみたが、$ \mu = 1\sim 3 $に限っているので実は何も違いはない。
+　これを使って$ [\hat{A}^\mu, \hat{\pi}^\nu] $を計算したいのだが一気にやるのは大変過ぎる。
+　そこでこの二つの項を$ \hat{\pi}^\mu = \hat{\rho}^\mu + \hat{\sigma}^\mu $のように分けて表して、
+
+<tex>
+[\hat{A}^\mu, \hat{\pi}^\nu] \ =\  [\hat{A}^\mu, \hat{\rho}^\nu] \ +\  [\hat{A}^\mu, \hat{\sigma}^\nu] 
+</tex>
+
+のように個別に計算してあとでひとまとめにするという方針で行ってみよう。
+
+<tex>
+[\hat{A}^\mu, \hat{\rho}^\nu] \ =\ i\, \varepsilon\sub{0} &\dint \frac{\hbar}{2 \varepsilon\sub{0}(2\pi)^3} \sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \, \sum_{\alpha} \sum_{\alpha'} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k'\alpha'} \\
+\bigg[ &\Big( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \Big)
+\Big( - \hat{a}_{k'\alpha'} \, e^{-ik'x'} \ +\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \Big) \\
+-&\Big( - \hat{a}_{k'\alpha'} \, e^{-ik'x'} \ +\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \Big)
+\Big( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \Big) \bigg]  \diff \Vec{k} \diff \Vec{k}' \\[5pt]
+=\ i\, &\dint \frac{\hbar}{2 (2\pi)^3} \sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \, \sum_{\alpha} \sum_{\alpha'} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k'\alpha'} \\
+\bigg[ &\Big( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \Big)
+\Big( - \hat{a}_{k'\alpha'} \, e^{-ik'x'} \ +\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \Big) \\
+-&\Big( - \hat{a}_{k'\alpha'} \, e^{-ik'x'} \ +\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \Big)
+\Big( \hat{a}_{k\alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \Big) \bigg]  \diff \Vec{k} \diff \Vec{k}' \\[5pt]
+</tex>
+
+　この大きな括弧の中は次のように展開され、整理される。
+　電磁場の記事のところではこれを省略したが、自分で久々に読み返してみたときに不親切だと感じたので今回は丁寧に書くことにした。
+
+<tex>
+&\Big(-\ \hat{a}_{k\alpha} \, e^{-ikx} \hat{a}_{k'\alpha'} \, e^{-ik'x'} \ 
+ +\ \hat{a}_{k\alpha} \, e^{-ikx} \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \\
+&-\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \hat{a}_{k'\alpha'} \, e^{-ik'x'} \ 
+ +\ \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \Big)\\
+-\Big(
+&-  \hat{a}_{k'\alpha'} \, e^{-ik'x'} \hat{a}_{k\alpha} \, e^{-ikx} \ 
+ -\ \hat{a}_{k'\alpha'} \, e^{-ik'x'} \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \\
+&+\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \hat{a}_{k\alpha} \, e^{-ikx} \ 
+ +\ \hat{a}^{\dagger}_{k'\alpha'} \, e^{ik'x'} \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} \Big) \\[10pt]
+=\ \ \ &\Big(-\ \cancel{\hat{a}_{k\alpha} \, \hat{a}_{k'\alpha'} \, e^{-ikx} e^{-ik'x'}} \ 
+ +\ \hat{a}_{k\alpha} \, \hat{a}^{\dagger}_{k'\alpha'} \, e^{-ikx} e^{ik'x'} \\
+&-\ \hat{a}^{\dagger}_{k\alpha} \, \hat{a}_{k'\alpha'} \, e^{ikx} e^{-ik'x'} \ 
+ +\ \bcancel{\hat{a}^{\dagger}_{k\alpha} \, \hat{a}^{\dagger}_{k'\alpha'} \, e^{ikx} e^{ik'x'}} \Big)\\
+-\Big(
+&-\ \cancel{\hat{a}_{k'\alpha'} \, \hat{a}_{k\alpha} \, e^{-ikx}e^{-ik'x'}} \ 
+ -\ \hat{a}_{k'\alpha'} \, \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} e^{-ik'x'} \\
+&+\ \hat{a}^{\dagger}_{k'\alpha'} \, \hat{a}_{k\alpha} \, e^{-ikx} e^{ik'x'} \ 
+ +\ \bcancel{\hat{a}^{\dagger}_{k'\alpha'} \, \hat{a}^{\dagger}_{k\alpha} \, e^{ikx} e^{ik'x'}} \Big) \\[10pt]
+=\ \ \ &[\hat{a}_{k\alpha} , \hat{a}^{\dagger}_{k'\alpha'}] \, e^{-ikx} e^{ik'x'} \ -\ [\hat{a}^{\dagger}_{k\alpha} , \hat{a}_{k'\alpha'}] \, e^{ikx} e^{-ik'x'} \\[10pt]
+=\ \ \ & \delta(\Vec{k}-\Vec{k}')\,\delta_{\alpha,\alpha'} \, e^{-ikx} e^{ik'x'} \ +\ \delta(\Vec{k}-\Vec{k}')\,\delta_{\alpha,\alpha'} \, e^{ikx} e^{-ik'x'} \\[10pt]
+=\ \ \ & \delta(\Vec{k}-\Vec{k}')\,\delta_{\alpha,\alpha'} \, \big( e^{-ikx} e^{ik'x'} \ +\ e^{ikx} e^{-ik'x'} \big)
+</tex>
+
+　これを元の式に戻してやるとだんだんすっきりまとまってくる。
+
+<tex>
+[\hat{A}^\mu, \hat{\rho}^\nu] 
+\ =\ i\, \dint \frac{\hbar}{2 (2\pi)^3} &\sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \, \sum_{\alpha} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k'\alpha} \\
+&\delta(\Vec{k}-\Vec{k}') \, \big( e^{-ikx} e^{ik'x'} \ +\ e^{ikx} e^{-ik'x'} \big) \diff \Vec{k} \diff \Vec{k}' \\[5pt]
+\ =\ i\, \dint \frac{\hbar}{2 (2\pi)^3} &\sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \, \sum_{\alpha} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k'\alpha} \\
+&\delta(\Vec{k}-\Vec{k}') \, \big( e^{-i\omega t} e^{ik\cdot x} \ \ e^{i\omega' t} e^{-ik'\cdot x'} \\
+&\phantom{\delta(\Vec{k}-\Vec{k}')}\ \ +\ e^{i\omega t} e^{-ik\cdot x} \ \ e^{-i\omega' t} e^{ik'\cdot x'} \big) \diff \Vec{k} \diff \Vec{k}' \\[5pt]
+\ =\ i\, \int \frac{\hbar}{2 (2\pi)^3} &\sqrt{\frac{\omega(\Vec{k})}{\omega(\Vec{k})}} \, \sum_{\alpha} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k\alpha} \\
+&\big( e^{ik\cdot x} e^{-ik\cdot x'} \ +\ e^{-ik\cdot x} e^{ik\cdot x'} \big) \diff \Vec{k} \\[5pt]
+\ =\ i\, \int \frac{\hbar}{2 (2\pi)^3} &\sum_{\alpha} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k\alpha} 
+\big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \tag{23}
+</tex>
+
+　さて、ここからどうしようか。
+　この状況は「<a href="./em_expand.html">電磁場の量子化</a>」と同じである。
+　「デルタ関数の積分表現」の公式を使ってさっさと終わらせたいが、$ \varepsilon^\mu_{k\alpha} $が$ \Vec{k} $の関数になっているので実行できない。
+　次のような関係が成り立っていてくれれば助かるのだが、どうだろうか？
+
+<tex>
+\sum_{\alpha} \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k\alpha} \ =\ \delta_{\mu\nu}\ \ \ \ \ ??? \tag{24}
+</tex>
+
+　電磁場について計算したときには互いに直交するベクトルが 2 つしか用意できなかったために
+このような関係が使えず、複雑な式が混じってしまう結果になったのだった。
+　今回は 3 つあるから大丈夫だろう。
+　と、まぁ、そのような希望にすがりたくなるのだが、本当にそうだろうか？
+　前回は 3 次元空間中での 3 つの直交する単位ベクトルに適用できる話だった。
+　今回は 4 次元時空中での 3 つの直交する単位ベクトルなのでやはり一つベクトルが足りない上に、
+時空の性質がただの 4 次元空間ではなくミンコフスキー空間なのである。
+　上で例を挙げた「粒子の運動方向が$ z $軸の場合の具体例」を代入してみたが、やはり成り立っていない。
+　一体この部分はどんな式変形が可能なのだろうか？
+
+% =======================================================================
+
+\section{ミンコフスキー内積について復習}
+
+　電磁場を考えたときには「内積の値を変化させないような行列」すなわち直交行列の性質を使ったのだった。
+　ところが今回は、 4 次元時空を考えて、その中で互いに直交する単位ベクトルとして$ \varepsilon^\mu_{k\alpha} $を設定したのである。
+　それはなぜかというと、ローレンツ変換をしてもそれらが互いに直交するという性質は変わらないようにしたかったからである。
+　今回の計算のためには 4 次元時空の中で使える「直交行列に似た何か」を考え出す必要があるだろう。
+
+<P>
+
+　4 次元時空で互いに直交する単位ベクトルは 4 つ選べるはずで、一番簡単なものは次のようである。
+
+<tex>
+(1,0,0,0) \\
+(0,1,0,0) \\
+(0,0,1,0) \\
+(0,0,0,1) 
+</tex>
+
+　相対論によれば、4 次元的長さ$ s $の 2 乗は
+
+<tex>
+s^2 = -w^2+x^2+y^2+z^2
+</tex>
+
+のように表せる。
+　この 4 次元的長さというのはローレンツ変換をしても変化しない量だというので採用されているのである。
+　これはまるで普通の空間で回転させた時に半径の長さが一定であるという条件に似ている。
+
+<P>
+
+　上に挙げた 4 つの単位ベクトルの 4 次元的長さを求めてやると、上から順に -1, 1, 1, 1 であり、
+残念ながら全てが 1 とはなっていない。
+　$ (1,0,0,0) $の代わりに$ (-1,0,0,0) $を採用したとしてもやはり同じである。
+　虚数を使わない限りこの問題を解決できそうにないが、それもまたややこしい話になりそうなので、
+むしろ 4 次元時空での単位ベクトルの長さは -1 でも 1 でもいいことにしてしまおう。
+　4 次元時空というのはさらに厄介で、0 ベクトルでもないのに 4 次元的長さが 0 になってしまう場合もあるが、そこにも目をつぶろう。
+　以後、4 次元時空と呼ぶ代わりにミンコフスキー空間と呼ぶことにする。
+
+<P>
+
+　さて、次にミンコフスキー内積というものを定義しておこう。
+　二つのベクトル$ (w,x,y,z) $と$ (w',x',y',z') $の内積を次のように定義する。
+
+<tex>
+-ww'+xx'+yy'+zz'
+</tex>
+
+　ローレンツ変換はこのような内積の値を変化させることもない。
+　先ほどの 4 つの独立なベクトルのミンコフスキー内積はどの組み合わせを取っても 0 である。
+　単位ベクトルどうしのミンコフスキー内積が 0 であるとき、「直交する」ということにしておこう。
+
+<P>
+
+　このように普通の空間と比べて色んなことが少しずつ違ってしまっている。
+
+<P>
+
+　さて、ベクトルを 4 成分を持つ縦ベクトルとして表そう。
+　もし 2 つのベクトル$ \Vec{x} $、$ \Vec{y} $の内積を計算したければ、一方を転置して横ベクトルにして、
+$ ^t\Vec{x}\,\Vec{y} $というものを計算すればいいのだった。
+　ではミンコフスキー内積はどのように表せば良いだろうか？
+　最初の成分にだけマイナスが付くのだから、ミンコフスキー計量を間に挟んでやれば良いだろう。
+
+<tex>
+^t\Vec{x}\,\eta \,\Vec{y}
+</tex>
+
+　このミンコフスキー計量というのは次のような行列である。
+
+<tex>
+\eta \ =\ \left(
+\begin{array}{rrrr}
+-1 & 0 & 0 & 0 \\
+ 0 & 1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 \\
+ 0 & 0 & 0 & 1
+\end{array}
+\ \right)
+</tex>
+
+　もし$ \Vec{x} $や$ \Vec{y} $が何らかのローレンツ変換$ A $によって
+
+<tex>
+\Vec{x}' \ &=\ A\,\Vec{x} \\
+\Vec{y}' \ &=\ A\,\Vec{y}
+</tex>
+
+のように別のベクトルに変えられてしまったとしても、それらどうしのミンコフスキー内積は変わらないのだから、
+
+<tex>
+^t\Vec{x}'\,\eta \,\Vec{y}' \ =\ ^t\Vec{x}\,\eta \,\Vec{y} \tag{25}
+</tex>
+
+が成り立っているであろう。
+　この左辺は次のように変形できる。
+
+<tex>
+^t\Vec{x}'\,\eta \,\Vec{y}' \ &=\ ^t(A\Vec{x})\,\eta \,(A\Vec{y}) \\
+&=\ ^t\Vec{x} \, ^t A\,\eta \, A\Vec{y} \\
+&=\ ^t\Vec{x} \,( ^t A\,\eta \, A )\, \Vec{y}
+</tex> 
+
+　これが (25) 式の右辺と等しいということは、比較してやれば次の関係が言えるだろう。
+
+<tex>
+^t A\,\eta \, A \ =\ \eta \tag{26}
+</tex>
+
+　この関係式が何を意味しているかを展開して探ってやると、次のようである。
+
+<tex>
+-A_{0i}A_{0j} + A_{1i}A_{1j} + A_{2i}A_{2j} + A_{3i}A_{3j} \ =\ \eta_{ij} \tag{27}
+</tex>
+
+　行列$ A $を 4 つの縦ベクトルが並んだものだと解釈してやると、それらどうしのミンコフスキー内積を計算していることになる。
+　つまりそれぞれの 4 次元的長さは 1 または -1 となり、異なるベクトルどうしでは 0 となる。
+　これは互いに直交する単位ベクトルであるべきだということである。
+　なぜ右辺が$ \eta_{ij} $であるかというと、先ほど「直交する 4 つの単位ベクトルの 4 次元的長さを全て 1 にすることが出来ない」のを見たと思うが、
+それを反映しているのである。
+
+<P>
+
+　これでローレンツ変換を意味する行列$ A $がどのように作られるべきであるかというのが分かった。
+　(27) 式は (24) 式の右辺がどうなるかを調べるのに使えそうだ。
+　いや、残念ながらそうも行かない。
+　よく見ると計算内容がまるで違っているのである。
+　(24) 式は$ \Vec{\varepsilon}_{k\alpha} $どうしの内積を計算しているわけではないのだ。
+　もっとわけのわからない計算内容になっている。
+　(27) 式の行と列が入れ替わっていれば使えたのに……。
+
+<P>
+
+　なるほど、行と列が入れ替わっていればいいのだ。
+　$ A $の転置行列を$ B $としてみよう。
+　すると (26) 式は次のように書ける。
+
+<tex>
+B\,\eta \, ^t B \ &=\ \eta \\
+\therefore \ \eta \, ^t B \ &=\ B^{-1} \, \eta \\
+\therefore \ \eta \, ^t B \, \eta \ &=\ B^{-1} \\
+\therefore \ \eta \, ^t B \, \eta \, B \ &=\ I \\
+\therefore \ ^t B \, \eta \, B \ &=\ \eta
+</tex>
+
+　なんと$ A $の転置行列もまたローレンツ変換を意味していることになるわけだ。
+　すると (27) 式の代わりに次のような式もまた成り立っていることになる。
+
+<tex>
+-A_{i0}A_{j0} + A_{i1}A_{j1} + A_{i2}A_{j2} + A_{i3}A_{j3} \ =\ \eta_{ij} 
+</tex>
+
+　意味は掴み難いが (24) 式の計算内容に似ている。
+　$ A_{ij} $が$ \varepsilon^{i}_{kj} $に相当していると考えられるので、この式は次のように書き換えられる。
+
+<tex>
+-\varepsilon^{\mu}_{k0}\,\varepsilon^{\nu}_{k0} + \sum_{\alpha=1}^3 \varepsilon^{\mu}_{k\alpha}\,\varepsilon^{\nu}_{k\alpha} \ =\ \eta^{\mu\nu} 
+</tex>
+
+　ここで急に$ \eta_{ij} $を$ \eta^{\mu\nu} $に変えているのは相対論での書き方を意識しただけである。
+　先ほどまでは行列の成分として考えていたのであまり意識していなかった。
+　添字が上だろうと下だろうと内容に変わりはない。
+
+<P>
+
+　さて困った。
+　我々は 3 つの偏極ベクトル$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) $を用意していたけれども、
+(24) 式が本当はどうなるのかという答えを出すためにはもう一つのベクトル$ \Vec{\varepsilon}_{0}(\Vec{k}) $が必要になるようだ。
+　それは既にある 3 つの偏極ベクトルのどれとも直交していて 4 次元的長さが -1 になるだろう。
+　なぜ -1 かと言えば、すでに用意した 3 つのベクトルはどれも 1 だったからだ。
+　それを探すのはそれほど難しくもない。
+　粒子の進行方向と時間方向とで作る面内にはまだ$ \Vec{\varepsilon}_{3}(\Vec{k}) $しかないのだから、
+粒子の進行方向と時間方向の中間を指していて$ \Vec{\varepsilon}_{3}(\Vec{k}) $と直交するようなものを探せばいいだろう。
+　そのためには粒子の進行方向が$ z $軸方向に限らない場合の$ \Vec{\varepsilon}_{3}(\Vec{k}) $を求めてやる必要がありそうだ。
+　少々の試行錯誤の後に次のようなものを導くことができる。
+
+<tex>
+\Vec{\varepsilon}_{3}(\Vec{k}) \ =\ \left( \frac{\hbar\,|\Vec{k}|}{mc} \,,\, \frac{\hbar\,\omega}{mc^2} \frac{k_x}{|\Vec{k}|} \,,\, \frac{\hbar\,\omega}{mc^2} \frac{k_y}{|\Vec{k}|} \,,\, \frac{\hbar\,\omega}{mc^2} \frac{k_z}{|\Vec{k}|} \right)
+</tex>
+
+　これはローレンツ条件を満たさせるために少々複雑になっている。
+　これが求まればあとはもう少し楽だ。
+　さらに少々の試行錯誤の後に次のようなものが定まる。
+
+<tex>
+\Vec{\varepsilon}_{0}(\Vec{k}) \ =\ \left( \frac{\hbar\,\omega}{mc^2} \,,\, \frac{\hbar\,k_x}{mc} \,,\, \frac{\hbar\,k_y}{mc} \,,\, \frac{\hbar\,k_z}{mc} \right)
+</tex>
+
+　もし$ c = 1 $、$ \hbar = 1 $とする流儀を採用していたならこれらはもっと簡単な形で表せたことだろう。
+　この辺りの定数が本当に煩わしくなってきた。
+　とにかく、これを使えば (24) 式の本当の答えが導ける。
+
+<tex>
+\sum_{\alpha=1}^3 \varepsilon^{\mu}_{k\alpha}\,\varepsilon^{\nu}_{k\alpha} \ =\ \eta^{\mu\nu} \ +\ \frac{\hbar^2}{m^2c^2} \, k^\mu k^\nu \tag{28}
+</tex>
+
+　ただし$ k\sup{0} = \omega/c $である。
+
+
+% =======================================================================
+
+\section{交換関係の計算の続き}
+
+　(24) 式のような期待は外れて、実際には (28) が成り立っているのである。
+　これでは計算を続けられない。
+　続けてもいいのだが面倒なことになりそうだ。
+　一旦 (23) 式の続きを計算することは諦めて、もう一つの項を計算してみよう。
+　だいたい似たような形をしているので、もう一度同じ苦労をする必要はない。
+　どこが違うかだけをじっくり眺めて、その影響を考えてやればいいのである。
+
+<tex>
+[\hat{A}^\mu, \hat{\sigma}^\nu] 
+\ &=\ i\, c \, \int \frac{\hbar}{2 (2\pi)^3} \sqrt{\frac{1}{\omega(k)\omega(k)}} (-k^\nu) \sum_{\alpha} \varepsilon^\mu_{k\alpha} \varepsilon\sup{0}_{k\alpha} 
+\big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \\[3pt]
+&=\ - i\, \, \int \frac{\hbar}{2 (2\pi)^3} \frac{c\,k^\nu}{\omega} \sum_{\alpha} \varepsilon^\mu_{k\alpha} \varepsilon\sup{0}_{k\alpha} 
+\big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} 
+</tex>
+
+　(23) 式とほとんど同じなので、違う部分だけを取り出して合わせると次のようになる。
+
+<tex>
+\sum_{\alpha=1}^3 \left( \varepsilon^\mu_{k\alpha}  \varepsilon^\nu_{k\alpha} - \frac{c\,k^\nu}{\omega} \varepsilon^\mu_{k\alpha} \, \varepsilon\sup{0}_{k\alpha} \right)
+</tex>
+
+　これがどこまで簡単になるかに
+　さらに考えると、$ \varepsilon\sup{0}_{k\alpha} $というのは第 0 成分なので、これが値を持つのは$ \alpha=3 $のときだけである。
+　$ \varepsilon\sup{0}_{k1} $や$ \varepsilon\sup{0}_{k2} $は 0 なので、和の記号から外した方が分かりやすい。
+
+<tex>
+\sum_{\alpha=1}^3 \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k\alpha} - \frac{c\,k^\nu}{\omega} \varepsilon^\mu_{k3} \varepsilon\sup{0}_{k3} \tag{29}
+</tex>
+
+　これに上で導いた結果を代入してみよう。
+　$ \mu = 1 \sim 3 $の場合は次のようになる。
+
+<tex>
+&=\ \eta^{\mu\nu} \ +\ \frac{\hbar^2}{m^2c^2} \, k^\mu k^\nu \ -\ \frac{c\,k^\nu}{\omega} \varepsilon^\mu_{k3} \varepsilon\sup{0}_{k3} \\
+&=\ \eta^{\mu\nu} \ +\ \frac{\hbar^2}{m^2c^2} \, k^\mu k^\nu \ -\ \frac{c\,k^\nu}{\omega} \cdot \frac{\hbar\,\omega}{mc^2} \frac{k^\mu}{|\Vec{k}|} \cdot \frac{\hbar\,|\Vec{k}|}{mc} \\
+&=\ \eta^{\mu\nu} \ +\ \frac{\hbar^2}{m^2c^2} \, k^\mu k^\nu \ -\ \frac{\hbar^2}{m^2c^2} \, k^\mu k^\nu \\
+&=\ \eta^{\mu\nu} 
+</tex>
+
+　とても簡単になった。
+　今回は$ \nu = 1 \sim 3 $なので、実質的には$ \eta^{\mu\nu} $ではなく$ \delta_{\mu\nu} $としていい。
+　これを使うことで次のように式変形が進む。
+
+<tex>
+\big[\hat{A}^\mu, \hat{\pi}^\nu \big] \ 
+&=\ i\, \int \frac{\hbar}{2 (2\pi)^3} \delta_{\mu\nu} \big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \\
+&=\ i\, \frac{\hbar}{2 (2\pi)^3} \delta_{\mu\nu} \Big[ (2\pi)^3 \delta(\Vec{x}-\Vec{x}') \ +\ (2\pi)^3 \delta(\Vec{x}-\Vec{x}') \Big] \\[3pt]
+&=\ i\, \hbar \, \delta_{\mu\nu} \, \delta(\Vec{x}-\Vec{x}')
+</tex>
+
+　もう少ししっかり書くと、今回の結論は次のようである。
+
+<tex>
+\big[ \hat{A}^\mu(t,\Vec{x})\,,\, \hat{\pi}^\nu(t,\Vec{x}') \big] \ =\ i\, \hbar \, \delta_{\mu\nu} \, \delta(\Vec{x}-\Vec{x}') \ \ \ \ \ \ \ \ (\mu,\nu = 1,2,3)
+</tex>
+
+　$ \hat{A}^{\mu} $と$ \hat{\pi}^{\nu} $の変数の時刻$ t $を同じだとして計算したので「同時刻交換関係」と呼ばれるものである。
+　常に$ \hat{\pi}\sup{0} = 0 $なので、$ \nu $が 0 の場合にはこの式には従わず、右辺は常に 0 になる。
+
+<P>
+
+　このように少しばかりの非対称が見られるものの、電磁場の場合と比べたらかなりマシだと思える関係が導かれることになった。
+　質量を持つ電磁場という奇妙なものを考えてみたわけだが、
+\red{こうしてみると質量があった方がより自然で、電磁場の方が質量 0 という特別な状況なのではないかとも思えてくる。}
+
+<P>
+
+　それにしても、数式と自然界の関係は不思議である。
+　じっくり考えてみないと証明も難しいような数式を満たしながら現象は進む。
+　自然界の諸々は自ら複雑な数式を成り立たせようと思考しながら動いているのではないだろうから、
+根本にあるのはもっと従いやすいずっと簡単な法則であるのか、
+あるいは理論の建て方がどこか悪くて必要以上に見通しを悪くしてしまっているのか。
+　そのような事を考え耽ってしまう。
+
+
+% =======================================================================
+
+\section{うまく行かない部分}
+
+　とまぁ、こんな具合に平和に話を終わりたかったのだが、$ \mu = 0 $の場合がまだ計算できていないのだった。
+　(29) 式に戻って試してみよう。
+
+<tex>
+&\sum_{\alpha=1}^3 \varepsilon^\mu_{k\alpha} \varepsilon^\nu_{k\alpha} - \frac{c\,k^\nu}{\omega} \varepsilon^\mu_{k3} \varepsilon\sup{0}_{k3} \\
+=\ &\eta^{\mu\nu} \ +\ \frac{\hbar^2}{m^2c^2} \, k^\mu k^\nu \ -\ \frac{c\,k^\nu}{\omega} \varepsilon^\mu_{k3} \varepsilon\sup{0}_{k3} \\
+=\ &\eta^{0\nu} \ +\ \frac{\hbar^2}{m^2c^2} \, k\sup{0} k^\nu \ -\ \frac{c\,k^\nu}{\omega} \cdot \frac{\hbar\,|\Vec{k}|}{mc} \cdot \frac{\hbar\,|\Vec{k}|}{mc} \\
+=\ &0 \ +\ \frac{\hbar^2}{m^2c^2} \left( k\sup{0} k^\nu \ -\ \frac{c\,k^\nu}{\omega} \Vec{k}^2 \right) \\
+=\ &\frac{\hbar^2}{m^2c^2} k^\nu \left( \frac{\omega}{c} \ -\ \frac{c\,\Vec{k}^2}{\omega} \right) \\
+=\ &\frac{\hbar^2}{m^2c^2} k^\nu \ \frac{\omega^2 - c^2 \Vec{k}^2 }{c\,\omega} \\
+=\ &\frac{\hbar^2}{m^2c^2} k^\nu \ \frac{1}{c\,\omega} \frac{m^2 c^4}{\hbar^2} \\
+=\ &\frac{c\,k^\nu}{\omega}
+</tex>
+
+　これもまた簡単な形にはなってくれたのだが、計算を続けるのは不安である。
+　次のような計算をする必要があるわけだ。
+
+<tex>
+\big[\hat{A}\sup{0}, \hat{\pi}^\nu \big] \ 
+&=\ i\, \int \frac{\hbar}{2 (2\pi)^3} \frac{c\,k^\nu}{\omega} \big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \\
+&=\ i\, \int \frac{\hbar}{2 (2\pi)^3} \frac{c\,k^\nu}{\sqrt{c^2 \Vec{k}^2 + \frac{m^2\,c^4}{\hbar^2}}} \big( e^{ik\cdot (x-x')} \ +\ e^{-ik\cdot (x-x')} \big) \diff \Vec{k} \\
+</tex>
+
+　定数があまりにも煩わしいので$ c = 1 $、$ \hbar = 1 $とする体系に切り替えた上で余計な係数も取っ払って考えよう。
+　もし例えば$ \nu = 1 $なら$ k^\nu $というのは$ k_x $を意味するわけで、次のような計算が必要になる。
+
+<tex>
+\tint \frac{k_x}{\sqrt{k_x^2 + k_y^2 + k_z^2 + m^2}} \, e^{ik_x(x-x')}e^{ik_y(y-y')}e^{ik_z(z-z')} \diff k_x \diff k_y \diff k_z 
+</tex>
+
+　$ k_x $だけの積分に集中するために他の要素を無視してやると、とりあえず次のような形の計算がどうなるかを解決しなくてはならない。
+
+<tex>
+\int \frac{k_x}{\sqrt{k_x^2 + A}} \, e^{i B k_x} \diff k_x 
+</tex>
+
+　このような簡単そうな計算すら私にはお手上げである。
+　$ k_x $が大きくなればこの分数部分は徐々に$ A $を無視できるようになって 1 に近づくわけだが、指数関数部分がいつまでも振動するため、
+積分は収束しないように思われる。
+　デルタ関数の積分表示の公式のようなうまい理屈での変形が出来るのならありがたいが、私はそのようなものも知らない。
+　（誰か助けてーーー！）
+
+<P>
+
+　このような困難に遭う理由は何だろうか？
+　二通りの考えが頭の中に流れ始める。
+　そもそも正準交換関係というのはそれほど強い根拠はなくて、
+ただ解析力学の体系と対応が付く関係になっていれば美しいという考えで使われているようなので、
+こだわりすぎる必要もないのではないか？というのが一つ。
+　もう一つは、そもそもこのような計算をしないで済む理論の流れというのが別にあるのではないか？というものである。
+　$ \hat{\pi}\sup{0} = 0 $となっている時点で正準交換関係にも時空の非対称が生まれているわけだし、最初からどうも怪しかったのだ。
+　そうならないようなラグランジアン密度の選び方があるのではないだろうか？
+
+<P>
+
+　というわけで、次回、もう少しだけ頑張ってみるつもりである。
+
+
+

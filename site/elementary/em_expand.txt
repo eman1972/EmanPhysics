@@ -1,0 +1,745 @@
+\field{素粒子論}
+\title{電磁場の量子化}
+\comment{電磁場には特殊事情がありまして……。}
+\prev{complex_field}
+\next{dirac_expand}
+\create{2011/1/9}
+\modify{}
+
+\section{小手試し}
+
+
+　今回の目標は電磁場を量子化することである。
+　前の 2 回でやったのと同じことをやればいいだけだと思う。
+　もうあまり詳しくやらなくてもいいだろうし、今回限りで片付けられるだろう。
+
+<P>
+
+　電磁場の方程式は次のような形をしている。
+
+<tex>
+\square A^{\mu} - \partial^{\mu} ( \partial_{\nu} A^{\nu} ) \ =\ - \mu\sub{0} \, j^{\,\mu} \tag{1}
+</tex>
+
+　クラインゴルドン場の場合は$ \phi $のみの 1 成分を考えれば良かった。
+　しかしここに出てくる電磁場$ A^\mu $には$ A\sup{0} $、$ A\sup{1} $、$ A\sup{2} $、$ A\sup{3} $の 4 つの成分がある。
+
+<P>
+
+　前回までのパターンに倣うならば、これが波動方程式であることに信頼を置いて、波動解を代入してみることになるだろう。
+　つまり 4 つの成分のどれもが正弦波のような形の関数になっていると仮定するわけだ。
+　まぁ、そのようにしてみても確かに解として成立しているし矛盾が起きるわけでもない。
+　しかし解であるために満たしていないといけない条件が$ \omega = c |\Vec{k}| $の他にも色々と出てきてしまうことになる。
+　それらの条件が何を意味しているのか、変数が多すぎることもあって、このままでは掴み所がないのである。
+
+<P>
+
+　ではどうしたらよいか。
+　ひとまず、電磁場$ A^\mu $の振舞いを把握することから始めようと思う。
+
+% =======================================================================
+
+\section{クーロンゲージ条件下での振舞い}
+
+　$ A^\mu $の振舞いはマクスウェル方程式によってある程度抑え込まれているけれども、
+それでも依然として 4 つの成分は独立のものとして振る舞っている。
+　そのことは後で振り返ってみた方が分かりやすいから今は軽く流して先へ進もう。
+　さて、この 4 つの成分によって電場$ \Vec{E} $や磁場$ \Vec{B} $の形が導き出せる仕組みになっているわけだが、
+同じ形の電場や磁場を実現するための$ A^\mu $は一通りではなく、その選択に自由度があるのだった。
+　その自由度を利用して、電場や磁場の形を変えないように$ A^\mu $の形に変更を加えることを「ゲージ変換」と呼んでいた。
+
+<P>
+
+　今、4 つの成分の関係を定める一つの条件式を用意してやることで、
+ゲージ変換の自由度を制限してやることができる。
+　それを「ゲージを固定する」とか呼ぶわけだが、それでも変換の自由度が完全に失われるわけではない。
+　しかしこの条件式には関数 4 つ分あった自由度を関数 3 つ分の自由度に制限するという効果はある。
+　つまり、現実の電磁場を表すのに、成分を 4 つも用意するのは冗長すぎるというわけだ。
+　しかし成分が 4 つないことにはきれいな形式でまとめることもできないので、理論の形を根本から変えるわけにもいかない。
+　どの成分が要らないとか、そういうわけではないのだ。
+
+<P>
+
+　話はまだ終わりではない。
+　残り 3 つ分の振る舞いを見ることにしよう。
+　その説明のために、ゲージ固定の条件として「クーロン・ゲージ」というものを導入すると便利である。
+
+<tex>
+\Div \Vec{A} = 0 \tag{2}
+</tex>
+
+　ここに書いた$ \Vec{A} $には第 0 成分の$ A\sup{0} $は含まれていない。
+　(2) 式をばらして書けば次のようなものだ。
+
+<tex>
+\pdif{A\sup{1}}{x} + \pdif{A\sup{2}}{y} + \pdif{A\sup{3}}{z} = 0 \tag{3}
+</tex>
+
+　この条件式を (1) 式に当てはめてみる。
+　詳しくやってみよう。
+　(1) 式は 4 つの式にばらすことができるが、今の話で必要なのはその中の一つである$ \mu = 0 $の場合だけであるから、
+まずはそれだけを書き出してみよう。
+
+<tex>
+\left( \pddif{}{x} + \pddif{}{y} + \pddif{}{z} - \frac{1}{c^2} \pddif{}{t} \right) A\sup{0}
+ + \frac{1}{c} \pdif{}{t} \left( \frac{1}{c} \pdif{A\sup{0}}{t} + \pdif{A\sup{1}}{x} + \pdif{A\sup{2}}{y} + \pdif{A\sup{3}}{z} \right)\ =\ - \mu\sub{0} \, j\sup{\,0}
+</tex>
+
+　ここに (3) 式を入れてみる。
+　するとうまいこと項が打ち消し合って、次のようになるだろう。
+
+<tex>
+\left( \pddif{}{x} + \pddif{}{y} + \pddif{}{z} \right) A\sup{0} \ =\ - \mu\sub{0} \, j\sup{\,0}
+</tex>
+
+　$ A\sup{0} = \phi/c $、$ j\sup{\,0} = c \rho $であることを使って書き直してやれば、
+これは<a href="../electromag/static3.html">電磁気学の最初の方</a>に出てきた「ポアッソン方程式」そのものだ。
+
+<tex>
+\triangle \phi \ =\ - \frac{\rho}{\varepsilon\sub{0}}
+</tex>
+
+　つまり、$ A\sup{0} $は静電場を考えているときの静電ポテンシャルと同じように振舞っていて、
+電荷分布$ \rho $によってのみ、その形が決まってしまうというわけだ。
+　電荷の存在しない真空を考えているときには$ A\sup{0} = 0 $だと考えておくのが最も単純で良いだろう。
+　真空中でこのゲージを採用している条件下では$ A\sup{0} $に波動的な振舞いはないということである。
+
+<P>
+
+　では$ A\sup{0} $以外の 3 つの成分はどう振る舞うのだろうか。
+　残りの 3 つの方程式は次のような感じになっている。
+
+<tex>
+&\left( \pddif{}{x} + \pddif{}{y} + \pddif{}{z} - \frac{1}{c^2} \pddif{}{t} \right) A\sup{1}
+ - \ \ \pdif{}{x} \left( \frac{1}{c} \pdif{A\sup{0}}{t} + \pdif{A\sup{1}}{x} + \pdif{A\sup{2}}{y} + \pdif{A\sup{3}}{z} \right)\ =\ -\mu\sub{0} j\sup{\,1} \\
+&\left( \pddif{}{x} + \pddif{}{y} + \pddif{}{z} - \frac{1}{c^2} \pddif{}{t} \right) A\sup{2}
+ - \ \ \pdif{}{y} \left( \frac{1}{c} \pdif{A\sup{0}}{t} + \pdif{A\sup{1}}{x} + \pdif{A\sup{2}}{y} + \pdif{A\sup{3}}{z} \right)\ =\ -\mu\sub{0} j\sup{\,2} \\
+&\left( \pddif{}{x} + \pddif{}{y} + \pddif{}{z} - \frac{1}{c^2} \pddif{}{t} \right) A\sup{3}
+ - \ \ \pdif{}{z} \left( \frac{1}{c} \pdif{A\sup{0}}{t} + \pdif{A\sup{1}}{x} + \pdif{A\sup{2}}{y} + \pdif{A\sup{3}}{z} \right)\ =\ -\mu\sub{0} j\sup{\,3}
+</tex>
+
+　ここに先ほどの (3) 式の条件と$ A\sup{0} = 0 $とを使って、
+さらに真空であることも仮定すれば右辺も綺麗に無くなって、とても分かりやすい典型的な波動方程式になる。
+
+<tex>
+\left( \pddif{}{x} + \pddif{}{y} + \pddif{}{z} - \frac{1}{c^2} \pddif{}{t} \right) \Vec{A} \ =\ 0 \tag{4}
+</tex>
+
+　そこで、今こそ波動解を仮定して代入してみよう。
+　成分ごとに異なる方向へ進むような波を考えても仮定の幅が広すぎて扱いにくいだけである。
+　とりあえず、ある方向$ \Vec{k} $を決めてやって、その方向を指して進む波を 3 成分まとめて考えることにする。
+
+<tex>
+\Vec{A} \ =\ \Vec{a} \cos (\Vec{k}\cdot\Vec{x} - \omega t ) \tag{5}
+</tex>
+
+　これを (4) 式に代入すると$ \omega = c |\Vec{k}| $という条件が出てくる。
+　これは光速で伝播するというだけであってあまり面白くない。
+　次にこの式を (3) 式のゲージ条件に代入すると、$ \Vec{a} \cdot \Vec{k} = 0 $という条件が簡単に得られる。
+　これは「$ \Vec{k} $方向の波動成分は存在してはいけない」という意味だ。
+　要するに$ A^\mu $は横波だということである。
+
+<P>
+
+　ただし (5) 式のような単純な仮定は少し厳しすぎて、誤解を生じる可能性がある。
+　電場$ \Vec{E} $と磁場$ \Vec{B} $の波動が組になって同位相で進むようなイメージとは違って、
+本当は$ A^\mu $の成分のそれぞれの位相は次のようにバラバラである可能性が許されるのだ。
+
+<tex>
+A\sup{1} \ &=\ a_x \cos (\Vec{k}\cdot\Vec{x} - \omega t + \theta ) \\
+A\sup{2} \ &=\ a_y \cos (\Vec{k}\cdot\Vec{x} - \omega t + \theta' ) \tag{6} \\
+A\sup{3} \ &=\ a_z \cos (\Vec{k}\cdot\Vec{x} - \omega t + \theta'' ) 
+</tex>
+
+　しかしこれを (3) 式に代入して同じ結論を導こうとすると、
+加法定理を使って$ \theta $の部分を分離して面倒な計算をしなくてはならず、しかも結果を解釈するにも少し苦労する。
+　そこは本筋ではないので省略しよう。
+
+<P>
+
+　とにかく、重要な結論はこれだ。
+　$ A^{\mu} $の波動は進行方向$ \Vec{k} $の成分を持ってはならず、
+それに垂直な平面内の 2 成分の自由度しか許されていないのである。
+　4 成分もありながら、波動的に振る舞う独立な成分は 2 つ分だけだとは！
+
+<P>
+
+　以上は「クーロンゲージ」という割と恣意的な条件下での振舞いだ。
+　しかしこの条件がなかろうと、この条件の代わりに別の条件を課そうとも、本質は変わらない。
+　この結果をゲージ変換して複雑にしたものになるだけだ。
+　それは一見、良く分からない振舞いに見えることだろう。
+
+<P>
+
+　冒頭で「出てくる条件が複雑で掴み所がない」と書いたが、ここまで分かれば頷ける話だ。
+　色々出てくる条件式は、このような状況になっていることを我々に必死に伝えようとしていたというわけだ。
+
+% =======================================================================
+
+\section{どう表現すべきか}
+
+　次は、ここまでに分かったことをどのように数式で表現すればよいか、ということになる。
+　(5) 式では単純すぎて事実を正しく表せていないし、
+(6) 式であっても独立した成分が実は 2 つきりしかないという事実を表現し切れていない。
+
+<P>
+
+　そこで少し人工的な臭いもするが、進行方向$ \Vec{k} $に垂直な二つの単位ベクトル
+$ \Vec{\varepsilon}\sub{1}(\Vec{k}) $、$ \Vec{\varepsilon}\sub{2}(\Vec{k}) $というものを用意してやる。
+　そうすれば、次のように$ \Vec{A} $が独立な二つの波動成分しか持たないことがはっきりする。
+
+<tex>
+\Vec{A} \ =\ \sum_{\alpha=1,2} \Vec{\varepsilon}_\alpha(\Vec{k}) \, a_\alpha \cos( \Vec{k}\cdot\Vec{x} - \omega t + \theta_\alpha )
+</tex>
+
+　コサイン関数ではなく、指数関数を使った複素表現にすればもう少しシンプルになる。
+　なぜなら、位相$ \theta $の違いも振幅$ a_\alpha $の中に組み入れてやれるからだ。
+
+<tex>
+\Vec{A} \ &=\ \sum_{\alpha=1,2} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \, a_\alpha \exp( i \Vec{k}\cdot\Vec{x} - i \omega t) \\
+&=\ \sum_{\alpha=1,2} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \, a_\alpha e^{-ikx}
+</tex>
+
+　しかし、こんな風にしてしまうと$ \exp $関数はもちろん、$ a_\alpha $も複素数だということになってしまう。
+　電磁場の各成分は実数なのであるから、そこを主張しないといけない。
+　そこで、以前の記事で実数場を表現したときの手法をここでも使おう。
+　次のように複素共役を取ったものを加えれば、全体が実数になることが保障されるだろう。
+
+<tex>
+\Vec{A} \ =\ \sum_{\alpha=1,2} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \left( a_\alpha \, e^{-ikx} \ +\ a^{\ast}_\alpha \, e^{ikx} \right)
+</tex>
+
+　さて、進行方向の異なるあらゆる波動がマクスウェル方程式の解なのだから、
+それら全てを加え合わせたものも解である。
+　つまり、解がより一般的になるように全ての$ \Vec{k} $についての和を取ってやる必要がある。
+　異なる$ \Vec{k} $ごとに$ a_\alpha $の値も違うわけだから、$ {a_{\Vec{\scriptstyle k}}}_\alpha $のように表して区別する必要も出てくる。
+
+<tex>
+\Vec{A} \ =\ \sum_k \sum_{\alpha=1,2} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \left( {a_{\Vec{\scriptstyle k}}}_\alpha \, e^{-ikx} \ +\ {a^{\ast}_{\Vec{\scriptstyle k}}}_\alpha \, e^{ikx} \right)
+</tex>
+
+
+　とりあえず、こんなところか。
+　念のために確認しておくが、今いじっている$ \Vec{A} $というのは$ A^\mu $の 4 成分のうち、
+$ A\sup{0} $を除く 3 成分がこう表されるべきということである。
+　$ A\sup{0} $についてはさっきからずっと
+
+<tex>
+A\sup{0} \ =\ 0
+</tex>
+
+である。
+
+<P>
+
+　$ A\sup{0} $が常に 0 だって！？
+　\red{ちょっと待てよ・・・こんな理論を許して良いだろうか？}
+　\red{我々はローレンツ変換に対して不変であるような理論を作ろうとしてきたのだった。}
+　それなのに、今ここで作ってみたような形の電磁場をローレンツ変換してやれば$ A\sup{0} $は 0 ではなくなってしまうではないか。
+　つまりローレンツ変換に対して不変にはなっていないのである。
+
+<P>
+
+　では他にもっといい方法があるだろうか？
+　実はこれが正準量子化の方法の難点なのである。
+　この問題は後に経路積分の方法が開発されることでようやく解決したらしい。
+
+<P>
+
+　経路積分についてはもっとずっと後で紹介することになるだろう。
+　とりあえず今のところは正準量子化の方法で場の理論の初期のイメージを掴むことを優先して進むことになる。
+　（実を言うと、まだ私が経路積分の方法の全体を把握できていないという事情もある。）
+　こういう難点があっても物理学上のいくつかの問題にはちゃんと対応できるので、やる気を落とさないで行こう。
+
+
+% =======================================================================
+
+\section{ハミルトニアンを計算する}
+
+　残り、これからやる事と言えば、先ほど作った式を量子化して、ハミルトニアンを作って、
+次元がうまく合うように係数を調整することくらいだ。
+　ううーん、それはつまり、今回の予定がまだほとんど進んでないということではないか！
+　本当に今回限りで終われるのだろうか？
+
+<P>
+
+　まず、量子化については先ほどの式に出てきた$ {a_{\Vec{\scriptstyle k}}}_\alpha $の部分を生成消滅演算子に置き換えるだけで済まそう。
+　それと、以前に私は「今後の議論は$ \Vec{k} $についての重ね合わせを、
+離散的ではなく連続的なものに統一して考えるようにする」と宣言したのだった。
+　うっかりしていたが、和の記号ではなく、積分で表しておかないといけないのだった。
+
+<P>
+
+　というわけで電磁場の演算子は、まだ係数は調整されていないが、次のように表されることになる。
+
+<tex>
+\hat{A}\sup{0} \ &=\ 0 \\
+\hat{\Vec{A}} \ &=\ \int \sum_{\alpha=1,2} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} \tag{7}
+</tex>
+
+　では、これを使った場合のハミルトニアンがどう表せるのかを見てみよう。
+　電磁場のハミルトニアンを計算するための式はどんな形だっただろうか、というので 6 つ前の
+「<a href="./em_field3.html">電磁場のハミルトニアン</a>」という記事をざっと見直してみる。
+　しかし何やらややこしい議論ばかりしていて、これぞ、という式が見当たらない。
+　まぁ、実際ややこしかったのだ。
+　同じような苦労をまた繰り返すのも嫌なので、そのページでも少し苦労して導いていた次の式を足掛かりに使うことにしよう。
+
+<tex>
+H \ &=\ \int \left[ \frac{1}{2} \varepsilon\sub{0}\Vec{E}^2 + \frac{1}{2} \mu\sub{0}\Vec{H}^2 \right] \diff V
+</tex>
+
+　これなら電磁気学にも出てきた結論なので納得しやすいだろう。
+　しかしまず$ A^\mu $を使って$ \Vec{E} $と$ \Vec{H} $を求めてやることをしないといけないようだ。
+
+<P>
+
+　しまった！
+　ハミルトニアンの$ H $と磁場の強さ$ \Vec{H} $の記号がかぶってしまった！
+　まぁ、文字の太さの違いと文脈から判断してこの困難を乗り切って欲しい。
+
+<P>
+
+　まず電場から行こう。
+　電場は次の式で導かれるのだった。
+
+<tex>
+\Vec{E} \ =\ - \Grad \phi \ -\ \pdif{\Vec{A}}{t}
+</tex>
+
+　この右辺第 1 項で使われている$ \phi $は今は 0 なので、この項は消える。
+　残るは第 2 項の時間微分のみ。
+　なんだ、簡単じゃないか。
+
+<tex>
+\Vec{E} \ &=\ \int \sum_{\alpha=1,2} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \left( -i \omega \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ i \omega \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} \\
+&=\ \int i \, \omega(\Vec{k}) \sum_{\alpha=1,2} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \left( - \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k}
+</tex>
+
+　虚数$ i $が表に出てきているからって、式の全体が虚数になったと考えてはいけない。
+　今はカッコ内が和じゃなくて差になっているから純虚数になっており、そこに虚数が掛かっているわけだ。
+
+<P>
+
+　次は磁場を求めよう。
+　次の式を使えばいいのだった。
+
+<tex>
+\Vec{H} \ &=\ \frac{1}{\mu\sub{0}} \Vec{B} \ =\ \frac{1}{\mu\sub{0}} \Rot \Vec{A} \\
+&=\ \frac{1}{\mu\sub{0}} \left( \pdif{A_z}{y}-\pdif{A_y}{z} \ ,\ \pdif{A_x}{z}-\pdif{A_z}{x} \ ,\ \pdif{A_y}{x}-\pdif{A_x}{y} \right)
+</tex>
+
+　これを計算するためには$ A_x $、$ A_y $、$ A_z $を具体的に代入しなくてはならないが、
+今は$ \Vec{A} $は (7) 式で表されているのであり、どうしたものかと一瞬戸惑う。
+　$ \Vec{A} $のベクトルの方向を決めているのは$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) $なのだから、
+これを各成分に分けた記号を導入してやればいい。
+
+<tex>
+\Vec{\varepsilon}_{\alpha}(\Vec{k}) \ =\ ( \varepsilon_x , \varepsilon_y , \varepsilon_z )
+</tex>
+
+　こうすれば、
+
+<tex>
+\hat{A}_x \ &=\ \int \sum_{\alpha=1,2} \varepsilon_x \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} \\
+\hat{A}_y \ &=\ \int \sum_{\alpha=1,2} \varepsilon_y \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} \\
+\hat{A}_z \ &=\ \int \sum_{\alpha=1,2} \varepsilon_z \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} 
+</tex>
+
+のように分けられるだろう。
+　具体的な計算に取り掛かってみて、早いうちにパターンに気付けば計算は難しくない。
+　微分するたびに波数$ \Vec{k} $の各成分が飛び出してきて、
+それと$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) $の各成分が掛け合わされる。
+　その組み合わせのパターンがちょうど外積と同じ形式になっているのだ。
+　もともと$ \Rot $というのが微分演算子とベクトルとの外積の形なので、それに気付いてしまえば当然のことなのだが・・・。
+　結果は次のように表される。
+
+<tex>
+\Vec{H} \ &=\ \frac{1}{\mu\sub{0}} 
+\int \sum_{\alpha=1,2} \Big( i \Vec{k} \times \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Big) \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} 
+</tex>
+
+　この数式の意味を考えると、ちゃんと筋が通っていて面白い。
+　電場$ \Vec{E} $というのは波の進行方向$ \Vec{k} $に垂直な成分$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) $で
+表せる結果になっている。
+　一方、磁場$ \Vec{H} $は$ \Vec{k} \times \Vec{\varepsilon}_{\alpha}(\Vec{k}) $なので、
+電場$ \Vec{E} $と進行方向成分$ \Vec{k} $のどちらに対しても垂直な方向を向いていることになる。
+　電磁気学でやった通り、電場と磁場が互いに垂直で、横波になっているという状況が正しく再現されているわけだ。
+
+<P>
+
+　さあ、これで第一段階終了。
+　ハミルトニアンを計算するためにはこれら$ \Vec{E} $と$ \Vec{H} $をそれぞれ 2 乗しなくてはならない。
+
+<tex>
+\Vec{E}^2 \ &=\ \int \!\!\! \int i^2 \, \omega(\Vec{k}) \omega(\Vec{k}') \sum_{\alpha, \alpha'} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}') \\
+& \ \ \ \ \ \ \ \Big( - \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \Big) \Big( - \hat{a}_{\Vec{\scriptstyle k'} \alpha'} \, e^{-ik'x} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k'} \alpha'} \, e^{ik'x} \Big) \diff \Vec{k} \diff \Vec{k}' \\
+&=\ - \int \!\!\! \int \omega(\Vec{k}) \omega(\Vec{k}') \sum_{\alpha, \alpha'} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}') \\
+& \ \ \ \ \ \ \ \Big( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}_{\Vec{\scriptstyle k'} \alpha'} \, e^{-i(k+k')x} \ -\ \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k'} \alpha'} e^{-i(k-k')x} \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k'} \alpha'} \, e^{i(k-k')x} \ +\  \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k'} \alpha'} \, e^{i(k+k')x}  \Big) \diff \Vec{k} \diff \Vec{k}' \\
+</tex>
+
+　そういえば前々回も似たような計算をやったよなぁ。
+　空間で積分してやらないことにはこれ以上は進めないのだった。
+　ハミルトニアンの半分だけ、先に計算してしまおう。
+
+<tex>
+\int \frac{1}{2} \varepsilon\sub{0} \Vec{E}^2 \diff V \ 
+&=\ -\frac{1}{2} \varepsilon\sub{0} \int_V \int_k \! \int_{k'} \omega(\Vec{k}) \omega(\Vec{k}') \sum_{\alpha, \alpha'} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}') \\
+& \ \ \ \ \ \ \ \Big( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}_{\Vec{\scriptstyle k'} \alpha'} \, e^{-i(k+k')x} \ -\ \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k'} \alpha'} e^{-i(k-k')x} \\
+& \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k'} \alpha'} \, e^{i(k-k')x} \ +\  \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k'} \alpha'} \, e^{i(k+k')x}  \Big) \diff \Vec{k} \diff \Vec{k}' \diff V \\[5pt]
+&=\ - \frac{(2\pi)^3}{2} \varepsilon\sub{0} \int_k \! \int_{k'} \omega(\Vec{k}) \omega(\Vec{k}') \sum_{\alpha, \alpha'} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}') \\
+& \ \ \ \ \ \ \ \Big[ \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}_{\Vec{\scriptstyle k'} \alpha'} \, \delta(\Vec{k}+\Vec{k'})\,e^{-i[\omega(k)+\omega(k')]t} \ -\ \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k'} \alpha'} \delta(\Vec{k}-\Vec{k}')\,e^{-i[\omega(k)-\omega(k')]t} \\
+& \ \ \ \ \ \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k'} \alpha'} \, \delta(\Vec{k}-\Vec{k'})\,e^{i[\omega(k)-\omega(k')]t} \ +\  \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k'} \alpha'} \, \delta(\Vec{k}+\Vec{k}')\,e^{i[\omega(k)+\omega(k')]t} \Big] \diff \Vec{k} \diff \Vec{k}' \\[5pt]
+&=\ - \frac{(2\pi)^3}{2} \varepsilon\sub{0} \int_k \omega(\Vec{k})^2 \sum_{\alpha, \alpha'} \\
+& \ \ \ \ \ \ \ \Big[ \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(-\Vec{k}) \, \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}_{-\Vec{\scriptstyle k} \alpha'} \,e^{-2i\omega t} \ -\ \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}) \, \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha'} \\
+& \ \ \ \ \ \ -\ \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}) \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k} \alpha'} \ +\  \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(-\Vec{k}) \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{-\Vec{\scriptstyle k'} \alpha'} \,e^{2i\omega t} \Big] \diff \Vec{k} \\
+</tex>
+
+　どうやら、これ単独ではこれ以上進めないようだ。
+　次は磁場に関係する方をやってみよう。
+
+<tex>
+\int \frac{1}{2} \mu\sub{0} \Vec{H}^2 \diff V \ 
+&=\ -\frac{1}{2} \mu\sub{0} \frac{1}{\mu\sub{0}^2}
+\int_V \int_k \! \int_{k'} \sum_{\alpha,\alpha'} \Big( \Vec{k} \times \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Big)\Big( \Vec{k'} \times \Vec{\varepsilon}_{\alpha'}(\Vec{k}') \Big) \\
+&\ \ \ \ \ \ \ \ \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right)\left( \hat{a}_{\Vec{\scriptstyle k} \alpha'} \, e^{-ik'x} \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k'} \alpha'} \, e^{ik'x} \right) \diff \Vec{k} \diff \Vec{k}' \diff V
+</tex>
+
+　電場の場合とほとんど変わらないので途中の詳しい計算は省いても大丈夫だろうが、
+外積の部分だけは新しいパターンだ。
+　ここには次のような公式を使えばいい。
+
+<tex>
+(\Vec{A} \times \Vec{B}) \cdot (\Vec{C} \times \Vec{D} ) \ =\ (\Vec{A} \cdot \Vec{C})(\Vec{B} \cdot \Vec{D}) \ -\ (\Vec{A} \cdot \Vec{D})(\Vec{C} \cdot \Vec{B})
+</tex>
+
+　つまり、次のようになる。
+
+<tex>
+&\Big( \Vec{k} \times \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Big)\Big( \Vec{k}' \times \Vec{\varepsilon}_{\alpha'}(\Vec{k}') \Big) \\
+&\ \ \ \ \ \ \ \ \ \ \ \ =\ \Big(\Vec{k} \cdot \Vec{k}' \Big) \Big(\Vec{\varepsilon}_{\alpha}(\Vec{k}) \cdot \Vec{\varepsilon}_{\alpha'}(\Vec{k}') \Big) \ -\ \Big(\Vec{k} \cdot \Vec{\varepsilon}_{\alpha'}(\Vec{k}') \Big)\Big(\Vec{k}' \cdot \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Big)
+</tex>
+
+　この右辺の第 2 項だが、$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) $は波の進行方向$ \Vec{k} $に対して垂直なベクトルだと定義したので、ここの内積は 0 である。
+　いや、一般には$ \Vec{k} \neq \Vec{k}' $であって、$ \Vec{k} $と$ \Vec{\varepsilon}_{\alpha'}(\Vec{k}') $とは垂直だとは限らないので 0 にはならない。
+　しかし、どうせ他の部分でデルタ関数が出てきて、$ \Vec{k} = \Vec{k}' $の場合か$ \Vec{k} = - \Vec{k}' $の場合しか残らないのだ。
+　どちらの場合でも内積は 0 になる。
+　よって右辺第 2 項は無視して構わない。
+　続きを計算しよう。
+
+<tex>
+\int \frac{1}{2} \mu\sub{0} \Vec{H}^2 \diff V \ 
+&=\ \frac{(2\pi)^3}{2} \varepsilon\sub{0} c^2 \int_k \sum_{\alpha,\alpha'} \Vec{k}^2 \\
+& \ \ \ \ \ \ \ \Big[ \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(-\Vec{k}) \, \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}_{-\Vec{\scriptstyle k} \alpha'} \,e^{-2i\omega t} \ +\ \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}) \, \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha'} \\
+& \ \ \ \ \ \ +\ \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}) \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k} \alpha'} \ +\  \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(-\Vec{k}) \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{-\Vec{\scriptstyle k'} \alpha'} \,e^{2i\omega t} \Big] \diff \Vec{k} \\
+</tex>
+
+　さあ、いい感じ。
+　ここで結果を統合しようではないか。
+　ハミルトニアンの完成だ。
+
+<tex>
+\hat{H} \ =\ \frac{(2\pi)^3}{2} \varepsilon\sub{0} \int_k \sum_{\alpha, \alpha'} 
+& \bigg[ \left(-\omega(\Vec{k})^2 + c^2 \Vec{k}^2 \right) \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(-\Vec{k}) \, \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}_{-\Vec{\scriptstyle k} \alpha'} \,e^{-2i\omega t} \\
+& \ \ +\ \left(\omega(\Vec{k})^2 + c^2 \Vec{k}^2 \right) \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}) \, \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha'} \\
+& \ \ +\ \left(\omega(\Vec{k})^2 + c^2 \Vec{k}^2 \right) \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}) \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k} \alpha'} \\
+& \ \ +\ \left(-\omega(\Vec{k})^2 + c^2 \Vec{k}^2 \right) \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(-\Vec{k}) \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{-\Vec{\scriptstyle k'} \alpha'} \,e^{2i\omega t} \bigg] \diff \Vec{k} \\
+</tex>
+
+　ここで分散関係$ \omega^2 = c^2 \Vec{k}^2 $を使えば、劇的にすっきりする。
+
+<tex>
+\hat{H} \ =\ \frac{(2\pi)^3}{2} \varepsilon\sub{0} \int_k 2\omega(\Vec{k})^2 \sum_{\alpha, \alpha'} 
+\Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}) \, \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha'} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k} \alpha'} \right) \diff \Vec{k}
+</tex>
+
+　うーん、もう少し簡単になりそうな予感。
+　$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) $は単位ベクトルなのだから、$ \alpha = \alpha' $ならば
+$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) \Vec{\varepsilon}_{\alpha'}(\Vec{k}) $は自身との内積なので 1 になるし、
+このベクトルを定義したときにははっきり決めておかなかったが$ \alpha \neq \alpha' $の時には互いに直交すると今決めることにすれば内積は 0 になる。
+　要するに、次のようにまとめられる。
+
+<tex>
+\hat{H} \ &=\ (2\pi)^3 \varepsilon\sub{0} \int_k \omega(\Vec{k})^2 \sum_{\alpha = 1, 2} 
+\left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} 
+\ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k} \alpha} \right) \diff \Vec{k} \\
+&=\ (2\pi)^3 \varepsilon\sub{0} \int_k \omega(\Vec{k})^2 \sum_{\alpha = 1, 2} 
+\left( 2 \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \hat{a}_{\Vec{\scriptstyle k} \alpha} + 1 \right) \diff \Vec{k} \\
+&=\ (2\pi)^3 \varepsilon\sub{0} \int_k \omega(\Vec{k})^2 \sum_{\alpha = 1, 2} 
+\left( 2 \hat{n}_{\Vec{\scriptstyle k} \alpha} + 1 \right) \diff \Vec{k}
+</tex>
+
+　これはクラインゴルドン場の場合とほとんど同じ形式である。
+　今回もやはり、無限大になるような定数項を省いて定義し直してやることになる。
+　しかしハミルトニアン$ H $は、存在する全ての光子のエネルギーの合計を表すようになっていてほしいのである。
+　光子 1 個あたりのエネルギーが$ \hbar \omega $だと実験事実に合うから次のようであれば文句がない。
+
+<tex>
+\hat{H} \ =\ \int_k \sum_{\alpha = 1, 2} \hbar \omega(\Vec{k}) \, \hat{n}_{\Vec{\scriptstyle k} \alpha} \diff \Vec{k}
+</tex>
+
+　係数を見比べてみて (7) 式を変更することを考えよう。
+　こうなるためには、電磁場$ A^\mu $の係数をあらかじめ調整して次のようにしておけばよかったのである。
+
+<tex>
+\hat{A}\sup{0} \ &=\ 0 \\
+\hat{\Vec{A}} \ &=\ \int \sqrt{\frac{\hbar}{\varepsilon\sub{0} (2\pi)^3 2 \omega(\Vec{k})}} \sum_{\alpha=1,2} \Vec{\varepsilon}_{\alpha}(\Vec{k}) \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} \tag{8}
+</tex>
+
+　まぁ、係数なんて流儀によって幾らでも違ってくるので、
+他の教科書で全く違う形が書かれていたとしてもあまり気にすることはない。
+　例えば、少し前の記事で話したように、生成、消滅演算子の交換関係の中に$ (2\pi)^3 $を含ませるか否か、とか、
+波数ごとの分解をフーリエ変換だとみなした議論をした場合に、
+フーリエ変換とフーリエ逆変換のどちらに係数を負担させる公式を採用するか、とか、
+そういったことによる違いである。
+　どうせ$ A^\mu $の大きさを直接測ることもないし、測る基準を定める国際単位系なんてものもないので、
+どれが正解だとか、どれがもっとも標準的だとかいうこともない。
+　どれを採用しようと自由であるし、理論の進行にも大した影響はないのである。
+
+
+% =======================================================================
+
+\section{正準交換関係という原理に立ち返る}
+
+　今回の議論では$ A^\mu $の振幅を、何の疑いもなく生成、消滅演算子で置き換えることをした。
+　しかし本来は原理である正準交換関係に立ち返って確かめておかなければならないことである。
+　すなわち、$ A^\mu $から運動量密度$ \pi^\mu $を計算した上で、
+
+<tex>
+\left[ \hat{A}^{\mu}(\Vec{x},t) \, ,\ \hat{\pi}^{\nu} (\Vec{x}',t) \right] \ =\ i\hbar \delta_{\mu\nu} \, \delta(\Vec{x}-\Vec{x}') \tag{9}
+</tex>
+
+のような交換関係が成り立っていることを要求すべきである。
+　その結果、振幅を生成消滅演算子で置き換えることの正当性が導かれるのである。
+
+<P>
+
+　しかし前回とほとんど形式も似ているので、わざわざ確認しなくてもきっと成り立っているだろう。
+　どうしても気になる人は独自に確かめてみればいいと思う。
+
+<P>
+
+　今回も、内容を振り返ると大したことはやっていないのだが、
+計算だけはごちゃごちゃとしていた。
+　まぁ、場の理論というのはずっとこんなものだ。
+
+<P>
+
+　\red{あれれ？ちょっと待てよ・・・。}
+　今回の場合、今書いたような正準交換関係は成り立っていないのではないか？
+　だって$ \hat{A}\sup{0} \ =\ 0 $だろ。
+　そうなると$ \hat{\pi}\sup{0} $だって 0 だ。
+　すると、
+
+<tex>
+\left[ \hat{A}\sup{0}(\Vec{x},t) \, ,\ \hat{\pi}\sup{0}(\Vec{x}',t) \right] \ =\ 0 \tag{10}
+</tex>
+
+になってしまって、(9) 式の内容とは違ってしまうではないか。
+
+<P>
+
+　しばらくこのことに悩んだが、意味を思い出せばこうなるのも仕方のないことだと思える。
+　連続体の解析力学を思い出してみよう。
+　ポアッソン括弧式が成り立つのは波の運動があるからだった。
+　しかし今回は成分が 4 つもあるのに、独立した波動成分は 2 つしかないのである。
+　このような状況で 4 つの成分の全てで交換関係が成り立つことを要求するのは酷というものだろう。
+
+<P>
+
+　まぁ、事情は分かった。
+　第 0 成分についての交換関係は (10) 式でも仕方ないとしよう。
+　しかし残りの 3 成分についてはどうしたらいいというのか？
+　おそらくは (9) 式の形は成り立たず、原理としては使えないはずだ。
+　都合に合わせて原理の方の形を書き換えてしまうというのも変な話だが、
+成り立たない理由だけはすでに把握しているのだから、あとは単なる興味だけの話だ。
+　一体どんな形になっているのか確かめてみよう。
+
+
+
+% =======================================================================
+
+\section{どんな交換関係が成り立っているか確かめてみる}
+
+　さて、どこまで丁寧に途中の計算を示したらいいものやら。
+　やることは単純でも、変形は面倒くさい。
+
+<P>
+
+　まず、$ \hat{A}^{\mu} $を用意するのだが、これは (8) 式をほとんどそのまま使うことになる。
+　しかし今はその$ \mu $成分を取り出して使いたいのである。
+　その為には (8) 式に含まれるベクトル$ \Vec{\varepsilon}_{\alpha}(\Vec{k}) $の部分だけ、
+そのベクトルの$ \mu $成分だけ使うように替えてやればいい。
+
+<tex>
+\hat{A}^\mu \ =\ \int \sqrt{\frac{\hbar}{\varepsilon\sub{0} (2\pi)^3 2 \omega(\Vec{k})}} \sum_{\alpha=1,2} \varepsilon_{\alpha}^{\mu}(\Vec{k}) \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ +\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} 
+</tex>
+
+　次に運動量密度$ \hat{\pi}^\mu $を用意する必要がある。
+　これは<a href="./em_field3.html">以前の記事</a>の中を丁寧に探してやると、次のような意味の式が見出せる。
+
+<tex>
+\pi_i \ =\ - \frac{4a}{c^2} \left( \pdif{A_i}{t} + \pdif{\phi}{x_i} \right)
+</tex>
+
+　ここで$ \phi $というのは$ c A^0 $のことだから今は 0 であるし、
+定数$ a $というのは$ -(1/4)c^2 \varepsilon\sub{0} $だというのがあとの方に書いてある。
+　だから、次のように計算すればよいことになる。
+
+<tex>
+\pi_i \ =\ \varepsilon\sub{0} \pdif{A_i}{t}
+</tex>
+
+　誘電率の$ \varepsilon\sub{0} $と、
+波の偏りを表す$ \varepsilon_{\alpha}^{\mu}(\Vec{k}) $とで記号がかぶってしまって紛らわしいが、
+あまり気にせずに乗り切って欲しい。
+　とにかく、次のようになるだろう。
+
+<tex>
+\hat{\pi}^\mu \ &=\ \varepsilon\sub{0} \int  \sqrt{\frac{\hbar}{\varepsilon\sub{0} (2\pi)^3 2\omega(\Vec{k}) }} (-i)\,\omega(\Vec{k}) \sum_{\alpha=1,2} \varepsilon_{\alpha}^{\mu}(\Vec{k}) \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} \\
+&=\ -i \int \sqrt{\frac{\varepsilon\sub{0} \hbar \omega(\Vec{k}) }{ 2 (2\pi)^3 }} \sum_{\alpha=1,2} \varepsilon_{\alpha}^{\mu}(\Vec{k}) \left( \hat{a}_{\Vec{\scriptstyle k} \alpha} \, e^{-ikx} \ -\ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha} \, e^{ikx} \right) \diff \Vec{k} 
+</tex>
+
+　次の計算をすれば、ごちゃごちゃした係数が打ち消し合ってちょっとはましになりそうだ。
+　いや、そんなに甘くはないか。
+
+<tex>
+\left[ \hat{A}^{\mu}(\Vec{x},t) \, ,\ \hat{\pi}^{\nu} (\Vec{x}',t) \right] \ =\ -\frac{i\hbar}{2(2\pi)^3} & \int \!\!\! \int \sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \sum_{\alpha} \sum_{\alpha'} \varepsilon_{\alpha}^{\mu}(\Vec{k}) \varepsilon_{\alpha'}^{\nu}(\Vec{k}') \\
+& \left( -\left[ \hat{a}_{\Vec{\scriptstyle k} \alpha}, \hat{a}^{\dagger}_{\Vec{\scriptstyle k}' \alpha'} \right] e^{-i(kx-k'x')} 
+\ +\ \left[ \hat{a}^{\dagger}_{\Vec{\scriptstyle k} \alpha}, \hat{a}_{\Vec{\scriptstyle k}' \alpha'} \right] e^{i(kx-k'x')} \right) \diff \Vec{k} \diff \Vec{k}'
+</tex>
+
+　この生成消滅演算子の括弧式にまとめる過程は、労力が要るがテクニックは要らない部分なので省略させてもらった。
+　本当は目だけで追えるものではないことを注意しておく。
+　変形を続けよう。
+
+<tex>
+=&\ -\frac{i\hbar}{2(2\pi)^3} \int \!\!\! \int \sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \sum_{\alpha} \sum_{\alpha'} \varepsilon_{\alpha}^{\mu}(\Vec{k}) \varepsilon_{\alpha'}^{\nu}(\Vec{k}') \\
+& \ \ \ \ \ \ \ \ \left( - \delta(\Vec{k}-\Vec{k}') \, \delta_{\alpha \alpha'} \, e^{-i(kx-k'x')} 
+\ -\ \delta(\Vec{k}-\Vec{k}') \, \delta_{\alpha \alpha'} \, e^{i(kx-k'x')} \right) \diff \Vec{k} \diff \Vec{k}' \\
+=&\ -\frac{i\hbar}{2(2\pi)^3} \int \!\!\! \int \sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \sum_{\alpha=1,2} \varepsilon_{\alpha}^{\mu}(\Vec{k}) \varepsilon_{\alpha}^{\nu}(\Vec{k}') \\
+& \ \ \ \ \ \ \ \ \delta(\Vec{k}-\Vec{k}') \left( - e^{-i(kx-k'x')} \ -\ e^{i(kx-k'x')} \right) \diff \Vec{k} \diff \Vec{k}' \\
+=&\ -\frac{i\hbar}{2(2\pi)^3} \int \!\!\! \int \sqrt{\frac{\omega(\Vec{k}')}{\omega(\Vec{k})}} \sum_{\alpha=1,2} \varepsilon_{\alpha}^{\mu}(\Vec{k}) \varepsilon_{\alpha}^{\nu}(\Vec{k}') \\
+& \ \ \ \ \ \ \ \ \delta(\Vec{k}-\Vec{k}') \left( - e^{-i\{\omega(k)t-\omega(k')t\}} \, e^{i(\Vec{\scriptstyle k} \cdot \Vec{\scriptstyle x} - \Vec{\scriptstyle k}' \cdot \Vec{\scriptstyle x}')} 
+\ -\ e^{i\{\omega(k)t-\omega(k')t\}} \, e^{-i(\Vec{\scriptstyle k} \cdot \Vec{\scriptstyle x} - \Vec{\scriptstyle k}' \cdot \Vec{\scriptstyle x}')} \right) \diff \Vec{k} \diff \Vec{k}' \\
+=&\ \frac{i\hbar}{2(2\pi)^3} \int \sum_{\alpha=1,2} \varepsilon_{\alpha}^{\mu}(\Vec{k}) \varepsilon_{\alpha}^{\nu}(\Vec{k}) \left[ e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \ +\ e^{-i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \right] \diff \Vec{k} 
+</tex>
+
+　かなりすっきりしてきて、ここで例の「デルタ関数の積分表現」の公式を使って仕上げてしまいたいところだけれども、
+$ \varepsilon_{\alpha}^{\mu}(\Vec{k}) $が$ \Vec{k} $の関数になっている以上は
+残念ながらこの積分を安易に実行するわけには行かない。
+
+<P>
+
+　そこでまず、$ \varepsilon_{\alpha}^{\mu}(\Vec{k}) \varepsilon_{\alpha}^{\nu}(\Vec{k}) $の部分をどう変形したら良いかを考えよう。
+　和の記号は$ \alpha $についての和を意味しており、すでに$ \alpha $はこの部分にしかないので、ここだけ単独で取り出して和を計算すればよい。
+　希望を言えば、この部分がすっきり 1 になって欲しいのだ。
+
+
+<P>
+
+　ここで一旦、場の理論のことは忘れて、純粋なベクトルの問題を考えよう。
+　3 つの互いに直交する単位ベクトル$ \Vec{\varepsilon}_\lambda = ( \varepsilon_{\lambda x}, \varepsilon_{\lambda y}, \varepsilon_{\lambda z} ) $があるとする。
+　このとき、次の関係が成り立っている。
+
+<tex>
+\sum_{\lambda=1}^3 \varepsilon_{\lambda s} \varepsilon_{\lambda s'} \ =\ \delta_{s s'}
+</tex>
+
+　この関係はちょっと想像しにくいかも知れないが、
+線形代数の知識を使えばちょうど「直交行列$ \Vec{A} $とその転置行列$ \Vec{A}^t $の積が単位行列になる」ことを
+表現したものになっている。
+
+<P>
+
+　この結果を直接当てはめることができればいいのだが、残念ながら今の場合 3 つの単位ベクトルではなく、2 つの単位ベクトルしかない。
+　3 つ目の単位ベクトルは$ \Vec{k}/|\Vec{k}| $なのである。
+　そこで、次の関係なら成り立っているといえるだろう。
+
+<tex>
+\sum_{\lambda=1}^3 \varepsilon_{\lambda s} \varepsilon_{\lambda s'} \ =\ \sum_{\alpha=1,2} \varepsilon_{\alpha}^s \varepsilon_{\alpha}^{s'} \ +\ \frac{k_s}{|\Vec{k}|} \frac{k_{s'}}{|\Vec{k}|}=\ \delta_{s s'}
+</tex>
+
+　つまり、次のことが言えるわけだ。
+
+<tex>
+\sum_{\alpha=1,2} \varepsilon_{\alpha}^{\mu} \varepsilon_{\alpha}^{\nu} \ =\ \delta_{\mu \nu} \ -\ \frac{k_\mu k_\nu}{|\Vec{k}|^2} 
+</tex>
+
+　この結果を持って戦線に復帰しよう。
+
+<tex>
+(続き)\ =\ \frac{i\hbar}{2(2\pi)^3} \int \left( \delta_{\mu \nu} \ -\ \frac{k_\mu k_\nu}{|\Vec{k}|^2} \right) \left[ e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \ +\ e^{-i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \right] \diff \Vec{k} 
+</tex>
+
+　被積分関数が偶関数のようなので、もう少し簡単にまとめても良さそうだ。
+
+
+<tex>
+&=\ \frac{i\hbar}{(2\pi)^3} \int \left( \delta_{\mu \nu} \ -\ \frac{k_\mu k_\nu}{|\Vec{k}|^2} \right) e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k} \\
+&=\ \frac{i\hbar}{(2\pi)^3} \delta_{\mu \nu} \int e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k} \ -\ \frac{i\hbar}{(2\pi)^3} \int \frac{k_\mu k_\nu}{|\Vec{k}|^2} e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k} \\
+&=\ i\hbar \delta_{\mu \nu} \, \delta( \Vec{x}-\Vec{x}') \ -\ \frac{i\hbar}{(2\pi)^3} \int \frac{k_\mu k_\nu}{|\Vec{k}|^2} e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k} 
+</tex>
+
+　第 1 項だけならば最初に考えた形と同じというわけだ。
+　しかし実質の波動成分が 2 つしかないという事情により、あまり望んでいなかった第 2 項が出てくるのである。
+　この第 2 項の形について追求することはあまり重要ではないのだが、
+ここまで来たのだから技巧を凝らして変形を続けてみよう。
+　本当にただの好奇心だ。
+
+<tex>
+(第2項) &=\ -\ \frac{i\hbar}{(2\pi)^3} \int \pdif{}{x^\mu} \pdif{}{x^\nu} \frac{1}{|\Vec{k}|^2} e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k} \\
+&=\ -\ \frac{i\hbar}{(2\pi)^3} \pdif{}{x^\mu} \pdif{}{x^\nu} \int \frac{1}{|\Vec{k}|^2} e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} \diff \Vec{k} \\
+&=\ -\ \frac{i\hbar}{(2\pi)^3} \pdif{}{x^\mu} \pdif{}{x^\nu} \int_0^\infty \!\! \int_0^\pi \!\! \int_0^{2\pi} \frac{1}{|\Vec{k}|^2} e^{i\Vec{\scriptstyle k}\cdot(\Vec{\scriptstyle x}-\Vec{\scriptstyle x}')} k^2 \sin \theta \diff k \diff \theta \diff \phi \\
+</tex>
+
+　ここで$ \Vec{k} $の全空間にわたる積分を極座標に置き換えてみたわけだが、
+$ k^2 $というのは意味的に$ |\Vec{k}|^2 $と全く同じもので極座標でいうところの「半径の 2 乗」である。
+　なぜ極座標に置き換えたかと言うと、$ \Vec{k}\cdot(\Vec{x}-\Vec{x}') $の部分を$ \theta $を使って表したかったのである。
+　つまり$ (\Vec{x}-\Vec{x}') $の方向が極座標の軸となるような形を想定している。
+　それで次のような変形ができるはずだ。
+
+<tex>
+&=\ -\ \frac{i\hbar}{(2\pi)^3} \pdif{}{x^\mu} \pdif{}{x^\nu} \int_0^\infty \!\! \int_0^\pi \!\! \int_0^{2\pi} e^{i |\Vec{\scriptstyle x}-\Vec{\scriptstyle x}'|k \cos \theta} \sin \theta \diff k \diff \theta \diff \phi \\
+&=\ -\ \frac{i\hbar}{(2\pi)^2} \pdif{}{x^\mu} \pdif{}{x^\nu} \int_0^\infty \!\! \int_0^\pi e^{i |\Vec{\scriptstyle x}-\Vec{\scriptstyle x}'|k \cos \theta} \sin \theta \diff k \diff \theta \\
+&=\ -\ \frac{i\hbar}{(2\pi)^2} \pdif{}{x^\mu} \pdif{}{x^\nu} \int_0^\infty \left[ \frac{e^{i |\Vec{\scriptstyle x}-\Vec{\scriptstyle x}'|k \cos \theta}}{-i|\Vec{x}-\Vec{x}'|k} \right]_0^\pi \diff k \\
+&=\ -\ \frac{i\hbar}{(2\pi)^2} \pdif{}{x^\mu} \pdif{}{x^\nu} \int_0^\infty \frac{e^{-i |\Vec{\scriptstyle x}-\Vec{\scriptstyle x}'|k} \ -\  e^{i |\Vec{\scriptstyle x}-\Vec{\scriptstyle x}'|k}}{-i|\Vec{x}-\Vec{x}'|k} \diff k \\
+&=\ -\ \frac{i\hbar}{(2\pi)^2} \pdif{}{x^\mu} \pdif{}{x^\nu} \frac{2}{|\Vec{x}-\Vec{x}'|} \, \int_0^\infty \frac{e^{i |\Vec{\scriptstyle x}-\Vec{\scriptstyle x}'|k} \ -\  e^{-i |\Vec{\scriptstyle x}-\Vec{\scriptstyle x}'|k}}{2i\,k} \diff k \\
+&=\ -\ \frac{i\hbar}{(2\pi)^2} \pdif{}{x^\mu} \pdif{}{x^\nu} \frac{2}{|\Vec{x}-\Vec{x}'|} \int_0^\infty \frac{\sin( |\Vec{x}-\Vec{x}'| k )}{k} \diff k \\
+&=\ -\ \frac{i\hbar}{4\pi} \pdif{}{x^\mu} \pdif{}{x^\nu} \frac{1}{|\Vec{x}-\Vec{x}'|} 
+</tex>
+
+　最後の積分はディリクレ積分の例として良く知られているものである。
+　次のような具合だ。
+
+<tex>
+\int_0^{\infty} \frac{\sin(ax)}{x} \diff x \ =\ 
+\begin{cases}
+\pi/2 & a>0 \\
+0 & a = 0 \\
+-\pi/2 & a<0
+\end{cases}
+</tex>
+
+　この積分の解法は幾つかあるらしいが、ややこしいのでここでの説明は諦めよう。
+　さて、まだ変形を続けられるがこれくらいで留めておくのが一番シンプルなようだ。
+　とにかく、ここまでの長々とした計算の結論はこうだ。
+
+<tex>
+\left[ \hat{A}^{\mu}(\Vec{x},t) \, ,\ \hat{\pi}^{\nu} (\Vec{x}',t) \right] \ =\ 
+i\hbar \, \delta_{\mu \nu} \, \delta( \Vec{x}-\Vec{x}') \ -\ \frac{i\hbar}{4\pi} \pdif{}{x^\mu} \pdif{}{x^\nu} \frac{1}{|\Vec{x}-\Vec{x}'|}
+</tex>
+
+　これこそ、電磁場の場合に場を量子化するために従わなくてはならない原理の形である！
+　しかし・・・、話が合うように後から無理して作られたものを、今更原理とするから従えと言われてもなぁ。
+　そもそもこの式の意味がよく分からない。
+
+<P>
+
+　この最後の結論の気持ち悪さについてはあまり気にしなくてもいい。
+　好奇心から計算してみただけだ。
+　電磁場というのがベクトル場の中では少し特殊な例になっていて、
+後に視点を広げればもう少しすっきりするようになるだろうと予告しておく。
+
+

@@ -1,0 +1,366 @@
+\field{素粒子論}
+\title{対称性を考慮する}
+\comment{前回の誤りがどこにあるのかを説明する。}
+\prev{em_field}
+\next{em_field3}
+\create{2010/8/31}
+\modify{}
+
+
+
+\section{偽物はどっちだ？}
+
+　前回、苦労してラグランジアン密度を求めることにチャレンジしてみたのだが、
+ラストで「大きな誤りがある」と明かした。
+　それを説明するのが今回の目的である。
+
+<P>
+
+　前回の記事で導いたラグランジアン密度はまとめると次のような式だった。
+
+<tex>
+\mathcal{L} \ &=\ \ \ \ \ \ \ \ \ \ \ \frac{1}{2} \rho \left(\pdif{A\sub{0}}{t} \right)^2 - \frac{1}{2} \rho c^2 \left[ \left(\pdif{A\sub{0}}{x} \right)^2 + \left(\pdif{A\sub{0}}{y} \right)^2 + \left(\pdif{A\sub{0}}{z} \right)^2 \right] + \rho \mu\sub{0}\, j\sub{0} A\sub{0} \\
+&\ \ \ -\ \sum_{i=1}^3 \left\{ \frac{1}{2} \rho \left(\pdif{A_i}{t} \right)^2 - \frac{1}{2} \rho c^2 \left[ \left(\pdif{A_i}{x} \right)^2 + \left(\pdif{A_i}{y} \right)^2 + \left(\pdif{A_i}{z} \right)^2 \right] + \rho \mu\sub{0}\, j_i A_i\right\} \\[4pt]
+&\ \ \ \ \ \ \ \ \ +\ \frac{1}{2} \rho c^2 \bigg[\ \frac{1}{c} \pdif{A\sub{0}}{t} \left( \pdif{A\sub{1}}{x} + \pdif{A\sub{2}}{y} + \pdif{A\sub{3}}{z} + \frac{1}{c} \pdif{A\sub{0}}{t} \right) \\
+&\ \ \ \ \ \ \ \ \ +\ \ \ \ \ \ \ \ \ \ \ \ \pdif{A\sub{1}}{x} \left( \pdif{A\sub{1}}{x} + \pdif{A\sub{2}}{y} + \pdif{A\sub{3}}{z} + \frac{1}{c} \pdif{A\sub{0}}{t} \right) \\
+&\ \ \ \ \ \ \ \ \ +\ \ \ \ \ \ \ \ \ \ \ \ \pdif{A\sub{2}}{y} \left( \pdif{A\sub{1}}{x} + \pdif{A\sub{2}}{y} + \pdif{A\sub{3}}{z} + \frac{1}{c} \pdif{A\sub{0}}{t} \right) \\
+&\ \ \ \ \ \ \ \ \ +\ \ \ \ \ \ \ \ \ \ \ \ \pdif{A\sub{3}}{z} \left( \pdif{A\sub{1}}{x} + \pdif{A\sub{2}}{y} + \pdif{A\sub{3}}{z} + \frac{1}{c} \pdif{A\sub{0}}{t} \right) \ \bigg]
+</tex>
+
+　あまりにごちゃごちゃし過ぎているが、
+相対論の記法を使えば、これは次のように簡潔に表せる。
+
+<tex>
+\mathcal{L} \ = - \frac{1}{2} \rho c^2 \, \partial^\mu A^\nu \partial_\mu A_\nu \ +\ \rho \mu\sub{0} \, j_\nu A^\nu \ +\ \frac{1}{2} \rho c^2 \, \partial_\mu A^\mu \partial_\nu A^\nu
+</tex>
+
+　ところが教科書を調べてみると、こうではなくて、次のような式が載っていたりする。
+
+<tex>
+\mathcal{L} \ = - \frac{1}{2} \rho c^2 \, \partial^\mu A^\nu \partial_\mu A_\nu \ +\ \rho \mu\sub{0} \, j_\nu A^\nu \ +\ \frac{1}{2} \rho c^2 \, \partial^\mu A^\nu \partial_\nu A_\mu
+</tex>
+
+\note{　実際はこの形で載っていることはなくて、符号が逆だったり、電荷の項が省かれていたり、
+係数が違っていたり、電磁場のテンソルを使った別の形式で表されていたりするわけだが、
+私の作ったラグランジアンと比較できる形に解釈し直すとこんな感じだという意味である。}
+
+　比べてみると第 3 項だけが違っているのである。
+　$ \partial_\mu A^\mu \partial_\nu A^\nu $ではなくて$ \partial^\mu A^\nu \partial_\nu A_\mu $だ。
+　形は似ているが一方から他方へ式変形できるようなものでもない。
+　明らかに内容が違うのだ。
+
+<P>
+
+　どちらが正しくてどちらが間違っているのか？
+　犯人を探そうと思って検算してみたが、どちらであっても正しくマクスウェル方程式を導くことができるのである。
+　どちらも正しいということか・・・。
+　これは一体どう理解すればいいのだろう？
+
+
+% ===================================================================
+
+\section{差はどこにあるか}
+
+　色々と調べた末、ラグランジアンの形が異なっていても
+同じ方程式にたどり着くということは、どうやら特に珍しいことではないということを知るに至った。
+　最近になって解析力学のページに
+「<a href="../analytic/indeterminancy.html">ラグランジアンの不定性</a>」という記事を追加したのは
+実はこのような経緯による。
+　そこで出てくる「等価ラグランジアン」というやつの一例がちょうど今の話になっている。
+
+<P>
+
+　どちらのラグランジアンを使おうとも間違ってはいないということだろうか。
+　しかし教科書ではどれも同じものを使っており、私が前回の記事でこつこつ導いた形のものは使われていない。
+　誰もが一方だけを選んでいる理由が何かあるはずだ。
+
+<P>
+
+　あっ、あー！　忘れてた！
+　そうか・・・。
+　素粒子論で使うラグランジアンは、ローレンツ変換に対して不変でなくてはいけなかったんだ。
+　だからきっと私の考えた方は、見た目は綺麗にまとまって見えているけれど、
+ちゃんと確かめてみればローレンツ変換の条件を満たしていないに違いない。
+
+<P>
+
+　そう考えてさっそく確認してみたけれど、どちらもローレンツ変換に対して問題はないようだ。
+
+<P>
+
+　では違いがあるとしたら他に何があるだろう？
+　素粒子論についての難しいことはまだ私には分からないぞ。
+　この段階でそういう話にまで首を突っ込まなくちゃいけなくなるとしたら嫌だなぁ。
+
+<P>
+
+　・・・などと考えながら調べていたら、ある記述が目に入った。
+　「電磁場を表すラグランジアンは、
+ローレンツ不変性とゲージ不変性の条件を課することによって、ただ一つに定まる」らしい。
+　ということは、一方はゲージ変換をしてやると式がおかしな形に化けるが、
+一方はそうならないということだ。
+
+<P>
+
+　確認してみると、確かにそうなっていた。
+　ちょっとやってみせよう。
+
+
+% ===================================================================
+
+\section{ローレンツ対称性の確認}
+
+　まずは、ローレンツ変換について確認してみよう。
+　どちらのラグランジアンの形も不変になっていることが分かるはずだ。
+
+<P>
+
+　これからは電磁場のことだけを考えれば満足なので、電荷は存在しないものとする。
+　その為に上に書いたラグランジアンから$ j_\nu A^\nu $の項を省く。
+　また、普通の教科書に書かれている形式に近付けたいので、
+ラグランジアンの全体にマイナスをかけておく。
+
+<P>
+
+　私が導いた方がこれ。
+
+<tex>
+\mathcal{L}\sub{1} \ =\ \frac{1}{2} \rho \, c^2 \bigg( \partial^\mu A^\nu \partial_\mu A_\nu \ -\ \partial_\mu A^\mu \partial_\nu A^\nu \bigg)
+</tex>
+
+　教科書に載ってるのはこれ。
+
+<tex>
+\mathcal{L}\sub{2} \ =\ \frac{1}{2} \rho \, c^2 \bigg( \partial^\mu A^\nu \partial_\mu A_\nu \ -\ \partial^\mu A^\nu \partial_\nu A_\mu \bigg)
+</tex>
+
+　定数$ \rho $についてはまだ詳しく考えていないので気にしないでもらいたい。
+　単なる次元を合わせるための定数だ。
+
+<P>
+
+　さて、座標変換をするということは、次のような置き換えをするということである。
+
+<tex>
+\partial^\rho \ &\longrightarrow \ \pdif{x^\rho}{{x'}^\sigma} {\partial'}^\sigma \\
+\partial_\rho \ &\longrightarrow \ \pdif{{x'}^\sigma}{x^\rho} {\partial'}_\sigma \\
+A^\rho \ &\longrightarrow \ \pdif{x^\rho}{{x'}^\sigma} {A'}^\sigma \\
+A_\rho \ &\longrightarrow \ \pdif{{x'}^\sigma}{x^\rho} {A'}_\sigma \\
+</tex>
+
+　例えば、共通している第 1 項の$ \partial^\mu A^\nu \partial_\mu A_\nu $の部分にこの置き換えをすると、
+
+<tex>
+\partial^\mu A^\nu \partial_\mu A_\nu 
+\ &\longrightarrow \ \pdif{x^\mu}{{x'}^\sigma} {\partial'}^\sigma \left(\pdif{x^\nu}{{x'}^\rho} {A'}^\rho \right)
+\pdif{{x'}^\lambda}{x^\mu} {\partial'}_\lambda \left( \pdif{{x'}^\tau}{x^\nu} {A'}_\tau \right) \\
+&=\ \pdif{x^\mu}{{x'}^\sigma} g^{\sigma \kappa} {\partial'}_\kappa \left(\pdif{x^\nu}{{x'}^\rho} {A'}^\rho \right)
+\pdif{{x'}^\lambda}{x^\mu} \left( \frac{\partial^2 {x'}^\tau}{\partial x^\nu \partial {x'}^\lambda} {A'}_\tau + \pdif{{x'}^\tau}{x^\nu} {\partial'}_\lambda {A'}_\tau \right) \\
+&=\ \pdif{x^\mu}{{x'}^\sigma} \pdif{{x'}^\lambda}{x^\mu} g^{\sigma \kappa} {\partial'}_\kappa \left(\pdif{x^\nu}{{x'}^\rho} {A'}^\rho \right)
+ \left( \frac{\partial^2 {x'}^\tau}{\partial x^\nu \partial {x'}^\lambda} {A'}_\tau + \pdif{{x'}^\tau}{x^\nu} {\partial'}_\lambda {A'}_\tau \right) \\
+&=\ \pdif{{x'}^\lambda}{{x'}^\sigma} g^{\sigma \kappa} \left(\frac{\partial^2 x^\nu}{\partial{{x'}^\rho} \partial {x'}^\kappa} {A'}^\rho + \pdif{x^\nu}{{x'}^\rho} {\partial'}_\kappa {A'}^\rho \right)
+ \left( \frac{\partial^2 {x'}^\tau}{\partial x^\nu \partial {x'}^\lambda} {A'}_\tau + \pdif{{x'}^\tau}{x^\nu} {\partial'}_\lambda {A'}_\tau \right) \\
+&=\ \delta^\lambda_{\ \sigma} \ \ \ g^{\sigma \kappa} \left(\frac{\partial^2 x^\nu}{\partial{{x'}^\rho} \partial {x'}^\kappa} {A'}^\rho + \pdif{x^\nu}{{x'}^\rho} {\partial'}_\kappa {A'}^\rho \right)
+ \left( \frac{\partial^2 {x'}^\tau}{\partial x^\nu \partial {x'}^\lambda} {A'}_\tau + \pdif{{x'}^\tau}{x^\nu} {\partial'}_\lambda {A'}_\tau \right) \\
+</tex>
+
+のように複雑になってしまうわけだが、
+ローレンツ変換を考える限りは 2 階の偏微分は 0 になるので少しは楽になる。
+
+<tex>
+(続き) \ &=\ g^{\lambda \kappa} \left(\pdif{x^\nu}{{x'}^\rho} {\partial'}_\kappa {A'}^\rho \right)
+ \left(\pdif{{x'}^\tau}{x^\nu} {\partial'}_\lambda {A'}_\tau \right) \\
+&=\ g^{\lambda \kappa} \ \pdif{x^\nu}{{x'}^\rho} \pdif{{x'}^\tau}{x^\nu} {\partial'}_\kappa {A'}^\rho \ {\partial'}_\lambda {A'}_\tau \\[4pt]
+&=\ g^{\lambda \kappa} \ \delta^\tau_{\ \rho} \ {\partial'}_\kappa {A'}^\rho \ {\partial'}_\lambda {A'}_\tau \\
+&=\ g^{\lambda \kappa} \ {\partial'}_\kappa {A'}^\tau \ {\partial'}_\lambda {A'}_\tau \\
+&=\ {\partial'}^\lambda {A'}^\tau \ {\partial'}_\lambda {A'}_\tau 
+</tex>
+
+　この結果は変換前とまるで同じ形式になっている。
+　ただ「ダッシュ」が付いていたり、使っている記号が違っているだけだ。
+
+<P>
+
+　第 2 項についても同様なことになりそうなのは雰囲気で分かるだろう。
+　面倒なのでここではやらない。
+
+<P>
+
+　一般の座標変換に対してはどちらのラグランジアンもスカラーにはなっていないけれど、
+ローレンツ変換に対してはどちらも形が変わらなくて、ちゃんとスカラーだということだ。 
+
+
+% ===================================================================
+
+\section{ゲージ対称性の確認}
+
+　次にゲージ対称性の確認をしてみよう。
+　ゲージ変換は次のような置き換えをすれば実現できるのだった。
+
+<tex>
+A^{\mu} \ &\longrightarrow \ {A'}^{\mu} \ =\ A^\mu \ +\ \partial^\mu \chi \\
+A_{\mu} \ &\longrightarrow \ {A'}_{\mu} \ =\ A_\mu \ +\ \partial_\mu \chi
+</tex>
+
+　このように$ A^{\mu} $を新たな$ {A'}^{\mu} $にそっくり置き換えても、
+数式に影響がないことを確認したいのである。
+　先ほど座標変換をした時の「置き換え」とは少し手順の統一感がないと感じるかも知れない。
+　実は先ほどの座標変換のところでも、例えば
+
+<tex>
+A^\rho \ &\longrightarrow \ {A'}^\rho \ =\ \pdif{{x'}^\rho}{{x}^\sigma} {A}^\sigma
+</tex>
+
+のような強制的な置き換えをして確認しても計算の中身は同じなのだが、
+これだと「数式をそのまま別の座標で表現し直した」というニュアンスではなくなってしまうので、
+気分的に避けたかったのである。
+　ゲージ変換にはそういう抵抗感はあまりない。
+　どちらも「変換」という意味では共通していて、
+全く違う操作をしているわけではないと言いたかっただけである。
+
+<P>
+
+　まずは、このゲージ変換の置き換えを
+$ \mathcal{L}\sub{1} $と$ \mathcal{L}\sub{2} $に共通している第 1 項に適用してみよう。
+
+<tex>
+\partial^\mu A^\nu \partial_\mu A_\nu \ \longrightarrow \ &\partial^\mu {A'}^\nu \ \partial_\mu {A'}_\nu \\
+=\ &\partial^\mu \left( A^\nu + \partial^\nu \chi \right) \partial_\mu \left( A_\nu + \partial_\nu \chi \right) \\
+=\ &\left( \partial^\mu A^\nu + \partial^\mu \partial^\nu \chi \right) \left( \partial_\mu A_\nu + \partial_\mu \partial_\nu \chi \right) \\
+=\ &\partial^\mu A^\nu \ \partial_\mu A_\nu \ +\ \partial^\mu A^\nu \ \partial_\mu \partial_\nu \chi \\
+& \ \ \ \ \ \ \ \ \ \ \ \ +\ \partial^\mu \partial^\nu \chi \ \partial_\mu A_\nu \ +\ \partial^\mu \partial^\nu \chi \ \partial_\mu \partial_\nu \chi \tag{1}
+</tex>
+
+　この結果はどうか？
+　最初の項以外は全て邪魔だが、どれも消えてくれる要素がまるでない。
+　こいつらを打ち消すのは別の項に頼るしかないだろう。
+　それで、教科書に載ってる方、$ \mathcal{L}\sub{2} $の第 2 項について同じことをしてみよう。
+
+<tex>
+\partial^\mu A^\nu \partial_\nu A_\mu \ \longrightarrow \ &\partial^\mu {A'}^\nu \partial_\nu {A'}_\mu \\
+=\ &\partial^\mu \left( A^\nu + \partial^\nu \chi \right) \partial_\nu \left( A_\mu + \partial_\mu \chi \right ) \\
+=\ &\left( \partial^\mu A^\nu + \partial^\mu \partial^\nu \chi \right)  \left( \partial_\nu A_\mu + \partial_\nu \partial_\mu \chi \right ) \\
+=\ &\partial^\mu A^\nu \ \partial_\nu A_\mu \ +\ \partial^\mu A^\nu \ \partial_\nu \partial_\mu \chi \\
+&\ \ \ \ \ \ \ \ \ \ \ \ +\ \partial^\mu \partial^\nu \chi \ \partial_\nu A_\mu \ +\ \partial^\mu \partial^\nu \chi \ \partial_\nu \partial_\mu \chi \tag{2}
+</tex>
+
+　(1) 式と (2) 式を見比べると、第 2 項から第 4 項までとても良く似た形になっている。
+　よく見ると$ \mu $と$ \nu $の位置が微妙に違うが、
+$ \partial_\mu \partial_\nu \chi $だろうが$ \partial_\nu \partial_\mu \chi $だろうが、
+この場合には微分の順序による差はないし、記号そのものに重要な意味はないので入れ替えてもいい。
+　つまり、同じものだ。
+　それぞれ、第 1 項を除いては打ち消し合うのである。
+
+<P>
+
+　これで$ \mathcal{L}\sub{2} $についてはゲージ変換に対して不変であることが分かった。
+
+<P>
+
+　では、我流で作ったラグランジアン$ \mathcal{L}\sub{1} $の第 2 項はどうだろうか？
+
+<tex>
+\partial_\mu A^\mu \partial_\nu A^\nu \ \longrightarrow \ &\partial_\mu {A'}^\mu \partial_\nu {A'}^\nu \\
+=\ &\partial_\mu \left(A^\mu + \partial^\mu \chi \right) \partial_\nu \left(A^\nu + \partial^\nu \chi \right) \\
+=\ &\left(\partial_\mu A^\mu + \partial_\mu \partial^\mu \chi \right) \left(\partial_\nu A^\nu + \partial_\nu \partial^\nu \chi \right) \\
+=\ &\left(\partial_\mu A^\mu + \Box \chi \right) \left(\partial_\nu A^\nu + \Box \chi \right) \\
+=\ &\cdots
+</tex>
+
+　もう最後までやらなくても分かるだろう。
+　まるで違っている。
+　打ち消す相手がいない。
+　我流の$ \mathcal{L}\sub{1} $はゲージ変換に対して不変ではないことが分かる。
+
+% ===================================================================
+
+\section{対称性から導く}
+
+　なるほど確かに我流で求めたラグランジアンはゲージ不変でないことが分かった。
+　しかしそれのどこが悪いのだろう。
+　何か不都合があるのだろうか？
+
+<P>
+
+　その辺の話はまだしばらく出てこない。
+　ただ、解析力学のページの「<a href="../analytic/noether.html">ネーターの定理</a>」でみたように、
+ラグランジアンというのは考えている系の対称性と保存量についての情報が封じ込められているのである。
+　その情報は運動方程式の方にあるわけではない。
+　すると、ゲージ変換の対称性に対応する保存量というものがあるはずだ。
+　いつかこの話をすることになるだろう。
+
+\note{　あちこちの啓蒙書にすら出てくる話なのでもったいぶる必要はないだろう。電荷の保存則である。}
+
+　ところで、先ほど出てきた
+「電磁場を表すラグランジアンは、
+ローレンツ不変性とゲージ不変性の条件を課することによって、ただ一つに定まる」という話が気になるところだ。
+　本当にただ一つだろうか？
+　どうやってそれが分かるだろう？
+
+<P>
+
+　あれこれ気になる部分を調べてみると、実は想像したほど高度な話でもないらしい。
+　説明は簡単に終わる。
+　まず、電磁ポテンシャル$ \Vec{A} $についての波動方程式を実現するようなラグランジアンを作るのが前提なので、
+ラグランジュ方程式の形やなんかを見ながら考えても、
+それは$ \Vec{A} $の成分を座標や時間で偏微分した量の 2 次の項を含む式にならなくてはならない。
+　それは前回の試行錯誤の体験でも分かっている。
+　その為の材料として、$ \partial_\mu A_\nu $、すなわち$ \pdif{A_\nu}{x^\mu} $というものをまず考えてみる。
+　添字の$ \mu $や$ \nu $には色んな数が色んな組み合わせで入ることになる。
+　いずれにせよ、このように表される多数の量の組み合わせで目的のものが出来ることになるのだ。
+　これが最小のパーツというやつだ。
+　試しに、このパーツのゲージ変換を考えてみよう。
+
+<tex>
+\partial_\mu A_\nu \ \longrightarrow \ &\partial_\mu \left( A_\nu + \partial_\nu \chi \right) \\
+=\ &\partial_\mu A_\nu \ +\ \partial_\mu \partial_\nu \chi 
+</tex>
+
+　明らかに、これ単独ではゲージ変換に対して不変ではない。
+　この変換で出てきてしまった邪魔な第 2 項を打ち消す何か、そうだな、マイナス符号の別の項が必要だ。
+　その為には次のような量を新たに定義するしか無いだろう。
+
+<tex>
+f_{\mu\nu} \ \equiv \ \partial_\mu A_\nu - \partial_\nu A_\mu
+</tex>
+
+　この$ f_{\mu\nu} $の方がゲージ変換に対して不変となっているので、基本パーツとしてふさわしいというわけだ。
+　この$ f_{\mu\nu} $がゲージ変換に対して不変となっていることは、わざわざ計算して確かめるまでもない。
+　この定義の第 2 項は第 1 項の添字を入れ替えただけだからだ。
+
+<P>
+
+　しかもこの$ f_{\mu\nu} $は、幸いなことにローレンツ変換に対しては 2 階のテンソルとして振舞うことも確認できる。
+　何を隠そう、というかバレバレかも知れないが、
+この$ f_{\mu\nu} $は相対論のページの「<a href="../relativity/em_tensor.html">電磁場のテンソル表現</a>」という
+記事で出てきた「場の強さのテンソル」と同じものだ。
+　ここでは添字が下についていて「2 階の共変テンソル」になっているが、
+もちろん計量テンソルをかけて添字を上げたりしても話は変わらない。
+
+<P>
+
+　さて、$ f_{\mu\nu} $が 2 階のテンソルであることが分かったから、
+これを使って 2 次の量、かつスカラーであるような最も簡単な組み合わせを作ろうとすれば、
+$ f^{\mu\nu} f_{\mu\nu} $しかないだろう。
+　これを具体的に計算してみよう。
+
+<tex>
+f^{\mu\nu} f_{\mu\nu} \ &=\ \left( \partial^\mu A^\nu - \partial^\nu A^\mu \right) \left( \partial_\mu A_\nu - \partial_\nu A_\mu \right) \\
+&=\ \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu - \partial^\nu A^\mu \partial_\mu A_\nu + \partial^\nu A^\mu \partial_\nu A_\mu \\
+&=\ 2 \left( \partial^\mu A^\nu \partial_\mu A_\nu - \partial^\mu A^\nu \partial_\nu A_\mu \right) 
+</tex>
+
+　これは係数の違いを除いては$ \mathcal{L}_2 $と同じものになっている。
+　実は波動方程式を導く上では係数はどうでもいいのだから、
+これだけの対称性を考えるだけで必要なラグランジアンが導けたことになる。
+
+<P>
+
+　波動方程式を作ることを意識した暗黙の仮定が少々紛れ込んでいたが、まぁ、こんなものだ。
+
+
+<P>
+
+　さて、次回では係数をどう選ぶのがいいのかを考えて「電磁場のラグランジアン」のまとめにしよう。
+
+
