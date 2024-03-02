@@ -1,0 +1,238 @@
+\field{量子力学}
+\title{ハートリー・フォック近似３}
+\comment{ハートリー・フォック方程式にスピンを入れる話。}
+\prev{hartree_fock2}
+\next{hilbert}
+
+
+\section{スピンって何だっけな}
+
+　電子のスピンまで考慮したハートリーフォック近似というのを考えたい。
+　電子というのはスピンを持っているものだし、そこまでやらないと使い物にならないのである。
+　ここまでの話にほんの少し手を加えるだけで何とかなるだろうと思っていたが、意外とややこしい。
+
+<P>
+
+　例えば電子が 6 個ある状況を想定してみよう。
+　電子の空間軌道が同じ状態であってもスピンには二つの違った状態が許されるので、空間軌道を表す関数$ \varphi_i $は 3 種類を考えるだけでいい。
+
+<P>
+<center>
+<table border="1">
+<tr><td>$\varphi\sub{1}\,\alpha$</td><td>$\varphi\sub{2}\,\alpha$</td><td>$\varphi\sub{3}\,\alpha$</td></tr>
+<tr><td>$\varphi\sub{1}\,\beta$</td><td>$\varphi\sub{2}\,\beta$</td><td>$\varphi\sub{3}\,\beta$</td></tr>
+</table>
+</center>
+<P>
+
+　二つのスピン状態をここでは$ \alpha $と$ \beta $で表している。
+
+<P>
+
+　ここで疑問が生まれる。
+　このスピン状態の$ \alpha $と$ \beta $は果たしてどんな状態を意味しているのだろうか？
+　スピンを$ z $軸方向で観測すれば上向きと下向きの二通りの状態のどちらかしか得ない。
+　ところが観測前の電子にはこれらの重ね合わせ状態も許される。
+　どのスピンも$ z $軸方向に沿った方向を向いているとは限らないわけである。
+
+<P>
+
+　だとするとそれぞれ別々の空間軌道にある電子のスピンの向きがどれも揃っているなどと決めつけない方が良いのではないだろうか？
+　次のような状況も考えられそうだ。
+
+<P>
+<center>
+<table border="1">
+<tr><td>$\varphi\sub{1}\,\alpha\sub{1}$</td><td>$\varphi\sub{2}\,\alpha\sub{2}$</td><td>$\varphi\sub{3}\,\alpha\sub{3}$</td></tr>
+<tr><td>$\varphi\sub{1}\,\beta\sub{1}$</td><td>$\varphi\sub{2}\,\beta\sub{2}$</td><td>$\varphi\sub{3}\,\beta\sub{3}$</td></tr>
+</table>
+</center>
+<P>
+
+　このような感じに、異なる空間軌道にあるスピン状態は互いに無関係だと考えてはいけないのだろうか？
+　ただし、それぞれの電子状態は互いに直交するという仮定を引き継ぎたいので、
+「$ \alpha\sub{1} $と$ \beta\sub{1} $とは直交する」「$ \alpha\sub{2} $と$ \beta\sub{2} $とは直交する」・・・などという条件は入れておく必要はありそうである。
+
+<P>
+
+　さらに自由な状況を考えてみよう。
+　それぞれの電子状態は互いに直交するという条件さえ守ればいいというなら、次のような状況を仮定しても許されそうな気がする。
+
+<P>
+<center>
+<table border="1">
+<tr><td>$\varphi\sub{1}\,\alpha\sub{1}$</td><td>$\varphi\sub{2}\,\alpha\sub{2}$</td><td>$\varphi\sub{3}\,\alpha\sub{3}$</td></tr>
+<tr><td>$\varphi\sub{4}\,\beta\sub{1}$</td><td>$\varphi\sub{5}\,\beta\sub{2}$</td><td>$\varphi\sub{6}\,\beta\sub{3}$</td></tr>
+</table>
+</center>
+<P>
+
+　空間軌道の関数$ \varphi_i $は 6 つ用意する。
+　直交条件は$ \varphi_i $の側に任せてしまって、スピンどうしは直交していなくても構わないという考えだ。
+　しかしさすがにこれはあり得ないのではないか？
+　わざわざスピンを導入する意味が分からなくなっている。
+　そもそも 2 つのスピンはいつでも直交して存在しているべきものなのか、そうではないのか、その根拠は何だっただろう？
+
+% =======================================================================
+
+\section{考え直し}
+
+
+　いきなり 6 個の電子を考えるのは私には早過ぎたようだ。
+　2 個の電子を考えるところから出直そう。
+
+<P>
+
+　まずは、2 個の電子の空間軌道が同じ関数$ \varphi $で表されていた場合について。
+
+<P>
+<center>
+<table border="1">
+<tr><td>$\varphi\,\alpha$</td><td>$\phantom{\varphi\sub{2}\,\alpha}$</td><td>$\phantom{\varphi\sub{3}\,\alpha}$</td></tr>
+<tr><td>$\varphi\,\beta $</td><td></td><td></td></tr>
+</table>
+</center>
+<P>
+
+　これでは空間軌道だけ考えた場合には電子の入れ替えによって位相が変わらないので、
+スピン状態の側が反対称になっていなくてはならない。
+　その時の全体の状態はどのように書いたら良いだろうか。
+　座標の入れ替えをして符号が逆になるようにすればいいのだろうから次のようになる。
+
+<tex>
+\psi(\Vec{x}\sub{1},\Vec{x}\sub{2}) \ 
+&=\ \varphi(\Vec{x}\sub{1})\,\alpha(1) \ \varphi(\Vec{x}\sub{2})\,\beta(2) \ -\ \varphi(\Vec{x}\sub{2})\,\alpha(2) \ \varphi(\Vec{x}\sub{1})\,\beta(1) \\
+&=\ \varphi(\Vec{x}\sub{1})\,\varphi(\Vec{x}\sub{2}) \Big(\alpha(1)\beta(2) \ -\ \alpha(2)\beta(1) \Big) \\
+&=\ \varphi(\Vec{x}\sub{1})\,\varphi(\Vec{x}\sub{2}) \Big(\alpha(1)\beta(2) \ -\ \beta(1) \alpha(2) \Big) \\
+&=\ \varphi\sub{1}(\Vec{x}\sub{1})\varphi\sub{1}(\Vec{x}\sub{2}) \Big( \ket{\alpha}\ket{\beta} - \ket{\beta}\ket{\alpha} \Big) \tag{1}
+</tex>
+
+　なるほど、以前に「<a href="./coupling4.html">スピンの合成</a>」の記事で求めたのと同じ形がちゃんと出てきた。
+　一重項状態というやつだ。
+
+<P>
+
+　次に、2 個の電子の空間軌道が異なる関数$ \varphi\sub{1} $と$ \varphi\sub{2} $とで表されていた場合について考えてみよう。
+
+<P>
+<center>
+<table border="1">
+<tr><td>$\varphi\sub{1}\,\alpha$</td><td>$\varphi\sub{2}\,\alpha$</td><td>$\phantom{\varphi\sub{3}\,\alpha}$</td></tr>
+<tr><td>$\phantom{\varphi\sub{3}\,\alpha}$</td><td></td><td></td></tr>
+</table>
+</center>
+<P>
+
+　反対称性は空間軌道の方で実現するつもりなのでスピンは同じでもいいと考えてみた。
+　これも同じように全体の状態を書いてみよう。
+
+<tex>
+\psi(\Vec{x}\sub{1},\Vec{x}\sub{2}) \ 
+&=\ \varphi\sub{1}(\Vec{x}\sub{1})\,\alpha(1) \ \varphi\sub{2}(\Vec{x}\sub{2})\,\alpha(2) \ -\ \varphi\sub{1}(\Vec{x}\sub{2})\,\alpha(2) \ \varphi\sub{2}(\Vec{x}\sub{1})\,\alpha(1) \\
+&=\ \Big( \varphi\sub{1}(\Vec{x}\sub{1})\,\varphi\sub{2}(\Vec{x}\sub{2}) \ -\ \varphi\sub{1}(\Vec{x}\sub{2})\, \ \varphi\sub{2}(\Vec{x}\sub{1}) \Big) \alpha(1) \alpha(2) \\
+&=\ \Big( \varphi\sub{1}(\Vec{x}\sub{1})\,\varphi\sub{2}(\Vec{x}\sub{2}) \ -\ \varphi\sub{1}(\Vec{x}\sub{2})\, \ \varphi\sub{2}(\Vec{x}\sub{1}) \Big) \ket{\alpha}\ket{\alpha} \tag{2}
+</tex>
+
+　スピン部分が非常に単純な形になっているが、そう言えばスピン三重項状態のうちの一つがこの形をしていたのだった。
+　スピン三重項状態には 3 通りの式があったが、あれは合成スピンの大きさが 1 で、その$ z $成分が 1, 0, -1 であるような 3 つの状態に対応していたのだった。
+　つまり、今回出てきた$ \ket{\alpha}\ket{\alpha} $というのは、合成スピンの$ z $軸成分が 1 の場合を意味している。
+
+<P>
+
+　スピン三重項の他の場合は作れないだろうか？
+　例えば次のようなものを考えればどうか？
+
+<P>
+<center>
+<table border="1">
+<tr><td>$\phantom{\varphi\sub{3}\,\alpha}$</td><td></td><td></td></tr>
+<tr><td>$\varphi\sub{1}\,\beta$</td><td>$\varphi\sub{2}\,\beta$</td><td>$\phantom{\varphi\sub{3}\,\alpha}$</td></tr>
+</table>
+</center>
+<P>
+
+　先ほどの計算の$ \alpha $の部分が$ \beta $になっただけなので、スピン部分が$ \ket{\beta}\ket{\beta} $となるから、
+合成スピンの$ z $軸成分が -1 の場合を意味している。
+
+<P>
+
+　残る一つはどうか？
+　合成スピンの$ z $軸成分が 0 の場合というのも作れるだろうか？
+　例えば次のようなものを試してみる。
+
+<P>
+<center>
+<table border="1">
+<tr><td>$\varphi\sub{1}\,\alpha$</td><td></td><td>$\phantom{\varphi\sub{3}\,\alpha}$</td></tr>
+<tr><td></td><td>$\varphi\sub{2}\,\beta$</td><td></td></tr>
+</table>
+</center>
+<P>
+
+　この二つの状態を反対称化したものを考えれば次のようになる。
+
+<tex>
+\psi(\Vec{x}\sub{1},\Vec{x}\sub{2}) \ 
+&=\ \varphi\sub{1}(\Vec{x}\sub{1})\,\alpha(1) \ \varphi\sub{2}(\Vec{x}\sub{2})\,\beta(2) \ -\ \varphi\sub{1}(\Vec{x}\sub{2})\,\alpha(2) \ \varphi\sub{2}(\Vec{x}\sub{1})\,\beta(1) \tag{3}
+</tex>
+
+　空間部分とスピン部分を分けることができていないが、残念ながらこれ以上の変形はできそうにもない。
+　本当は次のような結果が欲しかったのだ。
+
+<tex>
+\psi(\Vec{x}\sub{1},\Vec{x}\sub{2}) \ 
+&=\ \Big( \varphi\sub{1}(\Vec{x}\sub{1})\,\varphi\sub{2}(\Vec{x}\sub{2}) \ -\ \varphi\sub{1}(\Vec{x}\sub{2})\, \ \varphi\sub{2}(\Vec{x}\sub{1}) \Big) \Big( \ket{\alpha}\ket{\beta} + \ket{\beta}\ket{\alpha} \Big) \tag{4}
+</tex>
+
+　空間部分が電子の入れ替えに対して反対称である代わりに、スピン部分が電子の入れ替えに対して対称となっている。
+
+<P>
+
+　ここまでの考え方だけでは (4) 式のようなものは作れないのである。
+　こういう事態が発生すると途端に不安になってくる。
+　この考え方では、起こり得るあらゆる状態を網羅することが出来ていないのではないだろうか？
+　こんな考え方でハートリーフォック近似にスピンを取り入れたとしても不完全なのではないだろうか？
+
+<P>
+
+　こうなると (3) 式で表される状態は何を意味しているかというのも気になってくる。
+　どの教科書を読んでいても、空間部分とスピン部分を分離して考えるのが当たり前であるかのように話が進んでいる。
+　ところが、(3) 式のような状態はちゃんと反対称性を表現されていながらも、
+空間の状態とスピン状態が切り離せないような形になっている。
+　(3) 式のような状況も本当は現実には起こり得るのに、計算から除外されてしまっているのではないだろうか？
+
+<P>
+
+　このようなことが気になって、どの教科書の説明も不完全に思えて受け入れられなくなってしまった。
+
+<P>
+
+　しかしよくよく考えてみると、(3) 式というのはエンタングル状態の形に似ている。
+　そう思うと確かにそうなっていて、空間部分の状態とスピン状態とが絡み合っていて分離できないのである。
+　空間部分が$ \varphi\sub{1}(\Vec{x}\sub{1}) \, \varphi\sub{2}(\Vec{x}\sub{2}) $の時には
+必ずスピン状態が$ \alpha(1)\,\beta(2) $であって、
+空間部分が$ \varphi\sub{1}(\Vec{x}\sub{2})\, \varphi\sub{2}(\Vec{x}\sub{1}) $の時には
+必ずスピン状態が$ \alpha(2)\,\beta(1) $である、というような状態である。
+　具体的には、軌道角運動量とスピンとの間でエンタングルが発生しているような特殊な状態である。
+　なるほど、こういうのはよっぽどうまく工夫しないと現実には作れそうにない状態だから、
+普通の原子や分子の計算をする際には除外しても良さそうだ。
+
+<P>
+
+　残るは (4) 式のようなスピン三重項状態の一つがうまく作れない問題だが、
+わざわざ作る必要もないのではないだろうかという気もしてきた。
+　スピン三重項の 3 つの状態は、同一の状態を向きを変えて観察しただけのものなのだから、
+(2) 式のような状態だけを考えてやれば十分なのではなかろうか。
+
+<P>
+
+　結局は (1) 式と (2) 式だけ作り出せるような考え方で用は足りるというわけだ。
+
+% =======================================================================
+
+\section{}
+
+
+
+
+

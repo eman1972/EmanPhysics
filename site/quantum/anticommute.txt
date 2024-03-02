@@ -1,0 +1,304 @@
+\field{量子力学}
+\title{反交換関係}
+\comment{やはり交換関係こそが全てかも。}
+\prev{creat_op}
+\next{heisenberg}
+\create{2012/5/5}
+\modify{}
+
+
+
+\section{交換関係からスタート}
+
+　前回は次のような交換関係を持つ二つの演算子$ \hat{a} $と$ \hat{a}^{\dagger} $の性質について説明した。
+
+<tex>
+[\, \hat{a}\ \ ,\ \hat{a}^{\dagger} ] \ =\ 1 \\
+[\, \hat{a}\ \ ,\ \hat{a}\ ] \ =\ 0 \\
+[\, \hat{a}^{\dagger} \ ,\ \hat{a}^{\dagger} ] \ =\ 0
+</tex>
+
+　今回は別のタイプの演算子$ \hat{c} $と$ \hat{c}^{\dagger} $について考えてみよう。
+　これらは上に書いた関係を少しだけ変更した次のような関係に従うものだとする。
+
+<tex>
+\{\, \hat{c}\ \ ,\ \hat{c}^{\dagger} \} \ =\ 1 \tag{1} \\
+\{\, \hat{c}\ \ ,\ \hat{c}\ \} \ =\ 0 \tag{2} \\
+\{\, \hat{c}^{\dagger} \ ,\ \hat{c}^{\dagger} \} \ =\ 0 \tag{3}
+</tex>
+
+　ここで使っている$ \{ A, B \, \} $というカッコは次のような意味である。
+
+<tex>
+\{ A, B \, \} \ \equiv \ AB + BA
+</tex>
+
+　ここまで使ってきた交換関係の定義とは符号が違っている。
+　この関係を「\red{反交換関係}」と呼ぶ。
+
+<P>
+
+　(1) ～ (3) 式の関係からどんな事実が導かれるだろうか。
+
+% =======================================================================
+
+\section{状態は二つだけ}
+
+　前回は$ \hat{a} $や$ \hat{a}^\dagger $が具体的にどんなものであるかについて、
+さかのぼって考える事のできる状況で話を始めた。
+　それは調和振動子の問題を解くことに関連していたからだ。
+　しかし今回の$ \hat{c} $や$ \hat{c}^{\dagger} $についてはまだその正体は不明である。
+　しばらくはただ (1) ～ (3) 式の性質だけから導かれる内容について考えることに集中しよう。
+
+<P>
+
+　前回と同じ流れで話を進めたら対応がついて分かりやすいかとも思ったのだが、それはやめることにした。
+　前回とは状況が違っている部分があるので、まずはそこをはっきりさせておいた方が良いだろう。
+
+<P>
+
+　(2) 式は$ \hat{c} \, \hat{c} = 0 $と同じ意味である。
+　これはどんな状態$ |x\rangle $に対しても、$ \hat{c} $を二度以上続けて作用させれば 0 になることを表している。
+　同様に (3) 式からは$ \hat{c}^{\dagger} $も二度以上続けて作用させれば 0 になることが読み取れる。
+　もし前回と同じ手順で説明すると、途中で$ \hat{c} \, \hat{c} $となる部分が出てきてしまって 0 になる。
+　この話の結論を知っていればそれでもいいのだが、そうでない場合、その意味を掴み損ねるかも知れない。
+　あるいは説明が強引になってしまうのではないかと心配しているのだ。
+
+<P>
+
+　さて、前回と同じように次のような演算子$ \hat{N} $を定義してやる。
+
+<tex>
+\hat{N} \ =\ \hat{c}^{\dagger} \, \hat{c}
+</tex>
+
+　前回はこれを個数演算子と呼んでいたが、今回も同じ名前で呼ばれる運命にある。
+　しかし今はそれを忘れて、ただこのように定義されただけの謎の演算子だと考えていてほしい。
+　次のような計算をすると$ \hat{N} $の性質を良く知ることができる。
+
+<tex>
+(\hat{N})^2 \ =\ \hat{c}^{\dagger} \, \hat{c} \, \hat{c}^{\dagger} \, \hat{c}
+\ =\ \hat{c}^{\dagger} \, ( 1 -  \hat{c}^{\dagger} \, \hat{c} ) \, \hat{c}
+\ =\ \hat{c}^{\dagger} \, \hat{c} \ -\ \hat{c}^{\dagger} \, \hat{c}^{\dagger} \, \hat{c} \, \hat{c}
+\ =\ \hat{c}^{\dagger} \, \hat{c} 
+\ =\ \hat{N}
+</tex>
+
+<tex>
+&\therefore\ \hat{N}^2 \ =\ \hat{N} \\
+&\therefore\ \hat{N} \, (\hat{N} - 1) \ =\ 0 
+</tex>
+
+　これはつまり$ \hat{N} $が何かの状態$ |x\rangle $に作用した時には
+
+<tex>
+\hat{N} |x\rangle \ =\ 1 |x\rangle
+</tex>
+
+となるか、
+
+<tex>
+\hat{N} |x\rangle \ =\ 0 |x\rangle
+</tex>
+
+となるかのいずれかしかないということである。
+　言葉を変えて言えば「$ \hat{N} $の固有値は 0 か 1 かのどちらかである」ということだ。
+　固有値が 0 になる固有状態を$ |0\rangle $、固有値が 1 となる固有状態を$ |1\rangle $で表すことにしよう。
+
+<tex>
+\hat{N} |0\rangle \ &=\ 0 \, |0\rangle \ =\ 0 \\
+\hat{N} |1\rangle \ &=\ 1 \, |1\rangle \ =\ |1\rangle
+</tex>
+<P>
+
+　さらに$ |0\rangle $と$ |1\rangle $のどちらも、大きさが 1 のベクトルだということに決めておこう。
+　規格化というやつである。
+　自身との内積を取ればどちらも 1 だということだ。
+
+<tex>
+\langle 0 | 0 \rangle \ &=\ 1 \\
+\langle 1 | 1 \rangle \ &=\ 1
+</tex>
+
+　異なる固有値に属する固有状態は直交するので、次の関係も言える。
+
+<tex>
+\langle 1 | 0 \rangle \ &=\ 0 \\
+\langle 0 | 1 \rangle \ &=\ 0
+</tex>
+
+
+% =======================================================================
+
+\section{固有値の上げ下げ}
+
+　次に、これらの状態$ |0\rangle $や$ |1\rangle $に
+演算子$ \hat{c} $や$ \hat{c}^{\dagger} $を作用させた時に何が起こるかを考えてみよう。
+　4 通り考えなくてはならぬだろうが、まずはその一つから。
+　次の式を見てもらいたい。
+
+<tex>
+\hat{N} \Big(\hat{c}^{\dagger} |0\rangle \Big) \ =\ c^{\dagger} cc^{\dagger}  |0\rangle = c^{\dagger} (1 - c^{\dagger} c) |0\rangle = (c^{\dagger}  - c^{\dagger} c^{\dagger} c) |0\rangle = c^{\dagger}  |0\rangle \\
+</tex>
+
+<tex>
+\therefore \ \hat{N} \Big( c^{\dagger}  |0\rangle \Big) = 1 \Big( c^{\dagger}  |0\rangle \Big)
+</tex>
+
+　これは$ |0\rangle $に$ \hat{c}^{\dagger} $を作用させたことで出来る
+$ \hat{c}^{\dagger} |0\rangle $というベクトルが$ \hat{N} $の固有ベクトルになっており、
+その固有値は 1 だということだ。
+　つまり、$ \hat{c}^{\dagger} |0\rangle $は$ |1\rangle $と同じものだと言えないだろうか？
+
+<P>
+
+　そう結論するのはまだ早い。
+　もし$ \hat{c}^{\dagger} |0\rangle $が 0 であっても上の式は成り立つからだ。
+　$ \hat{c}^{\dagger} |0\rangle $が 0 でないことを確かめておこう。
+　内積を計算すればいいんだ。
+
+<tex>
+\Big( \langle 0 | \hat{c} \Big) \Big( \hat{c}^{\dagger} |0\rangle \Big)
+\ =\ \langle 0 | \hat{c} \, \hat{c}^{\dagger} |0\rangle 
+\ =\ \langle 0 | ( 1 - \hat{c}^{\dagger} \hat{c} ) |0\rangle 
+\ =\ \langle 0 | ( 1 - \hat{N} ) |0\rangle 
+\ =\ \langle 0 | 0\rangle 
+</tex>
+
+　なーんだ、$ \hat{c}^{\dagger} |0\rangle $の大きさは$ | 0\rangle $の大きさと同じ。
+　つまり 1 じゃないか。
+　0 じゃない。
+　ということは、やはり$ \hat{c}^{\dagger} |0\rangle $は$ |1\rangle $と同じものであり、
+大きさも同じであるから次のように書ける。
+
+<tex>
+|1\rangle \ =\ \hat{c}^{\dagger} |0\rangle
+</tex>
+
+　他の組み合わせも同じように行ってみよう。
+
+<tex>
+\hat{N} \Big( \hat{c} \, |1\rangle \Big) \ =\ \hat{c}^{\dagger} \hat{c} \, \hat{c} \, |0\rangle \ =\ 0
+</tex>
+
+　いきなり終わってしまった。
+　これでは$ \hat{c} \, |1\rangle $が 0 になってしまうせいでこうなるのか、
+ただ$ \hat{N} $の固有値としての 0 が飛び出して来たせいで全体が 0 になっているのかが分からない。
+　$ \hat{c} \, |1\rangle $が 0 なのかどうか、内積を取って調べてみよう。
+
+<tex>
+\Big( \langle 1 | \hat{c}^{\dagger} \Big) \Big( \hat{c} \, |1\rangle \Big)
+\ =\ \langle 1 | \hat{c}^{\dagger} \hat{c} |1\rangle 
+\ =\ \langle 1 | \hat{N} |1\rangle 
+\ =\ \langle 1 | 1 |1\rangle 
+\ =\ \langle 1 | 1 \rangle 
+</tex>
+
+　0 ではない。
+　ということは、$ \hat{c} \, |1\rangle $に$ \hat{N} $を作用させたときの固有値が 0 なのである。
+　つまり$ \hat{c} \, |1\rangle $は$ |0\rangle $に等しいというわけだ。
+
+<tex>
+|0\rangle \ =\ \hat{c} \,|1\rangle
+</tex>
+
+　このように$ |0\rangle $に$ \hat{c}^{\dagger} $を作用させると$ \hat{N} $の固有値が 1 つ増えたベクトル$ |1\rangle $になり、
+$ |1\rangle $に$ \hat{c} $を作用させると$ \hat{N} $の固有値が 1 つ減ったベクトル$ |0\rangle $になる。
+　$ \hat{N} $の固有値が粒子数を表しているとみなして議論する状況が今後でてくるが、
+そこでは$ \hat{c}^{\dagger} $や$ \hat{c} $が粒子の増減を操作する演算子として使われるのである。
+　それで、$ \hat{c}^{\dagger} $を生成演算子と呼び、$ \hat{c} $を消滅演算子と呼ぶ。
+　固有状態が二つきりしかないこと以外は前回と同じだ。
+
+<P>
+
+　粒子数が 0 か 1 しかない体系というのは使い道があるものだろうか？
+　実はフェルミ粒子を表すのに使えるのである。
+　フェルミ粒子は一つの状態に一つの粒子しか存在し得ないのだった。
+　一つの状態だけを見ている時に、そこに「あるか」「ないか」だけで表される存在なのだ。
+　今の話はぴったり当てはまる。
+
+<P>
+
+　さて、まだ確かめてない組み合わせがある。
+　例えば、$ |0\rangle $に$ \hat{c} $を作用させれば
+$ \hat{c} \, |0\rangle \ =\ \hat{c} \, \hat{c} \, | 1 \rangle $であり、
+同じ演算子を繰り返して作用させれば 0 になることは最初に言った通りである。
+　このように簡単に結論に達するわけだが、念の為に別の方法でも確かめておこう。
+　$ \hat{c} \, |0 \rangle $の内積を見てみればいい。
+
+<tex>
+\Big( \langle 0 | \hat{c}^{\dagger} \Big) \Big( \hat{c} |0\rangle \Big)
+\ =\ \langle 0 | \hat{c}^{\dagger} \hat{c} |0 \rangle 
+\ =\ \langle 0 | \hat{N} |0 \rangle 
+\ =\ \langle 0 | 0 |0 \rangle 
+\ =\ 0
+</tex>
+
+　ほらね。
+
+<P>
+
+　確かめておくべき最後の組み合わせは$ |1\rangle $に$ \hat{c}^{\dagger} $を作用させた場合だが、これも同じだ。
+　$ \hat{c}^{\dagger} |1\rangle \ =\ \hat{c}^{\dagger} \hat{c}^{\dagger} | 0 \rangle \ =\ 0 $となることが
+すぐに分かるが、念の為に内積を取って確かめてみても同じ結果である。
+
+<tex>
+\Big( \langle 1 | \hat{c} \Big) \Big( \hat{c}^{\dagger} |1\rangle \Big)
+\ =\ \langle 1 | \hat{c} \, \hat{c}^{\dagger} |1 \rangle 
+\ =\ \langle 1 | (1 - \hat{c}^{\dagger} \hat{c}) |1 \rangle 
+\ =\ \langle 1 | (1 - \hat{N}) |1 \rangle 
+\ =\ \langle 1 | 0 |1 \rangle 
+\ =\ 0
+</tex>
+
+　このように$ \hat{N} $の固有値を無理やり 1 より上げようとしても、0 より下げようとしても、
+ベクトル自体が 0 になってしまうのである。
+
+% =======================================================================
+
+\section{具体例}
+
+　今回の生成演算子や消滅演算子には具体的なイメージはあるだろうか。
+　$ \hat{N} $の固有値が二つしかないというのだから、
+最も単純な例としては 2 次の行列の固有値の話に結び付ければ良さそうだ。
+
+<P>
+
+　$ \hat{N} $が 2 次の行列だと考えると、$ \hat{c} $や$ \hat{c}^{\dagger} $も 2 次の行列であるはずだ。
+　それくらい単純なら、今回の条件に合うような行列を計算で見つけるのも難しくはないだろう。
+　（とは言っても多少は面倒だが・・・）
+　その中でも最も単純なものを挙げておこう。
+
+<tex>
+\hat{c} \ =\ \left(
+\begin{array}{cc}
+0 & 0 \\
+1 & 0 
+\end{array}
+\right) 
+\ \ \ \ \ \ 
+\hat{c}^{\dagger} \ =\ \left(
+\begin{array}{cc}
+0 & 1 \\
+0 & 0 
+\end{array}
+\right)
+\ \ \ \ \ \ 
+|1\rangle \ =\ \left(
+\begin{array}{c}
+1 \\
+0 
+\end{array}
+\right)
+\ \ \ \ \ \ 
+|0\rangle \ =\ \left(
+\begin{array}{c}
+0 \\
+1 
+\end{array}
+\right)
+</tex>
+
+　こういうのは参考程度に過ぎないが、
+分かりやすい具体例がちゃんとあると知るだけで安心できるだろう。
+

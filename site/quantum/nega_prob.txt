@@ -1,0 +1,194 @@
+\field{量子力学}
+\title{負の確率密度の解決}
+\comment{小細工は要らない。}
+\prev{4-spinor2}
+\next{dirac_sea}
+\create{2006/8/22}
+\modify{}
+
+
+
+\section{今回の記事の目的}
+
+　クライン・ゴルドン方程式には、確率密度が負になってしまうという困難があったのだった。
+　ディラック方程式ではどうだろうか。
+　結論を言ってしまえば、そのような問題は消えてしまっているのである。
+　何の小細工も必要ない。
+　前にもやったのとほぼ同じ方法で確率流密度を計算してやれば分かる。
+
+<P>
+
+　前にもやった方法というのは、
+「<a href="./current.html">確率流密度</a>」の最後の節、
+あるいは「<a href="./klein_gordon.html">クライン・ゴルドン方程式</a>」の最後の節に書いてあるので、
+思い出せない人はそこを参考にしてほしい。
+　「ほぼ同じ方法」と書いたのは、少しだけ違う部分があるからである。
+　\red{複素共役を取る代わりに、エルミート共役を取ることになる。}
+　ベクトルで表されたもの同士の内積を取るにはそうする必要があるのだった。
+　そのことについては「<a href="./spinor2.html">スピノルⅡ（形式重視）</a>」の記事の最後の節ですでに説明してある。
+
+<P>
+
+　今回の内容はたったそれだけのことで、
+普通の教科書では読者用の軽い練習問題として省略される程度の話である。
+　しかしここでは計算過程を見て、
+これまでの計算とちょっと変わった雰囲気を一緒に楽しもうじゃないか。
+
+
+% =======================================================================
+
+\section{確率流れの保存}
+
+　まず普通のディラック方程式を書いておこう。
+　無用な混乱を避けるために簡略表記しない形式のものを用意した。
+
+<tex>
+i \hbar \pdif{}{t} \phi \ =\ \left\{ -i\hbar c \left( \alpha_x \pdif{}{x} + \alpha_y \pdif{}{y} + \alpha_z \pdif{}{z} \right) + \beta mc^2 \right\} \phi \tag{1}
+</tex>
+
+　次にこの式のエルミート共役を取ったものを作る。
+
+<tex>
+-i \hbar \pdif{}{t} \phi^{\dagger} \ =\ i\hbar c \left( \pdif{}{x}\phi^{\dagger} \alpha_x + \pdif{}{y}\phi^{\dagger} \alpha_y + \pdif{}{z}\phi^{\dagger} \alpha_z \right) + \phi^{\dagger} \beta mc^2 \tag{2}
+</tex>
+
+　波動関数$ \phi $はベクトルなので、エルミート共役を取ると掛ける順序も変わるという点が、
+これまでとは見た目大きく違う。
+　$ \alpha $や$ \beta $についてもエルミート共役を取っているのだが、
+これらはエルミート行列だったのだから変化していないように見える。
+　微分演算子は$ \phi $に作用するものなので、ひとかたまりのものとして扱わなければならない。
+　このことが式の形を複雑なものにしている。
+
+<P>
+
+　次に、(1) 式に$ \phi^{\dagger} $を左から掛け、(2) 式には右から$ \phi $を掛ける。
+　$ \phi $が縦ベクトル、$ \phi^{\dagger} $が横ベクトルであることから、このように掛ける順序にも気をつかう必要がある。
+　(2) 式の両辺には -1 も掛けておこう。
+
+<tex>
+i \hbar \phi^{\dagger} \pdif{}{t} \phi                \ &=\ -i\hbar c\ \phi^{\dagger} \left( \alpha_x \pdif{}{x} + \alpha_y \pdif{}{y} + \alpha_z \pdif{}{z} \right) \phi + \phi^{\dagger} \beta mc^2 \phi \\
+i \hbar \left( \pdif{}{t} \phi^{\dagger} \right) \phi \ &=\ -i\hbar c                \left( \pdif{}{x}\phi^{\dagger} \alpha_x + \pdif{}{y}\phi^{\dagger} \alpha_y + \pdif{}{z}\phi^{\dagger} \alpha_z \right) \phi - \phi^{\dagger} \beta mc^2 \phi
+</tex>
+
+　これらの両辺を足し合わせると、左辺が簡単になるし、右辺の$ \beta mc^2 $の項も消えてくれて嬉しい。
+
+<tex>
+i \hbar \pdif{}{t} \left( \phi^{\dagger} \phi \right) 
+\ =\ &-i\hbar c\ \phi^{\dagger} \left( \alpha_x \pdif{}{x} + \alpha_y \pdif{}{y} + \alpha_z \pdif{}{z} \right) \phi \\
+     &-i\hbar c                 \left( \pdif{}{x}\phi^{\dagger} \alpha_x + \pdif{}{y}\phi^{\dagger} \alpha_y + \pdif{}{z}\phi^{\dagger} \alpha_z \right) \phi
+</tex>
+
+　こうなると両辺の$ i\hbar $も消せるし、右辺も次のようにまとめる事ができる。
+
+<tex>
+\pdif{}{t} \left( \phi^{\dagger} \phi \right) 
+\ =\ - c \left\{   \pdif{}{x} \left(\phi^{\dagger} \alpha_x \phi \right) 
+              + \pdif{}{y} \left(\phi^{\dagger} \alpha_y \phi \right) 
+              + \pdif{}{z} \left(\phi^{\dagger} \alpha_z \phi \right) \right\}
+</tex>
+
+　この形式は「確率の保存の式」に非常に似た形になっている。
+　実際に、
+
+<tex>
+\rho \ &=\ \phi^{\dagger} \phi \\
+\Vec{j} \ &=\ c \ \Big(\ \phi^{\dagger} \alpha_x \phi\ ,\ \ \phi^{\dagger} \alpha_y \phi\ ,\ \ \phi^{\dagger} \alpha_z \phi\ \Big)
+</tex>
+
+と置けば、
+
+<tex>
+\pdif{\rho}{t} \ =\ - \Div\, \Vec{j}
+</tex>
+
+が成り立っている。
+　相対論的な形式に書きたければ、
+
+<tex>
+\Vec{j} \ =\ (\ \rho c\ ,\ \ j_x\ ,\ \ j_y\ ,\ \ j_z\ )
+</tex>
+
+と置く事で、
+
+<tex>
+\partial_i\, j^{\,i} \ =\ 0
+</tex>
+
+が成り立っていると言える。
+
+
+% =======================================================================
+
+\section{確率密度}
+
+　以上の結果により、ディラック方程式の場合の確率密度は
+
+<tex>
+\rho \ &=\ \phi^{\dagger} \phi \\
+&=\ \Big( \phi_1^{\ast}\ \ \phi_2^{\ast} \ \ \phi_3^{\ast} \ \ \phi_4^{\ast} \Big)
+\left(
+\begin{array}{c}
+\phi_1 \\ \phi_2 \\ \phi_3 \\ \phi_4 \\
+\end{array}
+\right) \\[3pt]
+&=\ |\phi_1|^2 \ +\ |\phi_2|^2 \ +\ |\phi_3|^2 \ +\ |\phi_4|^2
+</tex>
+
+だと考えておけば問題が生じないことが分かる。
+　見て分かるようにこの値が負になることは決してない。
+
+<P>
+
+　シュレーディンガー方程式の場合には
+波動関数の絶対値の 2 乗が粒子の存在確率を表していたが、
+今回得た確率密度の定義はそれによく似ており、
+心情的にも非常に受け入れ易い形式である。
+
+<P>
+
+　一方、以前にクライン・ゴルドン方程式について同じ事をした時には、
+確率密度がややこしい形になってしまって、
+具体的に波動関数を代入してみる以外に妥当性を確かめようがなかったのだった。
+　そうすると、エネルギーと確率密度に比例関係が出てきてしまって、
+負エネルギーを認める限り、負の確率というものが出てきてしまうのだった。
+　負エネルギーが出てくるという点はディラック方程式でも変わらないが、
+今回は負エネルギーを認めても確率密度の符号には影響しないのである。
+
+
+
+
+
+% =======================================================================
+
+\section{おまけ}
+
+　今回のように一旦全て展開してしまって計算するやり方は幼稚に見えるし、
+スペースも無駄になってしまうので、
+多くの教科書ではもっとスマートな表記を工夫している。
+
+<P>
+
+　例えば初めのディラック方程式とそのエルミート共役は、
+
+<tex>
+ i \hbar \pdif{}{t} \phi           \ &=\                \left\{ -i\hbar c \Big( \Vec{\alpha}\cdot\nabla \Big) + \beta mc^2 \right\} \phi \\
+-i \hbar \pdif{}{t} \phi^{\dagger} \ &=\ \phi^{\dagger} \left\{  i\hbar c \left( \Vec{\alpha}\cdot\overleftarrow{\nabla} \right) + \beta mc^2 \right\}
+</tex>
+
+のように書き表すことができる。
+　ここに出て来た「$ \overleftarrow{\nabla} $」という記号は、
+「左側にある関数に対して演算する」という特殊な記号である。
+　やっている内容は上でやったのと全く同じなのだが、
+この方がシンプルでかっこいいだろう？
+　エルミート共役を取ったことで順序が入れ替わったことを強調しつつ、
+式の形を崩さずにひとまとめに表す事ができる。
+
+<P>
+
+　表記はシンプルになったが、頭の中で考えるべき事は結局同じであって、
+計算が楽になるわけではない。
+　むしろ初心者は見慣れぬ記号の出現に大混乱なわけだが、
+「それくらい、自分の手で一度計算してみたら分かるだろ？」と
+言われればその通りであって、返す言葉も無い。
+
+

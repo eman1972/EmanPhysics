@@ -1,0 +1,63 @@
+\field{量子力学}
+\title{動径波動関数の解き方(3)}
+\comment{規格化定数の計算です。}
+\prev{atom}
+\next{cat}
+\create{2004/10/6}
+\modify{}
+
+
+\section{}
+
+　前回求めた動径波動関数$ R(r) $の規格化定数$ A $を計算する話である。
+
+<P>
+
+　関数$ R(r) $は次のような形をしていることが分かったのだった。
+
+<tex>
+R(r) \ =\ A \, \exp\left( -\frac{Zr}{nr\sub{0}} \right) \ \left(\frac{2Z\, r}{nr\sub{0}} \right)^{l} \ L^{2l+1}_{n+l}\left( \frac{2Z\, r}{nr\sub{0}} \right) \tag{31}
+</tex>
+
+　この$ r $は極座標の動径座標を表していて、この波動関数$ R(r) $の絶対値の 2 乗を空間全域で積分したときに 1 になるようにしたいのである。
+
+<tex>
+\int_0^\infty |R(r)|^2 \, r^2 \diff r \ =\ 1
+</tex>
+
+　幸いにして$ R(r) $は実数関数なので絶対値の 2 乗のところはただの 2 乗で構わない。
+しかしこれをいきなり計算しようとするとややこしすぎるので、まずは簡単な公式を作るところから始めたい。
+(1) 式には指数関数や$ r $の冪乗も含まれているので、この状況を一般的に表せるような次のような計算をやってみよう。
+公式を作る話と実際の問題に当てはめる話をはっきり分けるために、変数は$ r $ではなくて$ x $を使うことにする。
+
+<tex>
+\int_0^\infty e^{-x} \, x^p \, \Big[ L^s_t(x) \Big]^2 \diff x
+</tex>
+
+　あとで積分変数の変換をおこなってつじつまを合わせる予定である。
+ラゲールの陪多項式$ L^s_t(x) $が次のように表せるということを前提としよう。
+
+<tex>
+L^s_t(x) \ \equiv\ \dif{^s}{x^s} \left[ e^x \dif{^t}{x^t} \left(x^t e^{-x} \right) \right] 
+</tex>
+
+　つまり、次のような積分を実行することになる。
+
+<tex>
+\int_0^\infty e^{-x} \, x^p \, \dif{^s}{x^s} \left[ e^x \dif{^t}{x^t} \left(x^t e^{-x} \right) \right] \, \dif{^s}{x^s} \left[ e^x \dif{^t}{x^t} \left(x^t e^{-x} \right) \right] \diff x
+</tex>
+
+　部分積分を行ってみる。
+
+<tex>
+=\ &\bigg[ \dif{^{s-1}}{x^{s-1}} \left[ e^x \dif{^t}{x^t} \left(x^t e^{-x} \right) \right] \bigg]_0^\infty \\
+&\ \ \ -\ \int_0^\infty e^{-x} \, x^p \, \dif{^s}{x^s} \left[ e^x \dif{^t}{x^t} \left(x^t e^{-x} \right) \right] \, \dif{^s}{x^s} \left[ e^x \dif{^t}{x^t} \left(x^t e^{-x} \right) \right] \diff x
+</tex>
+
+
+
+% =======================================================================
+
+\section{おおよその振る舞いを確かめる}
+
+

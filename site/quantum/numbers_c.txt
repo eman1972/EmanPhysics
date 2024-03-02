@@ -1,0 +1,152 @@
+\field{量子力学}
+\title{演算子の計算例}
+\comment{「量子数の意味」の記事中で略した計算の説明。}
+\prev{numbers}
+\next{}
+\create{2011/10/29}
+\modify{}
+
+
+\section{この記事の目的}
+
+
+　「<a href="./numbers.html">量子数の意味</a>」という記事の中で
+
+<tex>
+L^2 \ =\ L_x^2 + L_y^2 + L_z^2
+</tex>
+
+という式が出てきたが、これを極座標で計算する部分を「中略」としていた。
+　この手順を丁寧に示そうとすると元の話の流れを忘れてしまうほどに長くなるからだ。
+　この記事ではその計算のやり方を解説する。
+
+<P>
+
+　各演算子を極座標で表したものはそのページの上の方に書かれているので、
+それらを探してこの式に代入して 2 乗してコツコツと計算を進めていけば良いだけである。
+
+<P>
+
+　しかし演算子を 2 乗したときにどう扱えばいいのか、というのが分かっていないとすぐに行き詰まる。
+　それさえ理解できればあとは自力でなんとか計算できるだろう。
+　今回の記事ではそこを理解することに集中しようと思う。
+
+<P>
+
+　全て計算して完全な結果を得るところまでやると無駄に長くなるので、
+この中の項の一つである$ {\hat{L}_x}^2 $を例にとって説明しよう。
+
+% =======================================================================
+
+\section{原子の全角運動量}
+
+
+　$ \hat{L}_x $を極座標で表したものは
+
+<tex>
+\hat{L}_x \ =\ i\hbar \left( \sin \phi \pdif{}{\theta} \ +\ \cot \theta \cos \phi \pdif{}{\phi} \right) 
+</tex>
+
+となっているから、それを 2 乗した$ {\hat{L}_x}^2 $は、
+
+<tex>
+{\hat{L}_x}^2 \ =\ -\hbar^2 \left( \sin \phi \pdif{}{\theta} \ +\ \cot \theta \cos \phi \pdif{}{\phi} \right) \left( \sin \phi \pdif{}{\theta} \ +\ \cot \theta \cos \phi \pdif{}{\phi} \right)
+</tex>
+
+となる。
+　ここまで分かるかな。
+　前半のカッコの中にある演算子は後半のカッコの中にある変数にも作用することになるのでややこしい。
+
+<P>
+
+　次にやることは、このカッコの展開だ。
+　ただし、順序を変えないようにしなくちゃならない。
+　思い込みで形の似たパーツを寄せたりして整理してはいけない。
+　演算子は作用させる順序によって結果が変わるからだ。
+　こういうことである。
+
+<tex>
+&\sin \phi \pdif{}{\theta} \sin \phi \pdif{}{\theta}\ \ +\ \ \sin \phi \pdif{}{\theta} \cot \theta \cos \phi \pdif{}{\phi} \\
+&\ +\ \ \cot \theta \cos \phi \pdif{}{\phi} \sin \phi \pdif{}{\theta} \ \ +\ \ \cot \theta \cos \phi \pdif{}{\phi} \cot \theta \cos \phi \pdif{}{\phi}
+</tex>
+
+　全部やるのは大変なので、この 4 つの項の内ひとつだけ選んで計算例を示すことにしよう。
+　それで計算方法が分かってもらえるのではなかろうか。
+
+<P>
+
+　第 2 項を選ぶことにしよう。
+　パーツがみんな違うから、説明が誤解されなくて済みそうだという理由である。
+
+<tex>
+\sin \phi \pdif{}{\theta}\ \cot \theta \cos \phi \pdif{}{\phi}
+</tex>
+
+　この中の $ \pdif{}{\theta} $ はそれより右側のすべてに作用する。
+　次のような意味だ。
+
+<tex>
+\sin \phi \pdif{}{\theta} \left( \cot \theta \cos \phi \pdif{}{\phi} \right)
+</tex>
+
+　ところが演算子というのは何らかの関数に作用することを前提に計算してるので、
+この式の右側にあるはずの関数が省略されてると考えるべきである。
+　慣れてしまえばこんなことしなくても計算できるようになるのだけれど、
+ここではそれをわざわざ書いてみよう。
+
+<tex>
+\sin \phi \pdif{}{\theta} \left( \cot \theta \cos \phi \pdif{}{\phi} \right) f(\theta, \phi)
+</tex>
+
+　つまり、この式は、 $ f(\theta,\phi) $ にカッコの中身が作用して、
+さらにその結果に対して $ \pdif{}{\theta} $ が作用するという意味。
+
+　だから次のように書いたほうが分かりやすいか。
+
+<tex>
+\sin \phi \pdif{}{\theta} \left( \cot \theta \cos \phi \left[ \pdif{}{\phi} f(\theta, \phi) \right] \right) 
+</tex>
+
+　つまり、カッコ内にある $ \cot \theta $ と $ \left[ \pdif{}{\phi} f(\theta, \phi) \right] $ の二つが $ \theta $ の関数だから、
+カッコの左にある $ \pdif{}{\theta} $ は、この二つを相手にする。
+　 $ \cos \phi $ はただの定数のように素通りして良い。
+　積の微分の公式は高校で学ぶから知ってるだろう。
+　次のようなやつだ。
+
+<tex>
+\{f(x)g(x)\}' \ =\ f'(x)g(x) \ +\ f(x)g'(x) 
+</tex>
+
+　ここで同じ事をする。
+
+<tex>
+\sin \phi \bigg\{ \left( \pdif{}{\theta} \cot \theta \right)\cos \phi \left[ \pdif{}{\phi} f(\theta, \phi) \right]\ +\ \cot \theta \cos \phi \pdif{}{\theta} \left[ \pdif{}{\phi} f(\theta, \phi) \right] \bigg\}
+</tex>
+
+　 $ \cot \theta $ の微分は公式集によると $ -1/\sin^2 \theta $ なので、ちょちょいと整理。
+
+<tex>
+\sin \phi \bigg\{ - \frac{1}{\sin^2 \theta} \cos \phi \left[ \pdif{}{\phi} f(\theta, \phi) \right]\ +\ \cot \theta \cos \phi \frac{\partial}{\partial \theta \, \partial \phi} f(\theta, \phi) \bigg\}
+</tex>
+
+　もう少し整理して、 $ f(\theta,\phi) $ を取っ払ってしまえば出来上がり、と。
+
+<tex>
+- \frac{\sin \phi \, \cos \phi}{\sin^2 \theta} \pdif{}{\phi} \ +\ \cot \theta \, \sin \phi \, \cos \phi \frac{\partial}{\partial \theta \, \partial \phi} 
+</tex>
+
+　もう少し綺麗にまとまるかな。
+
+<tex>
+\sin \phi \, \cos \phi \left( - \frac{1}{\sin^2 \theta} \pdif{}{\phi} \ +\ \cot \theta \frac{\partial}{\partial \theta \, \partial \phi} \right) 
+</tex>
+
+　この調子で残りの 3 つの項も計算してまとめれば、やっと$ {\hat{L}_x}^2 $の出来上がりだ。
+　同様に$ {\hat{L}_y}^2 $と$ {\hat{L}_z}^2 $もやれば全体が完成する。
+
+<P>
+
+　ややこしく見えるかも知れないが、ほとんどが説明の準備としてカッコを付けたり
+$ f(\theta, \phi) $を入れてみたりして分かり易く書き換える作業だったので、本来は要らない行程である。
+　$ f(\theta, \phi) $みたいなものはなるべく書かなくても計算できるように早めに慣れるようにしよう。
+

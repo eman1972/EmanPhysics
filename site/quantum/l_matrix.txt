@@ -1,0 +1,593 @@
+\field{量子力学}
+\title{角運動量の行列表現}
+\comment{角運動量の話を第 3 部に持ってきた理由はここにある。}
+\prev{numbers}
+\next{spin}
+\create{2005/10/18}
+\modify{}
+
+
+
+\section{交換関係}
+
+　ここまで描いてきた角運動量のイメージを補うために、
+数学の助けを借りることにしよう。
+
+<P>
+
+　まずは角運動量の演算子の交換関係を調べることから始める。
+　大抵の教科書では真っ先にやることではあるが、
+私の場合、今回の話でどうしても必要になるから仕方なく導いておくのである。
+
+<P>
+
+　交換関係を求める事は以前に「<a href="./uncertainty.html">不確定性原理</a>」のところでもやったが、忘れているかもしれないので、一つだけ丁寧に計算例を示しておこう。
+
+<tex>
+( \hat{L}_x \hat{L}_y - \hat{L}_y \hat{L}_x ) \psi
+\ &=\ \left[(-i\hbar)\left(y\pdif{}{z} - z\pdif{}{y}\right)(-i\hbar)\left(z\pdif{}{x} - x\pdif{}{z}\right) \right. \\
+   &\ \ \ \ \ \ \ \ \ \left. - (-i\hbar)\left(z\pdif{}{x} - x\pdif{}{z}\right)(-i\hbar)\left(y\pdif{}{z} - z\pdif{}{y}\right) \right] \psi \\[12pt]
+&=\ - \hbar^2 \left[ y\pdif{}{z} \left(z\pdif{}{x} - x\pdif{}{z}\right) - z\pdif{}{y}\left(z\pdif{}{x} - x\pdif{}{z}\right) \right]\psi \\
+&\ \ \ \ \ \ \ \ \ \ \ +\ \hbar^2 \left[ z\pdif{}{x} \left(y\pdif{}{z} - z\pdif{}{y}\right) - x\pdif{}{z}\left(y\pdif{}{z} - z\pdif{}{y}\right) \right]\psi \\[12pt]
+&=\ - \hbar^2 \left[ y\pdif{}{z} z\pdif{}{x} - y\pdif{}{z} x\pdif{}{z} - z\pdif{}{y} z\pdif{}{x} + z\pdif{}{y} x\pdif{}{z} \right]\psi \\
+&\ \ \ \ \ \ \ \ \     \ +\ \hbar^2 \left[ z\pdif{}{x} y\pdif{}{z} - z\pdif{}{x} z\pdif{}{y} - x\pdif{}{z} y\pdif{}{z} + x\pdif{}{z} z\pdif{}{y} \right]\psi \\[12pt]
+&=\ - \hbar^2 \left[ y\pdif{}{z} z\pdif{}{x} - xy \pddif{}{z}          - z^2 \pdif{}{y} \pdif{}{x} + xz\pdif{}{y} \pdif{}{z} \right]\psi \\
+&\ \ \ \ \ \ \ \ \ \ +\ \hbar^2 \left[ yz\pdif{}{x} \pdif{}{z} - z^2\pdif{}{x} \pdif{}{y} - xy \pddif{}{z}           + x\pdif{}{z} z\pdif{}{y} \right]\psi \\[12pt]
+&=\ \hbar^2 \left[ - y\pdif{}{z} z\pdif{}{x}\psi - xz\pdif{}{y} \pdif{}{z} \psi 
+                      + yz\pdif{}{x} \pdif{}{z}\psi + x\pdif{}{z} z\pdif{}{y}\psi \right] \\[8pt]
+&=\ \hbar^2 \left[ - \left(yz\pdif{}{z} \pdif{}{x}\psi + y \pdif{}{x}\psi \right) - xz\pdif{}{y} \pdif{}{z} \psi \right. \\
+&\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \left. + yz\pdif{}{x} \pdif{}{z}\psi + \left( xz\pdif{}{z}\pdif{}{y}\psi + x\pdif{}{y}\psi \right) \right] \\[8pt]
+&=\ \hbar^2 \left[ - y \pdif{}{x}\psi + x\pdif{}{y}\psi \right] \\[8pt]
+&=\ (i\hbar)(-i\hbar) \left[ x\pdif{}{y} - y \pdif{}{x} \right]\psi \\[6pt]
+&=\ i\hbar \hat{L}_z \psi 
+</tex>
+
+　今回はわざわざ$ \psi $を付けて計算する意味はなかったが、
+$ \psi $があることを意識して計算していることを示すために敢えて略さなかった。
+　この結果を交換子を使って書けば、
+
+<tex>
+[ \hat{L}_x, \hat{L}_y] \ =\ i \hbar \hat{L}_z 
+</tex>
+
+とシンプルに表せる。
+　また、$ \hat{L}_x $、$ \hat{L}_y $、$ \hat{L}_z $は対称的な形式をしているので、
+わざわざ同じような計算を繰り返すことなく、
+
+<tex>
+[ \hat{L}_y, \hat{L}_z] \ &=\ i \hbar \hat{L}_x \\
+[ \hat{L}_z, \hat{L}_x] \ &=\ i \hbar \hat{L}_y 
+</tex>
+
+という関係も得られる。
+
+<P>
+
+　交換子の値が 0 であったなら、
+同時に 2 つの演算子の固有関数となる関数が存在するということだが、
+この場合は$ L = ( 0, 0, 0 ) $でもない限りは、
+$ L $のそれぞれの方向からの観測値は同時には決められないということであり、
+それはすでに前回話した通りだ。
+
+<P>
+
+　ちなみに
+
+<tex>
+[ \hat{\Vec{L}}^2, \hat{L}_z] \ =\ 0
+</tex>
+
+という関係を導く事も出来るが、
+これは量子数$ l $と$ m $とを同時に定める事が出来ることを意味している。
+　これも前回やった事の確認である。
+
+<P>
+
+　しかし、交換関係はこんなことを説明するためだけにあるのではない。
+　本当の使い道はこの後にある。
+
+
+% =======================================================================
+
+\section{行列への変換}
+
+　微分演算子と行列が論理的には等価だという話は第 2 部で出てきた。
+　そこで、角運動量の演算子を行列で表したらどうなるだろうかと考えてみよう。
+
+<P>
+
+　なぜそんなことを考えるかというと、
+あの複雑な原子の波動関数に対して極座標で微分計算をするという
+面倒な手続きから解放されたいからである。
+　もっとすっきりと論理構造を見渡せるようになるのではないかという期待がある。
+
+<P>
+
+　簡単な例を挙げて説明しよう。
+　と言っても$ l = 0 $では話にならないので$ l = 1 $を考える。
+　この時、$ m = 1, 0, -1 $という 3 つの状態がありうるのだった。
+　エルミート演算子の異なる固有値に属する固有関数は互いに直交しているという
+数学的な要請があり、ベクトル表現でも同じ事が言えるはずだ。
+　これら 3 つの直交する状態ベクトルを$ |1\rangle $、$ |0\rangle $、$ |\!-\!1\rangle $という記号で
+表すことにしよう。
+　具体的には
+
+<tex>
+|1\rangle \ =\ \left( \begin{array}{c}
+  1 \\[4pt]
+  0 \\[4pt]
+  0 \\[4pt]
+  \end{array} \right) 
+\ \ \ ,\ \ \ 
+|0\rangle = \left( \begin{array}{c}
+  0 \\[4pt]
+  1 \\[4pt]
+  0 \\[4pt]
+  \end{array} \right) 
+\ \ \ ,\ \ \ 
+|\!-\!1\rangle = \left( \begin{array}{c}
+  0 \\[4pt]
+  0 \\[4pt]
+  1 \\[4pt]
+  \end{array} \right) 
+</tex>
+
+というベクトルをイメージすればいい。
+　本当はこれらをユニタリ変換したどんなベクトルの組でもいいのだが、
+簡単なところから考える方がいいだろう。
+
+<P>
+
+　この有限次元のベクトルは何を意味しているのだろうか。
+　波動関数というのは無限次元の複素ベクトルであるという話だった。
+　これはその無限に軸がある空間内から、主量子数$ n $がある値であるような
+空間だけを持ってきて、さらにその中の$ l = 1 $という条件を満たす
+部分的な空間だけを取り出してきたようなイメージである。
+
+<P>
+
+　つまり「無限次元の存在」の断面図を見ているようなもので、
+今はその断面は 3 次元であり、$ l $が変化しない限りは
+状態ベクトルもその断面上に乗っかって存在すると考えているわけだ。
+　しかし今は他の次元のことは忘れて、3 次元が全てだと考えた方が分かりやすい。
+
+<P>
+
+　このとき、演算子$ \hat{L}_z $を表す行列は非常にシンプルに書ける。
+
+<tex>
+\hat{L}_z \ =\ \hbar \left( \begin{array}{rrr}
+  1 & 0 & 0 \\[4pt]
+  0 & 0 & 0 \\[4pt]
+  0 & 0 & -1 \\[4pt]
+\end{array}
+\right)
+</tex>
+
+　こうしておけば、
+
+<tex>
+\hat{L}_z |m\rangle\ =\ m \hbar\ |m\rangle
+</tex>
+
+という関係が満たされているわけだ。
+　ちなみに$ l = 2 $の場合には$ \hat{L}_z $は
+
+<tex>
+\hat{L}_z \ =\ \hbar \left( \begin{array}{rrrrr}
+  2 & 0 & 0 & 0 & 0 \\[4pt]
+  0 & 1 & 0 & 0 & 0 \\[4pt]
+  0 & 0 & 0 & 0 & 0 \\[4pt]
+  0 & 0 & 0 & -1 & 0 \\[4pt]
+  0 & 0 & 0 & 0 & -2 \\[4pt]
+\end{array}
+\right) 
+</tex>
+
+という形になる。
+
+% =======================================================================
+
+\section{昇降演算子}
+
+　では$ \hat{L}_x $や$ \hat{L}_y $を表す行列はどんな形で表せばいいのだろう。
+　ヒントは先ほどの交換関係である。
+　あの関係を満たすような行列を作ってやればいいのだ。
+　とは言うものの当てずっぽうでやるのはなかなか難しいし、
+もし偶然答えが見つかったとしてもそれが唯一のものなのか、
+ちゃんと正当性のあるものなのかということが気になって仕方ないだろう。
+
+<P>
+
+　数学はこういうところで威力を発揮する。
+　まず、
+
+<tex>
+\hat{L}\sub{+} \ =\ \hat{L}_x \ +\ i \hat{L}_y \\
+\hat{L}\sub{-} \ =\ \hat{L}_x \ -\ i \hat{L}_y
+</tex>
+
+という具合に 2 つの新しい演算子を定義してやる。
+　定義を見ただけではこれが何の役に立つのかさっぱり想像も付かないが、
+これらはちゃんとした意味を持っており、
+その意味を見出せればこれらの演算子を行列で表すことが簡単にできるのである。
+　そして、この定義式を逆に解いてやると、
+
+<tex>
+\hat{L}_x \ &=\ \frac{1}{2} ( \hat{L}\sub{+} \ +\ \hat{L}\sub{-} ) \\
+\hat{L}_y \ &=\ \frac{1}{2i}( \hat{L}\sub{+} \ -\ \hat{L}\sub{-} ) 
+</tex>
+
+となっているので、そこから目的の行列が簡単に作れるというわけである。
+　その戦略で行ってみよう。
+
+<P>
+
+　新しく定義した演算子と$ \hat{L}_z $との交換関係を調べてやると、
+
+<tex>
+[ \hat{L}_z, \hat{L}\sub{+} ] \ &=\ \ \ \hbar \hat{L}\sub{+} \\
+[ \hat{L}_z, \hat{L}\sub{-} ] \ &=\ -\hbar \hat{L}\sub{-} 
+</tex>
+
+という式が成り立っている。
+　まずはこの 1 番目の式だけを使う。
+　これを交換子を使わないで書けば、
+
+<tex>
+\hat{L}_z \hat{L}\sub{+} \ -\ \hat{L}\sub{+} \hat{L}_z \ =\ \hbar \hat{L}\sub{+} 
+</tex>
+
+ということだが、これを使えば次のような式変形が可能である。
+
+<tex>
+\hat{L}_z \hat{L}\sub{+} |m\rangle \ &=\ ( \hat{L}\sub{+} \hat{L}_z\ +\  \hbar \hat{L}\sub{+} ) |m\rangle \\
+&=\ \hat{L}\sub{+} \hat{L}_z |m\rangle\ +\  \hbar \hat{L}\sub{+}  |m\rangle \\
+&=\ \hat{L}\sub{+} \hbar m |m\rangle\ +\  \hbar \hat{L}\sub{+}  |m\rangle \\
+&=\ \hat{L}\sub{+} \hbar( m + 1 ) |m\rangle \\[6pt]
+\therefore\ \hat{L}_z\ ( \hat{L}\sub{+} |m\rangle)\ &=\  \hbar( m + 1 )\ ( \hat{L}\sub{+} |m\rangle) 
+</tex>
+
+　この結果の式の$ \hat{L}\sub{+} \, \ket{n} $という部分をひとかたまりのものとして見てもらいたい。
+　そのかたまりに$ \hat{L}_z $を作用させる事で$ \hbar(n+1) $という
+固有値が飛び出してきていると解釈できる。
+　つまり、$ \hat{L}\sub{+} $を状態$ \ket{n} $に作用させたものは、状態$ \ket{n+1} $と同じ意味になっているということだ。
+　つまり、$ \ket{n+1} $と同じ方向を向いたベクトルとなっている。
+　式で表すと次のようなものだ。
+
+<tex>
+\hat{L}\sub{+} |m\rangle \ =\ a |m+1\rangle 
+</tex>
+
+　$ a $は定数であって、幾つになるかはまだ分からない。
+　とにかく$ \hat{L}\sub{+} $は、
+$ \hat{L}_z $の固有値が一つ高いような状態へと変化させる演算子だというので、
+「\red{上昇演算子}」と呼ばれている。
+
+<P>
+
+　この後で具体的な行列を作る必要があるので、面倒だが定数$ a $が幾つになるかを調べておかないといけない。
+　そのために上の式の両辺のノルム（つまりベクトルの長さ）を計算する。
+　それぞれのエルミート共役を取って掛け合わせてやればいいのだ。
+　右辺は
+
+<tex>
+\langle m+1| a^{\ast}a |m+1\rangle \ =\ |a|^2 \langle m+1|m+1 \rangle \ =\ |a|^2 
+</tex>
+
+と計算できる。
+　ノルムというのは本当はこれの平方根を取ったもののことを言うのだが、とりあえずこのままでいい。
+　次に左辺だが、
+
+<tex>
+\langle m| \hat{L}\sub{-} \hat{L}\sub{+} |m\rangle \ 
+&=\ \langle m| ( \hat{L}_x^2\ +\ \hat{L}_y^2\ +\ i\hat{L}_x\hat{L}_y\ -\ i\hat{L}_y\hat{L}_x ) |m\rangle \\
+&=\ \langle m| ( \hat{L}_x^2\ +\ \hat{L}_y^2\ +\ i[\hat{L}_x, \hat{L}_y] ) |m\rangle \\
+&=\ \langle m| ( \hat{L}_x^2\ +\ \hat{L}_y^2\ -\ \hbar \hat{L}_z ) |m\rangle \\
+&=\ \langle m| ( \hat{\Vec{L}}^2\ -\ \hat{L}_z^2\ -\ \hbar \hat{L}_z ) |m\rangle \\
+&=\ \langle m| \left\{ l(l+1)\hbar^2 - \hbar^2 m^2 - \hbar^2 m \right\} |m\rangle \\
+&=\ \hbar^2 \left\{ l(l+1) - m^2 - m \right\} \langle m|m\rangle \\
+&=\ \hbar^2 \left\{ l(l+1) - m^2 - m \right\} \\
+&=\ \hbar^2 (l^2 - m^2 + l - m) \\
+&=\ \hbar^2 (l-m)(l+m+1)
+</tex>
+
+である。
+　これらの結果を合わせると、
+
+<tex>
+|a|^2 \ =\ \hbar^2 (l-m)(l+m+1)
+</tex>
+
+が言える。
+　$ a $は複素数であって位相についての自由度があるのだが、
+その影響は後で考えることにして、今は最も簡単な
+
+<tex>
+a \ =\ \hbar \sqrt{ (l-m)(l+m+1) }
+</tex>
+
+を採用しよう。
+　それで結局、
+
+<tex>
+\hat{L}\sub{+} |m\rangle\ =\ \hbar \sqrt{ (l-m)(l+m+1) }\ |m+1\rangle
+</tex>
+
+という関係が成り立っていることになる。
+　$ \hat{L}\sub{-} $についても同じような手順を踏む事で
+
+<tex>
+\hat{L}\sub{-} |m\rangle\ =\ \hbar \sqrt{ (l+m)(l-m+1) }\ |m-1\rangle
+</tex>
+
+という関係式を得る事が出来る。
+　$ \hat{L}\sub{-} $は先ほどとは逆に
+固有値を 1 つずつ下げる働きを持っているというので
+「\red{下降演算子}」と呼ばれる。
+　両方を合わせて「\red{昇降演算子}」と呼んだりもする。
+
+% =======================================================================
+
+\section{昇降演算子の行列}
+
+　演算子$ \hat{H} $の行列表現は
+
+<tex>
+H_{ij} \ =\ \langle i|\Vec{H}|j\rangle
+</tex>
+
+と計算すればいいことは以前に学んだ。
+　つまり、
+
+<tex>
+\hat{L}\sub{+} \ =\ \left( \begin{array}{ccccccc}
+  \langle l   |\hat{L}\sub{+}| l   \rangle & \langle l   |\hat{L}\sub{+}| l-1 \rangle & \cdots & \langle l   |\hat{L}\sub{+}| 0   \rangle & \cdots & \langle l   |\hat{L}\sub{+}|-l+1 \rangle & \langle l   |\hat{L}\sub{+}| -l   \rangle \\[4pt]
+  \langle l-1 |\hat{L}\sub{+}| l   \rangle & \langle l-1 |\hat{L}\sub{+}| l-1 \rangle & \cdots & \langle l-1 |\hat{L}\sub{+}| 0   \rangle & \cdots & \langle l-1 |\hat{L}\sub{+}|-l+1   \rangle & \langle l-1 |\hat{L}\sub{+}| -l   \rangle \\[4pt]
+  \vdots                        & \vdots                        &        & \vdots                        &        & \vdots                          & \vdots                         \\[4pt]
+  \langle 0   |\hat{L}\sub{+}| l   \rangle & \langle 0   |\hat{L}\sub{+}| l-1 \rangle & \cdots & \langle 0   |\hat{L}\sub{+}| 0   \rangle & \cdots & \langle 0   |\hat{L}\sub{+}|-l+1   \rangle & \langle 0   |\hat{L}\sub{+}| -l   \rangle \\[4pt]
+  \vdots                        & \vdots                        &        & \vdots                        &        & \vdots                          & \vdots                          \\[4pt]
+  \langle -l+1|\hat{L}\sub{+}| l   \rangle & \langle -l+1|\hat{L}\sub{+}| l-1 \rangle & \cdots & \langle -l+1|\hat{L}\sub{+}| 0   \rangle & \cdots & \langle -l+1|\hat{L}\sub{+}|-l+1   \rangle & \langle -l+1 |\hat{L}\sub{+}| -l   \rangle \\[4pt]
+  \langle -l  |\hat{L}\sub{+}| l   \rangle & \langle -l  |\hat{L}\sub{+}| l-1 \rangle & \cdots & \langle -l  |\hat{L}\sub{+}| 0   \rangle & \cdots & \langle -l  |\hat{L}\sub{+}|-l+1   \rangle & \langle -l   |\hat{L}\sub{+}| -l   \rangle \\[4pt]
+\end{array}
+\right)
+</tex>
+
+という計算をすればよい。
+　結果を示せば、
+
+<tex>
+\hat{L}\sub{+} \ =\ \hbar \left( \begin{array}{ccccccc}
+  0 & \sqrt{1(2l)} & 0 & \cdots \\[4pt]
+  0 & 0            & \sqrt{2(2l-1)} & 0              & \cdots \\[4pt]
+  0 & 0            & 0              & \sqrt{3(2l-2)} & 0 & \cdots \\[4pt]
+    &              &                & \ddots         & \ddots &   & \\[4pt]
+  0 & \cdots       &                & \cdots         & 0 & \sqrt{(2l-1)2} & 0  \\[4pt]
+  0 & \cdots       &                &                & \cdots & 0 & \sqrt{(2l)1} \\[4pt]
+  0 & \cdots       &                &  &  & \cdots & 0 \\[4pt]
+\end{array}
+\right) 
+</tex>
+
+となり、ほとんどの成分は 0 となっている。
+　わざわざ計算しなくても
+「状態が一つ上がる」のだからこういう形になることは想像がつくだろう。
+　下降演算子は、
+
+<tex>
+\hat{L}\sub{-} \ =\ \hbar \left( \begin{array}{ccccccc}
+  0 & \cdots       &                &  &  & \cdots & 0 \\[4pt]
+  \sqrt{(2l)1} & 0 & \cdots \\[4pt]
+  0            & \sqrt{(2l-1)2} & 0              & \cdots \\[4pt]
+  0            & 0              & \sqrt{(2l-2)3} & 0 & \cdots \\[4pt]
+    &              &                & \ddots         & \ddots &   & \\[4pt]
+  0 & \cdots       & \cdots         & 0 & \sqrt{(2l-1)2} & 0 & 0  \\[4pt]
+  0 & \cdots       &                & \cdots & 0 & \sqrt{1(2l)} & 0 \\[4pt]
+\end{array}
+\right) 
+</tex>
+
+となる。
+
+<P>
+
+　具体的には$ l=1 $の時には、
+
+<tex>
+\hat{L}\sub{+} \ =\ \hbar \left( \begin{array}{ccc}
+  0 & \sqrt{2} & 0 \\[4pt]
+  0 & 0            & \sqrt{2} \\[4pt]
+  0 & 0            & 0 \\[4pt]
+\end{array}
+\right) \\
+\hat{L}\sub{-} \ =\ \hbar \left( \begin{array}{ccc}
+  0 & 0 & 0 \\[4pt]
+  \sqrt{2} & 0 & 0 \\[4pt]
+  0 & \sqrt{2} & 0 \\[4pt]
+\end{array}
+\right) 
+</tex>
+
+であり、$ l=2 $の時にはもう面倒なので$ \hat{L}\sub{+} $だけを書いておくが、
+
+<tex>
+\hat{L}\sub{+} \ =\ \hbar \left( \begin{array}{ccccc}
+  0 & \sqrt{1・4} & 0 \\[4pt]
+  0 & 0 & \sqrt{2・3} \\[4pt]
+  0 & 0 & 0 & \sqrt{3・2} \\[4pt]
+  0 & 0 & 0 & 0 & \sqrt{4・1} \\[4pt]
+  0 & 0 & 0 & 0 & 0 \\[4pt]
+\end{array}
+\right)
+</tex>
+
+であることが分かる。
+
+
+% =======================================================================
+
+\section{角運動量の行列}
+
+　長い道のりだったが、以上の結果からようやく望んでいたものが得られる。
+　$ l=1 $の場合の角運動量の演算子の行列形式は次のようになる。
+
+<tex>
+\hat{L}_x \ &=\ \frac{\sqrt{2}}{2}\hbar \left( \begin{array}{ccc}
+  0 & 1 & 0 \\[4pt]
+  1 & 0 & 1 \\[4pt]
+  0 & 1 & 0 \\[4pt]
+\end{array}
+\right) \\
+\hat{L}_y \ &=\ \frac{\sqrt{2}}{2i}\hbar \left( \begin{array}{rrr}
+  0 & 1 & 0 \\[4pt]
+  \!\!-1 & 0 & 1 \\[4pt]
+  0 & \!\!-1 & 0 \\[4pt]
+\end{array}
+\right) \\
+\hat{L}_z \ &=\ \hbar \left( \begin{array}{ccc}
+  1 & 0 & 0 \\[4pt]
+  0 & 0 & 0 \\[4pt]
+  0 & 0 & \!\!-1 \\[4pt]
+\end{array}
+\right)
+</tex>
+
+　$ l=2 $の場合にどうなるかは、気になるなら自分でやってみればいい。
+
+
+
+% =======================================================================
+
+\section{重ね合わせ状態}
+
+　この結果から何が言えるか、という点が重要だ。
+
+<P>
+
+　例えば$ l=1 $の時の行列$ \hat{L}_x $の固有値と固有ベクトルを求めてみよう。
+　その作業は線形代数で学ぶことだから、ここでは結果だけを書くが、
+
+<tex>
+\hat{L}_x
+ \left( \!\!\! \begin{array}{c}
+  \frac{1}{\sqrt{2}} \\[6pt]
+  0 \\[4pt]
+  -\frac{1}{\sqrt{2}} \ \ \\[3pt]
+ \end{array} \!\!\!\!\!\! \right)
+\ &=\ 
+0
+ \left( \!\!\! \begin{array}{c}
+  \frac{1}{\sqrt{2}} \\[6pt]
+  0 \\[4pt]
+  -\frac{1}{\sqrt{2}} \ \ \\[3pt]
+ \end{array} \!\!\!\!\!\! \right) \\[4pt]
+\hat{L}_x
+ \left( \begin{array}{c}
+  \frac{1}{2} \\[4pt]
+\, \frac{1}{\sqrt{2}} \\[4pt]
+  \frac{1}{2} \\[4pt]
+ \end{array} \right)
+\ &=\ 
+\hbar
+ \left( \begin{array}{c}
+  \frac{1}{2} \\[4pt]
+\, \frac{1}{\sqrt{2}} \\[4pt]
+  \frac{1}{2} \\[4pt]
+ \end{array} \right) \\[4pt]
+\hat{L}_x
+ \left( \!\!\! \begin{array}{c}
+  \frac{1}{2} \\[4pt]
+  -\frac{1}{\sqrt{2}} \ \ \\[4pt]
+  \frac{1}{2} \\[4pt]
+ \end{array} \!\!\!\!\!\! \right)
+\ &=\ 
+-\hbar
+ \left( \!\!\! \begin{array}{c}
+  \frac{1}{2} \\[4pt]
+  -\frac{1}{\sqrt{2}} \ \ \\[4pt]
+  \frac{1}{2} \\[4pt]
+ \end{array} \!\!\!\!\!\! \right)
+</tex>
+
+となる。
+　このことから、$ x $軸に沿って測った角運動量$ L_x $も$ L_z $と同じように
+$ \hbar $、0、$ -\hbar $の 3 通りの値のいずれかしか取らない事が分かる。
+　分かるのはそれだけではない。
+　例えば$ L_x = 0 $である状態というのは、
+
+<tex>
+\left( \begin{array}{c}
+  \frac{1}{\sqrt{2}} \\[4pt]
+  0 \\[4pt]
+  \frac{1}{\sqrt{2}} \\[4pt]
+ \end{array} \right)
+\ =\ 
+\frac{1}{\sqrt{2}}
+\left( \begin{array}{c}
+  1 \\[4pt]
+  0 \\[4pt]
+  0 \\[4pt]
+ \end{array} \right)
+\ +\ 
+\frac{1}{\sqrt{2}}
+\left( \begin{array}{c}
+  0 \\[4pt]
+  0 \\[4pt]
+  1 \\[4pt]
+ \end{array} \right)
+</tex>
+
+と分解して書けるが、
+これは$ L_z = \hbar $と$ L_z = -\hbar $の 2 つの状態が重なった状態だということを意味している。
+　もし$ x $軸に沿って測定して 0 という測定値を得た直後に$ z $軸に沿って測定すると、
+$ \hbar $を得る確率と$ -\hbar $を得る確率が半々であって、
+0 という値は決して得られないということである。
+　とても不思議だがこれは実験でも確かめられていることだ。
+
+<P>
+
+　同じように$ x $軸に沿って$ \hbar $を得た直後というのは、
+$ L_z $が$ \hbar $、0、$ -\hbar $となる確率がそれぞれ、
+
+<tex>
+\left(\frac{1}{2}\right)^2 : \left(\frac{1}{\sqrt{2}}\right)^2 : \left(\frac{1}{2}\right)^2
+\ =\ \frac{1}{4} : \frac{1}{2} : \frac{1}{4}
+</tex>
+
+となっていると考えられ、実験結果もそれを支持している。
+
+<P>
+
+　「複数の異なる状態が同時に重なって存在しているような状態」というのは
+非常に奇妙に思えるかも知れないが、
+別の方向から眺めれば「ある一つの値が確定した状態」になっていたりするわけだ。
+
+<P>
+
+　人間はある確定値を得たときこそが「定まった状態」だと認識しているので、
+複数の状態を別々に分けて考えてしまう。
+　しかしそれは人間の勝手な解釈だ。
+　重なった状態というのも「確定した状態」の一つであることに変わりない。
+
+<P>
+
+　不思議なのは、測定するたびに、
+測定しようとした物理量をどれかの値を確定するように、
+状態の方が変化してくれるという部分だ。
+　一体、測定の瞬間、何が起きているというのだろう。
+
+
+
+% =======================================================================
+
+\section{工事中}
+
+<FONT color="red">
+　この後で、さらに議論を一般化して、
+角運動量の大きさが √l(l+1) となることの意味などを説明しようと思ったが、
+計算に手こずっていて、まだ時間が掛かりそうだ。
+　この先の議論にはまったく影響しない話であり、
+あまり待たせても悪いのでとりあえずここまでで発表することにする。
+</FONT>
+
+

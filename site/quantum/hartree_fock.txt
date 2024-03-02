@@ -1,0 +1,400 @@
+\field{量子力学}
+\title{ハートリー・フォック近似}
+\comment{話が長くなったので、まずは方程式の導出まで。}
+\prev{hartree2}
+\next{hartree_fock2}
+\create{2019/4/26 12:20}
+\modify{}
+
+
+\section{改良点}
+
+　ハートリー近似の手法を改良しよう。
+　手を付けるところは波動関数の形である。
+　電子はフェルミオンなので、どれか二つの電子を入れ替えても波動関数全体の符号が変わるだけだという性質があるのだった。
+　ハートリー近似ではそれが全く考慮されていなかった。
+
+<P>
+
+　例えば電子が 2 つしかない場合には波動関数は次のような形で表されるはずである。
+
+<tex>
+\psi(\Vec{x}_1, \Vec{x}_2) \ =\ f(\Vec{x}_1)g(\Vec{x}_2) \ -\ f(\Vec{x}_2)g(\Vec{x}_1)
+</tex>
+
+　試しに座標を入れ替えてみてほしい。
+　全体の符号が変わるだけだという性質が確かに成り立っていることが分かってもらえるだろう。
+　もし$ f(\Vec{x}) = g(\Vec{x}) $だったならば$ \psi(\Vec{x}_1, \Vec{x}_2) = 0 $になってしまうという性質もある。
+　つまり、二つの電子は同じ状態を取るわけにはいかない（そのような状況は存在し得ない）というフェルミオンの性質もこれに由来しているのである。
+
+<P>
+
+　電子が 3 つの場合にはどの 2 つの電子を入れ替えても符号が変わるようにしなければならないのでもっと項が必要になり、
+次のような形になっているはずである。
+
+<tex>
+\psi(\Vec{x}_1, \Vec{x}_2, \Vec{x}_3) \ =\ \ &f(\Vec{x}_1)g(\Vec{x}_2)h(\Vec{x}_3) \ -\ f(\Vec{x}_1)g(\Vec{x}_3)h(\Vec{x}_2) \\
++\ &f(\Vec{x}_2)g(\Vec{x}_3)h(\Vec{x}_1) \ -\ f(\Vec{x}_2)g(\Vec{x}_1)h(\Vec{x}_3) \\
++\ &f(\Vec{x}_3)g(\Vec{x}_1)h(\Vec{x}_2) \ -\ f(\Vec{x}_3)g(\Vec{x}_2)h(\Vec{x}_1)
+</tex>
+
+　このような調子で、電子が増えるたびに複雑になり、電子が$ N $個の場合には$ N\,! $個の項を使って表されることになる。
+　関数の形を区別するために$ f,g,h,\cdots $と増やしていくとやがて記号が枯渇してしまうだろうし取扱いが面倒なので、
+代わりに次のように添字を付けたものを使って区別することにしよう。
+
+<tex>
+\psi(\Vec{x}_1, \Vec{x}_2, \Vec{x}_3) \ =\ \ &\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2)\varphi_3(\Vec{x}_3) \ -\ \varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_3)\varphi_3(\Vec{x}_2) \\
++\ &\varphi_1(\Vec{x}_2)\varphi_2(\Vec{x}_3)\varphi_3(\Vec{x}_1) \ -\ \varphi_1(\Vec{x}_2)\varphi_2(\Vec{x}_1)\varphi_3(\Vec{x}_3) \\
++\ &\varphi_1(\Vec{x}_3)\varphi_2(\Vec{x}_1)\varphi_3(\Vec{x}_2) \ -\ \varphi_1(\Vec{x}_3)\varphi_2(\Vec{x}_2)\varphi_3(\Vec{x}_1)
+</tex>
+
+　さて、このような式の右辺の各項を、関数の並びを統一して表記すべきか、座標の並びを統一して表記すべきか迷うところだ。
+　ここまでは関数の並びを一定にして座標を入れ替えるように書いてきたが、
+次のように各項の関数の並びを変えて、座標がいつも同じ順に並ぶようにしても同じ意味である。
+
+<tex>
+\psi(\Vec{x}_1, \Vec{x}_2, \Vec{x}_3) \ =\ \ &\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2)\varphi_3(\Vec{x}_3) \ -\ \varphi_1(\Vec{x}_1)\varphi_3(\Vec{x}_2)\varphi_2(\Vec{x}_3) \\
++\ &\varphi_3(\Vec{x}_1)\varphi_1(\Vec{x}_2)\varphi_2(\Vec{x}_3) \ -\ \varphi_2(\Vec{x}_1)\varphi_1(\Vec{x}_2)\varphi_3(\Vec{x}_3) \\
++\ &\varphi_2(\Vec{x}_1)\varphi_3(\Vec{x}_2)\varphi_1(\Vec{x}_3) \ -\ \varphi_3(\Vec{x}_1)\varphi_2(\Vec{x}_2)\varphi_1(\Vec{x}_3)
+</tex>
+
+　この記事ではこの表記を採用することにしよう。
+　この後の式変形の見やすさの都合である。
+　ここから分かるように、関数を入れ替えるのと座標を入れ替えるのとは、結局は同じ意味である。
+
+<P>
+
+　電子がもっと増えてもいつも同じ書き方で表せるように、行列式の定義を利用することがある。
+
+<tex>
+\psi \ =\ \frac{1}{\sqrt{N\,!\,}} \left|
+\begin{array}{cccc}
+\varphi_1( \Vec{x}_1 ) & \varphi_2( \Vec{x}_1 ) & \cdots & \varphi\sub{N}( \Vec{x}_1 ) \\
+\varphi_1( \Vec{x}_2 ) & \varphi_2( \Vec{x}_2 ) & \cdots & \varphi\sub{N}( \Vec{x}_2 ) \\
+\vdots                     & \vdots                     &        & \vdots                     \\
+\varphi_1( \Vec{x}\sub{N} ) & \varphi_2( \Vec{x}\sub{N} ) & \cdots & \varphi\sub{N}( \Vec{x}\sub{N} ) \\
+\end{array}
+\right| 
+</tex>
+
+　これを「\red{スレーター行列式}」と呼ぶのであった。
+　$ 1/\sqrt{N\,!\,} $というのは規格化のために付けてある。
+　$ \varphi_i( \Vec{x} ) $のそれぞれが規格化してあるときに、これを付けておけば全体を規格化できる。
+
+<P>
+
+　しかしこの行列式が式変形の中に何度も現れるのは場所を取りすぎるし、
+この形に書いたからと言って計算が楽になるわけでもない。
+　というわけで、厳密さを犠牲にした次のような記法を採用する。
+
+<tex>
+\psi \ =\ \frac{1}{\sqrt{N\,!\,}} \sum_{P} (-1)^P \, P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})] \tag{1}
+</tex>
+
+　$ P $はある種の演算子のようなものであり、座標の並びを変えることなく関数の形だけを入れ替える働きをする。
+　並べ替えのやり方は幾つもあるのでその数だけ和を取っている。
+　$ (-1)^P $というのはその並べ替え方が偶置換の場合に 1 で、奇置換の場合に -1 になることを表している。
+　偶置換というのは二つの入れ替えを偶数回繰り返すことで到達できる並べ替えのことであり、
+奇置換というのは奇数回の入れ替えによって実現できる並べ替えを意味している。
+
+<P>
+
+　ここでもう一つの仮定を導入する。
+　それは、それぞれ異なる$ N $個の関数$ \varphi_i(\Vec{x}) $は互いに直交しているべしというものである。
+
+<tex>
+\int \varphi_i(\Vec{x}) \, \varphi_j(\Vec{x}) \diff \Vec{x} \ =\ \delta_{ij} \tag{2}
+</tex>
+
+　この仮定は計算を楽に進めたいために導入するのであって、この段階では物理的に意味のある要請ではない。
+
+<P>
+
+　ここで少し混乱してしまうかもしれないので詳しく話しておこう。
+　この仮定はフェルミオンの性質を説明する上では必要がない。
+　どの二つの関数も同じになっていてはいけないというだけであり、少しでも違っていれば問題ないのである。
+
+<P>
+
+　水素原子のシュレーディンガー方程式を解いたときには異なる電子状態の波動関数は互いに直交していたので、
+異なる状態というのは互いに直交しているのが当たり前だという印象を持っているかもしれない。
+　しかしこれは、ある一つのハミルトニアンについて、
+異なる固有値に属する固有関数は互いに直交しているべしという数学的な要求が満たされていただけである。
+　今考えている$ \varphi_i(\Vec{x}) $にはそのような制限がなくて、
+たとえ直交していなくても、どこかがほんの少しでも違っていれば異なる状態だと言って良いはずである。
+
+<P>
+
+　この人為的に思える仮定が結果にどう影響してくるのかは、後でまた考えよう。
+
+<P>
+
+　狭い意味ではこの (1) 式と (2) 式の仮定を指して「\red{ハートリー・フォック近似}」と呼ぶことがある。
+　広い意味では、この仮定から導かれる「ハートリー・フォック方程式」を具体的に解くときの手法全体を指してそう呼ぶこともある。
+　かなり現実に近付けているにもかかわらずまだ「近似」と呼ばれるのは、これでも完璧さからは程遠いからだろう。
+　解くときにはやはり平均場近似を使う必要があるし、相対論も無視しているし、原子核の運動も無視している。
+　(2) 式の仮定もまだ妥当性が分からないままである。
+
+% =======================================================================
+
+\section{計算開始}
+
+　仮定はここまでで、やることは前と同じなのである。
+　解きたいシュレーディンガー方程式は次のような形である。
+
+<tex>
+\hat{H} \, \psi \ =\ E \, \psi 
+</tex>
+
+　このハミルトニアン$ \hat{H} $は次のような形をしている。
+　これも前と全く同じ。
+
+<tex>
+\hat{H} \ =\ \sum_{i=1}^N \left( -\frac{\hbar^2}{2m}  \nabla^2_i \ -\ \frac{1}{4\pi \varepsilon\sub{0}} \frac{Ze^2}{|\Vec{x}_i|} \right) \ +\ \sum_{i=1}^N \sum_{j=i+1}^{N} \frac{1}{4\pi \varepsilon\sub{0}} \frac{e^2}{|\Vec{x}_i-\Vec{x}_j|} 
+</tex>
+
+　しかし今回は式変形が面倒になる可能性があるので、これを次のように略記して進めよう。
+
+<tex>
+\hat{H} \ =\ \sum_{i=1}^N \hat{H}_i \ +\ \sum_{i<j} \hat{H}_{ij} \tag{3}
+</tex>
+
+　このハミルトニアンを使ってエネルギー期待値$ \langle E \rangle $を次のように計算する、というのも同じである。
+
+<tex>
+\langle E \rangle \ =\ \int \! \cdots \! \int \psi^{\ast} \hat{H} \, \psi \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} 
+</tex>
+
+　違いは、この$ \psi $に (1) 式を代入して計算を進めるというところだけだ。
+
+<P>
+
+　まずは (3) 式の第 1 項のハミルトニアンだけを使って考えてみよう。
+
+<tex>
+&\int \! \cdots \! \int \psi^{\ast} \sum_{i=1}^N \hat{H}_i \, \psi \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} \\
+=\ &\sum_{i=1}^N \int \! \cdots \! \int \psi^{\ast} \hat{H}_i \, \psi \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} \\
+=\ &\sum_{i=1}^N \int \! \cdots \! \int \frac{1}{\sqrt{N\,!\,}} \sum_{P} (-1)^P \, P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})]^{\ast} \ \hat{H}_i \\
+& \hspace{50pt} \frac{1}{\sqrt{N\,!\,}} \sum_{P'} (-1)^{P'} \, P' [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})] \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} \\
+=\ &\frac{1}{N\,!\,} \sum_{P} \sum_{P'} (-1)^P \, (-1)^{P'} \sum_{i=1}^N \int \! \cdots \! \int P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})]^{\ast} \ \hat{H}_i \\
+& \hspace{50pt} P' [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})] \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} 
+</tex>
+
+　ここまでは簡単に整理してみただけである。
+
+<P>
+
+　お膳立ては大袈裟であったが、実はこの続きもそれほど難しい計算にはならない。
+　$ \hat{H}_i $が入っているので$ i $番目の座標$ \Vec{x}_i $についての積分だけは影響を受けるが、
+それ以外の積分はただの関数どうしの内積である。
+　これが何を意味するかというと、$ P $と$ P' $に色んなパターンがあるわけだが、
+$ P $で表されているうちのある一つの置換と、$ P' $で表されているうちのある一つの置換が一致していないという組み合わせの積分というのも頻繁に行われて、
+その場合には多数の変数で行われる積分のうちのどれか一つは必ず違う形の関数どうしの内積になってしまう。
+　つまり 0 になってしまう積分が混じっているのである。
+　それによって$ P $と$ P' $が完全一致していない場合の結果はどれも消滅してしまうから、式変形の続きはこうなる。
+
+<tex>
+=\ &\frac{1}{N\,!\,} \sum_{P} (-1)^P (-1)^P\sum_{i=1}^N \int \! \cdots \! \int P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})]^{\ast} \ \hat{H}_i \\
+& \hspace{50pt} P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})] \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} 
+</tex>
+
+　置換$ P' $についての和を消して、$ P' $を$ P $に変えただけである。
+　さらに、$ (-1)^P $と$ (-1)^P $の積は、$ (-1)^P $が +1 だろうと -1 だろうと結果は 1 になるから、これも消せる。
+
+<tex>
+=\ &\frac{1}{N\,!\,} \sum_{P} \sum_{i=1}^N \int \! \cdots \! \int P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})]^{\ast} \ \hat{H}_i \\
+& \hspace{50pt} P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})] \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} 
+</tex>
+
+　さて、様々な関数の順序の入れ替えはあるだろうが、この計算のほとんどは同じ関数どうしの内積なので、結果はほとんど 1 になってしまうだろう。
+　つまり、次のように書ける。
+
+<tex>
+=\ \frac{1}{N\,!\,} \sum_{P} \sum_{i=1}^N \int P[\varphi^\ast_i(\Vec{x}_i)] \, \hat{H}_i \, P[\varphi_i(\Vec{x}_i)] \diff \Vec{x}_i
+</tex>
+
+　この$ P[\varphi_i(\Vec{x}_i)] $というのはある置換を行った後で$ i $番目の関数以外を 1 にしたものを表している。
+　この$ P $を何とかして外してやりたい。
+　$ i $番目の関数を$ \varphi_p(\Vec{x}) $という関数へと変えるような置換は何通りあるかを考えてやると、$ (N-1)\,! $個だと分かる。
+　つまり、同じ計算を$ (N-1)\,! $回もやっていることになっているのだから、もう少し楽な形に書き換えても良いだろう。
+
+<tex>
+&=\ \frac{(N-1)\,!}{N\,!\,} \sum_{p=1}^N \sum_{i=1}^N \int \varphi^\ast_p(\Vec{x}_i) \, \hat{H}_i \, \varphi_p(\Vec{x}_i) \diff \Vec{x}_i \\
+&=\ \frac{1}{N} \sum_{p=1}^N \sum_{i=1}^N \int \varphi^\ast_p(\Vec{x}_i) \, \hat{H}_i \, \varphi_p(\Vec{x}_i) \diff \Vec{x}_i
+</tex>
+
+　さて、ここで変数を変えながら計算して和を取っているわけだが、
+そのたびごとに$ N $種類の関数を取っ替え引っ替えしながら計算を繰り返しているので、
+変数を区別することに意味がなくなっており、変数を固定して計算しても同じ結果になるのである。
+　変数を変えずに$ N $倍するということで手間を減らしてやろう。
+
+<tex>
+=\ \sum_{p=1}^N \int \varphi^\ast_p(\Vec{x}_i) \, \hat{H}_i \, \varphi_p(\Vec{x}_i) \diff \Vec{x}_i
+</tex>
+
+　変数を区別する必要がなくなったのに添字$ i $を使っているのは無駄なのだが、無くしてしまうわけにもいかないので
+（$ \Vec{x}_i $の代わりに漠然とした積分変数$ \Vec{x} $を導入して$ \hat{H}_i $の定義内の$ \Vec{x}_i $を$ \Vec{x} $に書き換えたものも導入してやる必要があって面倒だという意味）、
+むしろ関数の違いを表している$ p $の方を$ i $と書くことで記号の節約をしてやろう。
+
+<tex>
+=\ \sum_{i=1}^N \int \varphi^\ast_i(\Vec{x}_i) \, \hat{H}_i \, \varphi_i(\Vec{x}_i) \diff \Vec{x}_i \tag{4}
+</tex>
+
+　これでかなりすっきりした。
+　長い考察の末、電子どうしの相互作用に関係のない部分のハミルトニアンに関してはハートリー近似と同じ形の結果が出たのである。
+　形は同じだが前提とした (1) 式が違っているので同じ結果だとも言えないわけか。
+
+% =======================================================================
+
+\section{相互作用の部分の計算}
+
+　次は (3) 式の第 2 項の部分だけを使ってエネルギー期待値を計算してみる。
+　初めのうちはやることはほとんど変わらないから途中を省いて一気に行こう。
+
+<tex>
+&\int \! \cdots \! \int \psi^{\ast} \sum_{i<j} \hat{H}_{ij} \, \psi \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} \\
+=\ &\frac{1}{N\,!\,} \sum_{P} \sum_{P'} (-1)^P \, (-1)^{P'} \sum_{i<j} \int \! \cdots \! \int P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})]^{\ast} \ \hat{H}_{ij} \\
+& \hspace{50pt} P' [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})] \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} 
+</tex>
+
+　先ほどの計算では変数$ \Vec{x}_i $以外の場合にはただの内積計算になるということを利用して式を簡単化していったが、
+今回は$ \hat{H}_{ij} $が挟まっているので、変数$ \Vec{x}_i $と$ \Vec{x}_j $を特別視する必要がある。
+　先ほどの計算と違ってくる部分はどこだろう？
+
+<P>
+
+　置換$ P $と$ P' $が完全一致している必要はない。
+　しかし$ i $番目と$ j $番目以外では一致している必要がある。
+　言い換えれば、$ P' $はほとんど$ P $と同じであり、違って良いのは$ i $番目と$ j $番目だけである。
+　すると、$ P' $というのは$ P $と全く同じであるか、そこからさらに$ i $番目と$ j $番目が入れ替わったものだけが許されるということになる。
+　それ以外の場合は計算しても消えるのだ。
+　式で書くと次のようになるだろうか。
+
+<tex>
+=\ &\frac{1}{N\,!\,} \sum_{P} (-1)^P \, (-1)^{P} \sum_{i<j} \int \! \cdots \! \int P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})]^{\ast} \ \hat{H}_{ij} \\
+& \hspace{50pt} \Big( P [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})] \\
+& \hspace{60pt}- R [\varphi_1(\Vec{x}_1)\varphi_2(\Vec{x}_2) \cdots \varphi\sub{N}(\Vec{x}\sub{N})] \Big) \ \diff \Vec{x}\sub{1} \, \diff \Vec{x}\sub{2} \, \cdots \diff \Vec{x}\sub{N} 
+</tex>
+
+　$ R $というのは置換$ P $の後でさらに$ i $番目と$ j $番目を入れ替える演算子として導入した。
+　一度交換するたびに符号が入れ替えるのだから、$ R $の方にはマイナスを付けておいた。
+　今回も$ (-1)^P \, (-1)^{P} $の部分は 1 になるので消してしまっていい。
+　次の変形のついでに消しておこう。
+
+<P>
+
+　さて、今回は$ i $番目と$ j $番目以外は同じ関数どうしの内積になっていて 1 になるのだから、次のように書けるだろう。
+
+<tex>
+=\ &\frac{1}{N\,!\,} \sum_{P} \sum_{i<j} \dint P [\varphi^{\ast}_i(\Vec{x}_i)\varphi^{\ast}_j(\Vec{x}_j)] \ \hat{H}_{ij} \\
+& \hspace{50pt} \Big( P [\varphi_i(\Vec{x}_i)\varphi_j(\Vec{x}_j) ] \ -\ R [\varphi_i(\Vec{x}_i)\varphi_j(\Vec{x}_j)] \Big) \ \diff \Vec{x}_i \, \diff \Vec{x}_j
+</tex>
+
+　飛ばし読みでいきなりこの式を見た人が意味を正しく把握するのが無理だろうというくらいにややこしくなってきたが、先ほどの計算を頼りに考えてみてもらいたい。
+　次はこの$ P $や$ R $を外したいのである。
+　置換$ P $には何通りもあるが、$ i $番目の関数が$ \varphi_p(\Vec{x}) $になって、同時に$ j $番目の関数が$ \varphi_q(\Vec{x}) $になる置換は何通りあるだろうか？
+　$ N $個の関数から$ \varphi_p(\Vec{x}) $と$ \varphi_q(\Vec{x}) $の二つを除外したものをバラバラに並べ替える組み合わせの数だけあるのだから、
+実は上の計算の$ P $の和で表されているうちの$ (N-2)\,! $通りが同じ計算内容を実行していることになる。
+　あとは$ P $についての和の部分を$ p $と$ q $が同じにならないあらゆる組み合わせに書き換えてやればいい。
+
+<tex>
+=\ &\frac{(N-2)\,!}{N\,!\,} \sum_{p<q} \sum_{i<j} \dint \varphi^{\ast}_p(\Vec{x}_i)\varphi^{\ast}_q(\Vec{x}_j) \ \hat{H}_{ij} \\
+& \hspace{50pt} \Big( \varphi_p(\Vec{x}_i)\varphi_q(\Vec{x}_j) \ -\ \varphi_q(\Vec{x}_i)\varphi_p(\Vec{x}_j) \Big) \ \diff \Vec{x}_i \, \diff \Vec{x}_j \\
+=\ &\frac{1}{N(N-1)} \sum_{p<q} \sum_{i<j} \dint \varphi^{\ast}_p(\Vec{x}_i)\varphi^{\ast}_q(\Vec{x}_j) \ \hat{H}_{ij} \\
+& \hspace{50pt} \Big( \varphi_p(\Vec{x}_i)\varphi_q(\Vec{x}_j) \ -\ \varphi_q(\Vec{x}_i)\varphi_p(\Vec{x}_j) \Big) \ \diff \Vec{x}_i \, \diff \Vec{x}_j
+</tex>
+
+　この計算で、変数$ \Vec{x}_i $と$ \Vec{x}_j $の組み合わせを様々に変えながら和を取っているが、
+関数を表す添字の$ p $と$ q $もあらゆる組み合わせを網羅しているので、変数をいちいち変える必要もないのではないだろうか？
+　つまり、$ N(N-1) $通りの同じ内容の計算を繰り返しているだけなので、もっと簡略化してもいいだろう。
+
+<tex>
+=\ \sum_{p<q} \dint \varphi^{\ast}_p(\Vec{x}_i)\varphi^{\ast}_q(\Vec{x}_j) \ \hat{H}_{ij} 
+\Big( \varphi_p(\Vec{x}_i)\varphi_q(\Vec{x}_j) \ -\ \varphi_q(\Vec{x}_i)\varphi_p(\Vec{x}_j) \Big) \ \diff \Vec{x}_i \, \diff \Vec{x}_j
+</tex>
+
+　そしてそれは添字を変えて次のように表現しても同じ意味である。
+
+<tex>
+=\ \sum_{i<j} \dint \varphi^{\ast}_i(\Vec{x}_i)\varphi^{\ast}_j(\Vec{x}_j) \ \hat{H}_{ij} 
+\Big( \varphi_i(\Vec{x}_i)\varphi_j(\Vec{x}_j) \ -\ \varphi_j(\Vec{x}_i)\varphi_i(\Vec{x}_j) \Big) \ \diff \Vec{x}_i \, \diff \Vec{x}_j \tag{5}
+</tex>
+
+　この結果を前回のハートリー近似と比べてやると、カッコの中のマイナスが付いた項が新たに加わっている他は同じ形であることが分かる。
+　この項がどんな意味を持つのかを知りたいところである。
+
+% =======================================================================
+
+\section{変分原理で方程式を導出する}
+
+　ここまででエネルギー期待値が求まったので、あとは前回と同じようにして変分原理を利用して方程式を導けばいい。
+
+<P>
+
+　ところが、今回得たエネルギー期待値の式は前回とほとんど変わらないし、
+少しだけ余分な項が増えているけれども、それによって計算のやり方に大きな違いが出てくるということもない。
+　というわけでいきなり結果だけを書いてしまおうかとも思ったのだが、
+前回の考え方を思い出して本当にそうなっているのかを確認するのもなかなか大変なので、(5) 式の部分だけ実演してみよう。
+
+<P>
+
+　念のために簡単に説明し直しておくと、
+正しい解の付近では解である波動関数の形を無限小だけ変化させてもエネルギー期待値の変化は 0 になることを利用して、解が満たす条件式を導こうとしているのである。
+　具体的には多数ある$ \varphi^{\ast}_i(\Vec{x}_i) $のうちの一つである$ \varphi^{\ast}_k(\Vec{x}_k) $のみを
+$ \varphi^{\ast}_k(\Vec{x}_k) + \delta \varphi^{\ast}_k(\Vec{x}_k) $へと変化させて様子を見る。
+
+<P>
+
+　(5) 式の中の$ \varphi^{\ast}_i(\Vec{x}_i) $の一つである$ \varphi^{\ast}_k(\Vec{x}_k) $だけを変化させて、変化前後の差を取ると、次のようになる。
+
+<tex>
+\sum_{j\neq k} \dint \delta \varphi^{\ast}_k(\Vec{x}_k)\varphi^{\ast}_j(\Vec{x}_j) \ \hat{H}_{kj} 
+\Big( \varphi_k(\Vec{x}_k)\varphi_j(\Vec{x}_j) \ -\ \varphi_j(\Vec{x}_k)\varphi_k(\Vec{x}_j) \Big) \ \diff \Vec{x}_k \, \diff \Vec{x}_j
+</tex>
+
+　なぜこうなるかと言えば、$ i $についての多数の和のうちで$ i \neq k $の場合には何の変化もさせていないので、$ i=k $になっている項だけが変化分として生き残り、
+(5) 式の$ \sum_{i<j} $というのは、$ i \neq j $である全ての組み合わせが重複なく足し合わされているという意味なので、
+生き残った項である$ i=k $とペアになる$ j $としては$ j=k $以外のあらゆる数値が一度ずつだけ現れるからである。
+　言っていることが分からなければ自分で考えてみた方が早いかもしれない。
+
+<P>
+
+　そしてこれを (5) 式以外の部分を使って出てくる結果と一緒にしてまとめるために、次のようにくくり出す必要があったのだった。
+
+<tex>
+\int \delta \varphi^{\ast}_k(\Vec{x}_k) \left[ \sum_{j\neq k} \int \varphi^{\ast}_j(\Vec{x}_j) \ \hat{H}_{kj} 
+\Big( \varphi_k(\Vec{x}_k)\varphi_j(\Vec{x}_j) \ -\ \varphi_j(\Vec{x}_k)\varphi_k(\Vec{x}_j) \Big) \ \diff \Vec{x}_j \right] \diff \Vec{x}_k
+</tex>
+
+　この$ \delta \varphi^{\ast}_k(\Vec{x}_k) $がどんな形をしていても全体は 0 になるという理屈を使って、
+結局、この大きなカッコの中身が方程式の一部となるのである。
+　思った以上に分かりにくい形をしているので、カッコの中だけをまとめ直そう。
+
+<tex>
+&\sum_{j\neq k} \int \varphi^{\ast}_j(\Vec{x}_j) \ \hat{H}_{kj} \Big( \varphi_k(\Vec{x}_k)\varphi_j(\Vec{x}_j) \ -\ \varphi_j(\Vec{x}_k)\varphi_k(\Vec{x}_j) \Big) \ \diff \Vec{x}_j \\
+=&\ \sum_{j\neq k} \int \varphi^{\ast}_j(\Vec{x}_j) \ \hat{H}_{kj} \varphi_k(\Vec{x}_k)\varphi_j(\Vec{x}_j) \diff \Vec{x}_j \ -\ \sum_{j\neq k} \int \varphi^{\ast}_j(\Vec{x}_j) \ \hat{H}_{kj} \varphi_j(\Vec{x}_k)\varphi_k(\Vec{x}_j) \diff \Vec{x}_j \\
+=&\ \left( \sum_{j\neq k} \int \varphi^{\ast}_j(\Vec{x}_j) \, \hat{H}_{kj} \, \varphi_j(\Vec{x}_j) \diff \Vec{x}_j \right) \varphi_k(\Vec{x}_k) 
+\ -\ \sum_{j\neq k} \left[ \left(\int \varphi^{\ast}_j(\Vec{x}_j) \, \hat{H}_{kj} \, \varphi_k(\Vec{x}_j) \diff \Vec{x}_j \right) \varphi_j(\Vec{x}_k) \right] \\
+</tex>
+
+　この結果を他の部分と合わせると、次のような方程式が出来上がる。
+　添字の$ j $は$ j $である必然性もなくなっていて、
+ほとんど意味を感じさせない$ i $に変えておいた方が見やすいと思うのでそうしておこう。
+
+<tex>
+\hat{H}_k \, \varphi_k(\Vec{x}_k) \ &+\ \left( \sum_{i\neq k} \int \varphi^{\ast}_i(\Vec{x}_i) \, \hat{H}_{ki} \, \varphi_i(\Vec{x}_i) \diff \Vec{x}_i \right) \varphi_k(\Vec{x}_k) \\
+&-\ \sum_{i\neq k} \left[ \left( \int \varphi^{\ast}_i(\Vec{x}_i) \, \hat{H}_{ki} \, \varphi_k(\Vec{x}_i) \diff \Vec{x}_i \right) \varphi_i(\Vec{x}_k) \right] \ =\ \varepsilon_k \, \varphi_k(\Vec{x}_k)
+</tex>
+
+　これが「\red{ハートリー・フォック方程式}」である。
+　左辺の第 3 項が無ければハートリー方程式と同じ形をしている。
+　教科書によっては和の記号の範囲が$ i \neq k $ではなく$ i=1\sim N $になっていて$ i=k $を許しているものもあるが、
+$ i=k $のときには第 2 項と第 3 項が同じになって打ち消されるからである。
+　範囲をどちらにしても結局は同じだというわけだ。
+　しかし今回の設定では$ i=k $のときに$ \hat{H}_{ki} $の定義の分母が 0 になってしまうので許すべきではないだろう。
+
+<P>
+
+　これをどうやって解いたらいいのか、第 3 項が付いたことで何が変わっているのかなどについては次回以降で考えていくことにしよう。
+
+

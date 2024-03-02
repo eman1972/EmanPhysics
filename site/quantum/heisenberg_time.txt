@@ -1,0 +1,280 @@
+\field{量子力学}
+\title{時間依存する演算子}
+\comment{ついでにハイゼンベルク描像のまとめをもう一度。}
+\prev{t_develop}
+\next{interaction}
+\create{2018/11/12 19:45}
+\modify{}
+
+
+\section{全体の復習として簡潔にまとめてみる}
+
+　すでに 2 回に渡ってハイゼンベルク描像の説明をしてきた。
+　それぞれハミルトニアンが時間的に変化する場合としない場合の話をしたのだった。
+　今回はそれらから漏れてしまった話を軽く話すつもりである。
+
+<P>
+
+　ここまではシュレーディンガー描像での演算子を$ \hat{A} $と書き、
+ハイゼンベルク描像での演算子を$ \hat{A}(t) $と書いて区別してきた。
+　しかし今回はシュレーディンガー描像での演算子も時間依存するという特別な場合の話がしたいので
+この書き分けが通用しなくなってしまう。
+　そこで、シュレーディンガー描像の演算子を$ \hat{A}^S $と書き、
+ハイゼンベルク描像での演算子を$ \hat{A}^H $と書いて区別することにしよう。
+
+<P>
+
+　必要な式を用意するために、この記法を使ってもう一度復習しておこう。
+　シュレーディンガー描像で成り立つ方程式が次のようだったとする。
+
+<tex>
+i\hbar \dif{}{t} \ket{\psi^S} \ =\ \hat{H}^S \, \ket{\psi^S} \tag{1}
+</tex>
+
+　この方程式に従って状態$ \ket{\psi^S} $は時間変化するのだが、それは次のように表せる。
+
+<tex>
+\ket{\psi^S(t)} \ =\ \hat{U} \, \ket{\psi^S(t\sub{0})} \tag{2}
+</tex>
+
+　この$ \ket{\psi^S(t\sub{0})} $は時刻$ t\sub{0} $における状態、つまり初期状態を表しており、
+そこからの変化を$ \hat{U} $で表している。
+　時間が経過しても状態ベクトルのノルムが変化しないという条件があるので、
+たとえどんな変化をしようともとりあえずは何らかのユニタリ演算子$ \hat{U} $で表せるだろうというくらいの意味である。
+　もしハミルトニアン$ \hat{H} $が時間的に変化しないのならこの$ \hat{U} $は
+
+<tex>
+\hat{U} \ =\ e^{-\frac{i}{\hbar} \hat{H}^S (t-t\sub{0})} \tag{3}
+</tex>
+
+と表すことが出来るが、時間的に変化するのなら時間順序積を使った表現を使う必要があって
+
+<tex>
+\hat{U} \ =\ T\left[ \exp\left( \frac{1}{i\hbar} \int_{t\sub{0}}^t \hat{H}^S(t') \diff t' \right) \right] \tag{4}
+</tex>
+
+という形になるのだった。
+
+<P>
+
+　シュレーディンガー描像では、物理量$ A $の期待値$ \langle A \rangle $は次のように計算できる。
+
+<tex>
+\langle A \rangle \ =\ \bra{\psi^S(t)} \, \hat{A}^S \, \ket{\psi^S(t)}
+</tex>
+
+　ここに (2) 式を当てはめると、
+
+<tex>
+\langle A \rangle \ =\ \bra{\psi^S(t\sub{0})} \, \hat{U}^\dagger \, \hat{A}^S \, \hat{U} \, \ket{\psi^S(t\sub{0})}
+</tex>
+
+と書くことも出来て、ここでハイゼンベルク描像における演算子$ \hat{A}^H $と状態$ \ket{\psi^H} $を
+
+<tex>
+\hat{A}^H \ &\equiv\ \hat{U}^\dagger \, \hat{A}^S \, \hat{U} \tag{5} \\[5pt]
+\ket{\psi^H} \ &\equiv\ \ket{\psi^S(t\sub{0})}
+</tex>
+
+のように定義すると、
+
+<tex>
+\langle A \rangle \ =\ \bra{\psi^H} \, \hat{A}^H \, \ket{\psi^H}
+</tex>
+
+と書くことも出来る。
+
+<P>
+
+　定義を見ての通り、初期状態はシュレーディンガー描像もハイゼンベルク描像も同じものである。
+　シュレーディンガー描像では状態$ \ket{\psi^S} $が刻々と変化するという見方をするが、
+ハイゼンベルク描像では状態は初期状態のまま固定されていて、演算子$ \hat{A}^H $の方が刻々と変化するという見方をする。
+　どちらの立場も理論的に等価である。
+
+
+% =======================================================================
+
+\section{変化しないハミルトニアン}
+
+　ハミルトニアンもまた演算子の一つであるから、 (5) 式と同じように、
+ハイゼンベルク描像でのハミルトニアン$ \hat{H}^H $と
+シュレーディンガー描像でのハミルトニアン$ \hat{H}^S $とは次のような関係になっている。
+
+<tex>
+\hat{H}^H \ =\ \hat{U}^\dagger \, \hat{H}^S \, \hat{U}
+</tex>
+
+　ところがシュレーディンガー描像でのハミルトニアンが時間的に変化しない場合には特別なことが起きている。
+　(3) 式というのは実は具体的に書くと次のような意味である。
+
+<tex>
+\hat{U} \ &=\ e^{-\frac{i}{\hbar} \hat{H}^S (t-t\sub{0})} \\
+&=\ 1 -i\hbar \hat{H}^S (t-t\sub{0}) + \frac{1}{2!} (i\hbar)^2 \hat{H}^S (t-t\sub{0})^2 + \cdots
+</tex>
+
+　このように、$ \hat{U} $の中身は$ \hat{H}^S $だけで出来ているのだから、
+$ \hat{H}^S $と$ \hat{U} $とは順序を交換しても構わない。
+　よって、次のように変形が可能である。
+
+<tex>
+\hat{H}^H \ &=\ \hat{U}^\dagger \, \hat{H}^S \, \hat{U} \\
+&=\ \hat{U}^\dagger \, \hat{U} \, \hat{H}^S \\
+&=\ \hat{H}^S
+</tex>
+
+　先ほどは、ハイゼンベルク描像では演算子の方が時間変化すると言ったのだが、
+ハミルトニアンが時間を含まない場合のハミルトニアンは特別であり、
+シュレーディンガー描像のハミルトニアンと同じ形のままで、ずっと変化しないのである。
+
+<P>
+
+　もう少し話を広げておくと、ハミルトニアンが時間変化をしないとき、
+ハミルトニアンと交換可能な演算子は、ハイゼンベルク描像で表しても時間変化しないことが言える。
+　「ハミルトニアンと交換する演算子は保存量である」と言い換えてもいい。
+
+<P>
+
+　\red{以上の話はハミルトニアンが時間変化をする場合には成り立たない。}
+　(4) 式の中身は刻々と変化するハミルトニアンによって記述されており、
+異なる時刻のハミルトニアンどうしは交換できない。
+　それで$ \hat{U} $と$ \hat{H}^S $の順序は交換できないのである。
+
+% =======================================================================
+
+\section{変化する演算子}
+
+　ではいよいよ、今回の主目的に入ろう。
+　シュレーディンガー描像の演算子$ \hat{A}^S $が時間変化するような場合の話である。
+　これはハミルトニアンが時間変化をしようがしまいが成り立つ話である。
+
+<P>
+
+　(5) 式の両辺を時間で微分してやる。
+
+<tex>
+\dif{}{t} \hat{A}^H \ =\ \dif{\hat{U}^\dagger}{t} \hat{A}^S \hat{U} \ +\ \hat{U}^\dagger \hat{A}^S \dif{\hat{U}}{t} \ +\ \hat{U}^\dagger \bigg( \dif{\hat{A}^S}{t} \bigg) \hat{U} \tag{6}
+</tex>
+
+　これは前回もやったのだが、
+そのときは$ \hat{A}^S $に時間が含まれない前提だったので第 3 項は出てこなかったのだった。
+　最初の 2 項を変形するためには (1) 式を
+
+<tex>
+\dif{}{t} \ket{\psi^S} \ =\ \frac{1}{i\hbar} \hat{H}^S \, \hat{U} \, \ket{\psi^S(t\sub{0})}
+</tex>
+
+のように変形したものと、(2) 式を微分した
+
+<tex>
+\dif{}{t} \ket{\psi^S} \ =\ \dif{\hat{U}}{t} \, \ket{\psi^S(t\sub{0})}
+</tex>
+
+とを並べて、左辺を見るとどちらも等しいので、
+右辺どうしをつなげてやって、$ \ket{\psi^S(t\sub{0})} $を省いた次の式を使うのだった。
+
+<tex>
+\dif{\hat{U}}{t} \ =\ \frac{1}{i\hbar} \hat{H}^S \, \hat{U}
+</tex>
+
+　$ \ket{\psi^S(t\sub{0})} $を省いていい理由は、
+ハイゼンベルク描像での演算子は結局は$ \ket{\psi^S(t\sub{0})} $、
+それは$ \ket{\psi^H} $と同一のものだが、それに対して作用するという前提だからである。
+
+<P>
+
+　これを当てはめれば (6) 式の右辺の最初の 2 項は
+
+<tex>
+\dif{\hat{U}^\dagger}{t} \hat{A}^S \hat{U} \ &+\ \hat{U}^\dagger \hat{A}^S \dif{\hat{U}}{t} \\
+&=\ \left( \frac{1}{i\hbar} \hat{H}^S \, \hat{U} \right)^\dagger \hat{A}^S \hat{U} \ +\ \hat{U}^\dagger \hat{A}^S \left( \frac{1}{i\hbar} \hat{H}^S \, \hat{U} \right) \\
+&=\ - \frac{1}{i\hbar} \hat{U}^\dagger \, \hat{H}^{S\dagger} \hat{A}^S \hat{U} \ +\ \frac{1}{i\hbar} \hat{U}^\dagger \hat{A}^S \hat{H}^S \, \hat{U} \\
+&=\ \frac{i}{\hbar} \left( \hat{U}^\dagger \, \hat{H}^S \hat{A}^S \hat{U} \ -\ \hat{U}^\dagger \hat{A}^S \hat{H}^S \, \hat{U} \right) \\
+&=\ \frac{i}{\hbar} \left[ \hat{U}^\dagger \, \hat{H}^S (\hat{U} \hat{U}^\dagger) \hat{A}^S \hat{U} \ -\ \hat{U}^\dagger \hat{A}^S (\hat{U} \hat{U}^\dagger) \hat{H}^S \, \hat{U} \right] \\
+&=\ \frac{i}{\hbar} \left[ (\hat{U}^\dagger \, \hat{H}^S \hat{U})( \hat{U}^\dagger \hat{A}^S \hat{U} ) \ -\ ( \hat{U}^\dagger \hat{A}^S \hat{U} )( \hat{U}^\dagger \hat{H}^S \, \hat{U} ) \right] \\
+&=\ \frac{i}{\hbar} \left( \hat{H}^H \hat{A}^H \ -\ \hat{A}^H \hat{H}^H \right) \\
+&=\ \frac{i}{\hbar} \left[ \hat{H}^H \ ,\ \hat{A}^H \right] 
+</tex>
+
+となるのだった。
+
+<P>
+
+　少し横道にそれるが、ハミルトニアンが時間に依らない場合にはわざわざシュレーディンガー方程式などを持ち出す必要もなくて、
+ハミルトニアンがシュレーディンガー描像であるかハイゼンベルク描像であるかの区別も必要ないので、
+
+<tex>
+\dif{\hat{U}^\dagger}{t} &\hat{A}^S \hat{U} \ +\ \hat{U}^\dagger \hat{A}^S \dif{\hat{U}}{t} \\
+&=\ \dif{}{t} \left( e^{\frac{i}{\hbar} \hat{H}(t-t\sub{0}) } \right) \, \hat{A}^S \, e^{- \frac{i}{\hbar} \hat{H}(t-t\sub{0})} 
+\ +\ e^{\frac{i}{\hbar} \hat{H}(t-t\sub{0}) } \, \hat{A}^S \, \dif{}{t} \left( e^{- \frac{i}{\hbar} \hat{H}(t-t\sub{0})} \right)  \\[5pt]
+&=\ \frac{i}{\hbar} \hat{H} \, e^{\frac{i}{\hbar} \hat{H}(t-t\sub{0}) }  \, \hat{A}^S \, e^{- \frac{i}{\hbar} \hat{H}(t-t\sub{0})} 
+\ +\ e^{\frac{i}{\hbar} \hat{H}(t-t\sub{0}) } \, \hat{A}^S \, \left( -\frac{i}{\hbar} \hat{H} \, e^{- \frac{i}{\hbar} \hat{H}(t-t\sub{0})} \right)  \\
+&=\ \frac{i}{\hbar} \left( \hat{H} \, e^{\frac{i}{\hbar} \hat{H}(t-t\sub{0}) }  \, \hat{A}^S \, e^{- \frac{i}{\hbar} \hat{H}(t-t\sub{0})} 
+\ -\ e^{\frac{i}{\hbar} \hat{H}(t-t\sub{0}) } \, \hat{A}^S \, \hat{H} \, e^{- \frac{i}{\hbar} \hat{H}(t-t\sub{0})} \right) \\
+&=\ \frac{i}{\hbar} \left( \hat{H} \, e^{\frac{i}{\hbar} \hat{H}(t-t\sub{0}) }  \, \hat{A}^S \, e^{- \frac{i}{\hbar} \hat{H}(t-t\sub{0})} 
+\ -\ e^{\frac{i}{\hbar} \hat{H}(t-t\sub{0}) } \, \hat{A}^S \, e^{- \frac{i}{\hbar} \hat{H}(t-t\sub{0})} \, \hat{H} \right) \\
+&=\ \frac{i}{\hbar} \left( \hat{H} \, \hat{A}^H \ -\ \hat{A}^H \, \hat{H} \right) \\
+&=\ \frac{i}{\hbar} \left[ \hat{H} \ ,\ \hat{A}^H \right] 
+</tex>
+
+のように、単純な流れの計算で同じ結論になる。
+
+<P>
+
+　結局のところ、(6) 式は次のようになるのだ。
+
+<tex>
+\dif{}{t} \hat{A}^H \ =\ \frac{i}{\hbar} \left[ \hat{H}^H \ ,\ \hat{A}^H \right] \ +\ \hat{U}^\dagger \bigg( \dif{\hat{A}^S}{t} \bigg) \hat{U} \tag{7}
+</tex>
+
+　この右辺の最後の項をどう考えたらいいのだろう？
+　左右が$ \hat{U}^\dagger $と$ \hat{U} $で囲まれているのだから辛うじてハイゼンベルク描像の演算子だと言えそうだが、
+「シュレーディンガー描像での演算子」の時間変化をハイゼンベルク描像に翻訳したものだという量なので
+ハイゼンベルク描像だけの世界で完結していないという気持ち悪さがある。
+　次のような定義を採用して、いかにもハイゼンベルク描像での演算子だと強調するのは一つの手だろう。
+
+<tex>
+\bigg( \dif{\hat{A}}{t} \bigg)^H \ \equiv\ \hat{U}^\dagger \bigg( \dif{\hat{A}^S}{t} \bigg) \hat{U}
+</tex>
+
+　そうすれば (7) 式は次のように書ける。
+
+<tex>
+\dif{\hat{A}^H}{t} \ =\ \frac{i}{\hbar} \left[ \hat{H}^H \ ,\ \hat{A}^H \right] \ +\ \bigg( \dif{\hat{A}}{t} \bigg)^H 
+</tex>
+
+　一見、シュレーディンガー描像の表示がないのでまとまった印象がある。
+　あるいは次のように書く教科書もある。
+
+<tex>
+\dif{\hat{A}^H}{t} \ =\ \frac{i}{\hbar} \left[ \hat{H}^H \ ,\ \hat{A}^H \right] \ +\ \pdif{\hat{A}^H}{t} \tag{8}
+</tex>
+
+　なぜここで偏微分が出てくるのか？
+　何か特別な解釈によってこのような書き換えが出来るのだろうか？などと悩まされるが、
+古典力学との対応を強調したいがための表記であろう。
+<a href="../analytic/poisson.html">古典的なハイゼンベルクの運動方程式</a>は次のように書けるのだった。
+
+<tex>
+\dif{A}{t} \ =\ \left\{ A \ ,\ H \right\} \ +\ \pdif{A}{t}
+</tex>
+
+　なるほど、そっくりな形だ。
+　もっと近付けたいなら次のように書いた方がいいだろう。
+
+<tex>
+\dif{\hat{A}^H}{t} \ =\ \frac{1}{i\hbar} \left[ \hat{A}^H \ ,\ \hat{H}^H \right] \ +\ \pdif{\hat{A}^H}{t} \tag{9}
+</tex>
+
+　この対応にはちょっと美しさを感じる。
+
+<P>
+
+　(8) (9) 式のように偏微分を使って表すことは次のように言い訳できるかもしれない。
+　古典的な物理量を時間で偏微分した量をシュレーディンガー表示の演算子で置き換えることで作った
+「シュレーディンガー描像の演算子」をハイゼンベルク描像に翻訳したものである、と。
+　実際のところ、(7) 式で話は終わっていて、それ以降は表記の体裁の話に過ぎないと思う。
+
+
+
+
+
