@@ -1,0 +1,638 @@
+\field{物理数学}
+\title{ルートベクトルの性質}
+\comment{ルートの語源は、<br>根が張るように広がっているイメージかもしれないな。<br>（追記）なんか、違うらしいですよ。}
+\prev{lie14}
+\next{chap_quaternion}
+\create{2016/3/12 15:20}
+\modify{}
+
+\section{ここまでの話を俯瞰する}
+
+　SU(3) が作り出す景色が何となく見えてきた。
+　それで、今回はもう少し足場を固めておくことにしよう。
+　SU(3) ではなく、SU(n) という一般的な状況でも通じるような形で理論を考えてゆく。
+
+<P>
+
+　普通の教科書は風景が見え始める前にこれをやろうとするから、
+本当に暗中模索、五里霧中という感じになってしまうわけだ。
+　すっきりとはまとまるけれども、読者にとってのハードルは高くなる。
+
+<P>
+
+　最初のほうでユニタリ行列の自由度について数えたことがある。
+　SU(n) では$ n^2 - 1 $個分の自由度があるのだった。
+　SU(3) の場合には 8 個分であり、それ故に 8 つの生成子が作られるのだった。
+
+<P>
+
+　また、<a href="./lie12.html">少し前の話</a>で「群のランク」について話したことがある。
+　ランクが$ r $だというのは、
+$ n^2 - 1 $個の生成子のうちのある$ r $個についてはどれを選んでも可換な行列になっているということである。
+　それらを$ \hat{H}_1, \hat{H}_2, \cdots , \hat{H}_r $と表し、「カルタン部分代数」と呼ぶのであった。
+　これらの行列の固有値がそれぞれ$ r $種類のウェイトを意味するのである。
+
+<P>
+
+　証明はしなかったが、SU(n) では$ r = n - 1 $種類のウェイトが存在するという話はすでにした。
+　SU(3) ではランクが 2 だから、2 種類のウェイトを$ m $と$ s $で表すことになり、
+ウェイト図も 2 次元平面で表されたのであった。
+
+<P>
+
+　$ n^2 - 1 $個の生成子のうちの$ r = n - 1 $個がカルタン部分代数だというので、
+残りの$ n(n-1) $個の行列については互いに可換だとは言い切れないことになる。
+　それらの行列の線形結合によって、
+
+<tex>
+[ \hat{H}_i \,,\, \hat{E}_{\alpha} ] \ =\ \alpha_i \, \hat{E}_{\alpha} \tag{1}
+</tex>
+
+という関係が成り立つような$ n(n-1) $個の行列$ \hat{E}_{\alpha} $を何とか作り出してやる。
+　これをやるにはある種の技巧が必要というか、腕の見せ所だ。
+　前回はこの$ \hat{E}_{\alpha} $のことを「昇降演算子」と呼んでいたのだった。
+　なぜこの関係が必要なのかは後で話そう。
+
+<P>
+
+　このような関係が必ず作れるという保証があるのかと気になるかも知れないが、
+今の目的から考えると話は逆であって、心配は要らない。
+　まず (1) 式のような条件を仮定した上で$ \hat{E}_{\alpha} $の具体的な行列の形を探してやり、
+それを後から生成子を組み合わせた線形和として表してやればいいのである。
+
+
+\note{　保証があるかについては話が少し長くなるので省略しよう。
+『<a href="https://www.amazon.co.jp/dp/4000079794/?tag=emansphysics-22">群と表現 (理工系の基礎数学 9)</a>』という教科書の p.146 に載っている。}
+
+
+　(1) 式のエルミート共役を取ってみよう。
+　生成子はエルミート行列であったので、当然$ \hat{H}_i $も生成子の一つであり、エルミート行列である。
+　このことを使うと次のようになる。
+
+<tex>
+&(\hat{H}_i \, \hat{E}_{\alpha} \ -\ \hat{E}_{\alpha} \, \hat{H}_i)^{\dagger} \ =\ \alpha_i \, \hat{E}_{\alpha}^{\dagger} \\
+\therefore \ &(\hat{H}_i \, \hat{E}_{\alpha})^{\dagger} \ -\ (\hat{E}_{\alpha} \, \hat{H}_i)^{\dagger} \ =\ \alpha_i \, \hat{E}_{\alpha}^{\dagger} \\
+\therefore \ &\hat{E}_{\alpha}^{\dagger} \, \hat{H}_i^{\dagger} \ -\ \hat{H}_i^{\dagger} \, \hat{E}_{\alpha}^{\dagger} \ =\ \alpha_i \, \hat{E}_{\alpha}^{\dagger} \\
+\therefore \ &\hat{H}_i^{\dagger} \, \hat{E}_{\alpha}^{\dagger} \ -\ \hat{E}_{\alpha}^{\dagger} \, \hat{H}_i^{\dagger} \ =\ - \alpha_i \, \hat{E}_{\alpha}^{\dagger} \\
+\therefore \ &[ \hat{H}_i \,,\, \hat{E}_{\alpha}^{\dagger} ] \ =\ - \alpha_i \, \hat{E}_{\alpha}^{\dagger}
+</tex>
+
+　この結果を (1) 式と見比べて$ \hat{E}_{\alpha}^{\dagger} $の意味を考えてみてほしい。
+　どうやら$ \hat{E}_{\alpha}^{\dagger} $は$ \hat{E}_{-\alpha} $としての性質を持つようだ。
+
+<tex>
+\hat{E}_{\alpha}^{\dagger} \ =\ \hat{E}_{-\alpha}
+</tex>
+
+　なるほど、確かに SU(2) では上昇演算子のエルミート共役が下降演算子になっていたし、
+SU(3) に関する前回までの話でも、ある昇降演算子のエルミート共役は、ウェイトを逆方向へ動かす演算子になっていた。
+
+<P>
+
+　これまで昇降演算子の定義が天下り的に与えられていたが、その根拠が体系的にまとめられて、
+必然性が見えてきた気がする。
+
+
+
+
+% =======================================================================
+
+\section{前回の式の証明}
+
+　では (1) 式を使って、前回活躍した二つの式を証明してみよう。
+　次のような関係式である。
+
+<tex>
+[ \hat{E}_{\Vec{\alpha}} \,,\, \hat{E}_{-\Vec{\alpha}} ] \ &=\ \Vec{\alpha} \cdot (\hat{H_1}, \hat{H_2}) \tag{2} \\
+[ \hat{E}_{\Vec{\alpha}} \,,\, \hat{E}_{\Vec{\beta}} ] \ &=\ k_{\Vec{\alpha},\Vec{\beta}} \, \hat{E}_{\Vec{\alpha}+\Vec{\beta}} \tag{3}
+</tex>
+
+　(3) 式は$ \Vec{\alpha} + \Vec{\beta} \neq 0 $の場合に成り立つ関係だということだった。
+　本当はこれらの式の証明は前回の話の中でやるつもりだったのだが、話が長くなりすぎて後回しになっていたのだった。
+
+<P>
+
+　前から度々出て来ているが、「ヤコビの恒等式」という常に成り立っている関係式がある。
+
+<tex>
+[A\,,\,[B\,,\,C]] \ +\ [B\,,\,[C\,,\,A]] \ +\ [C\,,\,[A\,,\,B]] \ =\ 0
+</tex>
+
+　この$ A $、$ B $、$ C $の代わりに、
+それぞれ$ \hat{H}_i $、$ \hat{E}_{\alpha} $、$ \hat{E}_{\beta} $を当てはめることにする。
+
+<tex>
+[\hat{H}_i\,,\,[\hat{E}_{\alpha}\,,\,\hat{E}_{\beta}]] \ +\ [\hat{E}_{\alpha}\,,\,[\hat{E}_{\beta}\,,\,\hat{H}_i]] \ +\ [\hat{E}_{\beta}\,,\,[\hat{H}_i\,,\,\hat{E}_{\alpha}]] \ =\ 0
+</tex>
+
+　ここで (1) 式を使って変形をしてみる。
+
+<tex>
+&[\hat{H}_i\,,\,[\hat{E}_{\alpha}\,,\,\hat{E}_{\beta}]] \ +\ [\hat{E}_{\alpha}\,,\, -\beta_i \, \hat{E}_{\beta}] \ +\ [\hat{E}_{\beta}\,,\, \alpha_i \, \hat{E}_{\alpha} ] \ =\ 0 \\
+\therefore\ &[\hat{H}_i\,,\,[\hat{E}_{\alpha}\,,\,\hat{E}_{\beta}]] \ -\ \beta_i \, [\hat{E}_{\alpha}\,,\, \hat{E}_{\beta}] \ +\ \alpha_i \, [\hat{E}_{\beta}\,,\, \hat{E}_{\alpha} ] \ =\ 0 \\
+\therefore\ &[\hat{H}_i\,,\,[\hat{E}_{\alpha}\,,\,\hat{E}_{\beta}]] \ =\ \ \beta_i \, [\hat{E}_{\alpha}\,,\, \hat{E}_{\beta}] \ +\ \alpha_i \, [\hat{E}_{\alpha}\,,\, \hat{E}_{\beta} ] \\
+\therefore\ &[\hat{H}_i\,,\,[\hat{E}_{\alpha}\,,\,\hat{E}_{\beta}]] \ =\ \ (\alpha_i + \beta_i) \, [\hat{E}_{\alpha}\,,\, \hat{E}_{\beta}] \tag{4}
+</tex>
+
+　こうして導かれた (4) 式を (1) 式と比較してみよう。
+　似た形式になっているだろう。
+　(4) 式の中に出てくる$ [\hat{E}_{\alpha}\,,\,\hat{E}_{\beta}] $というひとかたまり、それ自体が、
+昇降演算子$ \hat{E}_{\alpha+\beta} $と同じ働きを持っていることが読み取れる。
+　しかし$ [\hat{E}_{\alpha}\,,\,\hat{E}_{\beta}] $を定数倍しても (4) 式は成り立つから、
+これは$ \hat{E}_{\alpha+\beta} $そのものだとは言い切れない。
+　$ \hat{E}_{\alpha+\beta} $というものがもし存在しているとすれば、
+(1) 式を考えながら作った$ n(n+1) $個の演算子のどれかとして既に存在しているものであろう。
+　だから、何らかの定数$ k $倍だけ異なる次のような関係になっているはずだ。
+
+<tex>
+[ \hat{E}_{\Vec{\alpha}} \,,\, \hat{E}_{\Vec{\beta}} ] \ =\ k \, \hat{E}_{\Vec{\alpha}+\Vec{\beta}} \tag{5}
+</tex>
+
+　この定数$ k $は幾つであるかは分からないが、$ \hat{E}_{\Vec{\alpha}} $と$ \hat{E}_{\Vec{\beta}} $の
+組み合わせによって違うだろうから$ k $ではなくて$ k_{\Vec{\alpha},\Vec{\beta}} $とでも書いておくのがいいだろう。
+　こうして (3) 式が導かれたことになる。
+
+<P>
+
+　もし (1) 式を考えながら作った$ n(n+1) $個の演算子の中に
+$ \hat{E}_{\Vec{\alpha}+\Vec{\beta}} $に該当するものがない場合には、
+$ k_{\Vec{\alpha},\Vec{\beta}} = 0 $としておかないと話が矛盾してしまう。 
+　つまり、$ \Vec{\alpha} + \Vec{\beta} $がルートベクトルでない場合には$ k_{\Vec{\alpha},\Vec{\beta}} = 0 $である。
+
+<P>
+
+　さて、(2) 式はどうやって導いたらいいだろうか？
+　(4) 式で$ \Vec{\beta} = - \Vec{\alpha} $だったらどうなるかを考えてみるといい。
+　(4) 式の右辺は 0 になり、
+
+<tex>
+[\hat{H}_i\,,\,[\hat{E}_{\alpha}\,,\,\hat{E}_{-\alpha}]] \ =\ 0
+</tex>
+
+という式が成り立っているだろう。
+　つまり、$ [\hat{E}_{\alpha}\,,\,\hat{E}_{-\alpha}] $は$ \hat{H}_i $と可換な行列であり、
+それは最初の方で話した$ r $個のカルタン部分代数$ \hat{H}_i $のうちのどれかであることを意味する。
+　いや、それらを組み合わせたものである可能性もある。
+　だから次のように表せるだろう。
+
+<tex>
+[\hat{E}_{\alpha}\,,\,\hat{E}_{-\alpha}] \ =\ \sum_j^r c_j \, \hat{H}_j \tag{6}
+</tex>
+
+　$ c_j $は何らかの定数である。
+　しかしこの式は (2) 式とはまだ少し違っている。
+　どうしたら (2) 式が証明できるだろうか。
+
+<P>
+
+　ここで少し前の<a href="./lie12.html">ゲルマン行列を紹介した記事</a>で
+「行列の規格直交化」という奇妙な概念を使ったのを思い出して欲しい。
+　それは構造定数$ f_{abc} $を完全反対称にするために技巧的に用いたもので、
+生成子どうしの間に次のような関係があるという条件を追加したのだった。
+
+<tex>
+{\rm tr}(\lambda_i \, \lambda_j) \ =\ 2 \, \delta_{ij}
+</tex>
+
+　この右辺の 2 はゲルマン行列に合わせてそうしただけであるから、何か定数であればいい。
+　このような条件をここでも採用しているということにしておこう。
+　$ \hat{H}_i $というのは生成子の一つであるから、
+
+<tex>
+{\rm tr}(\hat{H}_i \, \hat{H}_j) \ =\ t \, \delta_{ij}
+</tex>
+
+という関係が成り立っていると考えられるわけだ。
+　さらにこれとは別に、昇降演算子どうしの間に次のような関係があるという条件を
+人為的に追加することにする。
+
+<tex>
+{\rm tr}(\hat{E}_{-\alpha} \, \hat{E}_{\beta}) \ =\ t \, \delta_{\alpha \beta}
+</tex>
+
+　このような条件を勝手に入れてしまってもいいのだろうかと心配になるが、
+実は前回の話もこの条件の下で成り立つ (2) 式を前提にしてルート図を描いていたのだった。
+　昇降演算子$ \hat{E}_{\alpha} $というのは今のところはルート図を描くための道具に過ぎなくて、
+それが使いやすくなるように条件を付けただけである。
+　その条件のあるなしによってルート図上に配置されている状態の構造が影響を受けるわけではない。
+　今の目的は何とかして色んな次数の生成子についての具体的な行列表現を探し尽くすことであり、
+その途中経過として導くことになる$ \hat{E}_{\alpha} $が
+この条件を満たすような形で得られるというだけの話である。
+
+<P>
+
+　実は少し前の記事でゲルマン行列を使って初めて昇降演算子を天下り的に定義した時には、
+係数の調整などは些細な問題だとしてこの条件をキッチリ守っていなかったことを告白しておこう。
+　こういういい加減なことをしていると後で係数が合わなくて苦しむことになるのだろうが、
+そこまで具体的にやるつもりはないので大雑把に話を進めても大丈夫だろう。
+　今の自分は、例えば「$ \Vec{15} $表現の具体的な行列」なんてものを求めてみたいわけではないのだ。
+　それって、15×15 の成分を持つ 8 個の行列だよ？！
+　そういういかにも面倒くさそうな記事を書く気力はない。
+
+<P>
+
+　ではこれらの条件を採用して (2) 式の証明を終わらせよう。
+　(6) 式の両辺に$ \hat{H}_i $を掛けて、トレースを取ってみる。
+
+<tex>
+{\rm tr}( \hat{H}_i \, [\hat{E}_{\alpha}\,,\,\hat{E}_{-\alpha}] ) \ &=\ {\rm tr}\left( \sum_{j=1}^r c_j \hat{H}_i  \hat{H}_j \right) \\
+\therefore \ {\rm tr}( \hat{E}_{-\alpha} \, [\hat{H}_i \,,\, \hat{E}_{\alpha}] ) \ &=\ \sum_{j=1}^r {\rm tr}( c_j \hat{H}_i  \hat{H}_j ) \\
+\therefore \ {\rm tr}( \hat{E}_{-\alpha} \, \alpha_i \, \hat{E}_{\alpha} ) \ &=\ \sum_{j=1}^r c_j \, {\rm tr}( \hat{H}_i  \hat{H}_j ) \\
+\therefore \ \alpha_i \, {\rm tr}( \hat{E}_{-\alpha} \, \hat{E}_{\alpha} ) \ &=\ \sum_{j=1}^r c_j \, t \, \delta_{ij} \\
+\therefore \ \alpha_i \, t \, \delta_{\alpha\alpha}\ &=\ c_i \, t \\[3pt]
+\therefore \ \alpha_i \ &=\ c_i
+</tex>
+
+　こうして (6) 式は
+
+<tex>
+[\hat{E}_{\alpha}\,,\,\hat{E}_{-\alpha}] \ =\ \sum_{j=1}^r \alpha_j \, \hat{H}_j 
+</tex>
+
+と書けることになるが、SU(3) の場合は$ r=2 $なので (2) 式のように書いてもいいというわけだ。
+　こうして前回からの宿題が一つ解決した。
+
+% =======================================================================
+
+\section{係数を求める}
+
+　ところで、(3) 式で使っている係数$ k_{\Vec{\alpha},\Vec{\beta}} $の求め方が気にならないだろうか？
+　これについては前回の記事中で「ちゃんと求めるための方法があるが」などと言いつつも説明を避けていたのだった。
+
+<P>
+
+　これは前回の記事でやったのと似た手法で計算できるし、
+これを考える過程でルートベクトルについての性質が見えてくるので、
+そろそろ取り組んでみてもいい頃だと思うのである。
+
+<P>
+
+　ただその前に、$ k_{\Vec{\alpha},\Vec{\beta}} $の基本的な性質を導くための面倒な話に耐えなければならない。
+　まず、(3) 式の両辺のエルミート共役をとってみよう。
+
+<tex>
+(\hat{E}_{\Vec{\alpha}} \, \hat{E}_{\Vec{\beta}} \ -\ \hat{E}_{\Vec{\beta}} \, \hat{E}_{\Vec{\alpha}})^{\dagger} \ =\ k_{\Vec{\alpha},\Vec{\beta}}^{\ast} \, \hat{E}_{\Vec{\alpha}+\Vec{\beta}}^{\dagger} \\
+\therefore\ (\hat{E}_{\Vec{\alpha}} \, \hat{E}_{\Vec{\beta}})^{\dagger} \ -\ (\hat{E}_{\Vec{\beta}} \, \hat{E}_{\Vec{\alpha}})^{\dagger} \ =\ k_{\Vec{\alpha},\Vec{\beta}}^{\ast} \, \hat{E}_{-\Vec{\alpha}-\Vec{\beta}} \\
+\therefore\ \hat{E}_{\Vec{\beta}}^{\dagger} \, \hat{E}_{\Vec{\alpha}}^{\dagger} \ -\ \hat{E}_{\Vec{\alpha}}^{\dagger} \, \hat{E}_{\Vec{\beta}}^{\dagger} \ =\ k_{\Vec{\alpha},\Vec{\beta}}^{\ast} \, \hat{E}_{-\Vec{\alpha}-\Vec{\beta}} \\
+\therefore\ \hat{E}_{-\Vec{\beta}} \, \hat{E}_{-\Vec{\alpha}} \ -\ \hat{E}_{-\Vec{\alpha}} \, \hat{E}_{-\Vec{\beta}} \ =\ k_{\Vec{\alpha},\Vec{\beta}}^{\ast} \, \hat{E}_{-\Vec{\alpha}-\Vec{\beta}} \\
+\therefore\ [\hat{E}_{-\Vec{\alpha}} \,,\, \hat{E}_{-\Vec{\beta}}] \ =\ -k_{\Vec{\alpha},\Vec{\beta}}^{\ast} \, \hat{E}_{-\Vec{\alpha}-\Vec{\beta}} \\
+\therefore\ [\hat{E}_{\Vec{\alpha}} \,,\, \hat{E}_{\Vec{\beta}}] \ =\ -k_{\Vec{-\alpha},-\Vec{\beta}}^{\ast} \, \hat{E}_{\Vec{\alpha}+\Vec{\beta}} 
+</tex>
+
+　この結果を (3) 式と見比べてみると、$ k_{\Vec{\alpha},\Vec{\beta}} $の添字の符号の反転に関して
+次のような関係が成り立っていることが導ける。
+
+<tex>
+k_{\Vec{\alpha},\Vec{\beta}} \ =\ -k_{\Vec{-\alpha},-\Vec{\beta}}^{\ast} \tag{7}
+</tex>
+
+　また、(3) 式の$ \Vec{\alpha} $と$ \Vec{\beta} $の入れ替えを行うと、
+
+<tex>
+[ \hat{E}_{\Vec{\beta}} \,,\, \hat{E}_{\Vec{\alpha}} ] \ &=\ k_{\Vec{\beta},\Vec{\alpha}} \, \hat{E}_{\Vec{\beta}+\Vec{\alpha}} \\
+\therefore\ [ \hat{E}_{\Vec{\alpha}} \,,\, \hat{E}_{\Vec{\beta}} ] \ &=\ -k_{\Vec{\beta},\Vec{\alpha}} \, \hat{E}_{\Vec{\alpha}+\Vec{\beta}} 
+</tex>
+
+となるので、これを (3) 式と見比べれてみれば、
+$ k_{\Vec{\alpha},\Vec{\beta}} $の添字の入れ替えに関する次の関係も言える。
+
+<tex>
+k_{\Vec{\alpha},\Vec{\beta}} \ =\ -k_{\Vec{\beta},\Vec{\alpha}} \tag{8}
+</tex>
+
+　面倒な準備作業はもう少し続く。
+　先ほども出て来た「ヤコビの恒等式」に
+$ \hat{E}_{\Vec{\alpha}} $、$ \hat{E}_{\Vec{\beta}} $、$ \hat{E}_{-\Vec{\alpha}-\Vec{\beta}} $を代入してみよう。
+
+<tex>
+[\hat{E}_{\Vec{\alpha}}\,,\,[\hat{E}_{\Vec{\beta}}\,,\,\hat{E}_{-\Vec{\alpha}-\Vec{\beta}}]] \ +\ 
+[\hat{E}_{\Vec{\beta}}\,,\,[\hat{E}_{-\Vec{\alpha}-\Vec{\beta}}\,,\,\hat{E}_{\Vec{\alpha}}]] \ +\ 
+[\hat{E}_{-\Vec{\alpha}-\Vec{\beta}}\,,\,[\hat{E}_{\Vec{\alpha}}\,,\,\hat{E}_{\Vec{\beta}}]] \ &=\ 0 \\
+\therefore\ k_{\Vec{\beta},-\Vec{\alpha}-\Vec{\beta}} \, [\hat{E}_{\Vec{\alpha}}\,,\,\hat{E}_{-\Vec{\alpha}}] \ +\ 
+k_{-\Vec{\alpha}-\Vec{\beta},\Vec{\alpha}} \, [\hat{E}_{\Vec{\beta}}\,,\,\hat{E}_{-\Vec{\beta}}] \ +\ 
+k_{\Vec{\alpha},\Vec{\beta}} \, [\hat{E}_{-\Vec{\alpha}-\Vec{\beta}}\,,\,\hat{E}_{\Vec{\alpha}+\Vec{\beta}}] \ &=\ 0 \\
+\therefore\ k_{\Vec{\beta},-\Vec{\alpha}-\Vec{\beta}} \, \sum_{j=1}^r \alpha_j \, \hat{H}_j \ +\ 
+k_{-\Vec{\alpha}-\Vec{\beta},\Vec{\alpha}} \, \sum_{j=1}^r \beta_j \, \hat{H}_j \ +\ 
+k_{\Vec{\alpha},\Vec{\beta}} \, \sum_{j=1}^r (-\alpha_j-\beta_j) \, \hat{H}_j \ &=\ 0 \\
+\therefore\ \sum_{j=1}^r \Big[ \alpha_j ( k_{\Vec{\beta},-\Vec{\alpha}-\Vec{\beta}} \ -\ k_{\Vec{\alpha},\Vec{\beta}} )
+\ +\ \beta_j ( k_{-\Vec{\alpha}-\Vec{\beta},\Vec{\alpha}} \ -\ k_{\Vec{\alpha},\Vec{\beta}} ) \Big] \hat{H}_j \ &=\ 0 
+</tex>
+
+　このカッコの中身が 0 にならないといけないので、次の二つの関係式が得られる。
+
+<tex>
+k_{\Vec{\alpha},\Vec{\beta}} \ =\ k_{\Vec{\beta},-\Vec{\alpha}-\Vec{\beta}} \tag{9} \\ 
+k_{\Vec{\alpha},\Vec{\beta}} \ =\ k_{-\Vec{\alpha}-\Vec{\beta},\Vec{\alpha}} \tag{10}
+</tex>
+
+　とは言うものの、この (9) 式と (10) 式は (8) 式を使って一方から他方が導けるのでどちらか片方があればいい。
+　これで準備が終わりだ。
+　そろそろ本題に入ろう。
+
+<P>
+
+　もう一度「ヤコビの恒等式」を使うことにする。
+今度は$ \hat{E}_{\Vec{\alpha}} $、$ \hat{E}_{-\Vec{\alpha}} $、$ \hat{E}_{\Vec{\beta}} $を代入してみよう。
+
+<tex>
+[\hat{E}_{\Vec{\alpha}}\,,\,[\hat{E}_{-\Vec{\alpha}}\,,\,\hat{E}_{\Vec{\beta}}]] \ +\ 
+[\hat{E}_{-\Vec{\alpha}}\,,\,[\hat{E}_{\Vec{\beta}}\,,\,\hat{E}_{\Vec{\alpha}}]] \ +\ 
+[\hat{E}_{\Vec{\beta}}\,,\,[\hat{E}_{\Vec{\alpha}}\,,\,\hat{E}_{-\Vec{\alpha}}]] \ &=\ 0 \\
+\therefore\ k_{-\Vec{\alpha},\Vec{\beta}} \, [\hat{E}_{\Vec{\alpha}}\,,\, \hat{E}_{-\Vec{\alpha}+\Vec{\beta}}] \ +\ 
+k_{\Vec{\beta},\Vec{\alpha}} \, [\hat{E}_{-\Vec{\alpha}}\,,\,\hat{E}_{\Vec{\alpha}+\Vec{\beta}}] \ +\ 
+\sum_{i=1}^r \alpha_i \, [\hat{E}_{\Vec{\beta}}\,,\,\hat{H}_i] \ &=\ 0 \\
+\therefore\ k_{-\Vec{\alpha},\Vec{\beta}} \, k_{\Vec{\alpha},-\Vec{\alpha}+\Vec{\beta}} \, \hat{E}_{\Vec{\beta}} \ +\ 
+k_{\Vec{\beta},\Vec{\alpha}} \, k_{-\Vec{\alpha},\Vec{\alpha}+\Vec{\beta}} \, \hat{E}_{\Vec{\beta}} \ -\ 
+\sum_{i=1}^r \alpha_i \, \beta_i \, \hat{E}_{\Vec{\beta}} \ &=\ 0 \\
+\therefore\ k_{-\Vec{\alpha},\Vec{\beta}} \, k_{\Vec{\alpha},-\Vec{\alpha}+\Vec{\beta}} \ +\ 
+k_{\Vec{\beta},\Vec{\alpha}} \, k_{-\Vec{\alpha},\Vec{\alpha}+\Vec{\beta}} \ -\ 
+\sum_{i=1}^r \alpha_i \, \beta_i \ &=\ 0 \\
+\therefore\ k_{-\Vec{\alpha},\Vec{\beta}} \, k_{\Vec{\alpha},-\Vec{\alpha}+\Vec{\beta}} \ +\ 
+k_{\Vec{\beta},\Vec{\alpha}} \, k_{-\Vec{\alpha},\Vec{\alpha}+\Vec{\beta}} \ &=\ \Vec{\alpha} \cdot \Vec{\beta} 
+</tex>
+
+　そしてここからは、先ほど求めた性質を使って変形してゆく。
+　大して工夫の要るようなことはしていない。
+
+<tex>
+&k_{-\Vec{\alpha},\Vec{\beta}} \, k_{\Vec{\alpha},\Vec{\beta}-\Vec{\alpha}} \ -\ k_{\Vec{\alpha},\Vec{\beta}} \, k_{-\Vec{\alpha},\Vec{\alpha}+\Vec{\beta}} \ &=\ \Vec{\alpha} \cdot \Vec{\beta} \\
+\therefore\ &k_{\Vec{\alpha}-\Vec{\beta},-\Vec{\alpha}} \, k_{\Vec{\alpha},\Vec{\beta}-\Vec{\alpha}} \ +\ k_{\Vec{\alpha},\Vec{\beta}} \, k_{\Vec{\alpha}+\Vec{\beta},-\Vec{\alpha}} \ &=\ \Vec{\alpha} \cdot \Vec{\beta} \\
+\therefore\ &-k_{-\Vec{\alpha}+\Vec{\beta},\Vec{\alpha}}^{\ast} \, k_{\Vec{\alpha},\Vec{\beta}-\Vec{\alpha}} \ -\ k_{\Vec{\alpha},\Vec{\beta}} \, k_{\Vec{-\alpha}-\Vec{\beta},\Vec{\alpha}}^{\ast} \ &=\ \Vec{\alpha} \cdot \Vec{\beta} \\
+\therefore\ &k_{\Vec{\alpha},-\Vec{\alpha}+\Vec{\beta},}^{\ast} \, k_{\Vec{\alpha},\Vec{\beta}-\Vec{\alpha}} \ -\ k_{\Vec{\alpha},\Vec{\beta}} \, k_{\Vec{\alpha},\Vec{\beta}}^{\ast} \ &=\ \Vec{\alpha} \cdot \Vec{\beta} \\
+\therefore\ &|k_{\Vec{\alpha},\Vec{\beta}-\Vec{\alpha}}|^2 \ -\ |k_{\Vec{\alpha},\Vec{\beta}}|^2 \ &=\ \Vec{\alpha} \cdot \Vec{\beta} \tag{11}
+</tex>
+
+　この最終結果は面白いことになっている。
+　これは漸化式であり、$ |k_{\Vec{\alpha},\Vec{\beta}}| $が分かれば
+$ |k_{\Vec{\alpha},\Vec{\beta}-\Vec{\alpha}}| $が分かるようになっているのである。
+
+<P>
+
+　もともとこの係数$ k_{\Vec{\alpha},\Vec{\beta}} $というのは (3) 式の中で使われるものであり、
+あるルートベクトル$ \Vec{\alpha} $と別のルートベクトル$ \Vec{\beta} $の和が、
+それら以外のルートベクトルになっている可能性を意味するものであった。
+　この係数$ k_{\Vec{\alpha},\Vec{\beta}} $が 0 ならば、そのようなルートベクトルは存在していない。
+　例えば$ \Vec{\beta} + \Vec{\alpha} $もまたルートベクトルであるとするなら
+それと$ \Vec{\alpha} $とを使って作られる$ \Vec{\beta} + 2\Vec{\alpha} $も、
+さらに同様にして作られる$ \Vec{\beta} + 3\Vec{\alpha} $もルートベクトルになっている可能性がある。
+
+<P>
+
+　もちろんルートベクトルは有限個であろうから、係数を調べていくとどこかで 0 になる瞬間が訪れるだろう。
+　例えば$ \Vec{\beta}+p\Vec{\alpha} $までは存在していたが、$ \Vec{\beta}+(p+1)\Vec{\alpha} $は存在しなかったとすると、
+$ k_{\Vec{\alpha},\Vec{\beta}+p\Vec{\alpha}} = 0 $という形で表される。
+　これを (11) 式の左辺第 2 項だと見立てて式を使えば、
+
+<tex>
+|k_{\Vec{\alpha},\Vec{\beta}+(p-1)\Vec{\alpha}}|^2 \ -\ 0 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + p \Vec{\alpha})
+</tex>
+
+という形で$ |k_{\Vec{\alpha},\Vec{\beta}+(p-1)\Vec{\alpha}}| $が求まる。
+　これを繰り返して、次のような式を次々と使ってゆくことになるだろう。
+
+<tex>
+|k_{\Vec{\alpha},\Vec{\beta}+(p-1)\Vec{\alpha}}|^2 \ -\ \ \ \ \ \ \ \ \ \ 0 \ \ \ \ \ \ \ \ \ \ \ \ \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + p \Vec{\alpha}) \\
+|k_{\Vec{\alpha},\Vec{\beta}+(p-2)\Vec{\alpha}}|^2 \ -\ |k_{\Vec{\alpha},\Vec{\beta}+(p-1)\Vec{\alpha}}|^2 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + (p-1) \Vec{\alpha}) \\
+|k_{\Vec{\alpha},\Vec{\beta}+(p-3)\Vec{\alpha}}|^2 \ -\ |k_{\Vec{\alpha},\Vec{\beta}+(p-2)\Vec{\alpha}}|^2 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + (p-2) \Vec{\alpha}) \\
+\vdots \ \ \ \ \ \ \ &=\ \ \ \ \vdots \\
+|k_{\Vec{\alpha},\Vec{\beta}+(q+1)\Vec{\alpha}}|^2 \ -\ |k_{\Vec{\alpha},\Vec{\beta}+(q+2)\Vec{\alpha}}|^2 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + (q+2) \Vec{\alpha}) \\
+|k_{\Vec{\alpha},\Vec{\beta}+q\Vec{\alpha}}|^2 \ -\ |k_{\Vec{\alpha},\Vec{\beta}+(q+1)\Vec{\alpha}}|^2 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + (q+1) \Vec{\alpha}) \\
+0 \ \ \ \ \ \ \ \ \ -\ |k_{\Vec{\alpha},\Vec{\beta}+q\Vec{\alpha}}|^2 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + q \Vec{\alpha})
+</tex>
+
+　これは$ \Vec{\beta}-q\Vec{\alpha} $から$ \Vec{\beta}+p\Vec{\alpha} $までは存在しているという仮定をした上での計算である。
+　前回の話ととても似ているだろう。
+　同じことをこれから考えてみる。
+　これら全ての式を足し合わせてみるのだ。
+　左辺は全部打ち消し合って消えてしまうだろう。
+
+<tex>
+0 \ =\ (p+q+1) \left[ \Vec{\alpha} \cdot \Vec{\beta} \ +\ \frac{1}{2} \Vec{\alpha}^2 (p-q) \right]
+</tex>
+
+　$ p $も$ q $も 0 以上の整数という設定なので、$ (p + q + 1) $の部分は決して 0 になることはなくて、
+
+<tex>
+\Vec{\alpha} \cdot \Vec{\beta} \ =\ \frac{\Vec{\alpha}^2}{2} (q-p) \tag{12}
+</tex>
+
+という関係式が得られる。
+
+<P>
+
+　これから面白い話に突入するわけだが、元々の問題は
+$ k_{\Vec{\alpha},\Vec{\beta}} $はどう表わされるのかというものだった。
+　とりあえずこれを先に解決させておこう。
+
+<P>
+
+　先ほどの多数の漸化式を上から順に解きながら代入を繰り返していくことで一般的な形がどうなるかを導くことができる。
+　具体的には次のような感じになるだろう。
+
+<tex>
+|k_{\Vec{\alpha},\Vec{\beta}+(p-1)\Vec{\alpha}}|^2 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + p \Vec{\alpha}) \\
+|k_{\Vec{\alpha},\Vec{\beta}+(p-2)\Vec{\alpha}}|^2 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + p \Vec{\alpha}) \ +\ \Vec{\alpha} \cdot (\Vec{\beta} + (p-1) \Vec{\alpha}) \\
+|k_{\Vec{\alpha},\Vec{\beta}+(p-3)\Vec{\alpha}}|^2 \ &=\ \Vec{\alpha} \cdot (\Vec{\beta} + p \Vec{\alpha}) \ +\ \Vec{\alpha} \cdot (\Vec{\beta} + (p-1) \Vec{\alpha}) \ +\ \Vec{\alpha} \cdot (\Vec{\beta} + (p-2) \Vec{\alpha}) \\
+&\vdots \\
+|k_{\Vec{\alpha},\Vec{\beta}+(p-n)\Vec{\alpha}}|^2 \ &=\ \sum_{t=1}^n \Big[ \Vec{\alpha} \cdot \Vec{\beta} \ +\ p \, \Vec{\alpha}^2 - (t-1)\Vec{\alpha}^2 \Big] \\
+&=\ n \, \Vec{\alpha} \cdot \Vec{\beta} \ +\ n \, p \, \Vec{\alpha}^2 \ -\ \frac{n(n-1)}{2} \Vec{\alpha}^2 \\
+&=\ n \, \Vec{\alpha} \cdot \Vec{\beta} \ +\ \frac{n(2p-n+1)}{2} \Vec{\alpha}^2
+</tex>
+
+　これでは左辺の添字がごちゃごちゃしているので扱いにくい。
+　せめて$ k_{\Vec{\alpha},\Vec{\beta}+m\Vec{\alpha}} $という形にしてまとめたい。
+　そこで$ p-n = m $と書き直してやることにしよう。
+　つまり、$ n = p - m $を代入してやればいい。
+
+<tex>
+|k_{\Vec{\alpha},\Vec{\beta}+m\Vec{\alpha}}|^2 \ &=\ (p-m) \, \Vec{\alpha} \cdot \Vec{\beta} \ +\ \Vec{\alpha}^2 \frac{(p-m)(p+m+1)}{2}
+</tex>
+
+　これに (12) 式を代入すれば、もっとすっきりした形にできる。
+
+<tex>
+|k_{\Vec{\alpha},\Vec{\beta}+m\Vec{\alpha}}|^2 \ &=\ \frac{\Vec{\alpha}^2}{2} (p-m)(q+m+1)
+</tex>
+
+　係数の絶対値の形で表されているが、この係数が実数になるように昇降演算子を軽く調整し直してやればいいだけなのでこれで問題はない。
+　本当はじっくり考えた方がいいのかもしれないが、今は軽く流そう。
+
+% =======================================================================
+
+\section{再びワイル鏡映}
+
+　前回話したワイル鏡映と同じ話がここでもできる。
+　$ \Vec{\beta} + p\,\Vec{\alpha} $から$ \Vec{\beta} - q\,\Vec{\alpha} $まではルートベクトルとして存在しているという仮定だったから、
+
+<tex>
+\Vec{\gamma} \ =\ \Vec{\beta} \ +\ (p-q)\,\Vec{\alpha}
+</tex>
+
+と表されるベクトル$ \Vec{\gamma} $はその中に含まれており、確実に存在している。
+　これに (12) 式を代入してやると
+
+<tex>
+\Vec{\gamma} \ =\ \Vec{\beta} \ -\ 2 \frac{\Vec{\alpha} \cdot \Vec{\beta}}{\Vec{\alpha}^2} \, \Vec{\alpha}
+</tex>
+
+と書くことが出来て・・・。
+　前回の説明をもう一度見てもらった方が早いだろう。
+　全く同じ理屈がルートベクトル自体にも成り立っているのである。
+　すなわち、あるルートベクトル$ \Vec{\alpha} $に垂直な面を鏡面だと考えて、
+別のルートベクトル$ \Vec{\beta} $を反転させたようなものが、ルートベクトルとして確実に存在しているのである。
+　これもまた「ワイル鏡映」と呼ばれている。
+
+<P>
+
+　自分自身も鏡映されるので、必ず正反対の向きのルートベクトルが存在していることになる。
+　ルートベクトルが 1 次元しかない SU(2) の場合でさえそうであった。
+
+<P>
+
+　ルートベクトルの数は有限個なので、このように互いに位置を制約する条件があれば、その配置は極めて限定されたものになるだろう。
+　SU(3) のウェイト図が三角形を基本とした対称的な配置になっているのはそのような事情であることが分かる。
+
+<P>
+
+　数学というのはとても奇妙だ。
+　このように苦労して導き出した条件を守るような配置が、最初からごく当たり前のことのように成立しているだなんて。
+　特殊な条件を人間に見出されてしまったから仕方なく従っておくことにしようか、というわけではないのだ。
+
+% =======================================================================
+
+\section{ルートベクトルの成す角}
+
+　ルートベクトルの配置に関してはさらに面白い条件が成り立っている。
+　二つのルートベクトルの成す角度$ \theta $について考えてみよう。
+　内積というのは、次のように表せるのだった。
+
+<tex>
+\Vec{\alpha} \cdot \Vec{\beta} \ =\ |\Vec{\alpha}| \, |\Vec{\beta}| \, \cos \theta 
+</tex>
+
+　これを変形して次のように書ける。
+
+<tex>
+\cos^2 \theta \ =\ \frac{(\Vec{\alpha} \cdot \Vec{\beta})^2}{\Vec{\alpha}^2 \Vec{\beta}^2} \tag{13}
+</tex>
+
+　ここに (12) 式を当てはめてみたい。
+　しかしその前に、(12) 式の$ (q - p) $の部分は整数だから、それを$ s\sub{1} $と置いてやり、次のように表しておこう。
+
+<tex>
+\frac{\Vec{\alpha} \cdot \Vec{\beta}}{\Vec{\alpha}^2} \ =\ \frac{1}{2} \, s\sub{1} \tag{14}
+</tex>
+
+　さらにこの関係は$ \Vec{\alpha} $と$ \Vec{\beta} $を入れ替えても成り立つものなので、別の整数$ s\sub{2} $を使って
+次のようにも表せる。
+
+<tex>
+\frac{\Vec{\alpha} \cdot \Vec{\beta}}{\Vec{\beta}^2} \ =\ \frac{1}{2} \, s\sub{2} \tag{15}
+</tex>
+
+　これらを (13) 式に使ってやると
+
+<tex>
+\cos^2 \theta \ =\ \frac{1}{4} \, s\sub{1} \, s\sub{2}
+</tex>
+
+となる。
+　$ \cos^2 \theta $というのは$ 0 \leqq \cos^2 \theta \leqq 1 $であるはずだから、
+二つの整数の積$ s\sub{1} \, s\sub{2} $として許される値の可能性は 0、1、2、3、4 のいずれかでしかない。
+　自ずとルートベクトルどうしの成す角は限定されてくるだろう。
+
+<P>
+<center>
+<table border="1">
+<tr><td align="center">$s\sub{1} \, s\sub{2}$</td><td align="center">0</td><td align="center">1</td><td align="center">2</td><td align="center">3</td><td align="center">4</td></tr>
+<tr><td align="center">$ \theta $</td><td align="center">　90°</td><td align="center">　60°, 120°</td><td align="center">　45°, 135°</td><td align="center">　30°, 150°</td><td align="center">　0°、 180°</td></tr>
+</table>
+</center>
+<P>
+
+　ここで前回の「単純ルート」の概念を思い出してみよう。
+　単純ルートというのは、正ルートのうち、他の正ルートに正の係数をかけて作った線形和で表せないようなもののことだった。
+　ここで$ \Vec{\alpha} $と$ \Vec{\beta} $の両方が単純ルートの場合を考えてみると、
+それらどうしの成す角についてはさらに制約がかかっていて面白い。
+
+<P>
+
+　まず、$ \Vec{\gamma} = \Vec{\beta} - \Vec{\alpha} $で表されるベクトル$ \Vec{\gamma} $は決してルートベクトルではないことが分かる。
+　なぜなら$ \Vec{\beta} = \Vec{\gamma} + \Vec{\alpha} $と変形できるから、
+もし$ \Vec{\gamma} $が正ルートなら$ \Vec{\beta} $は仮定に反して単純ルートではないことになってしまうし、
+もし$ \Vec{\gamma} $が負ルートなら今度は$ \Vec{\alpha} = \Vec{\beta} +(- \Vec{\gamma}) $と変形してみれば、
+$ (- \Vec{\gamma}) $は正ルートだから、$ \Vec{\alpha} $は仮定に反して単純ルートではないことになってしまう。
+
+<P>
+
+　(12) 式を作った時の仮定は、$ \Vec{\beta}-q\Vec{\alpha} $から$ \Vec{\beta}+p\Vec{\alpha} $までは存在しているというものだったが、
+今回は$ \Vec{\beta} - \Vec{\alpha} $ですら存在していないのだから、$ q = 0 $であろう。
+　そこで (12) 式は
+
+<tex>
+\Vec{\alpha} \cdot \Vec{\beta} \ =\ -p \, \frac{\Vec{\alpha}^2}{2}
+</tex>
+
+となる。
+　つまり、$ \Vec{\alpha} $と$ \Vec{\beta} $の内積は 0 以下であり、それらの成す角は 90°以上であろう。
+　先ほどの表から 90°未満のものを消し去ることができるし、
+180°というのも独立なベクトルの位置関係ではないので単純ルートとは言えず、除外して構わない。
+
+<P>
+<center>
+<table border="1">
+<tr><td align="center">$s\sub{1} \, s\sub{2}$</td><td align="center">0</td><td align="center">1</td><td align="center">2</td><td align="center">3</td></tr>
+<tr><td align="center">$ \theta $</td><td align="center">　90°</td><td align="center">　120°</td><td align="center">　135°</td><td align="center">　150°</td></tr>
+</table>
+</center>
+<P>
+
+　SU(n) の$ n $がどれだけ大きくなろうとも、つまりウェイト図が高次元の空間で表されることになろうとも、
+単純ベクトルどうしの角度についてはこのような限定された条件に縛られてしまうあたりが不思議で面白い。
+
+% =======================================================================
+
+\section{ディンキン図}
+
+　SU(3) の理解にはあまり必要ではないのだが、ここまで話したのだから、豆知識的にもう少しだけ話しておこう。
+
+<P>
+
+　(14) 式と (15) 式を組み合わせると次のような式が出来る。
+
+<tex>
+\frac{\Vec{\alpha}^2}{\Vec{\beta}^2} \ =\ \frac{s\sub{2}}{s\sub{1}}
+</tex>
+
+　これは二つのベクトルの長さの比を意味しており、それが$ s\sub{1} $と$ s\sub{2} $で決まってしまうというのだ。
+　$ s\sub{1} $と$ s\sub{2} $はベクトルの成す角も決めていたのだから、
+ベクトルの成す角とベクトルの長さの比は関係しているのではないだろうか。
+　実際、次のようになっている。
+
+<P>
+<center>
+<table border="1">
+<tr><td align="center">$s\sub{1} \, s\sub{2}$</td><td align="center">0</td><td align="center">1</td><td align="center">2</td><td align="center">3</td></tr>
+<tr><td align="center">$ \theta $</td><td align="center">　90°</td><td align="center">　120°</td><td align="center">　135°</td><td align="center">　150°</td></tr>
+<tr><td align="center">比</td><td align="center">決まらず</td><td align="center">1</td><td align="center">$ \sqrt{2}$</td><td align="center">$ \sqrt{3}$</td></tr>
+</table>
+</center>
+<P>
+
+　$ \Vec{\alpha} $と$ \Vec{\beta} $のどちらが長いかは状況次第だが、比はこのように決まる。
+
+<P>
+
+　それで、単純ベクトルの数と、それらの間の角度や大小関係を図形的に表すことで群の種類を分類する工夫が行われることになった。
+　単純ベクトルの数だけ小さな○を描き、その一つ一つが単純ベクトルを表す。
+　それらの関係が 120°の時はその○と○を一本線で結び、
+135°の時は二本線で結び、150°の時は三本線で結ぶ。
+　90°の時は線を引かない。
+　そして二本線と三本線の時は、その線の上に不等号を描いてどちらのベクトルが長いかを表すことにする。
+　このようなものを「\red{ディンキン図}」あるいは「\red{ディンキン図形}」と呼ぶ。
+
+<P>
+
+　実際にどのような図形になるかは検索でもして探してみてほしい。
+　今の解説の関心は SU(3) の理解に集中しており、様々な群を分類することには深入りしないでおく。
+
