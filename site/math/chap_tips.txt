@@ -1,0 +1,17 @@
+\field{物理数学}
+\title{応用的な豆知識}
+\comment{}
+\prev{imaginary12}
+\next{kronecker}
+\create{2023/5/13}
+\modify{}
+
+
+\section{}
+
+
+　この章では、体系にまとまらないような雑多なテクニックを紹介していこうと思う。
+
+
+
+
