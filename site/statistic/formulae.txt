@@ -1,0 +1,94 @@
+\field{統計力学}
+\title{良く使う積分の公式}
+\comment{この技巧がなかなか面白い。}
+\prev{localized}
+\next{stirling}
+\create{2008/4/9}
+\modify{}
+
+
+
+\section{}
+
+<a id="tag1"></a>
+
+<tex>
+\int_0^{\infty} e^{-ax^2} \diff x \ =\ \frac{\sqrt{\pi}}{2\sqrt{a}} \tag{1}
+</tex>
+
+　これを証明する為には、まず、(1) 式の左辺を$ I $と置いて、$ I^2 $を計算してやる。
+
+<tex>
+I^2 \ &=\  \left( \int_0^{\infty} e^{-ax^2} \diff x \right)^2 \\
+     &=\  \left( \int_0^{\infty} e^{-ax^2} \diff x \right)\left( \int_0^{\infty} e^{-ay^2} \diff y \right) \\
+     &=\  \int_0^{\infty}\!\!\! \int_0^{\infty} e^{-a(x^2 + y^2)} \diff x \diff y 
+</tex>
+
+　これは$ xy $グラフでいうと、第一象限全体の積分となっている。
+　ここで、$ x = r \cos \theta $、$ y = r \sin \theta $という変数変換をしてやる。
+　積分変数の座標変換をするときにはヤコビアンという行列式を使うのであるが、
+それは知っているものとして変形すると、
+
+<tex>
+I^2 \ &=\ \int_0^{\frac{\pi}{2}}\!\!\! \int_0^{\infty} e^{-ar^2} r \diff r \diff \theta \\
+     &=\ \frac{\pi}{2} \int_0^{\infty} r e^{-ar^2} \diff r \\
+     &=\ \frac{\pi}{2}  \left[ - \frac{1}{2a} e^{-ar^2} \right]_0^{\infty}  \\
+     &=\ \frac{\pi}{4a}
+</tex>
+
+<tex>
+\therefore\ I \ =\ \sqrt{\frac{\pi}{4a}}
+</tex>
+
+　これで証明終わり。
+
+
+% ======================================================================
+
+\section{}
+
+<a id="tag2"></a>
+
+<tex>
+\int_0^{\infty} x^2 e^{-ax^2} \diff x \ =\ \frac{ \sqrt{\pi} }{4 \sqrt{a^3} } \tag{2}
+</tex>
+
+　これを証明するには、まず上で証明した (1) 式を眺め、
+その両辺にある$ a $を変数であると考えて、$ a $で微分してやる。
+　簡単に確かめられるので、計算過程を書くまでもないと思う。
+
+
+% ==========================================================================
+
+\section{}
+
+<a id="tag3"></a>
+
+<tex>
+\int_0^{\infty} x^4 e^{-ax^2} \diff x \ =\ \frac{3}{8} \frac{ \sqrt{\pi} }{ \sqrt{a^5} } \tag{3}
+</tex>
+
+　これを証明するには似た事を繰り返せばいい。
+　まず上で証明した (2) 式を眺め、
+その両辺にある$ a $を変数であると考えて、$ a $で微分してやる。
+
+
+% ==========================================================================
+
+\section{}
+
+<a id="tag4"></a>
+
+<tex>
+\int_0^{\infty} x^3 e^{-ax^2} \diff x \ =\ \frac{1}{2a^2} \tag{4}
+</tex>
+
+　これは、(1) (2) (3) 式と形は似ているが、同じ系列ではない。
+　これを証明するために、まず次のような式は簡単に計算できるであろう。
+
+<tex>
+\int_0^{\infty} x e^{-ax^2} \diff x \ =\ \left[ -\frac{1}{2a} e^{-ax^2} \right]_0^{\infty}\ =\ \frac{1}{2a} \tag{5}
+</tex>
+
+　この式の両辺にある$ a $を変数であると考えて、$ a $で微分してやれば (4) 式となる。
+

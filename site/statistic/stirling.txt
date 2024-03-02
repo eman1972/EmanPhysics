@@ -1,0 +1,248 @@
+\field{統計力学}
+\title{スターリングの公式}
+\comment{外部リンクで済ますのは気持ち悪いので<br>自分の言葉で書いてみる。}
+\prev{formulae}
+\next{gamma_func}
+\create{2008/5/3}
+\modify{}
+
+
+\section{まずは普通のスターリングの公式}
+
+　統計力学では良く階乗の計算が出てくる。
+　それが『<B>アボガドロ数程度の大きさの整数</B>』の階乗だったりするものだから、
+定義に従って具体的な値を算出するのは不可能であるし、
+もう桁が幾つか違っていてもどうでもいいやと思えるほどに大き過ぎる値となるだろう。
+
+<P>
+
+　これをそのまま使っていたのでは式変形をしていくことが無理なので、
+別の変形しやすい形で表しておいた方が良い。
+　そこで利用されるのが、「\red{スターリングの公式}」と呼ばれる
+次のような近似公式である。
+
+<tex>
+n!\ \kinji\ \left(\frac{n}{e}\right)^n \tag{1}
+</tex>
+
+　あるいはこれと全く同じ意味だが、次のように書いてもいい。
+
+<tex>
+\log_e (n!) \ \kinji\ n \big( \log_e n - 1 \big) \tag{2}
+</tex>
+
+　これを求めるのは非常に簡単である。
+　まず、$ n! $の対数を取ったものは次のように表せるだろう。
+
+<tex>
+\log_e(n!)\ &=\ \log_e ( 1 \cdot 2 \cdots n) \\
+            &=\ \log_e 1 \ +\ \log_e 2 \ +\ \cdots \ +\ \log_e n
+</tex>
+
+　この右辺の値の意味するものを図で表してやろう。
+　次のように、幅が 1 であるような帯グラフを描いてやれば、
+その帯の面積の合計が、その値を表していることになる。
+
+\image{./stirling/graph1.png,スターリングの公式の近似を考えるためにグラフを帯に分割した図}
+
+　この図に描かれた曲線は$ y = \log_e x $を表しており、
+帯グラフを描く参考のために引いてみたものである。
+　しかし良く考えてみれば、この曲線の関数を積分したものは、
+帯の合計の面積に非常に近いものとなるではないか。
+　$ \log_e x $の積分をするためには、
+$ \log_e x = 1 \times \log_e x $と考えて部分積分を使ってやればいいのだ。
+　それで次のような計算ができる。
+
+<tex>
+\log_e(n!)\ &\kinji\ \int_{\frac{1}{2}}^{n+\frac{1}{2}} \log_e x \diff x \\
+            &=\ \Big[x \log_e x \Big]_{\frac{1}{2}}^{n+\frac{1}{2}}\ -\ \int_{\frac{1}{2}}^{n+\frac{1}{2}} \diff x \\
+            &=\ \left(n+\frac{1}{2} \right) \log_e \left(n+\frac{1}{2} \right)\ -\ \frac{1}{2} \log_e \frac{1}{2}\ -\ \left(n+\frac{1}{2} \right)\ +\ \frac{1}{2}
+</tex>
+
+　積分範囲についてはあまり細かいことを気にしてはいけない。
+　どうせ$ n $が大きくなれば、両端のわずかな差は気にならない程度となるのだから。
+
+<P>
+
+　上の式の定数部分や$ \frac{1}{2} $などは$ n $が大きくなれば無視できる程度になるので、
+これらを省いてやれば
+
+<tex>
+\log_e(n!) \ \kinji\ n \log_e n \ -\ n 
+</tex>
+
+となり、(2) 式が出来上がるというわけだ。
+
+
+% ===========================================================
+
+\section{精度の検証}
+
+　かなり大雑把に項を省いたりしたので、
+この近似式の精度がどの程度信頼して良いものなのか気にしないではいられないだろう。
+　それで次のような表を作ってみた。
+
+<P>
+<center>
+<table border="1">
+<tr align="center"><td>n</td><td>n !</td><td>(n/e)<sup>n</sup></td><td>誤差( 比 )</td></tr>
+<tr align="center"><td>5</td>  <td>120</td>                     <td>21.06</td>                   <td>5.7倍</td></tr>
+<tr align="center"><td>10</td> <td>3.63 × 10<sup>6</sup> </td> <td>4.54 × 10<sup>5</sup></td>  <td>8.0倍</td></tr>
+<tr align="center"><td>15</td> <td>1.31 × 10<sup>12</sup></td> <td>1.34 × 10<sup>11</sup></td> <td>9.8倍</td></tr>
+<tr align="center"><td>20</td> <td>2.43 × 10<sup>18</sup></td> <td>2.16 × 10<sup>17</sup></td> <td>11.3倍</td></tr>
+<tr align="center"><td>100</td><td>9.33 × 10<sup>157</sup></td><td>3.7  × 10<sup>156</sup></td> <td>25.2倍</td></tr>
+</table>
+</center>
+<P>
+
+　最初は誤差をパーセントで表示してやろうと思っていたが、
+実際にやってみたらパーセントで表すことが意味の無いほどに数値に開きがあることが分かった。
+　n が大きくなるほどに差が減っていくのかと思ったが、予想に反してどんどん増えていくし、
+しかも何十倍もの差がある。
+　それでもこのどんどん増える桁数に比べれば十分に近い値を保って追随しているのだと、
+・・・ちょっと言いにくいが、まぁ言えないことはない。
+
+<P>
+
+　$ n $が増えるほど誤差が減って行くだろうと予想したのは先ほどのグラフを見て考えたせいだ。
+　グラフは対数を取ったものだったので、対数で比較してみるのが筋というものだろう。
+　それで次のような表を作ってみた。
+
+<P>
+<center>
+<table border="1">
+<tr align="center"><td>n</td><td>log<sub>e</sub>(n !)</td><td> log<sub>e</sub> (n/e)<sup>n</sup> </td><td>誤差( \% )</td></tr>
+<tr align="center"><td>5</td>  <td>4.79</td>  <td>3.05</td>  <td>36.3</td></tr>
+<tr align="center"><td>10</td> <td>15.1</td>  <td>13.0</td>  <td>13.8</td></tr>
+<tr align="center"><td>15</td> <td>27.9</td>  <td>25.6</td>  <td>8.2</td></tr>
+<tr align="center"><td>20</td> <td>42.3</td>  <td>39.9</td>  <td>5.7</td></tr>
+<tr align="center"><td>100</td><td>363.7</td> <td>360.5</td> <td>0.9</td></tr>
+</table>
+</center>
+<P>
+
+　こうして見ると、$ n $が大きくなるにつれて急速に真の値に近付いているのが分かる。
+　この僅かな誤差が、対数を外した時には大きく出てしまうのだ。
+
+<P>
+
+　どちらにせよ、この近似はこれくらいのものなのだというのを感覚的に
+把握した上で使うことが大切であると思う。
+
+
+% ==================================================================
+
+\section{精度の高いスターリングの公式}
+
+　上で説明した公式は普通に使うにはあまり問題はない精度があるのだが、
+場合によってはもっと高い精度で成り立つ式が必要となることもある。
+　そういうときには次のような式を使う。
+
+<tex>
+n!\ \kinji\ \sqrt{2\pi n} \left(\frac{n}{e}\right)^n \tag{3}
+</tex>
+
+　あるいはこれと全く同じ意味だが、次のように書いてもいい。
+
+<tex>
+\log_e (n!) \ \kinji\ n \big( \log_e n - 1 \big) \ +\ \frac{1}{2} \log_e (2\pi n ) \tag{4}
+</tex>
+
+　$ \pi $が一体どこから出てくるのか、と思うかも知れないが、
+これを求めるのは、そんなに難しい考察が要るわけではない。
+　(1) (2) 式を求めるときに無視した部分を省かないで考慮に入れてやればいい。
+　つまり、定数部分を$ c $と置いて、
+
+<tex>
+\log_e(n!) \ \kinji\ \left(n+\frac{1}{2} \right) \log_e \left(n+\frac{1}{2} \right)\ -\ n \ +\ c 
+</tex>
+
+としてやると、$ n! $は、
+
+<tex>
+n!\ &\kinji\ \left(n+\frac{1}{2} \right)^{n+\frac{1}{2}} e^{-n} e^c \\
+   &=\ \left(n+\frac{1}{2} \right)^n \left(n+\frac{1}{2} \right)^{\frac{1}{2}} e^{-n} e^c \\
+   &=\ n^n \left(1 + \frac{1}{2n} \right)^n \left(n+\frac{1}{2} \right)^{\frac{1}{2}} e^{-n} e^c \tag{5}
+</tex>
+
+と書ける。
+　ここで$ n $が無限大に近付くときのことを考えてやると、
+
+<tex>
+\lim_{n\to\infty} \left(n+\frac{1}{2} \right)^{\frac{1}{2}} \ =\ n^{\frac{1}{2}} \tag{6}
+</tex>
+
+であるし、自然対数の底$ e $の定義が
+
+<tex>
+e \ \equiv\ \lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^n
+</tex>
+
+であることから、
+
+<tex>
+\lim_{n\to\infty} \left( 1 + \frac{1}{2n} \right)^{n} \ =\ \lim_{n\to\infty} \left( 1 + \frac{1}{n} \right)^{\frac{1}{2}n} \ =\ \sqrt{e} \tag{7}
+</tex>
+
+が言えるので、これら (6) (7) 式を (5) 式に適用してやって、
+
+<tex>
+n! \ \kinji\ a \sqrt{n} \left( \frac{n}{e} \right)^n \tag{8}
+</tex>
+
+という形になる。
+　(1) 式では 定数$ a $と$ \sqrt{n} $という要素が抜けていたというわけだ。
+
+<P>
+
+　あとは、なぜ定数$ a $が$ \sqrt{2\pi} $になるかというところを説明すれば終わりだが、
+ここで天下りで申し訳ないのだが、「<B>ウォリスの公式</B>」と呼ばれる次の式を使う。
+
+<tex>
+\frac{\pi}{2} \ =\ \lim_{n\to\infty} \frac{ (2^n n! )^4 }{ (2n+1) ((2n!))^2 } 
+</tex>
+
+　この式に (8) 式を代入してやれば$ n $はうまい具合に全部消えてしまって、
+結局$ a = \sqrt{2\pi} $であることが分かるというわけだ。
+
+
+% ===========================================================
+
+\section{精度の検証}
+
+　これについても精度を調べておこう。
+
+<P>
+<center>
+<table border="1">
+<tr align="center"><td>n</td><td>n !</td><td> (3)式右辺 </td><td>誤差( 比 )</td></tr>
+<tr align="center"><td>5</td>  <td>120</td>                     <td>118</td>                   <td>0.98倍</td></tr>
+<tr align="center"><td>10</td> <td>3.63 × 10<sup>6</sup> </td> <td>3.60 × 10<sup>6</sup></td>  <td>0.991倍</td></tr>
+<tr align="center"><td>15</td> <td>1.31 × 10<sup>12</sup></td> <td>1.30 × 10<sup>12</sup></td> <td>0.994倍</td></tr>
+<tr align="center"><td>20</td> <td>2.43 × 10<sup>18</sup></td> <td>2.42 × 10<sup>18</sup></td> <td>0.996倍</td></tr>
+<tr align="center"><td>100</td><td>9.33 × 10<sup>157</sup></td><td>9.32 × 10<sup>157</sup></td> <td>0.999倍</td></tr>
+</table>
+</center>
+<P>
+
+　なんと！
+　こちらは、初めからほぼ正確であるばかりか、
+$ n $の増加に伴って、より正確さを増して行くのである。
+　対数を取ったものは当然正確だろうが、一応まとめたものを書いておく。
+
+<P>
+<center>
+<table border="1">
+<tr align="center"><td>n</td><td>log<sub>e</sub>(n !)</td><td> (4)式右辺 </td><td>誤差( \% )</td></tr>
+<tr align="center"><td>5</td>  <td>4.79</td>  <td>4.77</td>  <td>0.35</td></tr>
+<tr align="center"><td>10</td> <td>15.1</td>  <td>15.1</td>  <td>0.05</td></tr>
+<tr align="center"><td>15</td> <td>27.9</td>  <td>27.9</td>  <td>0.02</td></tr>
+<tr align="center"><td>20</td> <td>42.3</td>  <td>42.3</td>  <td>0.01</td></tr>
+<tr align="center"><td>100</td><td>363.7</td> <td>363.7</td> <td>0.0003</td></tr>
+</table>
+</center>
+<P>
+
+　申し分の無い正確さである。
+　これに手を加えた<B>さらに正確な公式</B>もまだあるのだが、ここでやる必要もないだろう。
+

@@ -1,0 +1,143 @@
+\field{統計力学}
+\title{エネルギー等分配の法則}
+\comment{有名だけど、万能じゃない。}
+\prev{info}
+\next{stefan}
+\create{2009/2/10}
+\modify{}
+
+
+\section{証明は簡単}
+
+　そう言えば、以前にどこかで
+「一定のエネルギーを分かち合って安定している集団というのは、
+なぜか 1 自由度あたり、平均して$ \frac{1}{2}kT $ずつのエネルギーを持つようになるらしい」
+ということを書いた気がする。
+　ああ、そうそう、<a href="./pressure.html#equipartition">ここにあった</a>。
+　その時、この先でやるとか書いておきながら、今まですっかり忘れていたのだった。
+
+<P>
+
+　ここまでの知識があれば、それを示すのはもう簡単なので、ここでやっておこう。
+　それは「\red{エネルギー等分配の法則}」と呼ばれているのである。
+
+<P>
+
+　まず、全エネルギー$ E $が次のように表される系を考えよう。
+
+<tex>
+E \ =\ \sum_{i=1}^{3N} \left( \frac{{p_i}^2}{2m_i} + \frac{1}{2}k_i{q_i}^2 \right)
+</tex>
+
+　要するに、$ N $個の粒子の各方向の運動エネルギーと、
+振動のポテンシャルエネルギーの合計である。
+　各粒子の質量は同一でなくても構わないし、バネ定数も色々あって構わないとする。
+　それで、定数部分を次のように$ a_i $、$ b_i $として書いておいた方が
+今後の計算がすっきり見えるだろう。
+
+<tex>
+E \ =\ \sum_{i=1}^{3N} \left( a_i {p_i}^2 + b_i {q_i}^2 \right)
+</tex>
+
+
+　ここで、正準集団の考えを使って、ある一つの粒子の、ある方向の成分の
+運動エネルギーの平均を計算してみる。
+　この系全体が、温度$ T $の熱浴に接して熱平衡にあると考え、
+ガンマ空間全体で積分すればいいのだった。
+
+<tex>
+\langle a_k {p_k}^2 \rangle \ &=\ \frac{
+\displaystyle \frac{1}{h^{3N}} \int_{-\infty}^{\infty} \!\!\!\! \cdots \!\int_{-\infty}^{\infty}
+(a_k \,{p_k}^2) \ e^{-\frac{1}{kT} \sum_i \left( a_i {p_i}^2 + b_i {q_i}^2 \right) }
+\diff q\sub{1} \cdots \diff q\sub{3N}\ \diff p\sub{1} \cdots \diff p\sub{3N}
+}{
+\displaystyle \frac{1}{h^{3N}} \int_{-\infty}^{\infty} \!\!\!\! \cdots \!\int_{-\infty}^{\infty}
+\ \ \ \ \ \ \ \ e^{-\frac{1}{kT} \sum_i \left( a_i {p_i}^2 + b_i {q_i}^2 \right) }
+\diff q\sub{1} \cdots \diff q\sub{3N}\ \diff p\sub{1} \cdots \diff p\sub{3N}
+} \\[8pt]
+&=\ \frac{
+\displaystyle \int_{-\infty}^{\infty} \!\!\!\! \cdots \!\int_{-\infty}^{\infty}
+(a_k \,{p_k}^2) \ e^{-\frac{1}{kT} \sum_i a_i {p_i}^2 }
+\diff p\sub{1} \cdots \diff p\sub{3N}
+}{
+\displaystyle \int_{-\infty}^{\infty} \!\!\!\! \cdots \!\int_{-\infty}^{\infty}
+\ \ \ \ \ \ \ \ e^{-\frac{1}{kT} \sum_i a_i {p_i}^2 }
+\diff p\sub{1} \cdots \diff p\sub{3N}
+} \\[8pt]
+&=\ \frac{
+\displaystyle \int_{-\infty}^{\infty} (a_k \,{p_k}^2) \, e^{-\frac{a_k {p_k}^2}{kT}} \diff p\sub{k} 
+\int_{-\infty}^{\infty} \!\!\!\! \cdots \!\int_{-\infty}^{\infty}
+e^{-\frac{1}{kT} \sum_{i\neq k} a_i {p_i}^2 }
+\diff p\sub{1} \cdots \diff p\sub{k-1} \diff p\sub{k+1} \cdots \diff p\sub{3N}
+}{
+\displaystyle \int_{-\infty}^{\infty} \ \ \ \ \ \ \ \ e^{-\frac{a_k {p_k}^2}{kT}} \diff p\sub{k} 
+\int_{-\infty}^{\infty} \!\!\!\! \cdots \!\int_{-\infty}^{\infty}
+e^{-\frac{1}{kT} \sum_{i\neq k} a_i {p_i}^2 }
+\diff p\sub{1} \cdots \diff p\sub{k-1} \diff p\sub{k+1} \cdots \diff p\sub{3N}
+} \\[8pt]
+&=\ \frac{
+\displaystyle \int_{-\infty}^{\infty} (a_k \,{p_k}^2) \ e^{- a_k {p_k}^2/kT} \diff p_k}{
+\displaystyle \int_{-\infty}^{\infty} \ \ \ \ \ \     e^{- a_k {p_k}^2/kT} \diff p_k
+} \\[8pt]
+&=\ \frac{a_k \sqrt{\frac{k^3T^3\pi}{4{a_k}^3}} }{ \sqrt{\frac{kT\pi}{a_k}} } 
+\ =\ a_k \sqrt{\frac{k^2 T^2 }{4{a_k}^2}} \\[8pt]
+&=\ \frac{kT}{2}
+</tex>
+
+　このように、系に含まれる粒子の運動の自由度一つごとに、
+平均して$ \frac{1}{2}kT $ごとのエネルギーが分けられることが示される。
+　運動エネルギーだけでなく、
+ポテンシャルエネルギーの方にも同じように分配されることに注意しよう。
+　その計算は$ a_i $のところが$ b_i $に変わるだけであり、
+全く同じ結果になることはすぐ分かるだろう。
+
+<P>
+
+　もしこの他に「粒子の回転エネルギー」などが含まれるような状態があったとしても、
+そのエネルギーが上と同じ形式で表される限りは同じことであり、
+そこにも同じだけのエネルギーが分配されることになる。
+　ただし、エネルギーが上のような形に近似できない場合や、
+量子力学的な効果が無視できない状態では成り立たなくなる。
+
+
+% ===========================================================
+
+\section{デュロン・プティの法則}
+
+　エネルギー等分配則が成り立っている好例として有名なのが、
+「\red{デュロン・プティの法則}」である。
+　これは 1819 年にデュロンとプティが独立に実験を行って発見したもので、
+固体元素のモル比熱は原子の種類によらず、$ 3R $だというものである。
+
+<P>
+
+　これは 1871 年になってボルツマンによって説明された。
+　固体の内部では各原子はそれぞれの定位置で振動していると考えれば良い。
+　1 モルの場合、
+運動エネルギーの自由度$ 3N_A $とポテンシャルエネルギーの自由度$ 3N_A $で、
+全エネルギー$ U $は、
+
+<tex>
+U\ =\ 6N_A \times \frac{1}{2}kT \ =\ 3N_AkT = 3RT
+</tex>
+
+であるから、これを温度で微分して$ 3R $となるというわけだ。
+
+<P>
+
+　ところがその数年後、炭素やホウ素やシリコンなど、
+この法則に当てはまらない物質が幾つかあることが報告された。
+　これらの比熱は$ 3R $よりもかなり低いのである。
+　しかし温度を上げてゆくと徐々に$ 3R $に近付くのだという。
+
+<P>
+
+　さらに 1905 年頃になって、法則に当てはまっていた物質でも、
+温度を 0 K にまで下げて行く途中で比熱が急激に 0 に近付くという現象が見つかり、
+デュロン・プティの法則は低温では成り立たないということが分かり始めた。
+　これを理解するには量子論が必要となるのである。
+
+<P>
+
+　ではそろそろ量子論の話に入り始めるとしようか。
+
