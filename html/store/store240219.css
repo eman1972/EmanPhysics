@@ -1,0 +1,142 @@
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body{
+  font-family: Hiragino Kaku Gothic ProN, Meiryo, sans-serif;
+  font-size: 17px;
+  background: #D8CC99;
+  padding: 50px 30px 20px;
+  margin: 0;
+  border-left-style: solid;
+  border-left-color: #AA8844;
+  border-left-width: 40px;
+}
+
+.level{
+  width: 80%;
+  padding-bottom: 20px;
+  text-align: left;
+}
+
+.level_title{
+  font-size: 20px;
+  font-weight: bold;
+  padding-left: 10px;
+}
+
+.level_comment{
+  font-size: 17px;
+  text-align: left;
+  padding-left: 25px;
+}
+
+table{
+  table-layout: fixed;
+  border: solid gray 2px;
+  width: 80%;
+}
+caption{
+  font-size: 20px;
+  text-align: left;
+  font-weight: bold;
+  padding-left: 10px;
+  padding-bottom: 20px;
+}
+td{
+  border: solid gray 3px;
+  padding: 10px;
+}
+
+.book_link{
+  width: 150px;
+}
+
+.goods_link{
+  width: 170px;
+}
+
+.amazon_img {
+  max-height: 160px;
+  max-width: 140px;
+  border: 0;
+}
+
+td.goods_link img.amazon_img {
+  max-height: 170px;
+  max-width: 170px;
+}
+
+.author{
+  font-weight: bold;
+}
+
+.goodsname{
+  font-weight: bold;
+}
+
+@media screen and (max-width: 960px) {
+
+  .level{
+    width: 90%;
+  }
+  table{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+
+  .level{
+    width: 100%;
+  }
+  table{
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  body{
+    padding: 30px 10px 20px;
+    font-size: 11px;
+    border-left-width: 20px;
+  }
+  .level{
+    width: 100%;
+  }
+  .level_title{
+    font-size: 17px;
+  }
+  .level_comment{
+    font-size: 11px;
+    padding-left: 15px;
+  }
+  table{
+    width: 100%;
+    border: solid gray 2px;
+  }
+  td{
+    padding: 5px;
+    font-size: 11px;
+  }
+
+  .book_link{
+    width: 90px;
+  }
+
+  .goods_link{
+    width: 115px;
+  }
+
+  .amazon_img {
+    max-height: 110px;
+    max-width: 90px;
+  }
+
+  td.goods_link img.amazon_img {
+    max-height: 115px;
+    max-width: 115px;
+  }
+
+}
+
