@@ -1,0 +1,159 @@
+<html lang="ja">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=680">
+
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta property="og:url" content="https://eman-physics.net/web_app/fourier/fourier.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="フーリエ級数実演" />
+<meta property="og:description" content="自由に描いた波形と同じものを三角関数の組み合わせで再現します" />
+<meta property="og:site_name" content="EMANの物理学" />
+<meta property="og:image" content="https://eman-physics.net/web_app/fourier/fourier_ogp.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eman1972" />
+<meta name="twitter:creator" content="@eman1972" />
+
+<title>群速度の観察</title>
+
+<style type="text/css">
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background-color: #202020;
+    margin: 0;
+  }
+
+  .root{
+    width: 680px;
+  }
+
+  .indent {
+    margin-left: 14px;
+  }
+
+  A:link { 
+    color: #8080ff;
+  }
+
+  A:visited {
+    color: #ff8080;
+  }
+
+  #midashi {
+    position:static;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size:26px;
+    color:#ffffff;
+  }
+
+  #screen {
+    position:relative;
+    margin: 0 auto;
+    width: 640px;
+    height: 530px;
+    border-width: 6px;
+    border-style: groove;
+
+    user-select: none; /* CSS3 */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Safari、Chromeなど */
+    -ms-user-select: none; /* IE10かららしい */
+  }
+
+  #helpbox {
+    position: relative;
+    margin: 0 auto;
+    background-color: #e0e0ff;
+    width: 640px;
+    border-width: 6px;
+    border-style: double;
+    font-size:18px;
+  }
+
+  #helptext {
+    position:static;
+    padding-top: 8px;
+    padding-left: 8px;
+    box-sizing: border-box;
+  }
+
+  #linkarea {
+    position:relative;
+    padding-left: 20px;
+    font-size:16px;
+  }
+
+  #copyrightarea {
+    position:static;
+    text-align:right;
+    padding-right: 20px;
+    font-size:16px;
+    color:#ffffff;
+  }
+
+</style>
+<script type="text/javascript" src="./fourier20201226a.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+<div class="root">
+
+<div id="midashi">フーリエ級数実演</div>
+
+<br>
+
+<div id="screen">
+<canvas id="drawfield" width="640" height="720"></canvas>
+</div>
+
+<br>
+
+<div id="helpbox">
+<div id="helptext">
+
+<span class="indent"></span>フーリエ級数の実演です。<br>
+自由に描いた波形と同じものを三角関数の組み合わせで再現しようとします。
+<br>
+<br>
+<b>[操作]</b><br>
+　まず画面上の指示に従って好きな波形を描きます。<br>
+　その後は「次」ボタンを押して、そのたびに項が1つづつ加えられていく様子を眺めてください。<br>
+<br>
+
+　「戻る」：ひとつ前の状態に戻します<br>
+　「RESET」 : 最初の待機状態にまで戻します<br>
+　「+5」「-5」：項を5つ分、一気に足したり戻したりします（じれったくなったときにお使いください）<br>
+<br>
+<b>[解説]</b><br>
+・ 波形は周期的である必要があるので開始点と終了点のレベルを一致させるように強制しています。<br>
+・ 開始点は y = 0 にしていますが実はどこでもいいのです。定数を加えて調整すればいいことですから。<br>
+・ 面白い現象が見られるようなアドバイスをしたいですが、自分で発見して下さい。<br>
+<br>
+※ 「計算中・・・」と表示されますが、本当は一瞬で終わっています。（演出です）<br>
+<br>
+
+</div>
+</div>
+
+<br>
+
+<div id="linkarea">
+<a href="../../math/fourier01.html#appli">リンク元の記事に戻る</a>
+</div>
+
+<br>
+
+<hr>
+
+<div id="copyrightarea">
+&copy; 2012-, K.Hiroe all rights reserved
+</div>
+
+</div> <!-- root -->
+
+</body>
+</html>

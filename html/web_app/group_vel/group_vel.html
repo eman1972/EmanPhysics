@@ -1,0 +1,162 @@
+<html lang="ja">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=680">
+
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta property="og:url" content="https://eman-physics.net/web_app/group_vel/group_vel.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="群速度の観察" />
+<meta property="og:description" content="群速度を理解するための教材です" />
+<meta property="og:site_name" content="EMANの物理学" />
+<meta property="og:image" content="https://eman-physics.net/math/group_vel/group_vel_app.jpg" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eman1972" />
+<meta name="twitter:creator" content="@eman1972" />
+
+<title>群速度の観察</title>
+
+<style type="text/css">
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background-color: #202020;
+    margin: 0;
+  }
+
+  .root{
+    width: 680px;
+  }
+
+  .indent {
+    margin-left: 14px;
+  }
+
+  A:link { 
+    color: #8080ff;
+  }
+
+  A:visited {
+    color: #ff8080;
+  }
+
+  #midashi {
+    position:static;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size:26px;
+    color:#ffffff;
+  }
+
+  #screen {
+    position:relative;
+    margin: 0 auto;
+    width: 640px;
+    height: 720px;
+    border-width: 6px;
+    border-style: groove;
+
+    user-select: none; /* CSS3 */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Safari、Chromeなど */
+    -ms-user-select: none; /* IE10かららしい */
+  }
+
+  #helpbox {
+    position: relative;
+    margin: 0 auto;
+    background-color: #e0e0ff;
+    width: 640px;
+    border-width: 6px;
+    border-style: double;
+    font-size:18px;
+  }
+
+  #helptext {
+    position:static;
+    padding-top: 8px;
+    padding-left: 8px;
+    box-sizing: border-box;
+  }
+
+  #linkarea {
+    position:relative;
+    padding-left: 20px;
+    font-size:16px;
+  }
+
+  #copyrightarea {
+    position:static;
+    text-align:right;
+    padding-right: 20px;
+    font-size:16px;
+    color:#ffffff;
+  }
+
+</style>
+<script type="text/javascript" src="./group_vel20201226.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+<div class="root">
+
+<div id="midashi">群速度の観察</div>
+
+<br>
+
+<div id="screen">
+<canvas id="drawfield" width="640" height="720"></canvas>
+</div>
+
+<br>
+
+<div id="helpbox">
+<div id="helptext">
+
+<span class="indent"></span>群速度を理解するための教材です。<br>
+速度と波長の異なる二つの波を重ね合わせて「うなり」を作ります。
+<br>
+<br>
+<b>[操作]</b><br>
+　二つの波の波長、速さ、振幅をそれぞれ変化させます<br><br>
+　■ : 動きを止めます<br>
+　&#x25B6; : 動きを再開します<br>
+　RESET : 原点（グラフ中央）での位相を合わせます<br>
+　　　　（波長、速さ、振幅は変わりません）<br>
+<br>
+<b>[解説]</b>（確認してみてほしいところ）<br>
+・ 波長の異なる波を重ね合わせるとコブが繰り返される形ができる。<br>
+・ もっと多数の波を重ね合わせれば複雑な形の波束が作れるはずだが、残念ながらここでは試せない。<br>・ うなりの移動する速度を群速度と呼ぶ。<br>
+・ 二つの波の速度が同じなら、群速度も元の波と同じである。（真空中の電磁波や音波の場合）<br>
+・ 二つの波の速度に差があれば、群速度は元のどちらの波の速度とも違っている。<br>
+・ 群速度は、二つの波の速度の違いによって、逆行すらもさせられる。（波長の短い方の波を遅らせると群速度は逆行する。）<br>
+<br>
+<b>[工夫したところ]</b><br>
+・ 波の速度は波長と振動数で決まるが、調節が難しいので、速度を直接操れるようにしてある。<br>
+・ 振幅は今回の趣旨とはあまり関係はないが、興味が出ると思ったので操れるようにしてある。<br>
+・ 波の動きを止めているときに速度を変えても分からないので、ボタンが無効になるようにしてある。<br>・ 重ねあわせの結果がどうしてそうなるのかを観察しにくいので、画面中央を原点にして、二つの波の位相を原点で合わせて比べられるようにしてある。<br>
+<br>
+
+</div>
+</div>
+
+<br>
+
+<div id="linkarea">
+<a href="../../math/group_vel.html#appli">リンク元の記事に戻る</a>
+</div>
+
+<br>
+
+<hr>
+
+<div id="copyrightarea">
+&copy; 2014-, K.Hiroe all rights reserved
+</div>
+
+</div> <!-- root -->
+
+</body>
+</html>

@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<title>コマンド解説（数式アニメジェネレーター）</title>
+<style type="text/css">
+
+.table {
+    caption-side: top;
+    caption-side: left;
+}
+
+td {
+vertical-align: top;
+}
+</style>
+
+<!-- アクセス解析用 -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-41724757-3', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+</head>
+
+<body>
+<div id="root">
+
+<H1>コマンド解説（数式アニメジェネレーター）</H1>
+
+<ul>
+　<li><a href="./eq_anim.html">数式アニメジェネレーター</a>は、
+数式を使った動画教材を手軽に作成する目的で作られました。
+　<li>簡単なコマンドを記述するだけでアニメが作成されます。
+　<li>文字を動かすコマンドと、カメラを操作するコマンドに分かれています。
+　<li>画面の具体的な座標を意識しないで指示を出せるように工夫しています。
+</ul>
+
+<ul>
+　<li>ほとんどのコマンドの第 1 引数はコマンドが発動する時刻を表しています。<br>
+　　（アニメ開始からの秒数で指定します。）
+　<li>ほとんどのコマンドの第 2 引数は、コマンドが動作を完了するまでにかける時間を表しています。<br>
+　　（コマンド発動からの秒数で指定します。）
+　<li>第 2 引数を大きくすると、ゆっくり変化します。 0 を指定するとその場で動作が完了します。
+　<li>ほとんどの引数で小数が使用可能です。
+　<li>引数の中に式を入れることは出来ません。（1/3 などは不可。 0.333 のように記述してください。）
+</ul>
+
+<ul>
+　<li>コマンドの記述順序を気にする必要はありません。<br>
+　　　　（実行時に内部で自動的に時系列順の並び替えが行われて実行されます。）
+　<li>カメラ系のコマンドだけを一箇所にまとめて記述したり、途中に挟んだり、<br>
+　　　　見やすい形で自由に記述できます。
+　<li>コマンドは 1 行につき、最初の 1 つしか実行されません。
+　<li>一つのコマンドを複数行に分けて書くことはできません。
+　<li>何も記述しない行は無視されます。（自由に空白を空けた記述ができます。）
+　<li>「//」以降は無視されるので、コメントの記述ができます。
+</ul>
+
+<ul>
+　<li>複数のオブジェクトを同時に動かすことができます。
+　<li>オブジェクトの動作が終わらないうちに同一のオブジェクトに同じ系統の指示を出した場合、<br>
+　　　　以前の指示はその場でキャンセルされ、次の指示に従います。
+　<li>色を変えながら移動したり、大きさを変えながら移動したりすることは可能です。<br>
+　　　　（これらの指示は独立して実行されるのでキャンセルされません。）
+</ul>
+<br>
+<br>
+
+　[<font color="red">注意点</font>]
+<ul>
+　<li>半角の "," を表示させるために "," を入れるとコマンド引数の区切りと誤解されてしまうので、<br>
+代わりに"\,"を使ってください。
+　<li>これにともない今度は「\,」と表示させることができなくなりますが、需要はないと見て対策していません。
+　<li>デフォルト設定のフォント(cmmi10)には "," が含まれていませんので<br>
+フォント変更コマンドで別フォントに変更する必要があります。
+　<li>デフォルト設定のフォント(cmmi10)のアラビア数字の形状にはかなり癖があるので、<br>
+フォント変更コマンドで別フォントに変更して使用することをお勧めします。
+　<li>√ 記号の形をコントロールするには、ルートに横棒のない形状のフォントを探して、<br>
+マイナス記号と組み合わせてグループ登録するなどの手段が使えます。<br>
+　例えば「Arial」「メイリオ」「Courier」などがありました。
+　<li>ブラウザによっては作成後のビデオ（WebM形式）の表示に対応していないものがあります。<br>
+　Firefox、Chrome、Operaなどではサポートされていますが、<br>
+Internet Explorer や Safari（デスクトップ版） はアドオンが必要です。<br>
+　iOS 版の Safari ではサポートされていません。
+　<li>ブラウザの性能に頼って描画しているので、ブラウザによって出来上がりの品質に差があります。
+　<li>時々現れるフォントの縁のギザギザが気になる場合は別のブラウザを試してみるといいかもしれません。
+</ul>
+<br>
+<br>
+
+<hr>
+
+<H2>カメラワークコマンド</H2>
+<br>
+
+<font size="+1"><b>拡大縮小</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">zoom ( time, duration, factor )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）</td></tr>
+<tr><td>factor</td><td>拡大倍率<br>
+　　コマンド発動時の画面を基準にして、その何倍拡大するかを指定。<br>
+　　正の値のみ。 0 は禁止。 1 以下なら縮小。<br>
+</td>
+</tr>
+</table>
+<br>
+<br>
+
+<font size="+1"><b>カメラ横移動</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">pan ( time, duration, factor )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）</td></tr>
+<tr><td>factor</td><td>移動量<br>
+　　コマンド発動時の画面の横幅を基準にして、その何倍の横移動をするかを指定。<br>
+　　正ならカメラが右移動、負の場合は左移動。<br>
+　　（factor = 1 なら 1 画面分右へ移動する）
+</td>
+</tr>
+</table>
+<br>
+<br>
+
+<font size="+1"><b>カメラ縦移動</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">tilt ( time, duration, factor )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）</td></tr>
+<tr><td>factor</td><td>移動量<br>
+　　コマンド発動時の画面の縦幅を基準にして、その何倍の上下移動をするかを指定。<br>
+　　正ならカメラが上移動、負の場合は下移動。<br>
+　　（factor = 1 なら 1 画面分上へ移動する）
+</td>
+</tr>
+</table>
+<br>
+<br>
+
+<font size="+1"><b>注目</b></font>　（指定したオブジェクトが画面に収まるようにカメラ移動、ズームを行う）<br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">focus ( time, duration, target, zoom, pan, tilt )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）</td></tr>
+<tr><td>target</td><td>ターゲット指定<br>
+　　オブジェクト名、またはグループ名を指定します。<br>
+　　グループ名を指定した場合、グループ全体を画面に入れるように動作します。
+</td>
+<tr><td>zoom</td><td>画面の横幅に比してどのくらいの範囲にターゲットを収めるかを指定。<br>
+　　（zoom = 1 なら画面の横幅いっぱいに入る。）
+</td>
+</tr>
+<tr><td>pan</td><td>ターゲット全体の幅の何倍だけ左右にずらすかを指定。<br>
+　　（正ならカメラが右へ、負なら左へ。 0 なら中央。）
+</td>
+</tr>
+<tr><td>tilt</td><td>ターゲット全体の上下幅の何倍だけ上下にずらすかを指定。<br>
+　　（正ならカメラが上へ、負なら下へ。 0 なら中央。）
+</td>
+</tr>
+</table>
+<font size="-1">
+<table border="0">
+<tr><td>注意：</td>
+<td>　オブジェクトの縦の幅はフォントサイズを基準に算出しているので、大きめに見積もられます。<br>
+　特に、アルファベットの小文字の場合、その 2 倍の高さがあるかのように判断されますので、<br>
+オブジェクトの中心がアルファベットの上にあることになり、画面中央より下側に表示されます。<br>
+　tilt = -0.25 とすることでおよそ中心に向けることができます。
+</td></tr>
+</table>
+</font>
+<br>
+<br>
+
+<hr>
+
+<H2>オブジェクト設置コマンド</H2>
+<br>
+
+<font size="+1"><b>設置</b></font>　（画面上に他に基準となるオブジェクトが何もないときに、新しくオブジェクトを置くために使う）<br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">set ( time, duration, name, string, x, y, size, [sx], [sy] )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+　　0 以外を指定した場合、浮き出るようにゆっくり出現します。<br>
+</td></tr>
+<tr><td>name</td><td>命名<br>
+　　オブジェクトに名前を付けます。　今後この名前を使って指示を出します。<br>
+</td></tr>
+<tr><td>string</td><td>表示文字列<br>
+　　表示する内容を指定します。　1 文字ずつ動かすのが基本ですが、複数文字も可能です。<br>
+</td></tr>
+<tr><td>(x, y)</td><td>位置指定<br>
+　　画面中央を (0,0) として表示位置を指定します。<br>
+　　<font color="red">中心から右端</font>までの距離を 1 とします。<br>
+　　y 座標は<font color="red">上が正</font>です。<br>
+　　カメラ設定の倍率には影響を受けません。（その時点の画面を基準に表示されます。）<br>
+　　文字フォントの左下が指定座標と一致するように表示されます。
+</td></tr>
+<tr><td>size</td><td>フォントサイズ<br>
+　　画面中心から<font color="red">上端</font>までの長さを 1 としてフォントの縦の大きさを指定します。<br>
+　　アルファベットの小文字などは指定の半分の高さで表示されたように見えることが多くなります。<br>
+　　カメラ設定の倍率には関係なく、その時点の画面の上に、指定されたサイズで表示されます。<br>
+</td></tr>
+<tr><td>(sx, sy)</td><td>縦横比（省略可）<br>
+　　フォントを縦横に伸縮させるのに使います。省略した場合 (sx,sy) = (1,1) になります。<br>
+</td></tr>
+</table>
+<font size="-1">
+<table border="0">
+<tr><td>補足：</td><td>　黒以外の色でゆっくり出現させたいときは duration を 0 以外に設定しておき、<br>
+同じ time で color コマンド（後述）を発動させることで実現できます。</td></tr>
+</table>
+</font>
+<br>
+<br>
+
+
+<font size="+1"><b>右に設置</b></font>　（画面上にすでにあるオブジェクトとの位置関係を利用して新しくオブジェクトを置く）<br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">setr ( time, duration, name, string, target [, x, y, sx, sy] )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+　　0 以外を指定した場合、浮き出るようにゆっくり出現します。<br>
+</td></tr>
+<tr><td>name</td><td>命名<br>
+　　オブジェクトに名前を付けます。　今後この名前を使って指示を出します。<br>
+</td></tr>
+<tr><td>string</td><td>表示文字列<br>
+　　表示する内容を指定します。　1 文字ずつ動かすのが基本ですが、複数文字も可能です。<br>
+</td></tr>
+<tr><td>target</td><td>基準オブジェクト<br>
+　　ここで指定したオブジェクトの右隣に、同じフォントサイズ、同じ縦横比を継承して表示されます。<br>
+　　グループ名は使えません。
+</td></tr>
+<tr><td>x</td><td>横方向位置調整（省略可）<br>
+　　「target で指定したオブジェクトの横幅」の何倍だけ右にずらすかを指定します。<br>
+　　省略した場合、x = 0 となり、target で指定したオブジェクトのすぐ右隣に表示されます。<br>
+　　負の値の場合、左へずれます。<br>
+</td></tr>
+<tr><td>y</td><td>縦方向位置調整（省略可）<br>
+　　「target で指定したオブジェクトの高さ」の何倍だけ上にずらすかを指定します。<br>
+　　省略した場合、y = 0 となり、target で指定したオブジェクトと同じ高さに表示されます。<br>
+　　負の値の場合、下へずれます。<br>
+</td></tr>
+<tr><td>(sx, sy)</td><td>縦横比（省略可）<br>
+　　フォントを縦横に伸縮させるのに使います。<br>
+　　省略した場合 (sx,sy) = (1,1) になり、target で指定したオブジェクトと同じ縦横比となります。<br>
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>左に設置</b></font>　（画面上にすでにあるオブジェクトとの位置関係を利用して新しくオブジェクトを置く）<br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">setl ( time, duration, name, string, target, [x], [y], [sx], [sy] )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+　　0 以外を指定した場合、浮き出るようにゆっくり出現します。<br>
+</td></tr>
+<tr><td>name</td><td>命名<br>
+　　オブジェクトに名前を付けます。　今後この名前を使って指示を出します。<br>
+</td></tr>
+<tr><td>string</td><td>表示文字列<br>
+　　表示する内容を指定します。　1 文字ずつ動かすのが基本ですが、複数文字も可能です。<br>
+</td></tr>
+<tr><td>target</td><td>基準オブジェクト<br>
+　　ここで指定したオブジェクトの<font color="red">左隣</font>に、同じフォントサイズ、同じ縦横比を継承して表示されます。<br>
+　　グループ名は使えません。
+</td></tr>
+<tr><td>x</td><td>横方向位置調整（省略可）<br>
+　　「target で指定したオブジェクトの横幅」の何倍だけ<font color="red">左</font>にずらすかを指定します。<br>
+　　省略した場合、x = 0 となり、target で指定したオブジェクトのすぐ右隣に表示されます。<br>
+　　負の値の場合、<font color="red">右</font>へずれます。<br>
+</td></tr>
+<tr><td>y</td><td>縦方向位置調整（省略可）<br>
+　　「target で指定したオブジェクトの高さ」の何倍だけ上にずらすかを指定します。<br>
+　　省略した場合、y = 0 となり、target で指定したオブジェクトと同じ高さに表示されます。<br>
+　　負の値の場合、下へずれます。<br>
+</td></tr>
+<tr><td>(sx, sy)</td><td>縦横比（省略可）<br>
+　　フォントを縦横に伸縮させるのに使います。<br>
+　　省略した場合 (sx,sy) = (1,1) になり、target で指定したオブジェクトと同じ縦横比となります。<br>
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>テロップ設置</b></font>　（カメラに影響されないオブジェクトの設置）<br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">telop ( time, duration, name, string, x, y, size, [sx], [sy] )</td></tr>
+<tr><td colspan="2">
+詳細は省略。 set コマンドとほぼ同じです。<br>
+　このコマンドで設置されたオブジェクトはカメラの動きを無視する点だけが他のオブジェクトと違います。<br>
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>コピー</b></font>　（すでに存在するオブジェクトと同じものを別名で新しく設置する）<br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">copy ( time, duration, name, src )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+　　0 以外を指定した場合、浮き出るようにゆっくり出現します。<br>
+</td></tr>
+<tr><td>name</td><td>命名<br>
+　　新しいオブジェクトに名前を付けます。　今後この名前を使って指示を出します。<br>
+</td></tr>
+<tr><td>src</td><td>コピー元オブジェクト名<br>
+　　グループ名は指定できません。<br>
+　　コマンド発動時点での位置、大きさ、フォントの種類、テロップか否かの設定をそっくり真似ます。
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>フォントを選ぶ</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">font ( time, family, style )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>family</td><td>フォント名<br>
+　　お使いのコンピュータの中にインストールされているフォントの中から選びます。<br>
+　　フォント名をそのまま書くことによって、使用するフォントを設定します。<br>
+　　フォントは一種類のみを指定できます。　複数の指定はできません。<br>
+　　日本語表記も英語表記も使用可能ですがご利用のブラウザによっては問題があるかもしれません。<br>
+　　　<b>Windowsでよく見かけるフォント名の例（カッコ内は英語表記）</b><br>
+　　　　・ＭＳ 明朝　（MS Mincho）<br>
+　　　　・ＭＳ ゴシック　（MS Gothic）<br>
+　　　　・ＭＳ Ｐ明朝　（MS PMincho）<br>
+　　　　・ＭＳ Ｐゴシック　（MS PGothic）<br>
+　　　　・メイリオ　（Meiryo）<br>
+　　　<b>Macintoshでよく見かけるフォント名の例（カッコ内は英語表記）</b><br>
+　　　　・ヒラギノ角ゴ ProN W3　（Hiragino Kaku Gothic ProN）<br>
+　　　　・ヒラギノ明朝 ProN W3　（Hiragino Mincho ProN）<br>
+　　　　・游ゴシック体　（Yu Gothic）（Yu Gothic）<br>
+　　　　・游明朝体　（YuMincho）（Yu Mincho）<br>
+　　　　・Osaka<br>
+　　　<b>よく見かける欧文フォント名の例</b>（カッコ内は簡単な解説）<br>
+　　　　・Times　（明朝系）<br>
+　　　　・Helvetica　（ゴシック系）<br>
+　　　　・arial　（ゴシック系）<br>
+　　　　・Courier（等幅系）<br>
+　　　　・Comic Sans MS　（筆記体系 Windows に入っていることが多い）<br>
+<br>
+　　具体的なフォント名を指定せずに、次のような中から選ぶこともできます。<br>
+　　コンピュータにインストールされているフォントの中から一番近いものが自動で選ばれます。<br>
+　　（何が選ばれるかはブラウザによって異なります。）<br>
+　　　　・serif　　　　（明朝系、Times など）<br>
+　　　　・sans-serif 　（ゴシック系、Helvetica など）<br>
+　　　　・cursive　　　（筆記体）<br>
+　　　　・fantasy　　　（装飾文字）<br>
+　　　　・monospace　　（等幅フォント）<br>
+<br>
+　　このアプリにはウェブフォントとして2種類のフォントがあらかじめ組み込まれています。<br>
+　　これらの中から選ぶこともできます。<br>
+　　　　・font1<br>
+　　　　　　　　中身は cmmi10 (Computer Modern Math Italic 10pt)<br>
+　　　　　　　　　LaTeX などで使われている数式書体<br>
+　　　　・font2<br>
+　　　　　　　　中身は cmr10 (Computer Modern Roman 10pt)<br>
+　　　　　　　　　LaTeX などで使われているローマン体<br>
+<br>
+　　フォント名を省略した場合には font1 が選択されます。
+</td></tr>
+<tr><td>style</td><td>スタイル/ウェイト（省略可）<br>
+　　フォントの形や太さを選択するオプションの設定です。<br>
+　　スタイルは italic（イタリック体）, oblique（単純斜体） の中から一つ。<br>
+　　太さは bold, bolder, lighter の中から一つを選べます。<br>
+　　半角スペースで区切ることでどちらも設定できます。<br>
+　　どちらからも選択しない場合には normal と書きます。<br>
+　　省略した場合には normal が選択されます。<br>
+　　（フォントによっては italic と oblique に違いがなかったり、bold と bolder に違いがなかったり、<br>
+　　　　　lighter と normal に違いがなかったり、normal 以外の書体が存在していなかったりします。）
+</td></tr>
+<tr><td colspan="2">
+　　・このコマンドの発動後に set, setr, setl などのオブジェクト登録コマンドを使うと、<br>
+　　　　　設定したフォントでオブジェクトが登録されるようになります。<br>
+　　・登録が済めば、フォント設定を別のものに変えてもオブジェクトのフォントは変わりません。<br>
+　　・他のフォント設定が行われるまで効果は持続します。<br>
+　　・一回のアニメーションの中で何度でも使用可能です。<br>
+　　・アニメーション作成開始のたびに設定がリセットされます。<br>
+　　・初期状態では font1 が設定されています。
+</td>
+</tr>
+</table>
+<br>
+<br>
+
+<hr>
+
+
+<H2>グループ定義コマンド</H2>
+<br>
+
+<font size="+1"><b>グループ化</b>　</font><font color="red"></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">group ( time, group, name1, [name2, ...] )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>group</td><td>命名<br>
+　　グループを定義して名前を付けます。<br>
+　　今後この名前を使って複数のオブジェクトにまとめて指示が出せるようになります。<br>
+　　複数のオブジェクトを固めてしまう機能ではなく、まとめて複数のオブジェクトに指示を出す時の、<br>
+　　　　　指示範囲を定義する機能です。<br>
+　　よって、グループを定義した後でも、個々のオブジェクトに別個に指示を出して動かすことができます。<br>
+　　一つのオブジェクトは同時に複数のグループに所属可能です。<br>
+　　既存のグループ名を入れた場合、設定が上書きされます。
+</td></tr>
+<tr><td>
+name1<br>
+name2<br>
+　 ．<br>
+　 ．<br>
+</td>
+<td>対象オブジェクト名<br>
+　　グループに入れるオブジェクトを列挙します。<br>
+　　ここに既存のグループ名を指定することで多数のオブジェクトを一気にメンバーに入れることもできます。<br>
+　　メンバーが一つしかないグループは定義できません。<br>
+</td></tr>
+</table>
+<font size="-1">
+<table>
+<tr><td>補足：</td>
+<td>　対象オブジェクト名としてグループ名を一つだけ入れることで、同じグループの別名定義が可能です。<br>
+　また、既存のグループ名 A とオブジェクト名 B を入れて、グループ名 A として定義すれば、<br>
+グループ A にオブジェクト B を追加するという使い方もできます。
+</td></tr>
+</table>
+</font>
+<br>
+<br>
+
+
+
+<hr>
+
+<H2>オブジェクト移動コマンド</H2>
+<br>
+
+<font size="+1"><b>移動</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">move ( time, duration, name, dx, dy )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+</td></tr>
+<tr><td>name</td><td>動かすオブジェクト名、またはグループ名</td></tr>
+<tr><td>dx</td><td>横方向変位<br>
+　　横方向の移動距離を指定し、目標地点を定めます。<br>
+　　コマンド発動の時点での画面の中央から右端までの距離を 1 とします。<br>
+　　正なら右方向、負なら左方向です。
+</td></tr>
+<tr><td>dx</td><td>縦方向変位<br>
+　　縦方向の移動距離を指定し、目標地点を定めます。<br>
+　　コマンド発動の時点での画面の中央から上端までの距離を 1 とします。<br>
+　　正なら上方向、負なら下方向です。
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>右隣へ移動</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">mvr ( time, duration, name, target, [x], [y] )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+</td></tr>
+<tr><td>name</td><td>動かすオブジェクト名、またはグループ名</td></tr>
+<tr><td>target</td><td>目標オブジェクト<br>
+　　ここで指定したオブジェクトの右隣に並ぶことを目標にして直線的に移動します。<br>
+　　グループ名は使えません。
+</td></tr>
+<tr><td>x</td><td>横方向位置調整（省略可）<br>
+　　「target で指定したオブジェクトの横幅」の何倍だけ、目標地点を右にずらすかを指定します。<br>
+　　省略した場合、x = 0 となり、target で指定したオブジェクトのすぐ右隣に移動します。<br>
+　　負の値の場合、目標地点は左へずれます。<br>
+</td></tr>
+<tr><td>y</td><td>縦方向位置調整（省略可）<br>
+　　「target で指定したオブジェクトの高さ」の何倍だけ上にずらすかを指定します。<br>
+　　省略した場合、y = 0 となり、target で指定したオブジェクトと同じ高さに移動します。<br>
+　　負の値の場合、目標地点は下へずれます。<br>
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>左隣へ移動</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">mvl ( time, duration, name, target, [x], [y] )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+</td></tr>
+<tr><td>name</td><td>動かすオブジェクト名、またはグループ名</td></tr>
+<tr><td>target</td><td>目標オブジェクト<br>
+　　ここで指定したオブジェクトの左隣に並ぶことを目標にして直線的に移動します。<br>
+　　グループ名は使えません。
+</td></tr>
+<tr><td>x</td><td>横方向位置調整（省略可）<br>
+　　「target で指定したオブジェクトの横幅」の何倍だけ、目標地点を<font color="red">左</font>にずらすかを指定します。<br>
+　　省略した場合、x = 0 となり、target で指定したオブジェクトのすぐ左隣に移動します。<br>
+　　負の値の場合、目標地点は<font color="red">右</font>へずれます。<br>
+</td></tr>
+<tr><td>y</td><td>縦方向位置調整（省略可）<br>
+　　「target で指定したオブジェクトの高さ」の何倍だけ上にずらすかを指定します。<br>
+　　省略した場合、y = 0 となり、target で指定したオブジェクトと同じ高さに移動します。<br>
+　　負の値の場合、目標地点は下へずれます。<br>
+</td></tr>
+</table>
+<br>
+<br>
+
+
+
+<hr>
+
+<H2>オブジェクト色変化コマンド</H2>
+<br>
+
+<font size="+1"><b>消滅</b></font>　（指定した時間をかけてフェイドアウトする）<br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">vanish ( time, duration, name )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+</td></tr>
+<tr><td>name</td><td>消すオブジェクト名、またはグループ名</td></tr>
+</table>
+<font size="-1">
+<table>
+<tr><td>補足：</td><td>　消えたオブジェクトは color コマンド（後述）で復活させることができます。<br>
+　消えたオブジェクトは背景色と同じになっているのではなく、一時的に描かれなくなっています。<br>
+　背景色を変えても浮き出たりはしませんし、他のオブジェクトと重ねても影響しません。
+</td></tr>
+</table>
+</font>
+<br>
+<br>
+
+
+<font size="+1"><b>色変化</b></font>　（オブジェクトの色を変える）<br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">color ( time, duration, name, r, g, b )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+</td></tr>
+<tr><td>name</td><td>対象オブジェクト名、またはグループ名</td></tr>
+<tr><td>(r,g,b)</td><td>目標カラー<br>
+　　r, g, b はそれぞれ 0 ～ 255 までの整数でなければいけません。<br>
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<hr>
+
+<H2>オブジェクト膨張収縮コマンド</H2>
+<br>
+
+<font size="+1"><b>大きさを変える</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">deform ( time, duration, name, sx, sy, [ox], [oy] )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+</td></tr>
+<tr><td>name</td><td>対象オブジェクト名、またはグループ名</td></tr>
+<tr><td>(sx, sy)</td><td>変形倍率<br>
+　　縦横それぞれ、現在のサイズの何倍にするかを指定します。<br>
+　　グループ化している場合、位置関係の比率を保ったまま全体を拡大縮小します。<br>
+</td></tr>
+<tr><td>(ox, oy)</td><td>原点調整（省略可）<br>
+　　原点の調整を行います。　小数による微妙な設定が可能です。<br>
+　　省略した場合 (0,0) が適用され、オブジェクトまたはグループの、<br>
+左下座標を中心にしてフォントの大きさが変化します。<br>
+　　(1,1) ならオブジェクトまたはグループの、右上座標を中心に拡大縮小が行われます。<br>
+　　( 0.5 , 0.5 ) ならオブジェクトまたはグループの、中央座標を中心に拡大縮小が行われます。
+</td></tr>
+</table>
+<br>
+<br>
+
+
+
+<hr>
+
+<H2>背景色 コマンド</H2>
+<br>
+
+<font size="+1"><b>背景色変化</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">bgcolor ( time, duration, r, g, b )</td></tr>
+<tr><td>time</td><td>コマンド発動時刻（秒）</td></tr>
+<tr><td>duration</td><td>コマンド効果持続時間（秒）<br>
+</td></tr>
+<tr><td>(r,g,b)</td><td>目標カラー<br>
+　　r, g, b はそれぞれ 0 ～ 255 までの整数でなければいけません。<br>
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<hr>
+
+<H2>システム設定 コマンド</H2>
+<br>
+
+<font size="+1"><b>スクリーンサイズ変更</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">screen ( width, height )</td></tr>
+<tr><td>width</td><td>スクリーン横幅 (ドット) 設定範囲：64 ～ 1280</td></tr>
+<tr><td>height</td><td>スクリーン高さ (ドット）設定範囲：48 ～ 720</td></tr>
+<tr><td colspan="2">　スクリーンサイズを変更します。<br>
+　　スクリプトのどこに書かれていても効果は同じです。<br>
+　　スクリプト中に複数の指示があった場合、より後に書かれている設定が有効になります。<br>
+　　何も設定が行われない場合、640 * 480 になります。
+</table>
+<font size="-1">
+<table border="0">
+<tr><td>豆知識：</td><td>　動画のサイズは圧縮の仕組みの関係上、縦横ともに16の倍数を使うのが効率がよく、<br>
+横縦比は 4:3 または 16:9 がよく使われます。<br>
+　これらの条件を満たす組み合わせはかなり限られています。
+</td></tr>
+</table>
+</font>
+<br>
+<br>
+
+<font size="+1"><b>フレームレート変更</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">fps ( frames )</td></tr>
+<tr><td>frames</td><td>フレームレート 設定範囲：1 ～ 60<br>
+　　1 秒間あたりのコマ数 (fps = frame per second) を変更します。<br>
+　　スクリプトのどこに書かれていても効果は同じです。<br>
+　　スクリプト中に複数の指示があった場合、より後に書かれている設定が有効になります。<br>
+　　何も設定がなければ 30 コマになります。<br>
+　　コマ数を多くするとアニメーションに遅れが出ますが、作成されるビデオには遅れはありません。<br>
+　　コマ数を少なくするとチラつきが目立つようになります。
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>デバグ用タイマー表示</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">timeron ()</td></tr>
+<tr><td>引数なし</td><td>画面の右上に赤色で経過時刻（秒）が表示されるようになります。<br>
+　　この表示は出来上がりのビデオには入りません。
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>開始時間の設定</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">startfrom ( time )</td></tr>
+<tr><td>time</td><td>開始時刻（秒）<br>
+　　設定した秒数からいきなりアニメが再生されます。<br>
+　　設定した秒数以前のアニメはビデオからカットされて作成されます。<br>
+<br>
+　　特定部分のアニメ編集に集中したい時や、動画の必要部分だけをビデオ化するのに利用できます。
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<font size="+1"><b>終了時間の設定</b></font><br>
+<table class="table" border="1">
+<tr><td colspan="2" bgcolor="#d0d0d0">end ( time )</td></tr>
+<tr><td>time</td><td>終了時刻（秒）<br>
+　　設定した秒数でアニメが強制終了します。<br>
+　　その時点までのビデオが作成されます。<br>
+　　他の全てのコマンドが動作を終えた後まで、動画の終わる時間を引き伸ばすのにも使えます。<br>
+<br>
+　　特定部分のアニメ編集に集中したい時や、動画の不要部分のカット、<br>
+　動画の終わりに余韻を追加することに利用できます。
+</td></tr>
+</table>
+<br>
+<br>
+
+
+<hr>
+
+<H2>その他、実装予定</H2>
+
+・弧を描くようなコースで移動させるコマンド<br>
+・移動の加速パターンを変更する機能<br>
+・スラッシュ、バックスラッシュ（打ち消し線）のアニメを簡易化するコマンド<br>
+・フォントの回転<br>
+・矢印を引く機能<br>
+<br>
+<br>
+
+<hr>
+
+　　　Copyright (c) 2015 K.Hiroe all rights reserved.
+
+</body>
+</html>

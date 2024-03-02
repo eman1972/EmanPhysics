@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+  <title>数式アニメジェネレーター</title>
+  <style type="text/css">
+
+        @font-face {
+          font-family: 'font1';
+          src: url('./cmmi10.ttf');
+        }
+        @font-face {
+          font-family: 'font2';
+          src: url('./cmr10.ttf');
+        }
+        body {
+          background-color: #a0a0a0
+        }
+	A:link { 
+          color: #8080ff;
+        }
+	A:visited {
+	  color: #ff8080;
+	}
+
+        #root {
+          position:static;
+          padding-top:25px;
+          padding-left:20px;
+          padding-bottom:30px;
+          background-color: #202020;
+        }
+        #midashi {
+          position:static;
+          font-size:32px;
+          color:#ffffff;
+        }
+        #screen {
+          position:static;
+          width: 640px;
+          height: 480px;
+          border-top-width: 6px;
+          border-right-width: 6px;
+          border-bottom-width: 6px;
+          border-left-width: 6px;
+          border-top-style: groove;
+          border-right-style: groove;
+          border-bottom-style: groove;
+          border-left-style: groove;
+        }
+        #scriptarea {
+          position:static;
+          width: 640px;
+          color:#ffffff;
+        }
+        #errorarea {
+          position:static;
+          width: 640px;
+          color:#ffffff;
+        }
+        #videotitle {
+          position:static;
+          color:#ffffff;
+        }
+        #videoarea {
+          position:static;
+          width: 640px;
+          height: 480px;
+          border-top-width: 6px;
+          border-right-width: 6px;
+          border-bottom-width: 6px;
+          border-left-width: 6px;
+          border-top-style: groove;
+          border-right-style: groove;
+          border-bottom-style: groove;
+          border-left-style: groove;
+        }
+        #helptext {
+          position:static;
+          width: 640px;
+          background-color: #e0e0ff;
+          padding-top: 8px;
+          padding-left: 8px;
+          border-top-width: 6px;
+          border-right-width: 6px;
+          border-bottom-width: 6px;
+          border-left-width: 6px;
+          border-top-style: double;
+          border-right-style: double;
+          border-bottom-style: double;
+          border-left-style: double;
+          font-size:14px;
+        }
+        #copyrightarea {
+          position:static;
+          font-size:16px;
+          color:#ffffff;
+        }
+  </style>
+
+  <script type="text/javascript" src="whammy.js"></script>
+  <script type="text/javascript" src="eq_anim.js"></script>
+</head>
+
+<body>
+<div id="root">
+
+<span id="midashi">数式アニメジェネレーター</span>
+
+<br>
+<br>
+
+<div id="screen">
+<canvas id="drawfield" width="640" height="480"></canvas>
+</div>
+
+<br>
+
+<div id="scriptarea">
+    <form name="scriptform" >
+    <b>スクリプト入力エリア</b>&nbsp;&nbsp;&nbsp;&nbsp;
+    <input name="runbtn" type="button" value="　　　実行　　　" onclick="run()">
+    <input name="stopbtn" type="button" value="強制停止" onclick="stop()" disabled="true">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <input type="button" value="サンプル代入" onclick="sample_write()">
+    <input type="button" value="クリア" onclick="script_clear()">&nbsp;
+    <input type="button" value="復元" onclick="script_restore()"><br><br>
+    <textarea name="text" cols="90" rows="25"></textarea>
+    </form>
+</div>
+
+<br>
+
+<div id="errorarea">
+    <b>エラー出力エリア</b>
+    <form name="error" >
+    <textarea name="message" cols="90" rows="10"></textarea>
+    </form>
+</div>
+
+<br>
+
+<span id="videotitle"><b>ビデオ出力エリア</b></span>
+
+<div id="videoarea">
+<video id="videofield" type="video/webm" src="./sample.webm" width="640" height="480" controls>
+このメッセージが読める方は、ブラウザがビデオ出力に対応していません。<br>
+他のブラウザをお試しください。
+</video>
+</div>
+
+<br>
+
+<div id="helptext">
+数式アニメを作成する実験です。<br>
+　　<br>
+
+　　・スクリプト入力エリアに動作を指示するスクリプトを書き込み、<br>
+　　　　　実行ボタンを押すとアニメーションが再生されます。<br>
+　　・スクリプトの文法は「<a href="./commands.html">こちらの解説</a>」を参考にしてください。<br>
+　　・スクリプトは各自のエディタで作成、保存し、コピペで貼り付けてください。<br>
+　　　　　（この画面内で編集するのは実際的ではありません）<br>
+　　・エラーがある場合、詳細はエラー出力エリアに表示されます。<br>
+　　・問題なく全てのコマンドが実行されるとビデオ出力エリアに動画が出力されます。<br>
+　　・ビデオ出力エリアの上でマウスの右ボタンを押したときのメニューから<br>
+　　　　　　「名前をつけて保存」を選び、動画データを持ち帰ることができます。<br>
+　　・動画は WebM 形式です。　拡張子は「.webm」<br>
+<br>
+</div>
+
+<br>
+
+<div id="helptext">
+<b>ご利用条件</b><br>
+　　<br>
+
+　　・このツールを利用したことによるトラブル、損害、不利益については<br>
+　　　　 一切の責任を負いません。<br>
+　　・このツールを利用して独自に作成した動画について<br>
+　　　　　・動画の著作権は、本ツール用のスクリプト作成者に属するものとします。<br>
+　　　　　・商用、非商用を問わず、クレジット表記無しで<b>ご自由に利用できます</b>。<br>
+<br>
+　　・このツールを分析し、改造、改良を加えて個人的に利用することを歓迎します。<br>
+　　　　（このツールを改造して作った動画はあなたのものです！）<br>
+　　・このツールのコードの一部または全部を利用したプログラムを公開、譲渡する場合には<br>
+　　　　　見えやすい形でのクレジット表記「(c) K.Hiroe」および、<br>
+　　　　　本ページヘのリンクを添えることが必要となります。<br>
+<br>
+</div>
+
+<hr>
+
+<span id="copyrightarea">Copyright (c) 2015 K.Hiroe all rights reserved.</span>
+
+</div>
+
+
+  </body>
+</html>

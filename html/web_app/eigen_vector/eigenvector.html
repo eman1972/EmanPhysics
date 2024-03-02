@@ -1,0 +1,172 @@
+<html lang="ja">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=680">
+
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta property="og:url" content="https://eman-physics.net/web_app/eigen_vector/eigenvector.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="固有ベクトルの観察" />
+<meta property="og:description" content="固有ベクトルがどこに現れるかを観察する教材です" />
+<meta property="og:site_name" content="EMANの物理学" />
+<meta property="og:image" content="https://eman-physics.net/web_app/eigen_vector/eigenvector_ogp.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eman1972" />
+<meta name="twitter:creator" content="@eman1972" />
+
+<title>固有ベクトルの観察</title>
+
+<style type="text/css">
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background-color: #202020;
+    margin: 0;
+  }
+
+  .root{
+    width: 680px;
+  }
+
+  A:link { 
+    color: #8080ff;
+  }
+
+  A:visited {
+    color: #ff8080;
+  }
+
+  #midashi {
+    position:static;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size:26px;
+    color:#ffffff;
+  }
+
+  #screen {
+    position:relative;
+    margin: 0 auto;
+    width: 640px;
+    height: 730px;
+    border-width: 6px;
+    border-style: groove;
+
+    user-select: none; /* CSS3 */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Safari、Chromeなど */
+    -ms-user-select: none; /* IE10かららしい */
+  }
+
+  #helpbox {
+    position: relative;
+    margin: 0 auto;
+    background-color: #e0e0ff;
+    width: 640px;
+    border-width: 6px;
+    border-style: double;
+    font-size:18px;
+  }
+
+  #helptext {
+    position:static;
+    padding-top: 8px;
+    padding-left: 8px;
+    box-sizing: border-box;
+  }
+
+  #linkarea {
+    position:relative;
+    padding-left: 20px;
+    font-size:16px;
+  }
+
+  #copyrightarea {
+    position:static;
+    text-align:right;
+    padding-right: 20px;
+    font-size:16px;
+    color:#ffffff;
+  }
+
+</style>
+<script type="text/javascript" src="./eigenvector20201231.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+<div class="root">
+
+<div id="midashi">固有ベクトルの観察</div>
+
+<br>
+
+<div id="screen">
+<canvas id="drawfield" width="640" height="730"></canvas>
+</div>
+
+<br>
+
+<div id="helpbox">
+<div id="helptext">
+
+固有ベクトルがどこに現れるかを観察するものです。<br>
+<br>
+
+<b>[ルール]</b><br>
+・固有ベクトルは赤い線で表示されます<br>
+・固有ベクトルが任意の場合には赤い霧がかかったようになります（初期状態はその状態）<br>
+・知らなかったことを発見したら勝利（勝利条件の自動判定はありません）<br>
+<br>
+
+<b>[操作]</b><br>
+上下ボタン：ベクトルの長さが変化します<br>
+左右ボタン：ベクトルの向きが回転します<br>
+Xボタン：黒いベクトルの表示／非表示<br>
+RESET：初期状態に戻ります<br>
+<br>
+
+<b>[サンプルテストモード]</b><br>
+・[X] ボタンを押すと起動します<br>
+・新たに二つのベクトルが出現します<br>
+・黒いベクトルの変換先がピンク色のベクトルで表示されます<br>
+・もう一度 [X] ボタンを押すと消えます<br>
+<br>
+
+
+<br>
+<b>キーボードも使えます</b><br>
+<font color="red">（日本語モードを解除しておいてください）</font><br>
+<br>
+方向キー[↑][←][↓][→]で緑色のベクトルを操作します<br>
+ [SPACE] キーを押しながら操作すると青色のベクトルを動かせます<br>
+青色のベクトルは [W] [A] [S] [D] の各キーでも操作できます<br>
+<br>
+[M]キー：モード切り替え<br>
+[R]キー：リセット<br>
+[X]キー：黒いベクトルの表示／非表示<br>
+[Z]キー：押しながら方向キーで黒いベクトルを操作<br>
+<br>
+
+</div>
+</div>
+
+<br>
+
+<div id="linkarea">
+<a href="../../math/linear09.html#appli">リンク元の記事に戻る</a>
+</div>
+
+<br>
+
+<hr>
+
+<div id="copyrightarea">
+&copy; 2011-, K.Hiroe all rights reserved
+</div>
+
+</div> <!-- root -->
+
+</body>
+</html>

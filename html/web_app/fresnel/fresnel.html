@@ -1,0 +1,153 @@
+<html lang="ja">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=520">
+
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+<meta property="og:url" content="https://eman-physics.net/web_app/fresnel/fresnel.html" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="電磁波の反射率" />
+<meta property="og:description" content="屈折率を変化させたときの電磁波の反射率のグラフの変化を見ることができます" />
+<meta property="og:site_name" content="EMANの物理学" />
+<meta property="og:image" content="https://eman-physics.net/electromag/fresnel/fresnel_app.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eman1972" />
+<meta name="twitter:creator" content="@eman1972" />
+
+<title>電磁波の反射率</title>
+
+<style type="text/css">
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+    background-color: #202020;
+    margin: 0;
+  }
+
+  .root{
+    width: 520px;
+  }
+
+  .indent {
+    margin-left: 14px;
+  }
+
+  A:link { 
+    color: #8080ff;
+  }
+
+  A:visited {
+    color: #ff8080;
+  }
+
+  #midashi {
+    position:static;
+    padding-top: 20px;
+    padding-left: 20px;
+    font-size:26px;
+    color:#ffffff;
+  }
+
+  #screen {
+    position:relative;
+    margin: 0 auto;
+    width: 480px;
+    height: 500px;
+    border-width: 6px;
+    border-style: groove;
+
+    user-select: none; /* CSS3 */
+    -moz-user-select: none; /* Firefox */
+    -webkit-user-select: none; /* Safari、Chromeなど */
+    -ms-user-select: none; /* IE10かららしい */
+  }
+
+  #helpbox {
+    position: relative;
+    margin: 0 auto;
+    background-color: #e0e0ff;
+    width: 480px;
+    border-width: 6px;
+    border-style: double;
+    font-size:18px;
+  }
+
+  #helptext {
+    position:static;
+    padding-top: 8px;
+    padding-left: 8px;
+    box-sizing: border-box;
+  }
+
+  #linkarea {
+    position:relative;
+    padding-left: 20px;
+    font-size:16px;
+  }
+
+  #copyrightarea {
+    position:static;
+    text-align:right;
+    padding-right: 20px;
+    font-size:16px;
+    color:#ffffff;
+  }
+
+</style>
+<script type="text/javascript" src="./fresnel20201226.js" charset="utf-8"></script>
+
+</head>
+
+<body>
+
+<div class="root">
+
+<div id="midashi">電磁波の反射率</div>
+
+<br>
+
+<div id="screen">
+<canvas id="drawfield" width="480" height="500"></canvas>
+</div>
+
+<br>
+
+<div id="helpbox">
+<div id="helptext">
+
+<span class="indent"></span>電磁波のエネルギー反射率を表すグラフです。
+入射側と透過側の媒質の屈折率を変えることで、グラフがどのように変化するかを観察できます。<br>
+<br>
+
+<b>[操作]</b><br>
+・ボタンを押して屈折率の値を増減させます。<br>
+・押し続ければ連続的に変化します。<br>
+<br>
+
+<b>[注意]</b><br>
+<span class="indent"></span>透磁率も変化させられますが、これは気になる人のためのオマケです。
+実際は透磁率を変化させれば屈折率にも影響が出ますが、ここでは独立して値を動かせるようにしています。
+多くの物質では比透磁率は 1.0 ですから操作パネルの右半分はあまり気にしなくて構いません。<br>
+<br>
+
+</div>
+</div>
+
+<br>
+
+<div id="linkarea">
+<a href="../../electromag/fresnel.html#appli">リンク元の記事に戻る</a>
+</div>
+
+<br>
+
+<hr>
+
+<div id="copyrightarea">
+&copy; 2014-, K.Hiroe all rights reserved
+</div>
+
+</div> <!-- root -->
+
+</body>
+</html>
