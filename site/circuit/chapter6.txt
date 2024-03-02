@@ -1,0 +1,15 @@
+\field{電子回路}
+\title{第 6 部　物理理論}
+\comment{　}
+\prev{npn}
+\next{ohm2}
+\create{2015/8/27}
+\modify{}
+
+
+\section{}
+<center>
+　回路設計にあまり関係ない話。<br>
+　記事を書いていて気になったことをまとめます。
+</center>
+

@@ -1,0 +1,16 @@
+\field{電子回路}
+\title{第 1 部　基礎知識}
+\comment{　}
+\prev{policy}
+\next{designing}
+\create{2015/6/2}
+\modify{}
+
+
+\section{}
+<center>
+　まずは簡単な話から。<br>
+　基礎と言っても色々あるけれど。<br>
+　知っておいて欲しい重要なこと。
+</center>
+

@@ -1,0 +1,15 @@
+\field{電子回路}
+\title{第 2 部　直流回路}
+\comment{　}
+\prev{earth}
+\next{current}
+\create{2015/8/4}
+\modify{}
+
+
+\section{}
+<center>
+　基礎だけど、ちょっと数式混じりの理論的な話。<br>
+　それほど話すことがあっただろうか。
+</center>
+

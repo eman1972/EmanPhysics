@@ -1,0 +1,15 @@
+\field{電子回路}
+\title{第 3 部　交流回路}
+\comment{　}
+\prev{inrush}
+\next{ac}
+\create{2015/8/25}
+\modify{}
+
+
+\section{}
+<center>
+　ここから本格的。<br>
+　交流の知識は必要なのだ。
+</center>
+
