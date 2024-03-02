@@ -1,0 +1,194 @@
+\field{電磁気学}
+\title{電気力線の実在性}
+\comment{本当に何かあるのか？<br>単なる解釈の問題か？}
+\prev{conclusion}
+\next{no_freq}
+\create{2003/6/26}
+\modify{}
+
+
+\section{この記事の目的}
+
+　第 2 部の「<a href="./max_tensor.html">マクスウェルの応力</a>」という記事の中で、
+
+<BLOCKQUOTE>
+<I>
+　「電荷の間のマクスウェルの応力の形を詳しく調べると、
+ちょうど電場の向きには引き合う力が働いており、
+その垂直方向にはお互いに斥け合う向きの力が働いていることが分かる。
+　これはまるで電荷の間に電気力線と呼んでも良いような弾性体が存在しているようである。」
+</I>
+</BLOCKQUOTE>
+
+　という解説をしたが、本筋とはあまり関係なかったので計算は省いた。
+　しかし読者の方からこれについてもっと詳しい話が知りたいとの要望が寄せられたことから、
+少し計算をしてみた。
+　それほど難しい話でもなかったのでここで軽く説明してしまおうと思う。
+
+% ===========================================================
+
+\section{復習}
+
+　まず、以前の説明を思い出してもらうことにしよう。
+　電場による応力テンソルは
+
+<tex>
+\Vec{T} = \varepsilon\sub{0}\left( \begin{array}{ccc}
+  E_x^2-\frac{1}{2}\Vec{E}^2 & E_x E_y & E_x E_z \\
+\ & \  & \  \\
+   E_y E_x & E_y^2-\frac{1}{2}\Vec{E}^2 & E_y E_z \\
+\ & \  & \  \\
+   E_z E_x & E_z E_y & E_z^2-\frac{1}{2}\Vec{E}^2 \\
+ \end{array} \right)
+</tex>
+
+のように表現されるが、これは電荷と電荷の間に働く力が、 
+
+<tex>
+F_x &= \int \varepsilon\sub{0} \left\{ \left(E_x^2-\frac{1}{2}\Vec{E}^2 \right) n_x + E_x E_y n_y + E_x E_z n_z \right\} \diff S \\
+F_y &= \int \varepsilon\sub{0} \left\{ E_y E_x n_x + \left(E_y^2-\frac{1}{2}\Vec{E}^2 \right) n_y + E_y E_z n_z \right\} \diff S \\
+F_z &= \int \varepsilon\sub{0} \left\{ E_z E_x n_x + E_z E_y n_y + \left(E_z^2-\frac{1}{2}\Vec{E}^2 \right) n_z \right\} \diff S 
+</tex>
+
+のように、ある領域を囲む閉曲面に加わる応力の積分で表されることを簡略表現したものであった。
+　ここで、$ \Vec{n} = ( n_x, n_y, n_z ) $というのは
+微小面積$ \diff S $に垂直な単位ベクトルである。
+
+　これを次のようにちょっと変形してやって、 微小面積$ \diff S $あたりに働く力
+という具合に表してやると今後の解釈が楽になる。
+
+<tex>
+\dif{F_x}{S} &= \varepsilon\sub{0} \left( E_x^2-\frac{1}{2} \Vec{E}^2 \right) n_x + \varepsilon\sub{0} E_x E_y n_y + \varepsilon\sub{0} E_x E_z n_z \\
+\dif{F_y}{S} &= \varepsilon\sub{0} E_y E_x n_x + \varepsilon\sub{0} \left(E_y^2-\frac{1}{2}\Vec{E}^2 \right) n_y + \varepsilon\sub{0} E_y E_z n_z \\
+\dif{F_z}{S} &= \varepsilon\sub{0} E_z E_x n_x + \varepsilon\sub{0} E_z E_y n_y + \varepsilon\sub{0} \left(E_z^2-\frac{1}{2}\Vec{E}^2 \right) n_z 
+</tex>
+
+　今後の計算に都合がいいようにこれらの式をもう少し変形しておこう。
+　電場ベクトル$ \Vec{E} $と単位ベクトル$ \Vec{n} $の内積は
+
+<tex>
+\Vec{E} \cdot \Vec{n} = E_x n_x + E_y n_y + E_z n_z 
+</tex>
+
+と書けるが、これを使って式を簡略化してやる。
+　$ x $成分の式を例に取れば、
+
+<tex>
+\dif{F_x}{S} &= \varepsilon\sub{0} \left(E_x^2-\frac{1}{2}\Vec{E}^2 \right) n_x + \varepsilon\sub{0} E_x E_y n_y + \varepsilon\sub{0} E_x E_z n_z \\
+&= \varepsilon\sub{0} E_x E_x n_x + \varepsilon\sub{0} E_x E_y n_y + \varepsilon\sub{0} E_x E_z n_z -\frac{1}{2}\varepsilon\sub{0} \Vec{E}^2 n_x \\
+&= \varepsilon\sub{0} E_x ( E_x n_x + E_y n_y + E_z n_z ) -\frac{1}{2}\varepsilon\sub{0} \Vec{E}^2 n_x \\
+&= \varepsilon\sub{0} E_x ( \Vec{E} \cdot \Vec{n} ) -\frac{1}{2}\varepsilon\sub{0} \Vec{E}^2 n_x 
+</tex>
+
+ということだ。
+　同様に、$ y $や$ z $方向についても、
+
+<tex>
+\dif{F_y}{S} &= \varepsilon\sub{0} E_y ( \Vec{E} \cdot \Vec{n} ) -\frac{1}{2}\varepsilon\sub{0} \Vec{E}^2 n_y \\
+\dif{F_z}{S} &= \varepsilon\sub{0} E_z ( \Vec{E} \cdot \Vec{n} ) -\frac{1}{2}\varepsilon\sub{0} \Vec{E}^2 n_z
+</tex>
+
+のように変形できる。　これらの結果をまとめてベクトルで表せば、
+
+<tex>
+\dif{\Vec{F}}{S} = \varepsilon\sub{0} ( \Vec{E} \cdot \Vec{n} ) \Vec{E} -\frac{1}{2} \varepsilon\sub{0} \Vec{E}^2 \Vec{n}
+</tex>
+
+のように何ともすっきりした形になるではないか。
+
+<P>
+
+　ここまでは今後の計算を簡単に済ませるための前置きである。
+　私がいきなりこんなすっきりとした計算を思いついたと思ってはいけない。
+　本当はもっとごちゃごちゃと式をいじり回して何とか
+今回の結果を得たのだが、一番楽に説明できるやり方に直してある。
+
+<P>
+
+　さて、これから本題に入ろう。
+
+
+% ============================================================
+
+\section{電場の方向にかかる力}
+
+
+　電気力線というのは電場方向を示した線のことである。
+　よって、電気力線の伸びる方向にどんな力がかかっているかを調べたければ、
+電場方向にどんな応力がかかっているかを計算すればいい。
+　つまり、微小面積$ \diff S $の垂直方向を示すベクトル$ \Vec{n} $がちょうど
+電場と同じ向きを向いている場合だ。
+　式で表せば、$ \Vec{E} = E \Vec{n} $という状況である。
+
+<P>
+
+　この関係を上の式に代入してやれば、
+$ \Vec{E} \cdot \Vec{n} $の部分はただの電場の大きさを表す$ E $になることから、
+
+<tex>
+\dif{\Vec{F}}{S} &= \varepsilon\sub{0} E^2 \Vec{n} -\frac{1}{2}\varepsilon\sub{0} \Vec{E}^2 \Vec{n} \\
+&= \frac{1}{2}\varepsilon\sub{0} E^2 \ \Vec{n} 
+</tex>
+
+という結果を得る。
+
+<P>
+
+　これが意味するものは何だろう？
+　電場に垂直な面$ \diff S $には、電場方向に力が加わっているということだ。
+
+<P>
+
+　電場の方向に力が加わるのは当然ではないか、という誤解をしている人がいるかも
+知れないので、反対向きの場合についても計算してやろう。
+　$ \Vec{E} = - E \Vec{n} $という状況である。
+　$ \Vec{E} \cdot \Vec{n} $は$ - E $になり、さっきと符号が逆だが、
+$ \Vec{E} = - E \Vec{n} $と打ち消しあって答えは結局先ほどと変わらない。
+　つまり、電場の反対向きにも引っ張られる力が加わっているということだ。
+
+<P>
+
+　これはある領域に加わる応力であって、
+領域内の電荷の存在とは関係ないことを思い出してもらいたい。
+　微小面$ \diff S $はその領域の表面上にあるのであって、
+ベクトル$ \Vec{n} $はその領域の表面から外側に向かって伸びていることに注意しよう。
+
+<P>
+
+　電気力線の束を包むような領域を想像してもらえば分かると思うが、
+今の結果は電気力線が両側から引っ張られる形になっていることを表しているわけだ。
+
+% ===============================================================
+
+\section{電場の垂直方向にかかる力}
+
+　次に電場に対して垂直方向にどんな力がかかっているか見てみよう。
+　つまり、$ \Vec{E} \cdot \Vec{n} = 0 $の場合だ。
+　計算はさっきより遥かに簡単で、代入してやれば途中を説明するまでもなく、
+
+<tex>
+\dif{\Vec{F}}{S} = -\frac{1}{2} \varepsilon\sub{0} E^2 \ \Vec{n}
+</tex>
+
+となる。
+　さっきの最終結果と符号がちがうだけだ。
+　これが意味するものは、電気力線の横方向には
+どの方向からも外から押される力が働いているということである。
+
+<P>
+
+　つまり、始めにファラデーが考えたように、
+電荷の間には、なるべく縮もうとするゴムのようなひもがあり、
+それら同士は腹ではお互いに押し合いへし合いしている、という
+イメージがぴったりくる状況になっているわけだ。
+
+<P>
+
+　こういう話を聞けば、
+昔の人がエーテルの存在にこだわった背景が分かってもらえよう。
+　空間にはあたかも「何か在る」ようなのだ。
+　こういう話を知らないままで
+「エーテルなんて古い短絡的な考えだ」と昔の人を非難するとすれば、
+一体どちらが愚かなことだろうか。
+
+
