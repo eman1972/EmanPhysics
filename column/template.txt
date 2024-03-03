@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41724757-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-41724757-1');
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../column_202103.css" type="text/css" />
+<title>@heading</title>
+</head>
+
+<body>
+<a id="top"></a>
+<div class="header">
+<a href="https://eman-physics.net"><img src="../images/logo202011.png" class="top_logo" alt="EMANの物理学のロゴ"></a>
+<div class="catch_copy">物理を解説 ♪</div>
+<div class="breadcrumb"><a href="https://eman-physics.net">EMANの物理学</a>&nbsp;&gt;&nbsp;<a href="./contents.html">@ret_cont</a>&nbsp;&gt;&nbsp;@title</div>
+
+
+<div class="title"><h1>@title</h1></div>
+<div class="comment">@comment</div>
+<div class="dates">@create@modify</div>
+</div><!-- header -->
+<div class="middle_area">
+
+<div class="maintxt">
+
+@body
+
+<hr>
+</div><!-- maintxt -->
+
+<div class="foot_ad">
+<a href="../store/top.html">趣味の物理学書店</a><br><br>
+<a href="https://amzn.to/2H4Ki4i"><img src="../mybook/shumideryo_cm2.png" class="mycm" alt="趣味で量子力学2の広告バナー"></a><br><br>
+</div>
+
+</div><!-- middle_area -->
+<div class="footer">
+
+<div class="return_top">[<a href="#top">ページのトップに戻る</a>]</div>
+<div class="copyright">&copy; 2000-2021 K. Hiroe, All rights reserved</div>
+
+</div><!-- footer -->
+</body>
+</html>
