@@ -1,0 +1,284 @@
+body {
+  font-family: "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
+  font-size: 17px;
+  background: #fcffff;
+  margin: 0;
+  width: 100%;
+  border-left-style: solid;
+  border-left-color: #d0ffff;
+  border-left-width: 40px;
+  box-sizing: border-box;
+}
+
+hr{
+  width: 95%;
+  margin: 10px auto;
+  height: 5px;
+  border-width: 4px 0 0 0; /* 太さ */
+  border-style: solid; /* 種類 */
+  border-color: silver; /* 色 */
+}
+
+.top_ad {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.header {
+  position: relative;
+  height: 330px;
+  width: 100%;
+}
+
+.main_contents {
+  position: relative;
+  width: 100%;
+}
+
+.my_banners {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.my_banner img {
+  margin: 30px 0;
+}
+
+.other_links {
+  position: relative;
+  width: 100%;
+  line-height: 40px;
+}
+
+.foot_ad {
+  margin: 0 auto;
+  width: 95%;
+}
+
+.footer {
+  position: relative;
+  height: 60px;
+}
+
+.share_buttons {
+  position: absolute;
+  right: 60px;
+  top: 15px;
+  text-align: right;
+}
+
+.share_buttons img:hover {
+  opacity: 80%;
+}
+
+.share_buttons_mobile {
+  display: none;
+}
+
+.top_logo {
+  position: absolute;
+  top: 65px;
+  left: 60px;
+  width: 80px;
+  z-index: 99;
+}
+
+.catch_copy {
+  position: absolute;
+  top: 155px;
+  left: 55px;
+  font-size: 15px;
+}
+
+.title_container {
+  position: absolute;
+  width: 100%;
+  top: 65px;
+  padding-left: 170px;
+  padding-right: 10%;
+  box-sizing: border-box;
+}
+
+.titleimg {
+  width: 100%;
+  max-width: 650px;
+}
+
+.greetings{
+  position: absolute;
+  bottom: 10px;
+  left: 60px;
+  line-height: 30px;
+}
+
+.contents_head {
+  position: relative;
+  top: 20px;
+  padding-left: 60px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.contents_list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin: 80px 10% 60px 80px;
+}
+
+.contents_list img {
+  width: 100%;
+}
+
+.contents_list img:hover{
+    opacity: 80%;
+    filter: hue-rotate(-40deg);
+    -webkit-filter: hue-rotate(-40deg);
+    -moz-filter: hue-rotate(-40deg);
+    -o-filter: hue-rotate(-40deg);
+    -ms-filter: hue-rotate(-40deg);
+}
+
+.link_box{
+  position: relative;
+  padding-left: 60px;
+}
+
+.copyright {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  font-size: 15px;
+}
+
+@media screen and (max-width: 820px) { /* 遷移領域 */
+
+  .my_banner img {
+    width: 95%;
+  }
+
+}
+
+@media screen and (max-width: 650px) { /* 遷移領域 */
+
+  .share_buttons {
+    display: none;
+  }
+
+  .share_buttons_mobile img:hover {
+    opacity: 80%;
+  }
+
+  .share_buttons_mobile {
+    display: inherit;
+    position: absolute;
+    right: 60px;
+    top: 15px;
+    text-align: right;
+  }
+
+  .share_buttons_mobile img {
+    width: 35px;
+    margin: 0 0 0 15px;
+  }
+
+  .top_logo {
+    top: 75px;
+    left: 30px;
+    width: 60px;
+  }
+
+  .catch_copy {
+    top: 135px;
+    left: 25px;
+    font-size: 13px;
+  }
+
+  .title_container {
+    top: 78px;
+    padding-left: 110px;
+    padding-right: 5%;
+  }
+
+  .greetings{
+    left: 30px;
+  }
+
+  .contents_head {
+    padding-left: 30px;
+  }
+
+  .contents_list {
+    grid-template-columns: 1fr;
+    margin: 80px 35% 60px 50px;
+  }
+
+}
+
+@media screen and (max-width: 480px) { /* スマホ画面 */
+
+  body {
+    font-size: 15px;
+    line-height: 3;
+    border-left-width: 10px;
+  }
+
+  .header {
+    height: 280px;
+  }
+
+  .share_buttons_mobile {
+    right: 20px;
+    top: 20px;
+  }
+
+  .share_buttons_mobile img {
+    width: 25px;
+    margin: 0 0 0 15px;
+  }
+
+  .top_logo {
+    top: 15px;
+    left: 15px;
+    width: 40px;
+  }
+
+  .catch_copy {
+    top: 57px;
+    left: 10px;
+    font-size: 9px;
+  }
+
+  .title_container {
+    top: 90px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .contents_head {
+    top: 0px;
+    font-size: 23px;
+  }
+
+  .contents_list {
+    margin: 20px 25% 60px 40px;
+  }
+
+  .my_banner img {
+    width: 95%;
+    margin: 15px 0;
+  }
+
+  .copyright {
+    font-size: 11px;
+  }
+}
+
+@media screen and (min-width: 1200px) { /* どでか画面 */
+
+  .contents_list {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
