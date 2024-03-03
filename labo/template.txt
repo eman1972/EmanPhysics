@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# article: https://ogp.me/ns/article#">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-41724757-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-41724757-1');
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="keywords" content="物理,@field">
+
+<meta property="og:url" content="@url" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="@ogtitle" />
+<meta property="og:description" content="@ogcomment" />
+<meta property="og:site_name" content="EMANの物理学" />
+<meta property="og:image" content="https://eman-physics.net/images/ogp202011.png" />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:site" content="@eman1972" />
+<meta name="twitter:creator" content="@eman1972" />
+
+<link rel="stylesheet" href="../style_202305a.css" type="text/css" />
+<title>@heading</title>
+</head>
+
+<body>
+<a id="top"></a>
+<div class="header">
+<a href="https://eman-physics.net"><img src="../images/logo202011.png" class="top_logo" alt="EMANの物理学のロゴ"></a>
+<div class="catch_copy">物理を解説 ♪</div>
+<div class="breadcrumb"><a href="https://eman-physics.net">EMANの物理学</a>&nbsp;&gt;&nbsp;<a href="./contents.html">@ret_cont</a>&nbsp;&gt;&nbsp;@titl2</div>
+
+<div class="share_buttons">
+<a href="https://twitter.com/share?url=@enc_url&text=%E3%81%93%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%8C%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4%E6%B0%97%E3%81%8C%E3%81%99%E3%82%8B%0A%0A@enc_field%E3%80%8C@enc_title%E3%80%8D%0A%23EMAN%E7%89%A9%E7%90%86%0A&related=eman1972" target="_blank" rel="nofollow"><img src="../images/twitter_btn.png" alt="ツイッター用のシェアボタン"></a>
+<a href="https://www.facebook.com/share.php?u=@enc_url" target="_blank" rel="nofollow"><img src="../images/fb_btn.png" alt="フェイスブック用のシェアボタン"></a>
+<a href="https://b.hatena.ne.jp/add?mode=confirm&url=@enc_url&title=@enc_title" target="_blank" rel="nofollow"><img src="../images/hatebu_btn.png" alt="はてなブックマーク用のシェアボタン"></a>
+<a href="https://social-plugins.line.me/lineit/share?url=@enc_url" target="_blank" rel="nofollow"><img src="../images/line_btn.png" alt="ライン用のシェアボタン"></a>
+</div>
+
+<div class="share_buttons_mobile">
+<a href="https://twitter.com/share?url=@enc_url&text=%E3%81%93%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%8C%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4%E6%B0%97%E3%81%8C%E3%81%99%E3%82%8B%0A%0A@enc_field%E3%80%8C@enc_title%E3%80%8D%0A%23EMAN%E7%89%A9%E7%90%86%0A&related=eman1972" target="_blank" rel="nofollow"><img src="../images/twitter_btn_s.png" alt="ツイッター用のシェアボタン"></a>
+<a href="https://www.facebook.com/share.php?u=@enc_url" target="_blank" rel="nofollow"><img src="../images/fb_btn_s.png" alt="フェイスブック用のシェアボタン"></a>
+<a href="https://b.hatena.ne.jp/add?mode=confirm&url=@enc_url&title=@enc_title" target="_blank" rel="nofollow"><img src="../images/hatebu_btn_s.png" alt="はてなブックマーク用のシェアボタン"></a>
+<a href="https://social-plugins.line.me/lineit/share?url=@enc_url" target="_blank" rel="nofollow"><img src="../images/line_btn_s.png" alt="ライン用のシェアボタン"></a>
+</div>
+
+<div class="title@titlid"><h1>@title</h1></div>
+<div class="comment@comeid">@comment</div>
+<div class="prevnext"><div class="prev">[@prev]</div><div class="next">[@next]</div></div>
+<div class="dates">@create@modify</div>
+</div><!-- header -->
+<div class="middle_area">
+
+<div class="maintxt">
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- head -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-2102965965451578"
+     data-ad-slot="8838953641"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+@body
+
+<hr>
+</div><!-- maintxt -->
+
+<div class="foot_ad">
+<a href="../store/top.html"><img src="../mybook/mystore_portal.jpg" class="mycm" alt="趣味の物理学書店の案内バナー"></a><br><br>
+<a href="https://note.com/eman/m/mf6c10fd256b8"><img src="../mybook/note_portal.jpg" class="mycm" alt="EMAN物理note出張所の案内バナー"></a><br><br>
+</div>
+
+</div><!-- middle_area -->
+<div class="footer">
+
+<div class="foot_share_buttons">
+<a href="https://twitter.com/share?url=@enc_url&text=%E3%81%93%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%8C%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4%E6%B0%97%E3%81%8C%E3%81%99%E3%82%8B%0A%0A@enc_field%E3%80%8C@enc_title%E3%80%8D%0A%23EMAN%E7%89%A9%E7%90%86%0A&related=eman1972" target="_blank" rel="nofollow"><img src="../images/twitter_btn.png" alt="ツイッター用のシェアボタン"></a>
+<a href="https://www.facebook.com/share.php?u=@enc_url" target="_blank" rel="nofollow"><img src="../images/fb_btn.png" alt="フェイスブック用のシェアボタン"></a>
+<a href="https://b.hatena.ne.jp/add?mode=confirm&url=@enc_url&title=@enc_title" target="_blank" rel="nofollow"><img src="../images/hatebu_btn.png" alt="はてなブックマーク用のシェアボタン"></a>
+<a href="https://social-plugins.line.me/lineit/share?url=@enc_url" target="_blank" rel="nofollow"><img src="../images/line_btn.png" alt="ライン用のシェアボタン"></a>
+</div>
+
+<div class="foot_share_buttons_mobile">
+<a href="https://twitter.com/share?url=@enc_url&text=%E3%81%93%E3%81%AE%E8%A8%98%E4%BA%8B%E3%81%8C%E5%BD%B9%E3%81%AB%E7%AB%8B%E3%81%A4%E6%B0%97%E3%81%8C%E3%81%99%E3%82%8B%0A%0A@enc_field%E3%80%8C@enc_title%E3%80%8D%0A%23EMAN%E7%89%A9%E7%90%86%0A&related=eman1972" target="_blank" rel="nofollow"><img src="../images/twitter_btn_s.png" alt="ツイッター用のシェアボタン"></a>
+<a href="https://www.facebook.com/share.php?u=@enc_url" target="_blank" rel="nofollow"><img src="../images/fb_btn_s.png" alt="フェイスブック用のシェアボタン"></a>
+<a href="https://b.hatena.ne.jp/add?mode=confirm&url=@enc_url&title=@enc_title" target="_blank" rel="nofollow"><img src="../images/hatebu_btn_s.png" alt="はてなブックマーク用のシェアボタン"></a>
+<a href="https://social-plugins.line.me/lineit/share?url=@enc_url" target="_blank" rel="nofollow"><img src="../images/line_btn_s.png" alt="ライン用のシェアボタン"></a>
+</div>
+
+<div class="prevnext_foot"><div class="prev">[@prev]</div><div class="next">[@next]</div></div>
+<div class="return_top">[<a href="#top">ページのトップに戻る</a>]</div>
+<div class="copyright">&copy; 2000-2023 K. Hiroe, All rights reserved</div>
+
+</div><!-- footer -->
+</body>
+</html>

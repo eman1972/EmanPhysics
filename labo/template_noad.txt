@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../../../html/noad_202104.css" type="text/css" />
+<title>@heading</title>
+
+<script>
+MathJax = {
+  tex: {
+    macros: {
+      Vec:    ['{\\boldsymbol{#1}}',1],
+      diff: '{\\,\\mathrm d}',
+      dif:    ['{\\frac{\\mathrm{d} #1}{\\mathrm{d} #2}}',2],
+      ddif:   ['{\\frac{\\mathrm{d}^2#1}{\\mathrm{d} #2^2}}',2],
+      pdif:   ['{\\frac{\\partial #1}{\\partial #2}}',2],
+      pddif:  ['{\\frac{\\partial^2 #1}{\\partial #2^2}}',2],
+      pdddif: ['{\\frac{\\partial^3 #1}{\\partial #2^3}}',2],
+      thdif:  ['{\\left(\\frac{\\partial #1}{\\partial #2}\\right)_{#3}}',3],
+      pdifline:  ['{\\partial #1/\\partial #2}',2],
+      henbun:   ['{\\frac{\\partial^2 #1}{\\partial #2 \\partial #3}\\delta #2 \\delta#3}',3],
+      henbibun: ['{\\frac{\\partial^2 #1}{\\partial #2 \\partial #3}}',3],
+      vardif:  ['{\\frac{\\delta #1}{\\delta #2}}',2],
+      kinji:  '{\\,\\fallingdotseq\\,}',
+      dint: '{\\int\\!\\!\\!\\int}',
+      tint: '{\\int\\!\\!\\!\\int\\!\\!\\!\\int}',
+      cris:  ['{{\\it \\Gamma}^{#1}_{\\ #2}}',2],
+      met:  ['{g_{\\scriptscriptstyle #1 \\kern-.03em \\scriptscriptstyle #2}}',2],
+      sub:  ['{_{\\scriptscriptstyle #1}}',1],
+      sup:  ['{^{\\scriptscriptstyle #1}}',1],
+      para: '{{}_{/\\kern-.15em/}}',
+      Rot: '{\\mathrm{rot}}',
+      Div: '{\\mathrm{div}}',
+      Grad: '{\\mathrm{grad}}',
+      bra:  ['{\\langle #1|}',1],
+      ket:  ['{|#1 \\rangle}',1],
+      sladif: '{\\partial\\hspace{-0.5em}\\raise{0.1em}/ \\,}',
+    }
+  }
+};
+</script>
+<script async src="../../../MathJax3_1_2/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+<a id="top"></a>
+<div class="header">
+<a href="https://eman-physics.net"><img src="../images/logo202011.png" class="top_logo" alt="EMANの物理学のロゴ"></a>
+<div class="catch_copy">物理を解説 ♪</div>
+<div class="breadcrumb"><a href="https://eman-physics.net">EMANの物理学</a>&nbsp;&gt;&nbsp;<a href="./contents.html">@ret_cont</a>&nbsp;&gt;&nbsp;@title</div>
+
+<div class="share_buttons">
+<img src="../images/twitter_btn.png">
+<img src="../images/fb_btn.png">
+<img src="../images/hatebu_btn.png">
+<img src="../images/line_btn.png">
+</div>
+
+<div class="share_buttons_mobile">
+<img src="../images/twitter_btn_s.png">
+<img src="../images/fb_btn_s.png">
+<img src="../images/hatebu_btn_s.png">
+<img src="../images/line_btn_s.png">
+</div>
+
+<div class="title"><h1>@title</h1></div>
+<div class="comment">@comment</div>
+<div class="prevnext"><div class="prev">[@prev]</div><div class="next">[@next]</div></div>
+<div class="dates">@create@modify</div>
+</div><!-- header -->
+<div class="middle_area">
+
+<div class="maintxt">
+@body
+<hr>
+</div><!-- maintxt -->
+
+<div class="foot_ad">
+<a href="../store/top.html">趣味の物理学書店</a><br><br>
+<a href="../store/top.html"><img src="../mybook/shumideryo_cm.png"></a><br><br>
+</div>
+
+</div><!-- middle_area -->
+<div class="footer">
+
+<div class="foot_share_buttons">
+<img src="../images/twitter_btn.png">
+<img src="../images/fb_btn.png">
+<img src="../images/hatebu_btn.png">
+<img src="../images/line_btn.png">
+</div>
+
+<div class="foot_share_buttons_mobile">
+<img src="../images/twitter_btn_s.png">
+<img src="../images/fb_btn_s.png">
+<img src="../images/hatebu_btn_s.png">
+<img src="../images/line_btn_s.png">
+</div>
+
+<div class="prevnext_foot"><div class="prev">[@prev]</div><div class="next">[@next]</div></div>
+<div class="return_top">[<a href="#top">ページのトップに戻る</a>]</div>
+<div class="copyright">&copy; 2000-2020 K. Hiroe, All rights reserved</div>
+
+</div><!-- footer -->
+</body>
+</html>
