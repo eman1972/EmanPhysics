@@ -1,0 +1,392 @@
+
+
+\title{ＥＭＡＮの物理学・投げ銭はこちらへ}
+
+
+
+<BODY bgcolor = "ffffff" background = "../images/bg_ring_l.png" >
+<center>
+
+<BR>
+<BR>
+
+
+
+<P>
+<TABLE width=80%>
+<TR><TD>
+
+<center>
+<A HREF = "#report"><font color=red>現状報告</font></A><BR>
+</center>
+
+<div align=right>
+<A HREF = "./nagesen_report.html">戻る</A><BR>
+
+</div>
+
+<HR>
+<P>
+<BR>
+<BR>
+<center>
+　「<A href="http://logipara.com/" TARGET="_blank" >ろじっくぱらだいす</A>」さんの
+<A href="http://logipara.com/zaregoto/nagesen/nagesen0.html" TARGET="_blank" >提唱</A>する<BR>
+「<A href="http://logipara.com/zaregoto/nagesen/nagesen4.html" TARGET="_blank" >Ｗｅｂ投げ銭の定義</A>」に賛同することにしました。
+
+<P>
+　Ｗｅｂ投げ銭の精神をよく理解した上で<BR>
+ご協力をお願いします。<BR><BR>
+
+　入金があった場合、<BR>Ｗｅｂ投げ銭の定義に同意した上で<BR>振込まれたものと判断します。
+
+</center>
+<BR>
+<BR>
+
+
+
+
+<P>
+<HR>
+<P>
+
+　「<B>どうしてもEMANさんにお金を送りたいんだけど、
+そんなのは聞くのも失礼かなぁ</B>」
+
+と思い悩んでいらっしゃる方のために情報提供するコーナーです。
+　いえいえ、失礼ではありません。
+　「貰えるものは喜んで貰う」のが私のポリシーです。
+　それで気が収まるのなら、ささ、どうぞ遠慮なく。
+
+<P>
+　たとえこうして数百万円を手に入れたとしても今の忙しい生活から
+抜け出せるわけでもありません。
+　よって更新頻度は今までと変わらないでしょう。
+　金を送ったからと言って今後については期待しないで下さい。
+　いつ死ぬかも分かりませんし。
+
+<P>
+　ただネットで教科書を躊躇なく買えるようにはなるかも知れません。
+　しかし「金を送ってやるからこの本を買え」なんてのは
+面倒なのでやめて下さいね。
+
+<P>
+　でも「一億円やるから今の会社やめて物理に専念して下さい」
+というのだったら大歓迎です。
+　（そうなると今まで心配したことのない所得税が気になるところだな・・・）
+
+<P>
+　投げ銭で意欲が持続するという効果もあるでしょうが、
+すでに私はこのサイトの存在価値を知ってますので、
+金を貰おうが貰うまいが変わりなく運営を続けていくでしょう。
+
+　これまで留年から救われた学生はすでに数十人はいるはずで、
+少々貰ったって貰い過ぎにはなるまい、
+というのが自信の根拠です。　人数の算定に根拠はありません。
+
+<P>
+　そんなわけで私に送金したからといって何のメリットもないでしょうが、
+そこのところはご理解下さい。
+
+
+
+
+<P>
+<HR>
+<H4>＠pay（アット・ペイ）で送金</H4>
+
+<!--@pay／後払い：ここから-->
+<table border=0 align="left"><tbody>
+<tr bgcolor="#cccccc">
+<td align=middle height="40">
+<table width="175" bgcolor=#ffffff border="0" cellspacing="0" cellpadding="0">
+<form method="post" action="http://pay.nifty.com/pay/servlet/pr">
+<tr><td><img src="http://www.nifty.com/pay/images/type2.gif" width="75" height="45" alt="@payの後払い"></td>
+<td width="80" align="left" valign="bottom">
+<select name="p"><option value="100">100円</option>
+<option value="300">300円</option>
+<option value="500">500円</option>
+<option value="1000">1,000円</option>
+<option value="3000">3,000円</option>
+</select><br>
+<input type="hidden" name="i" value="BFPB050111">
+<input type="submit" value="　支払う　" name="submit">
+</td></tr></form></table>
+</td></tr></tbody></table>
+<!--@pay／後払い：ここまで-->
+
+<BR>
+　←ボタンを押すと送金説明の画面が現れる。<BR CLEAR="all" >
+<P>
+　ニフティ会員ならこれが便利。
+　送金分は自動的にカードから引き落としになる。
+　ニフティ以外のプロバイダと契約している人でも
+<A href="http://www.nifty.com/cs/">無料会員に登録</A>すれば
+使えるし（ただしクレジットカードが必要）、
+売り手としてこのシステムを利用することも出来る。
+　送金額の内の15%がニフティのものになるが低額の送金では割安だ。
+　<B>匿名で送金できるという利点がある。</B>
+
+
+<P>
+<HR>
+<H4>イーバンク銀行へ送金</H4>
+
+<table border=1>
+<TR><TD> メルマネ</TD>  <TD> eman@jp.bigplanet.com </TD></TR>
+<TR><TD> 口座名</TD>  <TD> 廣江　克彦 </TD></TR>
+</table>
+<P>
+
+　イーバンク銀行の口座を持っている人どうしなら、
+手数料なしで１円単位で瞬時に送金できる。
+　ネット上での金銭のやり取りによく使われているので
+私に送金するかどうかに関わらず、
+口座を作っておくと役に立つことがあるだろう。
+　しかし匿名では振り込めないという<B><FONT color=red>致命的な弱点</FONT></B>がある。
+<P>
+　私だって同じ人物から毎月毎月高額を振り込まれたら「ちょっと」恐縮してしまう。
+　ストーカーかあしながおじさんのように謎に満ちていて少し怖いではないか。
+　これでは送る方も受ける方もやりにくくて仕方ない。
+　相手に名前を知られたくないなんていう良くあるプライバシーの問題ではなく、
+相手が気にしないで済む様にしてあげたいという心遣いの問題なのだ。
+　是非とも匿名送金を早く実現して欲しいものだ。
+
+<P>
+<HR>
+<H4>ジャパンネット銀行へ送金</H4>
+
+<table border=1>
+<TR><TD>支店名</TD><TD>本店営業部（ホンテン）</TD></TR>
+<TR><TD>店番号</TD><TD>001</TD></TR>
+<TR><TD>口座番号</TD><TD>*******</TD></TR>
+<TR><TD>名義</TD><TD>ヒロエカツヒコ </TD></TR>
+</table>
+<P>
+　大手ネット銀行。
+　普通の銀行からも振込み可能。
+　振込み手数料は銀行によって異なる。
+　ジャパンネット銀行どうしなら手数料は５２円だけで済む。
+<P>
+　ＡＴＭから現金で振込むなどの方法を取れば匿名で振り込むことも可能。
+
+
+
+
+<P>
+<HR>
+<H4>なんでこんな事を始めたのかって？</H4>
+　
+　そりゃ面白そうだからさ。
+　興味本位でネット銀行に口座作ったのはいいが、
+数字が増えていかないままじゃ面白くない。
+
+<P>
+　それに投げ銭を普及させたいという気持ちもある。
+　最近、私のお気に入りのサイトが突然閉鎖してしまってとてもがっかりした。
+　そういうことは昔からよくあるのだが、
+もしそういうサイトに投げ銭コーナーが付いていれば、
+私は喜んで投資したと思うのだ。
+　嘘だろうって？　
+　君らは、良いものに金を払う喜びって分かるだろうか？
+<P>
+　「良い才能」「良い企業」を育ててるぞ、という満足感。
+　自分の「気前の良さ」がカッコ良く思えたり、
+自分に「見る目」があることを誇らしく思ったり。
+　そうやって少し偉くなったような錯覚を楽しむのだ。
+<P>
+
+　メールで声援を送ればいいじゃないかって？
+　いや、メールってのは無料で結構だが、
+結構面倒くさいこともあるんだよ。
+
+<P>
+　どれだけそのサイトを愛しているか、
+文章では表せないことがあるだろう。
+　言葉にしてしまうと「いや、それだけじゃない」と思えたり。
+　かと言って、思いの全てを込めた熱烈な文章を送ると相手が気味悪がるだろうし、
+逆に、一言だけではあまりに失礼なんじゃないかと心配したり。
+　ひそかに見守っていたいこともある。
+　下手に口出しをすることで意識されてしまっては困るのだ。
+　ありのままを見ていたかったのに・・・、なんてこともある。
+
+<P>
+　そんな時、匿名の投げ銭は楽である。
+　本当はすごく興味があるのに、知らないふりをしていられる。
+　（うーん、私のプライドが妙に高いだけかも知れないと、今ふと感じ始めた）
+
+　心の中でひっそりと「俺が支援してやってるんだぜ」なんて、
+参加している気分を味わえる。
+
+　投げ銭っていうのは、
+そんな満足感を得るための観客のためのシステムでもあるのだ。
+
+<P>
+
+
+<HR>
+<H4>ある意味、公開実験だ。</H4>
+
+　もし私が誰かに払うとしたら、その人がどれだけ儲けているかは
+非常に気になるところだ。
+　その辺の気持ちにも配慮して月ごとに集計を公表しよう。
+　あるいはキリのいい額に達するたびに公表しようか？
+　「○月○日　1000円突破」とかいう感じに。
+
+<P>
+　本当に正直に発表しているかどうかを確かめたければ
+それと分かるくらいの金額を試しに入金してみればいい。
+　（煽ってるなぁ・・・）
+
+<P>
+　「こいつ、この程度の文章で貰い過ぎだ」と思えば
+入金しなくてもいいし、
+　「この程度の評価しかされてないのはあんまりじゃないか」
+と思えば多めに入金してもいい。
+
+　中には「その人が儲けているかどうかなんて関係ない。
+　自分はこれに価値を見出したのだからその分は支払って当然だ。」
+という人もいるだろう。
+<P>
+
+　全て任せる。
+　さあ、好きにやってくれ。
+
+<A NAME="report"></A>
+<P>
+<HR>
+<H4>経過と現状の報告</H4>
+
+　現在33名様、計84,400円です。
+
+<CENTER>
+
+<P>
+<B>月ごとの集計</B>
+<table>
+<tr><td>2004年6月</td><td align="right">2,500円</td><td align="right"> 2名様</td></tr>
+<tr><td>2004年7月</td><td align="right">10,100円</td><td align="right">2名様</td></tr>
+<tr><td>2004年8月</td><td align="right">500円</td><td align="right">1名様</td></tr>
+<tr><td>2004年9月</td><td align="right">5,000円</td><td align="right">1名様</td></tr>
+<tr><td>2004年10月</td><td align="right">500円</td><td align="right">1名様</td></tr>
+<tr><td>2004年11月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2004年12月</td><td align="right">500円</td><td align="right">1名様</td></tr>
+<tr><td>2005年1月</td><td align="right">1,000円</td><td align="right">2名様</td></tr>
+<tr><td>2005年2月</td><td align="right">1,600円</td><td align="right">3名様</td></tr>
+<tr><td>2005年3月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2005年4月</td><td align="right">15,000円</td><td align="right">2名様</td></tr>
+<tr><td>2005年5月</td><td align="right">8,100円</td><td align="right">4名様</td></tr>
+<tr><td>2005年6月</td><td align="right">500円</td><td align="right">1名様</td></tr>
+<tr><td>2005年7月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2005年8月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2005年9月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2005年10月</td><td align="right">1000円</td><td align="right">2名様</td></tr>
+<tr><td>2005年11月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2005年12月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2006年1月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2006年2月</td><td align="right">500円</td><td align="right">1名様</td></tr>
+<tr><td>2006年3月</td><td align="right">0円</td><td align="right"></td></tr>
+<tr><td>2006年4月</td><td align="right">2,500円</td><td align="right">2名様</td></tr>
+<tr><td>2006年5月</td><td align="right">10,000円</td><td align="right">1名様</td></tr>
+<tr><td>2006年6月</td><td align="right">1100円</td><td align="right">3名様</td></tr>
+<tr><td>2006年7月</td><td align="right">10,000円</td><td align="right">1名様</td></tr>
+<tr><td>2006年8月</td><td align="right">3,000円</td><td align="right">1名様</td></tr>
+<tr><td>2006年9月</td><td align="right">0円</td><td align="right">0名様</td></tr>
+<tr><td>2006年10月</td><td align="right">0円</td><td align="right">0名様</td></tr>
+<tr><td>2006年11月</td><td align="right">0円</td><td align="right">0名様</td></tr>
+<tr><td>2006年12月</td><td align="right">1000円</td><td align="right">1名様</td></tr>
+<tr><td>2007年1月</td><td align="right">0円</td><td align="right">0名様</td></tr>
+<tr><td>2007年2月</td><td align="right">10,000円</td><td align="right">1名様</td></tr>
+</table>
+
+<P>
+
+<B>振込み方法別</B>
+<table>
+<tr><td>ジャパンネット</td><td align="right">73,000円</td><td align="right"> 13名様</td></tr>
+<tr><td>アットペイ</td><td align="right">10,400円</td><td align="right">18名様</td></tr>
+<tr><td>イーバンク</td><td align="right">1,000円</td><td align="right"> 2名様</td></tr>
+<table>
+　
+
+
+<P>
+<B>履歴</B>
+<TABLE>
+<TR>
+<TD><B>2004/05/28</B></TD>
+<TD> 投げ銭の受け入れ公式表明</TD>
+</TR>
+
+<TR>
+<TD><B>2004/06/09</B></TD>
+<TD> 1000円突破</TD>
+</TR>
+
+<TR>
+<TD><B>2004/06/17</B></TD>
+<TD> 2000円突破</TD>
+</TR>
+
+<TR>
+<TD><B>2004/07/15</B></TD>
+<TD> 10,000円いきなり突破</TD>
+</TR>
+
+<TR>
+<TD><B>2004/09/14</B></TD>
+<TD> 15,000円突破</TD>
+</TR>
+
+<TR>
+<TD><B>2005/01/26</B></TD>
+<TD> 20,000円突破</TD>
+</TR>
+
+<TR>
+<TD><B>2005/04/13</B></TD>
+<TD> 30,000円突破</TD>
+</TR>
+
+<TR>
+<TD><B>2005/05/07</B></TD>
+<TD> 50,000円突破</TD>
+</TR>
+
+<TR>
+<TD><B>2006/06/30</B></TD>
+<TD> 60,000円突破</TD>
+</TR>
+
+<TR>
+<TD><B>2006/07/20</B></TD>
+<TD> 70,000円突破</TD>
+</TR>
+
+</TABLE>
+
+<BR>
+<BR>
+
+<P>
+<TABLE border=0 width = 80% >
+<TR><TD>
+<font size=-1>
+　「アット・ペイ」サービスによる入金の場合、入金が確定するまで１週間ありますので、
+確定した後でこちらに反映させて頂きます。
+</font>
+</TD></TR>
+</TABLE>
+
+
+
+
+
+
+
+
+
+
+
+
