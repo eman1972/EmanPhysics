@@ -40,7 +40,7 @@ $ g(x) $をフーリエ変換したものを$ G(k) $とするだとかいう具�
 　今回は使わないかも知れない。
 
 <tex>
-\mathcal{F}^{-1}[F] \ \equiv\ \frac{1}{2\pi} \,\int_{-\infty}^{\infty} F(k) \, e^{ikx} \diff x
+\mathcal{F}^{-1}[F] \ \equiv\ \frac{1}{2\pi} \,\int_{-\infty}^{\infty} F(k) \, e^{ikx} \diff k
 </tex>
 
 　これらの記法で変数名が指定されていないのが気になるかも知れないが、
